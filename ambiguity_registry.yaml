@@ -1,0 +1,42 @@
+ambiguities:
+  - id: mm:amb.001
+    term: "Stability"
+    description: "In S6: forbidden global coherence for AGI. In A2: stability of manifest world without equilibrium."
+    resolution: "Stb ≠ Sts; formal symbols PROPOSAL, not canonized"
+    status: "AMBIGUITY"
+
+  - id: mm:amb.002
+    term: "Motion"
+    description: "CORE: ontological necessity. ONTODYNAMICS: geometric regime (orbit, shell)."
+    resolution: "Different layers; do not merge"
+    status: "AMBIGUITY"
+
+  - id: mm:amb.003
+    term: "Carrier"
+    description: "UFCPS: computational executor of P_n. A3: biological localizer of consciousness mode."
+    resolution: "Distinct layer entities; separate IDs required"
+    status: "AMBIGUITY"
+
+  - id: mm:amb.004
+    term: "Balance"
+    description: "A2 uses 'regimes of balance diff↔fix'. CORE has no formal Balance object."
+    resolution: "MODEL_SPECIFIC in A2; USED_BUT_UNDEFINED in CORE"
+    status: "AMBIGUITY"
+
+  - id: mm:amb.005
+    term: "fix"
+    description: "CORE: Logos-only local stabilization. A3: stabilization of recursion / temporary halt."
+    resolution: "Compatible but extended sense in A3"
+    status: "AMBIGUITY"
+
+  - id: mm:amb.006
+    term: "Resolution"
+    description: "UFCPS: procedural transformation. CORE: absent as ontological mechanism."
+    resolution: "Layer-specific; UFCPS sense is SOURCE, ontological sense is USED_BUT_UNDEFINED"
+    status: "AMBIGUITY"
+
+  - id: mm:amb.007
+    term: "unfold vs maps_to"
+    description: "Both described as 'bridge' between Monos and Logos."
+    resolution: "RESOLVED: unfold = dynamic operator of processual rupture; maps_to = static relation of representation"
+    status: "RESOLVED"
