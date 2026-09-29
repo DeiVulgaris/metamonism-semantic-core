@@ -1,0 +1,167 @@
+{
+  "@context": {
+    "mm": "https://metamonism.org/ontology#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "derives": {"@id": "mm:derives", "@type": "@id"},
+    "derives_from": {"@id": "mm:derives_from", "@type": "@id"},
+    "composes_with": {"@id": "mm:composes_with", "@type": "@id"},
+    "structurally_corresponds_to": {"@id": "mm:structurally_corresponds_to", "@type": "@id"},
+    "maps_to": {"@id": "mm:maps_to", "@type": "@id"},
+    "triggers": {"@id": "mm:triggers", "@type": "@id"},
+    "triggered_by": {"@id": "mm:triggered_by", "@type": "@id"},
+    "prohibited_by": {"@id": "mm:prohibited_by", "@type": "@id"},
+    "consequence_of": {"@id": "mm:consequence_of", "@type": "@id"},
+    "permits_operator": {"@id": "mm:permits_operator", "@type": "@id"},
+    "prohibits_operator": {"@id": "mm:prohibits_operator", "@type": "@id"},
+    "cannot_instantiate": {"@id": "mm:cannot_instantiate", "@type": "@id"},
+    "extends": {"@id": "mm:extends", "@type": "@id"},
+    "iterates_to": {"@id": "mm:iterates_to", "@type": "@id"},
+    "status": "mm:status",
+    "origin": "mm:origin",
+    "definition": "mm:definition",
+    "layer": "mm:layer"
+  },
+  "@graph": [
+    {
+      "@id": "mm:core.inv.ban_of_absolute_identity",
+      "@type": "mm:Invariant",
+      "rdfs:label": "Ban of Absolute Identity",
+      "definition": "Absolute identity is ontologically impossible.",
+      "status": "SOURCE",
+      "origin": "CORPUS",
+      "layer": "core",
+      "derives": [
+        "mm:core.op.diff",
+        "mm:core.op.dissipate",
+        "mm:core.prc.cmi"
+      ]
+    },
+    {
+      "@id": "mm:core.dom.monos",
+      "@type": "mm:Domain",
+      "rdfs:label": "Monos",
+      "definition": "Reality as continuous processual differentiation.",
+      "status": "SOURCE",
+      "origin": "CORPUS",
+      "layer": "core",
+      "structurally_corresponds_to": "mm:core.dom.logos",
+      "cannot_instantiate": "mm:core.sts.absolute_identity",
+      "permits_operator": ["mm:core.op.diff", "mm:core.op.dissipate"],
+      "prohibits_operator": "mm:core.op.fix"
+    },
+    {
+      "@id": "mm:core.dom.logos",
+      "@type": "mm:Domain",
+      "rdfs:label": "Logos",
+      "definition": "Epistemic space of fixed representations.",
+      "status": "SOURCE",
+      "origin": "CORPUS",
+      "layer": "core",
+      "structurally_corresponds_to": "mm:core.dom.monos",
+      "permits_operator": [
+        "mm:core.op.fix",
+        "mm:core.op.unfold",
+        "mm:core.op.reflection"
+      ]
+    },
+    {
+      "@id": "mm:core.op.diff",
+      "@type": "mm:Operator",
+      "rdfs:label": "diff",
+      "definition": "Fundamental distinction generation.",
+      "status": "SOURCE",
+      "origin": "CORPUS",
+      "layer": "core",
+      "derives_from": "mm:core.inv.ban_of_absolute_identity",
+      "composes_with": "mm:core.op.dissipate"
+    },
+    {
+      "@id": "mm:core.op.dissipate",
+      "@type": "mm:Operator",
+      "rdfs:label": "dissipate",
+      "definition": "Compulsory dispersion of distinction.",
+      "status": "SOURCE",
+      "origin": "CORPUS",
+      "layer": "core",
+      "derives_from": "mm:core.inv.ban_of_absolute_identity",
+      "composes_with": "mm:core.op.fix"
+    },
+    {
+      "@id": "mm:core.op.fix",
+      "@type": "mm:Operator",
+      "rdfs:label": "fix",
+      "definition": "Local stabilization of distinctions.",
+      "status": "SOURCE",
+      "origin": "CORPUS",
+      "layer": "core",
+      "derives_from": "mm:core.op.diff"
+    },
+    {
+      "@id": "mm:core.op.unfold",
+      "@type": "mm:Operator",
+      "rdfs:label": "unfold",
+      "definition": "Enforced rupture of fixation (dynamic bridge).",
+      "status": "SOURCE",
+      "origin": "CORPUS",
+      "layer": "core",
+      "triggered_by": "mm:core.sts.self_identity_lock"
+    },
+    {
+      "@id": "mm:core.op.reflection",
+      "@type": "mm:CognitiveOperation",
+      "rdfs:label": "reflection",
+      "definition": "Logos distinguishes distinction.",
+      "status": "SOURCE",
+      "origin": "CORPUS",
+      "iterates_to": "mm:core.op.meta_reflection"
+    },
+    {
+      "@id": "mm:core.sts.absolute_identity",
+      "@type": "mm:ForbiddenState",
+      "rdfs:label": "Absolute Identity",
+      "status": "SOURCE",
+      "origin": "CORPUS",
+      "layer": "core",
+      "prohibited_by": "mm:core.inv.ban_of_absolute_identity"
+    },
+    {
+      "@id": "mm:core.sts.self_identity_lock",
+      "@type": "mm:ForbiddenState",
+      "rdfs:label": "Self-Identity Lock",
+      "status": "SOURCE",
+      "origin": "CORPUS",
+      "layer": "core",
+      "triggers": "mm:core.op.unfold"
+    },
+    {
+      "@id": "mm:core.prc.cmi",
+      "@type": "mm:Process",
+      "rdfs:label": "CMI (Triadic)",
+      "definition": "Prohibition → Momentum → Force",
+      "status": "SOURCE",
+      "origin": "CORPUS",
+      "layer": "core",
+      "derives_from": "mm:core.inv.ban_of_absolute_identity"
+    },
+    {
+      "@id": "mm:core.prc.cmi_chain",
+      "@type": "mm:Process",
+      "rdfs:label": "CMI Chain (Extended)",
+      "definition": "CMI triad extended to Energy → Dissipation → Arrow of Time",
+      "status": "SOURCE",
+      "origin": "CORPUS",
+      "layer": "core",
+      "extends": "mm:core.prc.cmi"
+    },
+    {
+      "@id": "mm:core.prc.dissipation_of_identity",
+      "@type": "mm:Process",
+      "rdfs:label": "Dissipation of Identity",
+      "status": "SOURCE",
+      "origin": "CORPUS",
+      "layer": "core",
+      "consequence_of": "mm:core.inv.ban_of_absolute_identity"
+    }
+  ]
+}
