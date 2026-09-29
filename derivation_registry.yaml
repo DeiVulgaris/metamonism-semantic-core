@@ -1,0 +1,68 @@
+# =============================================================================
+# DERIVATION REGISTRY — separates SOURCE claims from logical derivations
+# =============================================================================
+
+derivations:
+  - derivation_id: mm:drv.001
+    source_claim: mm:core.clm.ban_enforces_differentiation
+    target_claim: mm:core.clm.difference_necessary_from_ban
+    relation_type: "logical_consequence"
+    premises:
+      - "Ban of Absolute Identity (SOURCE)"
+      - "Ontological space dichotomy {indifference, difference}"
+    hidden_assumptions:
+      - "The dichotomy is exhaustive"
+    status: "UNRESOLVED"
+    source: "Dialectical Crucible result"
+    note: "Corpus asserts the claim but does not prove logical necessity"
+
+  - derivation_id: mm:drv.002
+    source_claim: mm:core.clm.ban_enforces_differentiation
+    target_claim: mm:core.clm.motion_follows_from_prohibition
+    relation_type: "logical_consequence"
+    premises:
+      - "Ban of Absolute Identity (SOURCE)"
+      - "Motion is necessary (SOURCE)"
+    hidden_assumptions:
+      - "Static identity = indifference"
+      - "Motion is the only alternative to stasis"
+    status: "UNRESOLVED"
+    source: "Dialectical Crucible result"
+    note: "Corpus asserts both separately but does not prove derivation"
+
+  - derivation_id: mm:drv.003
+    source_claim: mm:core.clm.ban_necessitates_dissipation
+    target_claim: mm:core.clm.dissipation_follows_from_ban
+    relation_type: "theoretical_consequence"
+    premises:
+      - "Ban of Absolute Identity (SOURCE)"
+      - "Dissipation of identity exists (SOURCE)"
+    hidden_assumptions:
+      - "Dissipation is the only form of identity change"
+    status: "THEORETICAL_HYPOTHESIS"
+    source: "Joint theoretical work"
+    note: "Logical necessity not established"
+
+  - derivation_id: mm:drv.004
+    source_claim: mm:core.clm.diff_produces_asymmetry
+    target_claim: mm:core.clm.diff_initiates_motion
+    relation_type: "operator_consequence"
+    premises:
+      - "diff produces distinction (SOURCE)"
+      - "Momentum necessitates motion (SOURCE)"
+    hidden_assumptions: []
+    status: "SOURCE"
+    source: "S1 operators.yaml physical_correspondence"
+    note: "Directly stated in corpus"
+
+  - derivation_id: mm:drv.005
+    source_claim: mm:core.clm.ban_enforces_differentiation
+    target_claim: mm:core.clm.ban_necessitates_dissipation
+    relation_type: "cmi_chain_consequence"
+    premises:
+      - "CMI chain (SOURCE)"
+      - "Prohibition → Momentum → Force → Energy → Dissipation"
+    hidden_assumptions: []
+    status: "SOURCE"
+    source: "S1 ontology.yaml#principle_CMI_structure"
+    note: "Part of established CMI chain"
