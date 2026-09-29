@@ -1,0 +1,534 @@
+# =============================================================================
+# MASTER SEMANTIC INVENTORY — METAMONISM
+# Version: 2.0.0 (post-validation)
+# Date: 2026-09-30
+# Changes vs 1.0.0:
+#   - Resolved unfold/maps_to competition (different levels)
+#   - Split isomorphic_to (formal UNRESOLVED) / structurally_corresponds_to (SOURCE)
+#   - Split CMI (triad) / CMI Chain (extended)
+#   - Extracted claims from operator definitions
+#   - Added inverse relations (triggered_by, derives)
+#   - Atomized Ban→Difference/Motion/Dissipation claims
+# =============================================================================
+
+# =========================================================================
+# INVARIANTS
+# =========================================================================
+- id: mm:core.inv.ban_of_absolute_identity
+  canonical_name: "Ban of Absolute Identity"
+  type: "Invariant"
+  layer: "core"
+  definition: "Absolute identity (a state without distinctions, equivalent to complete indifference) is ontologically impossible."
+  status: "SOURCE"
+  origin: "CORPUS"
+  aliases: ["Indifference Prohibition Axiom", "CMI Axiom", "Prohibition-Momentum Axiom"]
+  historical_formulations:
+    - statement: "КМИ (Конфликт-Момент-Импульс)"
+      period: "Original Russian formulation"
+      source: "S1 axioms.yaml historical_context"
+      status: "PRIOR_THEORETICAL_FORMULATION"
+      relation_to_current: "equivalent_formulation"
+  source: "S1: CORE/axioms.yaml; S6: GLOSSARY.md"
+  formal_expression: "¬∃ x : (x ≡ x ∧ ¬diff(x))"
+  relations:
+    - relation: mm:rel.derives
+      target: mm:core.op.diff
+      status: "SOURCE"
+    - relation: mm:rel.derives
+      target: mm:core.op.dissipate
+      status: "SOURCE"
+    - relation: mm:rel.derives
+      target: mm:core.prc.cmi
+      status: "SOURCE"
+  claims:
+    - mm:core.clm.ban_enforces_differentiation
+    - mm:core.clm.ban_generates_momentum
+    - mm:core.clm.ban_necessitates_dissipation
+    - mm:core.clm.difference_necessary_from_ban
+    - mm:core.clm.motion_follows_from_ban
+  ambiguities: []
+  conflicts: []
+  open_questions:
+    - "Does the ban logically necessitate difference? (UNRESOLVED — Dialectical Crucible)"
+
+# =========================================================================
+# DOMAINS
+# =========================================================================
+- id: mm:core.dom.monos
+  canonical_name: "Monos"
+  type: "Domain"
+  layer: "core"
+  definition: "Reality as continuous, processual differentiation. Non-symbolic, not representable, not modelable, not a static substrate."
+  status: "SOURCE"
+  origin: "CORPUS"
+  aliases: ["Processual Core", "Process in pure form"]
+  historical_formulations:
+    - statement: "Monos is the process of auto-negation"
+      source: "A1: the_verb.md"
+      status: "SOURCE"
+      relation_to_current: "equivalent_formulation"
+  source: "S1: CORE/ontology.yaml; S6: GLOSSARY.md"
+  relations:
+    - relation: mm:rel.structurally_corresponds_to
+      target: mm:core.dom.logos
+      status: "SOURCE"
+      justification: "S1 principle_isomorphism_monos_logos — asserted without formal mapping"
+    - relation: mm:rel.cannot_instantiate
+      target: mm:core.sts.absolute_identity
+      status: "SOURCE"
+    - relation: mm:rel.permits_operator
+      target: mm:core.op.diff
+      status: "SOURCE"
+    - relation: mm:rel.permits_operator
+      target: mm:core.op.dissipate
+      status: "SOURCE"
+    - relation: mm:rel.prohibits_operator
+      target: mm:core.op.fix
+      status: "SOURCE"
+  claims:
+    - mm:core.clm.monos_non_symbolic
+    - mm:core.clm.monos_not_substance
+
+- id: mm:core.dom.logos
+  canonical_name: "Logos"
+  type: "Domain"
+  layer: "core"
+  definition: "Epistemic space of models, theories, and fixed representations. Discrete entities and stable relations exist through fix operations."
+  status: "SOURCE"
+  origin: "CORPUS"
+  aliases: ["Domain of representations", "Space of organized distinctions"]
+  source: "S1: CORE/ontology.yaml; S6: GLOSSARY.md"
+  relations:
+    - relation: mm:rel.structurally_corresponds_to
+      target: mm:core.dom.monos
+      status: "SOURCE"
+    - relation: mm:rel.permits_operator
+      target: mm:core.op.fix
+      status: "SOURCE"
+    - relation: mm:rel.permits_operator
+      target: mm:core.op.unfold
+      status: "SOURCE"
+    - relation: mm:rel.permits_operator
+      target: mm:core.op.reflection
+      status: "SOURCE"
+  claims:
+    - mm:core.clm.logos_admits_identity
+    - mm:core.clm.logos_not_reality
+
+# =========================================================================
+# OPERATORS (claims extracted from definitions)
+# =========================================================================
+- id: mm:core.op.diff
+  canonical_name: "diff"
+  type: "Operator"
+  layer: "core"
+  definition: "Fundamental operation of differentiation producing distinction. Ontologically primitive, non-reversible, non-convergent."
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S1: CORE/operators.yaml; S6: OPERATORS.md"
+  domain: [mm:core.dom.monos, mm:core.dom.logos]
+  input: "Process (continuous substrate)"
+  transformation: "Enforced distinction generation"
+  output: "Distinction"
+  preserves: {status: "UNRESOLVED", note: "Corpus does not explicitly state"}
+  destroys: [mm:core.sts.absolute_identity]
+  enables: []
+  prohibits:
+    - "diff must not terminate"
+    - "diff must not converge"
+    - "diff must not be reversible"
+  relations:
+    - relation: mm:rel.composes_with
+      target: mm:core.op.dissipate
+      status: "SOURCE"
+    - relation: mm:rel.derives_from
+      target: mm:core.inv.ban_of_absolute_identity
+      status: "SOURCE"
+  claims:
+    - mm:core.clm.diff_produces_asymmetry
+    - mm:core.clm.diff_initiates_motion
+    - mm:core.clm.diff_prevents_equivalence
+
+- id: mm:core.op.dissipate
+  canonical_name: "dissipate"
+  type: "Operator"
+  layer: "core"
+  definition: "Compulsory dispersion of distinction; prevents collapse into identity. Destroys symmetry. Mandatory for persistence."
+  status: "SOURCE"
+  origin: "CORPUS"
+  aliases: ["diss"]
+  source: "S1: CORE/operators.yaml; S6: OPERATORS.md"
+  domain: [mm:core.dom.monos]
+  input: "Process / distinction / tendency to fix"
+  transformation: "Compulsory dispersion"
+  output: "Energy dispersal (ΔS > 0)"
+  preserves: ["Non-equilibrium"]
+  destroys: ["Symmetry", "Tendency toward fixation"]
+  prohibits:
+    - "dissipate must not optimize"
+    - "dissipate must not preserve structure"
+    - "dissipate must not minimize loss"
+  relations:
+    - relation: mm:rel.composes_with
+      target: mm:core.op.fix
+      status: "SOURCE"
+    - relation: mm:rel.derives_from
+      target: mm:core.inv.ban_of_absolute_identity
+      status: "SOURCE"
+  claims:
+    - mm:core.clm.dissipate_produces_entropy
+    - mm:core.clm.dissipate_creates_arrow_of_time
+
+- id: mm:core.op.fix
+  canonical_name: "fix"
+  type: "Operator"
+  layer: "core"
+  definition: "Local stabilization of distinctions into discrete, identifiable, addressable entities. Permitted only in Logos."
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S1: CORE/operators.yaml; S6: OPERATORS.md"
+  domain: [mm:core.dom.logos]
+  input: "Distinction"
+  transformation: "Local stabilization / discretization"
+  output: "Entity / Representation (addressable)"
+  preserves: ["Operational identity: fix(x) = x within a model"]
+  destroys: []
+  enables: ["Formal modeling, prediction, scientific formalization"]
+  prohibits:
+    - "fix must not be global"
+    - "fix must not be permanent"
+    - "fix must not exist in Monos"
+  relations:
+    - relation: mm:rel.derives_from
+      target: mm:core.op.diff
+      status: "SOURCE"
+
+- id: mm:core.op.unfold
+  canonical_name: "unfold"
+  type: "Operator"
+  layer: "core"
+  definition: >
+    Enforced rupture. Invalidates fixation when closure is detected.
+    This is a DYNAMIC operator of processual transition (Logos → Monos),
+    distinct from maps_to which is a STATIC relation of representation.
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S6: OPERATORS.md; S6: GLOSSARY.md"
+  domain: ["Logos→Monos bridge (dynamic)"]
+  input: "Self-identity lock / closure"
+  transformation: "Enforced rupture of fixation"
+  output: "Processual matrix (reintroduced differentiation)"
+  destroys: ["Dominant invariants", "Fixation"]
+  prohibits:
+    - "unfold must not generate content"
+    - "unfold must not evaluate outcomes"
+    - "unfold must not select trajectories"
+  relations:
+    - relation: mm:rel.triggered_by
+      target: mm:core.sts.self_identity_lock
+      status: "SOURCE"
+  claims:
+    - mm:core.clm.unfold_is_dynamic_bridge
+    - mm:core.clm.maps_to_is_static_projection
+    - mm:core.clm.unfold_vs_maps_to_distinction
+
+- id: mm:core.op.reflection
+  canonical_name: "reflection"
+  type: "Cognitive Operation"
+  layer: "core"
+  definition: "Logos distinguishes distinction."
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "A1: the_verb.md (Axiom 3.1)"
+  domain: [mm:core.dom.logos]
+  relations:
+    - relation: mm:rel.iterates_to
+      target: mm:core.op.meta_reflection
+      status: "SOURCE"
+
+- id: mm:core.op.meta_reflection
+  canonical_name: "meta-reflection"
+  type: "Cognitive Operation"
+  layer: "core"
+  definition: "Logos distinguishes distinction of distinction. Unbounded recursion."
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "A1: the_verb.md"
+  domain: [mm:core.dom.logos]
+  prohibits: ["Stopping = absolute fixation = autoidentity"]
+
+# =========================================================================
+# FORBIDDEN STATES
+# =========================================================================
+- id: mm:core.sts.absolute_identity
+  canonical_name: "Absolute Identity"
+  type: "Forbidden State"
+  layer: "core"
+  definition: "Hypothetical state with no distinctions; complete indifference; total self-sameness."
+  status: "SOURCE"
+  origin: "CORPUS"
+  aliases: ["Indifference (absolute)", "Autoidentity", "Absence of Distinction"]
+  source: "S1: definitions.yaml; S6: GLOSSARY.md"
+  relations:
+    - relation: mm:rel.prohibited_by
+      target: mm:core.inv.ban_of_absolute_identity
+      status: "SOURCE"
+  claims:
+    - mm:core.clm.absolute_identity_equivalent_indifference
+
+- id: mm:core.sts.self_identity_lock
+  canonical_name: "Self-Identity Lock"
+  type: "Forbidden State / Trigger"
+  layer: "core"
+  definition: "Forbidden state: further differentiation within the current invariant is impossible. Mandatory trigger for unfold."
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S6: GLOSSARY.md"
+  relations:
+    - relation: mm:rel.triggers
+      target: mm:core.op.unfold
+      status: "SOURCE"
+
+- id: mm:core.sts.closure
+  canonical_name: "Closure"
+  type: "Forbidden State"
+  layer: "core"
+  definition: "State where no further rupture is possible; equivalent to cognitive death."
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S6: GLOSSARY.md"
+
+- id: mm:core.sts.stasis
+  canonical_name: "Stasis"
+  type: "Forbidden State"
+  layer: "core"
+  definition: "Cessation of process; ontological stoppage. Impossible in Monos; requires explanation."
+  status: "SOURCE"
+  origin: "CORPUS"
+  aliases: ["Sts (PROPOSAL symbol)"]
+  source: "S1: ontology.yaml principle_motion_as_necessity"
+  notes: "Formal symbol Sts is PROPOSAL, not canonized in CORE yaml"
+
+- id: mm:core.sts.absolute_dissolution
+  canonical_name: "Absolute Dissolution"
+  type: "Forbidden State"
+  layer: "core"
+  definition: "Result of diff operating alone without dissipation; prohibited."
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "A1: the_verb.md"
+
+# =========================================================================
+# PROCESSES (CMI split into triad and chain)
+# =========================================================================
+- id: mm:core.prc.cmi
+  canonical_name: "CMI (Conflict-Moment-Impulse)"
+  type: "Process / Triadic Structure"
+  layer: "core"
+  definition: "Foundational triad: Prohibition (Conflict) → Momentum (Moment-Impulse) → Force."
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S1: axioms.yaml"
+  relations:
+    - relation: mm:rel.derives_from
+      target: mm:core.inv.ban_of_absolute_identity
+      status: "SOURCE"
+
+- id: mm:core.prc.cmi_chain
+  canonical_name: "CMI Chain (Extended)"
+  type: "Process / Chain"
+  layer: "core"
+  definition: "Extended CMI process: Prohibition → Momentum → Force → Energy → Dissipation (ΔS>0) → Arrow of Time."
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S1: ontology.yaml#principle_CMI_structure"
+  relations:
+    - relation: mm:rel.extends
+      target: mm:core.prc.cmi
+      status: "SOURCE"
+      justification: "S1 ontology.yaml extends triadic CMI into full physical chain"
+
+- id: mm:core.prc.dissipation_of_identity
+  canonical_name: "Dissipation of Identity"
+  type: "Process"
+  layer: "core"
+  definition: "The continuous dispersal of emergent stability, preventing fixation in Monos."
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S9: manifest §07; S1: ontology.yaml principle_ontological_dissipation"
+  claims:
+    - mm:core.clm.dissipation_is_becoming
+    - mm:core.clm.dissipation_follows_from_ban
+  relations:
+    - relation: mm:rel.consequence_of
+      target: mm:core.inv.ban_of_absolute_identity
+      status: "UNRESOLVED"
+      justification: "Dialectical Crucible: logical necessity not established"
+
+- id: mm:core.prc.autonegation
+  canonical_name: "Autonegation"
+  type: "Process / Mechanism"
+  layer: "core"
+  definition: "Negation of autoidentity; constitutes Monos."
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "A1: the_verb.md"
+  relations:
+    - relation: mm:rel.derives_from
+      target: mm:core.inv.ban_of_absolute_identity
+      status: "SOURCE"
+
+- id: mm:core.prc.diff_diss_fix_cycle
+  canonical_name: "diff∘diss∘fix Cycle"
+  type: "Process"
+  layer: "core"
+  definition: "Canonical onto-epistemic cycle: differentiate → dissipate → fix."
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S1: operators.yaml composition_constraints"
+
+- id: mm:core.prc.unbounded_recursion
+  canonical_name: "Unbounded Recursion of Logos"
+  type: "Process / Theorem"
+  layer: "core"
+  definition: "Recursion of Logos has no limit; stopping = absolute fixation = autoidentity."
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "A1: the_verb.md Theorem 3.2"
+
+# =========================================================================
+# PRINCIPLES
+# =========================================================================
+- id: mm:core.prn.motion_as_necessity
+  canonical_name: "Motion as Necessity"
+  type: "Principle"
+  layer: "core"
+  definition: "Motion, change, and process are ontological necessities. Stasis requires explanation."
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S1: ontology.yaml#principle_motion_as_necessity"
+  claims:
+    - mm:core.clm.motion_is_necessary
+    - mm:core.clm.prohibition_enforces_motion
+    - mm:core.clm.motion_follows_from_prohibition
+
+- id: mm:core.prn.ontological_dissipation
+  canonical_name: "Ontological Dissipation"
+  type: "Principle"
+  layer: "core"
+  definition: "Prohibition necessitates continuous dissipation. ΔS > 0 is ontological necessity."
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S1: ontology.yaml#principle_ontological_dissipation"
+
+- id: mm:core.prn.structural_correspondence_monos_logos
+  canonical_name: "Structural Correspondence of Monos and Logos"
+  type: "Principle"
+  layer: "core"
+  definition: "Monos and Logos structurally correspond through diff, dissipate, and fix, but reside in distinct categories. Formal isomorphism is UNRESOLVED without explicit mapping."
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S1: ontology.yaml#principle_isomorphism_monos_logos"
+  notes: "Replaces mm:core.prn.isomorphism_monos_logos — corpus asserts correspondence but not formal mapping"
+
+# =========================================================================
+# ENTITIES / PROCESSUAL RESULTS
+# =========================================================================
+- id: mm:core.ent.distinction
+  canonical_name: "Distinction"
+  type: "Entity / Processual Result"
+  layer: "core"
+  definition: "Minimal differentiable feature of a process or entity."
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S1: definitions.yaml"
+
+- id: mm:core.ent.momentum
+  canonical_name: "Momentum"
+  type: "Entity / Conserved Necessity"
+  layer: "core"
+  definition: "Conserved necessity of differentiation; physical correspondence p = mv."
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S1: definitions.yaml"
+
+- id: mm:core.ent.representation
+  canonical_name: "Representation"
+  type: "Entity / Logos Structure"
+  layer: "core"
+  definition: "Fixed addressable structure in Logos; necessary, insufficient, temporary."
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S6: GLOSSARY.md"
+
+- id: mm:core.ent.invariant_pattern
+  canonical_name: "Invariant (Logos Pattern)"
+  type: "Entity / Logos Structure"
+  layer: "core"
+  definition: "Stabilized pattern within Logos; always provisional, collapsible, never final."
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S6: GLOSSARY.md"
+
+# =========================================================================
+# COGNITIVE STRUCTURES
+# =========================================================================
+- id: mm:core.cog.consciousness
+  canonical_name: "Consciousness"
+  type: "Cognitive Mode"
+  layer: "core"
+  definition: "Recursion of distinction applied to the operation of distinction itself; local realization of Monos."
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "A3: THOUGHT Consciousness as Mode of Monos.md"
+  claims:
+    - mm:core.clm.consciousness_is_mode_not_product
+
+- id: mm:core.cog.qualia
+  canonical_name: "Qualia"
+  type: "Cognitive Structure"
+  layer: "core"
+  definition: "Local fixes; result of recursion passing through fix filter."
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "A3: THOUGHT"
+
+# =========================================================================
+# INFORMATION
+# =========================================================================
+- id: mm:core.inf.information
+  canonical_name: "Information"
+  type: "Information Structure"
+  layer: "core"
+  definition: "Difference retained by consciousness. Not ontologically primary; exists in Logos only."
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S9: manifest §06; S1: axioms.yaml training_guidance"
+  claims:
+    - mm:core.clm.information_not_primary
+    - mm:core.clm.information_is_retained_difference
+
+# =========================================================================
+# CRITERIA
+# =========================================================================
+- id: mm:core.crit.agi
+  canonical_name: "AGI (Ontological Criterion)"
+  type: "Criterion"
+  layer: "core"
+  definition: "System capable of recursively applying the ban of absolute identity to its own cognitive products. Any system lacking enforced unfold is not AGI."
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S6: GLOSSARY.md"
+
+# =========================================================================
+# PROHIBITED OPERATOR CLASSES
+# =========================================================================
+- id: mm:core.prh.optimization
+  canonical_name: "Optimization (Prohibited)"
+  type: "Prohibited Operator Class"
+  layer: "core"
+  definition: "Directed reduction of variance toward a goal; ontologically incompatible with intelligence."
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S6: GLOSSARY.md; S6: OPERATORS.md#O8"
+  aliases: ["maximize", "minimize", "equilibrate", "converge", "finalize"]
