@@ -1,0 +1,32 @@
+undefined_terms:
+  - term: "Stb"
+    status: "USED_BUT_UNDEFINED"
+    note: "Concept exists (local fix in Logos) but formal symbol not canonized in CORE yaml"
+
+  - term: "Sts"
+    status: "USED_BUT_UNDEFINED"
+    note: "Concept exists (stasis impossible) but formal symbol not canonized in CORE yaml"
+
+  - term: "Balance"
+    status: "USED_BUT_UNDEFINED"
+    note: "Absent as formal CORE object; used descriptively in A2"
+
+  - term: "Resolution (ontological)"
+    status: "USED_BUT_UNDEFINED"
+    note: "Absent in CORE; exists only as UFCPS procedural term"
+
+  - term: "Global / Local (as levels)"
+    status: "USED_BUT_UNDEFINED"
+    note: "Not formal CORE levels; 'local' is property of fix"
+
+  - term: "P0–P8"
+    status: "USED_BUT_UNDEFINED"
+    note: "Absent in Metamonism CORE; P_n exists only in UFCPS with different semantics"
+
+  - term: "Slice"
+    status: "USED_BUT_UNDEFINED"
+    note: "Proposed in joint theoretical work; not in corpus"
+
+  - term: "Information (as formal symbol Inf)"
+    status: "USED_BUT_UNDEFINED"
+    note: "Concept defined in manifest §06 but formal symbol not in CORE yaml"
