@@ -1,0 +1,33 @@
+historical_formulations:
+  - id: mm:hist.001
+    statement: "КМИ (Конфликт-Момент-Импульс)"
+    period: "Original Russian formulation"
+    source: "S1 axioms.yaml historical_context"
+    status: "PRIOR_THEORETICAL_FORMULATION"
+    relation_to_current: "equivalent_formulation"
+    current_entity: "mm:core.inv.ban_of_absolute_identity"
+
+  - id: mm:hist.002
+    statement: "Monos is the process of auto-negation"
+    period: "Early theoretical work"
+    source: "A1: the_verb.md"
+    status: "SOURCE"
+    relation_to_current: "equivalent_formulation"
+    current_entity: "mm:core.dom.monos"
+
+  - id: mm:hist.003
+    statement: "Logos is action relative to identity — not noun"
+    period: "Early theoretical work"
+    source: "A1: the_verb.md"
+    status: "SOURCE"
+    relation_to_current: "distinct_but_related"
+    current_entity: "mm:core.dom.logos"
+
+  - id: mm:hist.004
+    statement: "Диссипация тождества является кандидатом на фундаментальный инвариант"
+    period: "Joint theoretical work (prior to validation)"
+    source: "Prior audit"
+    status: "PRIOR_THEORETICAL_FORMULATION"
+    relation_to_current: "superseded_by"
+    current_entity: "mm:core.prc.dissipation_of_identity"
+    note: "Now classified as processual consequence, not fundamental invariant"
