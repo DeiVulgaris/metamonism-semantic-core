@@ -1,0 +1,18 @@
+conflicts:
+  - id: mm:con.001
+    type: "Soft Conflict"
+    description: "S1 CORE operators.yaml lists 3 operators: diff, dissipate, fix. S6 adds unfold as full canonical operator."
+    resolution: "S6 is canonical extension, not logical contradiction. unfold registered as CORE operator."
+    status: "RESOLVED"
+
+  - id: mm:con.002
+    type: "Soft Conflict"
+    description: "A2 introduces article-level 'axioms' (e.g., Finiteness of Closure) not in CORE/axioms.yaml."
+    resolution: "Marked MODEL_SPECIFIC; not elevated to CORE."
+    status: "RESOLVED"
+
+  - id: mm:con.003
+    type: "Soft Conflict"
+    description: "principle_isomorphism_monos_logos asserted in corpus but formal mapping not specified."
+    resolution: "Split into structurally_corresponds_to (SOURCE) and isomorphic_to (UNRESOLVED)"
+    status: "RESOLVED"
