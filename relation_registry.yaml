@@ -1,0 +1,207 @@
+# =============================================================================
+# RELATION REGISTRY (with inverse relations added per validation)
+# =============================================================================
+
+# --- Primary derivation relations ---
+- relation_id: mm:rel.derives_from
+  name: "derives_from"
+  semantics: "X cannot be ontologically or logically sustained without Y. Asymmetric, non-circular."
+  domain: ["model", "theorem", "operator", "principle"]
+  range: ["axiom", "invariant", "principle"]
+  properties: {symmetric: false, transitive: true}
+  inverse_of: mm:rel.derives
+  source: "S1: CORE/relations.yaml"
+  status: "SOURCE"
+
+- relation_id: mm:rel.derives
+  name: "derives"
+  semantics: "Inverse of derives_from. Y is the ontological source of X."
+  domain: ["axiom", "invariant"]
+  range: ["operator", "principle", "process"]
+  properties: {symmetric: false, transitive: true}
+  inverse_of: mm:rel.derives_from
+  source: "Inverse of S1 derives_from"
+  status: "FORMALIZATION"
+
+# --- Structural correspondence (replaces premature isomorphism) ---
+- relation_id: mm:rel.structurally_corresponds_to
+  name: "structurally_corresponds_to"
+  semantics: >
+    Structural correspondence asserted by corpus without formal mapping specification.
+    Weaker than formal mathematical isomorphism.
+  domain: ["domain", "structure"]
+  range: ["domain", "structure"]
+  properties: {symmetric: true, transitive: false}
+  source: "S1 ontology.yaml#principle_isomorphism_monos_logos"
+  status: "SOURCE"
+
+- relation_id: mm:rel.isomorphic_to
+  name: "isomorphic_to"
+  semantics: >
+    Formal mathematical isomorphism requiring explicit mapping and preserved structure.
+    Status: UNRESOLVED until mapping is formally specified.
+  domain: ["model", "concept", "structure", "domain"]
+  range: ["model", "concept", "structure", "domain"]
+  properties: {symmetric: true, transitive: true}
+  source: "S1: CORE/relations.yaml"
+  status: "UNRESOLVED"
+  note: "Corpus asserts structural correspondence but not formal mapping"
+
+# --- Bridge relations ---
+- relation_id: mm:rel.maps_to
+  name: "maps_to"
+  semantics: >
+    Onto-epistemic STATIC projection from Monos-level processes to Logos-level representations.
+    This is a relation of representation, not a processual transition.
+    ONLY admissible RELATION bridging Monos↔Logos.
+  domain: ["monos_process", "physical_phenomenon"]
+  range: ["logos_representation", "model"]
+  properties: {symmetric: false, transitive: false}
+  constraint: "ONLY admissible relation bridging Monos and Logos (as relation, not operator)"
+  source: "S1: CORE/relations.yaml"
+  status: "SOURCE"
+
+# --- Operator composition ---
+- relation_id: mm:rel.composes_with
+  name: "composes_with"
+  semantics: "X and Y may be sequentially composed without violating CMI constraints."
+  domain: ["core_operator"]
+  range: ["core_operator"]
+  properties: {symmetric: false, transitive: false}
+  source: "S1: CORE/relations.yaml; operators.yaml composition_constraints"
+  status: "SOURCE"
+
+# --- Trigger relations (with inverse) ---
+- relation_id: mm:rel.triggers
+  name: "triggers"
+  semantics: "X activates Y as a mandatory response."
+  domain: ["state"]
+  range: ["operator"]
+  properties: {symmetric: false, transitive: false}
+  inverse_of: mm:rel.triggered_by
+  source: "S6: GLOSSARY.md"
+  status: "SOURCE"
+
+- relation_id: mm:rel.triggered_by
+  name: "triggered_by"
+  semantics: "Inverse of triggers. X is activated by state Y."
+  domain: ["operator"]
+  range: ["state"]
+  properties: {symmetric: false, transitive: false}
+  inverse_of: mm:rel.triggers
+  source: "Inverse of S6 GLOSSARY.md"
+  status: "FORMALIZATION"
+
+# --- Domain constraints ---
+- relation_id: mm:rel.permits_operator
+  name: "permits_operator"
+  semantics: "Domain X allows operator Y to function."
+  domain: ["domain"]
+  range: ["operator"]
+  properties: {symmetric: false, transitive: false}
+  source: "S1: operators.yaml applicable_to"
+  status: "SOURCE"
+
+- relation_id: mm:rel.prohibits_operator
+  name: "prohibits_operator"
+  semantics: "Domain X forbids operator Y."
+  domain: ["domain"]
+  range: ["operator"]
+  properties: {symmetric: false, transitive: false}
+  source: "S1: operators.yaml applicable_to"
+  status: "SOURCE"
+
+- relation_id: mm:rel.cannot_instantiate
+  name: "cannot_instantiate"
+  semantics: "Domain X cannot instantiate state Y."
+  domain: ["domain"]
+  range: ["state"]
+  properties: {symmetric: false, transitive: false}
+  source: "S1: ontology.yaml principle_identity_prohibition_in_monos"
+  status: "SOURCE"
+
+# --- Prohibition ---
+- relation_id: mm:rel.prohibited_by
+  name: "prohibited_by"
+  semantics: "X is forbidden by invariant/axiom Y."
+  domain: ["state", "operator"]
+  range: ["invariant", "axiom"]
+  properties: {symmetric: false, transitive: false}
+  source: "Audit derivation"
+  status: "FORMALIZATION"
+
+# --- Consequence ---
+- relation_id: mm:rel.consequence_of
+  name: "consequence_of"
+  semantics: "X is a processual or logical outcome of Y."
+  domain: ["process", "state", "claim"]
+  range: ["invariant", "axiom", "process"]
+  properties: {symmetric: false, transitive: true}
+  source: "Audit derivation"
+  status: "FORMALIZATION"
+
+# --- Extension ---
+- relation_id: mm:rel.extends
+  name: "extends"
+  semantics: "X is an extended development of Y."
+  domain: ["process", "principle"]
+  range: ["process", "principle"]
+  properties: {symmetric: false, transitive: true}
+  source: "Audit derivation"
+  status: "FORMALIZATION"
+
+# --- Epistemological ---
+- relation_id: mm:rel.defines
+  name: "defines"
+  semantics: "X provides the first or canonical formalization of Y."
+  domain: ["publication", "module"]
+  range: ["concept", "operator", "axiom"]
+  properties: {symmetric: false, transitive: false}
+  source: "S1: CORE/relations.yaml"
+  status: "SOURCE"
+
+- relation_id: mm:rel.refines
+  name: "refines"
+  semantics: "X increases resolution of Y without breaking ontological compatibility."
+  domain: ["model", "concept"]
+  range: ["model", "concept"]
+  properties: {symmetric: false, transitive: true}
+  source: "S1: CORE/relations.yaml"
+  status: "SOURCE"
+
+- relation_id: mm:rel.contradicts
+  name: "contradicts"
+  semantics: "Ontological incompatibility between frameworks. Symmetric structural impossibility."
+  domain: ["model", "principle"]
+  range: ["external_theory", "principle"]
+  properties: {symmetric: true, transitive: false}
+  source: "S1: CORE/relations.yaml"
+  status: "SOURCE"
+
+- relation_id: mm:rel.predicts
+  name: "predicts"
+  semantics: "X entails an empirically observable outcome that may falsify X."
+  domain: ["model"]
+  range: ["observable"]
+  properties: {symmetric: false, transitive: false}
+  source: "S1: CORE/relations.yaml"
+  status: "SOURCE"
+
+- relation_id: mm:rel.explains
+  name: "explains"
+  semantics: "X provides a causal/mechanistic account of Y within a model."
+  domain: ["model", "principle"]
+  range: ["phenomenon"]
+  properties: {symmetric: false, transitive: false}
+  source: "S1: CORE/relations.yaml"
+  status: "SOURCE"
+
+# --- Cognitive ---
+- relation_id: mm:rel.iterates_to
+  name: "iterates_to"
+  semantics: "Cognitive operation X, when applied to its own result, produces operation Y."
+  domain: ["cognitive_operation"]
+  range: ["cognitive_operation"]
+  properties: {symmetric: false, transitive: false}
+  source: "A1: the_verb.md"
+  status: "SOURCE"
