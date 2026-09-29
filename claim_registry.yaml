@@ -1,0 +1,245 @@
+# =============================================================================
+# CLAIM REGISTRY — ATOMIC ASSERTIONS
+# Separated from entities per validation requirement
+# =============================================================================
+
+# --- Claims about Ban of Absolute Identity ---
+- claim_id: mm:core.clm.ban_enforces_differentiation
+  subject_entity: mm:core.inv.ban_of_absolute_identity
+  statement: "This prohibition actively enforces perpetual differentiation."
+  type: "Consequential Claim"
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S1: CORE/axioms.yaml"
+
+- claim_id: mm:core.clm.ban_generates_momentum
+  subject_entity: mm:core.inv.ban_of_absolute_identity
+  statement: "The prohibition generates conserved momentum."
+  type: "Consequential Claim"
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S1: CORE/axioms.yaml"
+
+- claim_id: mm:core.clm.ban_necessitates_dissipation
+  subject_entity: mm:core.inv.ban_of_absolute_identity
+  statement: "Dissipation (entropy increase) is necessary to enforce the prohibition."
+  type: "Consequential Claim"
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S1: CORE/axioms.yaml implications"
+
+- claim_id: mm:core.clm.difference_necessary_from_ban
+  subject_entity: mm:core.inv.ban_of_absolute_identity
+  statement: "From the ban of indifference follows the necessity of difference."
+  type: "Deductive Claim"
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S9: manifest §01"
+  hidden_assumptions:
+    - "The ontological space is exhausted by the dichotomy {indifference, difference}"
+  open_question: "Is this dichotomy complete? Dialectical Crucible: UNRESOLVED"
+
+- claim_id: mm:core.clm.motion_follows_from_prohibition
+  subject_entity: mm:core.inv.ban_of_absolute_identity
+  statement: "Motion necessarily follows logically from the prohibition of absolute identity."
+  type: "Deductive Claim"
+  status: "UNRESOLVED"
+  origin: "JOINT_THEORETICAL_WORK"
+  source: "Dialectical Crucible result"
+  hidden_assumptions:
+    - "Static identity = indifference (prohibited)"
+    - "Motion is the only alternative to stasis"
+  open_question: "Can the prohibition be satisfied without motion?"
+
+# --- Claims about operators ---
+- claim_id: mm:core.clm.diff_produces_asymmetry
+  subject_entity: mm:core.op.diff
+  statement: "diff produces asymmetry and non-identity."
+  type: "Operator Consequence"
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S6 OPERATORS.md"
+
+- claim_id: mm:core.clm.diff_initiates_motion
+  subject_entity: mm:core.op.diff
+  statement: "diff generates the motion that momentum necessitates."
+  type: "Operator Consequence"
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S1 operators.yaml physical_correspondence"
+
+- claim_id: mm:core.clm.diff_prevents_equivalence
+  subject_entity: mm:core.op.diff
+  statement: "diff prevents equivalence."
+  type: "Operator Property"
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S6 OPERATORS.md"
+
+- claim_id: mm:core.clm.dissipate_produces_entropy
+  subject_entity: mm:core.op.dissipate
+  statement: "dissipate produces entropy increase (ΔS > 0)."
+  type: "Operator Consequence"
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S1 operators.yaml formal_constraints"
+
+- claim_id: mm:core.clm.dissipate_creates_arrow_of_time
+  subject_entity: mm:core.op.dissipate
+  statement: "dissipate produces temporal irreversibility (arrow of time)."
+  type: "Operator Consequence"
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S1 operators.yaml physical_manifestations"
+
+# --- Claims about unfold / maps_to distinction ---
+- claim_id: mm:core.clm.unfold_is_dynamic_bridge
+  subject_entity: mm:core.op.unfold
+  statement: "unfold is a DYNAMIC operator of processual transition (Logos → Monos)."
+  type: "Distinction Claim"
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S6 OPERATORS.md + GLOSSARY.md"
+
+- claim_id: mm:core.clm.maps_to_is_static_projection
+  subject_entity: mm:rel.maps_to
+  statement: "maps_to is a STATIC relation of representation (Monos → Logos), not a processual transition."
+  type: "Distinction Claim"
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S1 relations.yaml"
+
+- claim_id: mm:core.clm.unfold_vs_maps_to_distinction
+  subject_entity: mm:core.op.unfold
+  statement: >
+    maps_to and unfold are both bridges between Monos and Logos,
+    but at different levels: maps_to is a static relation of representation;
+    unfold is a dynamic operator of processual rupture.
+  type: "Distinction Claim"
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S1 relations.yaml + S6 GLOSSARY.md"
+
+# --- Claims about domains ---
+- claim_id: mm:core.clm.monos_non_symbolic
+  subject_entity: mm:core.dom.monos
+  statement: "Monos is non-symbolic; all symbols belong to Logos."
+  type: "Definitional Claim"
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S1: ontology.yaml training_guidance"
+
+- claim_id: mm:core.clm.monos_not_substance
+  subject_entity: mm:core.dom.monos
+  statement: "Monos is not a substance but the process of autonegation."
+  type: "Definitional Claim"
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "A1: the_verb.md"
+
+- claim_id: mm:core.clm.logos_admits_identity
+  subject_entity: mm:core.dom.logos
+  statement: "Logos admits operational identity. Objects can be fixed, repeated, and modeled as stable."
+  type: "Definitional Claim"
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S1: ontology.yaml#principle_identity_admissibility_in_logos"
+
+- claim_id: mm:core.clm.logos_not_reality
+  subject_entity: mm:core.dom.logos
+  statement: "Logos is not reality, not process, not self-sufficient; cannot access Monos directly."
+  type: "Definitional Claim"
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S6: GLOSSARY.md"
+
+# --- Claims about motion / dissipation ---
+- claim_id: mm:core.clm.motion_is_necessary
+  subject_entity: mm:core.prn.motion_as_necessity
+  statement: "Motion, change, and process are ontological necessities."
+  type: "Ontological Claim"
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S1: ontology.yaml#principle_motion_as_necessity"
+
+- claim_id: mm:core.clm.prohibition_enforces_motion
+  subject_entity: mm:core.inv.ban_of_absolute_identity
+  statement: "The prohibition enforces motion as ontological necessity."
+  type: "Enforcement Claim"
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S1: ontology.yaml#principle_motion_as_necessity"
+
+- claim_id: mm:core.clm.dissipation_is_becoming
+  subject_entity: mm:core.prc.dissipation_of_identity
+  statement: "Dissipation of identity is not a loss of identity, but its continuous becoming."
+  type: "Interpretive Claim"
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S9: manifest §07"
+
+- claim_id: mm:core.clm.dissipation_follows_from_ban
+  subject_entity: mm:core.prc.dissipation_of_identity
+  statement: "Dissipation of identity is a necessary processual consequence of the ban of indifference."
+  type: "Theoretical Hypothesis"
+  status: "THEORETICAL_HYPOTHESIS"
+  origin: "JOINT_THEORETICAL_WORK"
+  source: "Derived from S9 §07 + S1 axioms"
+  hidden_assumptions:
+    - "Static identity = indifference (prohibited)"
+    - "Dissipation is the only form of identity change"
+  open_question: "Can the ban be satisfied without dissipation? UNRESOLVED"
+
+# --- Claims about information ---
+- claim_id: mm:core.clm.information_not_primary
+  subject_entity: mm:core.inf.information
+  statement: "Information is not ontologically primary; it exists in Logos only."
+  type: "Prohibition Claim"
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S1: axioms.yaml training_guidance"
+
+- claim_id: mm:core.clm.information_is_retained_difference
+  subject_entity: mm:core.inf.information
+  statement: "Information is difference retained by consciousness."
+  type: "Definitional Claim"
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S9: manifest §06"
+
+# --- Claims about consciousness ---
+- claim_id: mm:core.clm.consciousness_is_mode_not_product
+  subject_entity: mm:core.cog.consciousness
+  statement: "Consciousness is not generated by Monos. Consciousness IS a local realization of Monos."
+  type: "Ontological Claim"
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "A3: THOUGHT"
+
+# --- Claims about equivalence ---
+- claim_id: mm:core.clm.absolute_identity_equivalent_indifference
+  subject_entity: mm:core.sts.absolute_identity
+  statement: >
+    Absolute identity, indifference (absolute), and autoidentity refer to the same
+    forbidden state: a hypothetical state with no distinctions.
+  type: "Equivalence Claim"
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S6 GLOSSARY.md"
+
+- claim_id: mm:core.clm.maps_to_exclusive_bridge
+  subject_entity: mm:rel.maps_to
+  statement: "maps_to is the ONLY admissible RELATION bridging Monos and Logos."
+  type: "Constraint Claim"
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S1: relations.yaml constraint"
+  note: "Distinct from unfold which is an OPERATOR bridge"
+
+- claim_id: mm:core.clm.stability_neq_equilibrium
+  subject_entity: mm:core.prn.ontological_dissipation
+  statement: "Stability of the manifest world does not equal achieving equilibrium."
+  type: "Distinction Claim"
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "A2: FORCES"
