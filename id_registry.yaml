@@ -1,0 +1,108 @@
+# =============================================================================
+# STABLE ID REGISTRY
+# Format: mm:[layer].[category].[canonical_name]
+# =============================================================================
+
+id_scheme:
+  prefix: "mm"
+  separator: "."
+  layers: [core, onto, ufcps, eecp, meta]
+  categories:
+    inv: "Invariant / Axiom"
+    dom: "Domain"
+    op: "Operator"
+    prc: "Process"
+    sts: "State (forbidden)"
+    reg: "Regime"
+    cfg: "Configuration"
+    rel: "Relation"
+    clm: "Claim"
+    mdl: "Model"
+    geo: "Geometry"
+    top: "Topology"
+    inf: "Information"
+    cog: "Cognitive Structure"
+    prf: "Proof"
+    drv: "Derivation"
+    prn: "Principle"
+    ent: "Entity"
+    crit: "Criterion"
+    prh: "Prohibited Class"
+
+assigned_ids:
+  # Invariants
+  - {id: "mm:core.inv.ban_of_absolute_identity", canonical_name: "Ban of Absolute Identity", type: "Invariant"}
+
+  # Domains
+  - {id: "mm:core.dom.monos", canonical_name: "Monos", type: "Domain"}
+  - {id: "mm:core.dom.logos", canonical_name: "Logos", type: "Domain"}
+
+  # Operators
+  - {id: "mm:core.op.diff", canonical_name: "diff", type: "Operator"}
+  - {id: "mm:core.op.dissipate", canonical_name: "dissipate", type: "Operator"}
+  - {id: "mm:core.op.fix", canonical_name: "fix", type: "Operator"}
+  - {id: "mm:core.op.unfold", canonical_name: "unfold", type: "Operator"}
+  - {id: "mm:core.op.reflection", canonical_name: "reflection", type: "Cognitive Operation"}
+  - {id: "mm:core.op.meta_reflection", canonical_name: "meta-reflection", type: "Cognitive Operation"}
+
+  # Forbidden States
+  - {id: "mm:core.sts.absolute_identity", canonical_name: "Absolute Identity", type: "Forbidden State"}
+  - {id: "mm:core.sts.self_identity_lock", canonical_name: "Self-Identity Lock", type: "Forbidden State"}
+  - {id: "mm:core.sts.closure", canonical_name: "Closure", type: "Forbidden State"}
+  - {id: "mm:core.sts.stasis", canonical_name: "Stasis", type: "Forbidden State"}
+  - {id: "mm:core.sts.absolute_dissolution", canonical_name: "Absolute Dissolution", type: "Forbidden State"}
+
+  # Processes
+  - {id: "mm:core.prc.cmi", canonical_name: "CMI (Triadic)", type: "Process"}
+  - {id: "mm:core.prc.cmi_chain", canonical_name: "CMI Chain (Extended)", type: "Process"}
+  - {id: "mm:core.prc.dissipation_of_identity", canonical_name: "Dissipation of Identity", type: "Process"}
+  - {id: "mm:core.prc.epistemic_cycle", canonical_name: "Epistemic Cycle", type: "Process"}
+  - {id: "mm:core.prc.autonegation", canonical_name: "Autonegation", type: "Process"}
+  - {id: "mm:core.prc.diff_diss_fix_cycle", canonical_name: "diff∘diss∘fix Cycle", type: "Process"}
+  - {id: "mm:core.prc.unbounded_recursion", canonical_name: "Unbounded Recursion", type: "Process"}
+
+  # Principles
+  - {id: "mm:core.prn.motion_as_necessity", canonical_name: "Motion as Necessity", type: "Principle"}
+  - {id: "mm:core.prn.ontological_dissipation", canonical_name: "Ontological Dissipation", type: "Principle"}
+  - {id: "mm:core.prn.structural_correspondence_monos_logos", canonical_name: "Structural Correspondence Monos-Logos", type: "Principle"}
+
+  # Entities
+  - {id: "mm:core.ent.distinction", canonical_name: "Distinction", type: "Entity"}
+  - {id: "mm:core.ent.momentum", canonical_name: "Momentum", type: "Entity"}
+  - {id: "mm:core.ent.representation", canonical_name: "Representation", type: "Entity"}
+  - {id: "mm:core.ent.invariant_pattern", canonical_name: "Invariant (Logos Pattern)", type: "Entity"}
+
+  # Cognitive
+  - {id: "mm:core.cog.consciousness", canonical_name: "Consciousness", type: "Cognitive Mode"}
+  - {id: "mm:core.cog.qualia", canonical_name: "Qualia", type: "Cognitive Structure"}
+
+  # Information
+  - {id: "mm:core.inf.information", canonical_name: "Information", type: "Information Structure"}
+
+  # Criteria
+  - {id: "mm:core.crit.agi", canonical_name: "AGI Criterion", type: "Criterion"}
+
+  # Prohibited
+  - {id: "mm:core.prh.optimization", canonical_name: "Optimization", type: "Prohibited Operator Class"}
+
+  # Relations
+  - {id: "mm:rel.derives_from", canonical_name: "derives_from", type: "Relation"}
+  - {id: "mm:rel.derives", canonical_name: "derives", type: "Relation"}
+  - {id: "mm:rel.isomorphic_to", canonical_name: "isomorphic_to", type: "Relation"}
+  - {id: "mm:rel.structurally_corresponds_to", canonical_name: "structurally_corresponds_to", type: "Relation"}
+  - {id: "mm:rel.maps_to", canonical_name: "maps_to", type: "Relation"}
+  - {id: "mm:rel.composes_with", canonical_name: "composes_with", type: "Relation"}
+  - {id: "mm:rel.defines", canonical_name: "defines", type: "Relation"}
+  - {id: "mm:rel.refines", canonical_name: "refines", type: "Relation"}
+  - {id: "mm:rel.contradicts", canonical_name: "contradicts", type: "Relation"}
+  - {id: "mm:rel.predicts", canonical_name: "predicts", type: "Relation"}
+  - {id: "mm:rel.explains", canonical_name: "explains", type: "Relation"}
+  - {id: "mm:rel.consequence_of", canonical_name: "consequence_of", type: "Relation"}
+  - {id: "mm:rel.prohibited_by", canonical_name: "prohibited_by", type: "Relation"}
+  - {id: "mm:rel.triggers", canonical_name: "triggers", type: "Relation"}
+  - {id: "mm:rel.triggered_by", canonical_name: "triggered_by", type: "Relation"}
+  - {id: "mm:rel.permits_operator", canonical_name: "permits_operator", type: "Relation"}
+  - {id: "mm:rel.prohibits_operator", canonical_name: "prohibits_operator", type: "Relation"}
+  - {id: "mm:rel.cannot_instantiate", canonical_name: "cannot_instantiate", type: "Relation"}
+  - {id: "mm:rel.iterates_to", canonical_name: "iterates_to", type: "Relation"}
+  - {id: "mm:rel.extends", canonical_name: "extends", type: "Relation"}
