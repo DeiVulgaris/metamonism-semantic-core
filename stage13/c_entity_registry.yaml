@@ -1,0 +1,82 @@
+# Stage 13C — Inventory C Entity Registration
+
+stage:
+  id: "13C"
+  title: "Entity Registration — Inventory C"
+  source_inventory: "C"
+  source: "ONTODYNAMICS"
+  status: "SOURCE_REGISTRATION"
+  namespace: "mm:c."
+
+rules:
+  - "Register constructs named in ONTODYNAMICS as entities."
+  - "Preserve ONTODYNAMICS layer scope."
+  - "Canonical-within-layer does not imply CORE status."
+  - "Physical and cosmological models remain model-layer constructs."
+  - "Do not merge C operators with A or B operators."
+  - "No cross-source synthesis is introduced."
+  - "No sameAs, identical_to, implements, proves, independent_of, or unrelated_to."
+
+categories:
+  layer:
+    - {id: mm:c.mod.ontodynamics, label: "ONTODYNAMICS"}
+    - {id: mm:c.mod.world, label: "World"}
+
+  principles:
+    - {id: mm:c.prin.orthogonal_dissipation, label: "Orthogonal Dissipation"}
+
+  processual_constructs:
+    - {id: mm:c.prc.dissipation, label: "Dissipation"}
+    - {id: mm:c.prc.orthogonality, label: "Orthogonality"}
+    - {id: mm:c.prc.metric_unfolding, label: "Metric Unfolding"}
+    - {id: mm:c.prc.four_d_global_centripetal_flow, label: "4D Global Centripetal Flow"}
+    - {id: mm:c.prc.localization_node, label: "Localization Node"}
+    - {id: mm:c.prc.mass, label: "Mass"}
+    - {id: mm:c.prc.force_interaction_modality, label: "Force / Interaction Modality"}
+    - {id: mm:c.prc.gravity_shadow, label: "Gravity-Shadow"}
+    - {id: mm:c.prc.orbit, label: "Orbit"}
+    - {id: mm:c.prc.matter, label: "Matter"}
+    - {id: mm:c.prc.actualization_flux, label: "Actualization Flux"}
+
+  physical_models:
+    - {id: mm:c.mod.fundamental_interactions, label: "Fundamental Interactions Model"}
+    - {id: mm:c.mod.gravity, label: "Gravity Model"}
+    - {id: mm:c.mod.orbit, label: "Orbit Model"}
+    - {id: mm:c.mod.casimir_demonstration, label: "Casimir Demonstration"}
+    - {id: mm:c.mod.thermodynamics, label: "Thermodynamics Model"}
+    - {id: mm:c.mod.qm_measurement_phase_transition, label: "QM Measurement Phase Transition Model"}
+    - {id: mm:c.mod.photon_metastable_process, label: "Photon Metastable Process Model"}
+
+  cosmological_models:
+    - {id: mm:c.mod.eternal_dynamic_reality, label: "Eternal Dynamic Reality"}
+    - {id: mm:c.mod.bb_metric_expansion_reinterpretation, label: "Big Bang / Metric Expansion Reinterpretation"}
+    - {id: mm:c.mod.baryon_birth_death, label: "Baryon Birth/Death Model"}
+    - {id: mm:c.mod.redshift, label: "Redshift Model"}
+    - {id: mm:c.mod.large_scale_structure, label: "Large-Scale Structure Model"}
+    - {id: mm:c.mod.cold_nucleogenesis, label: "Cold Nucleogenesis"}
+    - {id: mm:c.mod.cmb_photon_graveyard, label: "CMB Photon Graveyard"}
+
+  astrophysical_models:
+    - {id: mm:c.mod.gas_galaxy_cycle, label: "Gas/Galaxy Cycle"}
+    - {id: mm:c.mod.supernova_without_remnants, label: "Supernova Without Remnants"}
+    - {id: mm:c.mod.gravity_screening, label: "Gravity Screening"}
+
+  particle_models:
+    - {id: mm:c.mod.photon_complete_cosmology, label: "Photon Complete Cosmology"}
+    - {id: mm:c.prc.photon_one_axis_unlocked, label: "Photon with One Axis Unlocked"}
+    - {id: mm:c.prc.photon_locked_xy_plane, label: "Photon Locked XY Plane"}
+    - {id: mm:c.prc.photon_open_z_axis, label: "Photon Open Z Axis"}
+    - {id: mm:c.prc.photon_aging, label: "Photon Aging"}
+    - {id: mm:c.prc.photon_energy_dissipation, label: "Photon Energy Dissipation"}
+
+  cosmological_sequence:
+    - {id: mm:c.prc.eternal_reality_sequence, label: "Eternal Reality Sequence"}
+    - {id: mm:c.prc.cold_nucleogenesis_sequence, label: "Cold Nucleogenesis Sequence"}
+    - {id: mm:c.prc.gas_galaxy_sequence, label: "Gas/Galaxy Sequence"}
+    - {id: mm:c.prc.supernova_sequence, label: "Supernova Sequence"}
+
+  model_language:
+    - {id: mm:c.meta.model_operator_mapping, label: "Model Operator Mapping"}
+
+summary:
+  total_entities: 42
