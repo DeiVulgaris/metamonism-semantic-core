@@ -666,3 +666,136 @@ stage33/research_programs.yaml
 stage33/research_program_validator.py
 stage33/README.md
 ```
+
+
+## 26. Research Process Engine
+
+The `RESEARCH_PROGRAM` layer records an unfinished line of reasoning.
+Stage 34 adds a process engine that determines the **next admissible research
+action** from that state.
+
+The engine MUST NOT answer the research question.
+
+Its function is:
+
+```text
+CURRENT STATE
+    ↓
+BLOCKERS / OPEN QUESTIONS / TESTS / FAILURES
+    ↓
+ADMISSIBLE TRANSITIONS
+    ↓
+NEXT RESEARCH ACTION
+```
+
+The engine therefore operates on process state, not truth value.
+
+### 26.1 Allowed transition types
+
+```text
+DEFINE_BLOCKER
+ANALYZE_FAILURE
+RUN_TEST
+DESIGN_TEST
+REFINE_QUESTION
+REVIEW_STATE
+```
+
+#### DEFINE_BLOCKER
+
+Used when a missing definition prevents safe continuation.
+
+The AI may propose candidate definitions, but must preserve their status and
+must not silently register them as SOURCE.
+
+#### ANALYZE_FAILURE
+
+Used when a test failed or a falsifier was encountered.
+
+The failure must be retained. The AI should extract the reason, consequence,
+new constraint, and possible next test.
+
+#### RUN_TEST
+
+Used when prerequisites are sufficiently defined.
+
+Running a test does not imply a positive result.
+
+#### DESIGN_TEST
+
+Used when an open question has no registered falsifiable test.
+
+A valid test must specify:
+
+- target question;
+- expected observation;
+- falsifier;
+- required definitions;
+- provenance of the hypothesis being tested.
+
+#### REFINE_QUESTION
+
+Used when a question remains too broad or decomposable.
+
+Refinement must narrow the question without answering it by assumption.
+
+#### REVIEW_STATE
+
+Used when no safe automatic transition exists.
+
+### 26.2 Transition generation is not theory generation
+
+The process engine may answer:
+
+> What can be done next?
+
+It may not answer:
+
+> What is true?
+
+Therefore:
+
+```text
+PROCESS ENGINE OUTPUT
+        ≠
+CANONICAL SEMANTIC CONCLUSION
+```
+
+### 26.3 Priority is operational, not epistemic
+
+Transition priority indicates which blocker or research action should normally
+be addressed first.
+
+It MUST NOT be interpreted as:
+
+- probability of truth;
+- theoretical importance;
+- preference for one hypothesis;
+- evidence strength;
+- prediction of research success.
+
+### 26.4 Process continuity invariant
+
+A valid processing run must leave the system in a state from which another
+valid processing step can be identified, unless the program is explicitly
+closed, rejected, integrated, or blocked.
+
+Thus the preferred terminal state for an unresolved program is not an empty
+result.
+
+It is:
+
+```text
+KNOWN STATE + EXPLICIT LIMIT + NEXT POSSIBLE TRANSITION
+```
+
+This is the **process-continuity invariant**.
+
+Stage 34 implements the engine in:
+
+```text
+stage34/research_process_engine.py
+stage34/process_state_schema.yaml
+stage34/test_vectors.yaml
+stage34/README.md
+```

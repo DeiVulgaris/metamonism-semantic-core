@@ -674,3 +674,27 @@ The architectural principle is:
 
 > Semantic fidelity preserves what has been established. Process continuity
 > preserves where thinking can continue.
+
+
+## Research Process Engine
+
+Stage 34 adds a process engine on top of the research-program layer.
+
+```text
+CANONICAL CORE
+    ↓
+what is established
+
+RESEARCH PROGRAM
+    ↓
+what is being investigated
+
+PROCESS ENGINE
+    ↓
+what may be done next
+```
+
+The engine does not generate theoretical conclusions. It computes admissible
+next actions from blockers, open questions, tests and failures.
+
+See `stage34/research_process_engine.py`.

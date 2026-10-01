@@ -1,0 +1,32 @@
+tests:
+  - id: engine_blocker_first
+    scenario: "blocking definition exists and tests are open"
+    expected_action: DEFINE_BLOCKER
+    invariant: "do not invent the definition"
+
+  - id: engine_test_after_blockers
+    scenario: "no blockers and an open test exists"
+    expected_action: RUN_TEST
+    invariant: "execute test, do not infer its result"
+
+  - id: engine_failure_is_state
+    scenario: "a test is FAILED or FALSIFIED"
+    expected_action: ANALYZE_FAILURE
+    invariant: "failure becomes a constraint/counterexample, not deletion"
+
+  - id: engine_question_without_test
+    scenario: "open question exists but no test is registered"
+    expected_action: DESIGN_TEST
+    invariant: "question remains open"
+
+  - id: engine_no_promotion
+    scenario: "any research program"
+    expected: "canonical_promotion == false"
+
+  - id: engine_no_identity
+    scenario: "structural correspondence hypothesis"
+    expected: "no IDENTITY or FORMAL_ISOMORPHISM transition"
+
+  - id: engine_provenance_preservation
+    scenario: "transition from a sourced research state"
+    expected: "existing provenance remains attached"
