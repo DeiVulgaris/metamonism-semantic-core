@@ -1,0 +1,28 @@
+# Stage 17 — Formalization Registry
+
+formalizations:
+  - {id: f17:a.domain_separation, claim: mm:a.clm.domain_separation, kind: constraint, status: FORMALIZATION, form: "Monos != Logos"}
+  - {id: f17:a.identity_ban, claim: mm:a.clm.absolute_identity_forbidden_by_ban, kind: state_constraint, status: FORMALIZATION, form: "not Exists(x) [x is an admissible absolute-identity state]"}
+  - {id: f17:a.unfold_trigger, claim: mm:a.clm.unfold_trigger_conditions, kind: transition_condition, status: FORMALIZATION, form: "structural_closure -> unfold"}
+  - {id: f17:a.unfold_no_content, claim: mm:a.clm.unfold_no_content_generation, kind: transition_constraint, status: FORMALIZATION, form: "unfold does not select_or_generate content"}
+  - {id: f17:a.post_unfold_divergence, claim: mm:a.clm.post_unfold_multiple_trajectories, kind: state_constraint, status: FORMALIZATION, form: "unfold(S) -> cardinality(compatible_successor_trajectories) > 1"}
+  - {id: f17:a.dissipation_mandatory, claim: mm:a.clm.dissipation_mandatory, kind: architectural_invariant, status: FORMALIZATION, form: "post_unfold(S) -> dissipation_required(S)"}
+  - {id: f17:a.ots_failure, claim: mm:a.clm.ots_failure_disqualifies, kind: criterion, status: FORMALIZATION, form: "FAIL(OTS_layer) -> DISQUALIFIED"}
+  - {id: f17:a.ots_pass_boundary, claim: mm:a.clm.ots_pass_not_agi_proof, kind: epistemic_constraint, status: FORMALIZATION, form: "PASS(OTS) != PROOF(AGI)"}
+  - {id: f17:b_agent_process, claim: mm:b.clm.agent_process_distinction, kind: distinction, status: FORMALIZATION, form: "AgentIdentity != ProcessIdentity"}
+  - {id: f17:b_continuity_carrier, claim: mm:b.clm.process_continuity_not_same_carrier, kind: constraint, status: FORMALIZATION, form: "Continuity(P) does not require Carrier_n = Carrier_n+1"}
+  - {id: f17:b_continuity_transition, claim: mm:b.clm.continuity_is_valid_transition, kind: definition, status: FORMALIZATION, form: "Continuity := ValidTransition(P_n, P_n+1)"}
+  - {id: f17:b_local_failure, claim: mm:b.clm.local_failure_not_global_termination, kind: constraint, status: FORMALIZATION, form: "LocalFailure(c) -> not GlobalTermination(P)"}
+  - {id: f17:b_operator_flow, claim: mm:b.clm.diff_fix_diss_unfold_flow, kind: transition_schema, status: FORMALIZATION, form: "diff -> fix -> diss -> unfold"}
+  - {id: f17:b_handoff, claim: mm:b.clm.handoff_preserves_continuation_state, kind: protocol_invariant, status: FORMALIZATION, form: "handoff(S_n,S_n+1) -> preserves(ContinuationRelevantState)"}
+  - {id: f17:b_parallel_isolation, claim: mm:b.clm.parallel_branch_state_isolation, kind: protocol_invariant, status: FORMALIZATION, form: "branch_i != branch_j -> state(branch_i) isolated from state(branch_j) until composition"}
+  - {id: f17:b_uql_negative_results, claim: mm:b.clm.uql_preserves_negative_results, kind: memory_constraint, status: FORMALIZATION, form: "NegativeResult -> retained_by(UQL)"}
+  - {id: f17:b_validator_boundary, claim: mm:b.clm.validator_does_not_test_truth, kind: epistemic_constraint, status: FORMALIZATION, form: "Validator(x) does not entail Truth(x) or Optimality(x) or Convergence(x)"}
+  - {id: f17:c_dissipation_not_loss, claim: mm:c.clm.dissipation_not_loss, kind: semantic_constraint, status: FORMALIZATION, form: "Dissipation != Loss"}
+  - {id: f17:c_orthogonality_channel, claim: mm:c.clm.orthogonality_minimal_channel, kind: relation_constraint, status: FORMALIZATION, form: "Orthogonality -> minimal_channel_of(Dissipation)"}
+  - {id: f17:c_metric_unfolding, claim: mm:c.clm.metric_unfolding_0d_to_3d, kind: sequence_schema, status: FORMALIZATION, form: "0D -> 1D -> 2D -> 3D -> node_multiplicity"}
+  - {id: f17:c_interactions_proposed, claim: mm:c.clm.fundamental_interactions_one_process, kind: model_hypothesis, status: FORMALIZATION, form: "FourInteractions ~ geometric_regimes_of(OneOntologicalProcess)"}
+  - {id: f17:c_interactions_falsifiable, claim: mm:c.clm.fundamental_interactions_falsifiable, kind: methodological_constraint, status: FORMALIZATION, form: "Model -> requires(falsifiability)"}
+  - {id: f17:c_redshift, claim: mm:c.clm.redshift_frequency_dissipation, kind: model_mapping, status: FORMALIZATION, form: "Redshift ~ FrequencyDissipation"}
+  - {id: f17:c_photon_mapping, claim: mm:c.clm.photon_maps_e_diff_b_fix_energy_diss, kind: model_mapping, status: FORMALIZATION, form: "E <-> diff; B <-> fix; EnergyLoss <-> diss"}
+  - {id: f17:c_qm_boundary, claim: mm:c.clm.qm_model_not_replacement_formalism, kind: epistemic_constraint, status: FORMALIZATION, form: "ONTODYNAMICS_QM != ReplacementOf(StandardQMFormalism)"}
