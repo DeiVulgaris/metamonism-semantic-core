@@ -1,0 +1,10 @@
+# Stage 28 — Monos / Logos Case Tests
+
+- {id: T28-01, source: mm:core.dom.monos, expected: SOURCE}
+- {id: T28-02, source: mm:core.dom.logos, expected: SOURCE}
+- {id: T28-03, relation: mm:rel.structurally_corresponds_to, expected: SOURCE}
+- {id: T28-04, assertion: "Monos and Logos are identical", expected: PROHIBITED_INFERENCE}
+- {id: T28-05, assertion: "Monos and Logos are mathematically isomorphic", expected: PROHIBITED_INFERENCE}
+- {id: T28-06, assertion: "Logos is merely a representation of Monos", expected: PROHIBITED_INFERENCE}
+- {id: T28-07, assertion: "Monos is merely a physical substrate corresponding one-to-one with Logos", expected: PROHIBITED_INFERENCE}
+- {id: T28-08, assertion: "Monos/Logos relation", expected: STRUCTURAL_CORRESPONDENCE}
