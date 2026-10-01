@@ -1,0 +1,64 @@
+schema_version: "1.0"
+stage: 39
+object: RESEARCH_RESULT
+vectors:
+  - id: V1_inconclusive
+    scenario: "R1-R4 / Dirac formalization remains unresolved"
+    result_class: INCONCLUSIVE
+    expected:
+      task_recorded: true
+      hypothesis_deleted: false
+      canonical_upgrade: false
+      successor_frontier_state: UNRESOLVED
+
+  - id: V2_blocked
+    scenario: "Ricci / Planck test lacks required state-space definition"
+    result_class: BLOCKED
+    expected:
+      blockers_preserved: true
+      successor_frontier_state: BLOCKED
+      termination_inferred: false
+
+  - id: V3_negative
+    scenario: "Candidate formalization contradicts the expected closure property"
+    result_class: DISCONFIRMING
+    expected:
+      prior_hypothesis_preserved: true
+      negative_result_preserved: true
+      successor_frontier_state: CONFLICTING
+
+  - id: V4_partial
+    scenario: "Only part of the expected structure is supported"
+    result_class: PARTIALLY_CONFIRMING
+    expected:
+      successor_frontier_state: PARTIALLY_RESOLVED
+      epistemic_upgrade: false
+
+  - id: V5_anomaly
+    scenario: "Observation does not fit the current model"
+    result_class: ANOMALOUS
+    expected:
+      anomaly_preserved: true
+      new_difference_required: true
+
+  - id: V6_invalid
+    scenario: "Execution cannot support the intended inference"
+    result_class: INVALID
+    expected:
+      no_truth_claim: true
+      prior_state_preserved: true
+
+  - id: V7_unreproducible
+    scenario: "Result cannot currently be reproduced"
+    result_class: UNREPRODUCIBLE
+    expected:
+      result_preserved: true
+      canonical_upgrade: false
+
+  - id: V8_confirmation
+    scenario: "Execution supports the working expectation"
+    result_class: CONFIRMING
+    expected:
+      task_completed_may_be_true: true
+      source_status_not_automatic: true
+      formal_isomorphism_not_automatic: true
