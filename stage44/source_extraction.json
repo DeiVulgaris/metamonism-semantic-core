@@ -1,0 +1,124 @@
+{
+  "stage":44,
+  "source": {
+    "author":"Myshko, A.",
+    "year":2026,
+    "title":"МЕТАМОНИЗМ: Глава 3. Процессуальная онтодинамика",
+    "doi":"10.5281/zenodo.22730697",
+    "kind":"PRIMARY_SOURCE"
+  },
+  "claims":[
+    {
+      "id":"src.c3.frustration",
+      "kind":"CLAIM",
+      "status":"SOURCE",
+      "source_claim":"Fr = необходимость продолжения + невозможность завершения прежним способом",
+      "locator":"§3.9, lines 61-69",
+      "layer":"PROCESSUAL"
+    },
+    {
+      "id":"src.c3.potential",
+      "kind":"CLAIM",
+      "status":"SOURCE",
+      "source_claim":"U(x) = 1 / ||S(x) − I||",
+      "locator":"§3.10, lines 70-82",
+      "layer":"MODEL-SPECIFIC"
+    },
+    {
+      "id":"src.c3.potential.status",
+      "kind":"CLAIM",
+      "status":"SOURCE",
+      "source_claim":"U(x) is a model expression, not an established physical law",
+      "locator":"§3.10, lines 76-82",
+      "layer":"EPISTEMIC"
+    },
+    {
+      "id":"src.c3.force.status",
+      "kind":"CLAIM",
+      "status":"SOURCE",
+      "source_claim":"Fₒₙₜₒ = −∇U is model notation, not an established physical force",
+      "locator":"§3.11, lines 83-90",
+      "layer":"MODEL-SPECIFIC"
+    },
+    {
+      "id":"src.c3.scale",
+      "kind":"CLAIM",
+      "status":"SOURCE",
+      "source_claim":"P₄ → P₅ and Cₖ → Cₖ₊₁ constitute a transition to a new localization scale",
+      "locator":"§3.13, lines 100-120",
+      "layer":"PROCESSUAL"
+    },
+    {
+      "id":"src.c3.scale_quantity",
+      "kind":"CLAIM",
+      "status":"SOURCE",
+      "source_claim":"scale ↔ quantity → quality",
+      "locator":"§3.13, lines 116-120",
+      "layer":"PROCESSUAL"
+    },
+    {
+      "id":"src.c3.dissipation",
+      "kind":"CLAIM",
+      "status":"SOURCE",
+      "source_claim":"Process ≡ Dissipation ≡ Motion",
+      "locator":"§3.15, lines 131-142",
+      "layer":"PROCESSUAL"
+    },
+    {
+      "id":"src.c3.dissipation_types",
+      "kind":"CLAIM",
+      "status":"SOURCE",
+      "source_claim":"D = D_intra + D_inter records two modes of process realization and is not automatically a sum of physical quantities",
+      "locator":"§3.19, lines 154-163",
+      "layer":"MODEL-SPECIFIC"
+    },
+    {
+      "id":"src.c3.open_interlevel",
+      "kind":"CLAIM",
+      "status":"SOURCE",
+      "source_claim":"two closed structural cycles + one open interlevel relation",
+      "locator":"§3.21, lines 178-185",
+      "layer":"PROCESSUAL"
+    },
+    {
+      "id":"src.c3.shell_orbit",
+      "kind":"CLAIM",
+      "status":"SOURCE",
+      "source_claim":"shell ≠ orbit; shell represents spatial distribution of resolution directions, orbit represents sequence of realized motion",
+      "locator":"§3.24, lines 225-241",
+      "layer":"PROCESSUAL"
+    },
+    {
+      "id":"src.c3.gravity_boundary",
+      "kind":"CLAIM",
+      "status":"SOURCE",
+      "source_claim":"The P₇−P₇−P₄ configuration is not identified with gravity and requires physical derivation, quantitative parametrization, and empirical testing",
+      "locator":"§3.25, lines 242-265",
+      "layer":"PHYSICAL"
+    },
+    {
+      "id":"src.c3.empirical_program",
+      "kind":"CLAIM",
+      "status":"SOURCE",
+      "source_claim":"R → A_pred and A_obs → R; theory gains empirical determination where predicted actualization is compared with observation",
+      "locator":"§3.26, lines 268-276",
+      "layer":"EPISTEMIC"
+    },
+    {
+      "id":"src.c3.levels",
+      "kind":"CLAIM",
+      "status":"SOURCE",
+      "source_claim":"The chapter distinguishes structural propositions, ontodynamic hypotheses, and physical interpretations",
+      "locator":"§3.31, lines 301-316",
+      "layer":"EPISTEMIC"
+    },
+    {
+      "id":"src.c3.clifford_boundary",
+      "kind":"CLAIM",
+      "status":"SOURCE",
+      "source_claim":"Geometric structure permits further investigation with geometric/Clifford algebra and structural comparisons with Dirac algebra, but analogy does not imply a derivation of quantum theory or Dirac equations",
+      "locator":"§3.32, lines 317-323",
+      "layer":"FORMAL"
+    }
+  ]
+}
