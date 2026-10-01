@@ -1,0 +1,95 @@
+{
+  "stage": 45,
+  "title": "Ricci-flow surgery hypothesis — corpus-grounded test",
+  "source": {
+    "author": "Myshko, A.",
+    "year": 2026,
+    "title": "МЕТАМОНИЗМ: Онтология настоящего. Процессуальная единица реальности",
+    "doi": "10.5281/zenodo.22215730",
+    "source_ref": "user_supplied_attachment",
+    "locator": "lines 1-256"
+  },
+  "question": "Does this corpus independently support the hypothesis that ontodynamic frustration and transition between processual regimes are structurally comparable to Ricci-flow singularity and surgery?",
+  "source_findings": [
+    {
+      "id": "src.p1",
+      "kind": "entity",
+      "status": "SOURCE",
+      "claim": "P1 is introduced as the minimally actualized difference and is deliberately left without assumed extension, duration or direction at introduction.",
+      "provenance": {"locator": "L63-L68"}
+    },
+    {
+      "id": "src.orthogonal_resolution",
+      "kind": "claim",
+      "status": "SOURCE",
+      "claim": "The present continuously resolves its non-identity into the next act; the next act cannot be fully identical to the previous act.",
+      "provenance": {"locator": "L98-L125"}
+    },
+    {
+      "id": "src.frustration_reference",
+      "kind": "claim",
+      "status": "SOURCE",
+      "claim": "The text refers to orthogonal resolution as having been derived in the previous Chapter 3 from the Prohibition of Indifference as a way of removing frustration of self-identity.",
+      "provenance": {"locator": "L104-L109"}
+    },
+    {
+      "id": "src.next_transition",
+      "kind": "claim",
+      "status": "SOURCE",
+      "claim": "The ontology requires a continuing sequence of actualizations rather than a static stopping state.",
+      "provenance": {"locator": "L118-L125"}
+    },
+    {
+      "id": "src.3plus1_boundary",
+      "kind": "claim",
+      "status": "SOURCE",
+      "claim": "The need for three spatial degrees of freedom is explicitly left as a task for a later rigorous mathematical derivation.",
+      "provenance": {"locator": "L126-L138"}
+    },
+    {
+      "id": "src.physical_boundary",
+      "kind": "claim",
+      "status": "SOURCE",
+      "claim": "Physical correspondence hypotheses require subsequent mathematical formalization; proposed experimental effects are not direct deductions from the ontological axioms.",
+      "provenance": {"locator": "L139-L142; L184-L202"}
+    }
+  ],
+  "comparison": {
+    "target": "Ricci-flow singularity / surgery",
+    "candidate_correspondence": "ontodynamic frustration / orthogonal transition to a new processual act",
+    "relation_type": "STRUCTURAL_CORRESPONDENCE",
+    "status": "THEORETICAL_HYPOTHESIS",
+    "expected_result": "UNRESOLVED",
+    "supporting_structure": [
+      "continuation is required rather than absolute stopping",
+      "current configuration cannot simply become identical to itself",
+      "transition proceeds into a new degree/direction of actualization",
+      "frustration is referenced as the condition motivating orthogonal resolution"
+    ],
+    "missing_structure": [
+      "no Ricci flow equation",
+      "no geometric singular set",
+      "no curvature blow-up criterion",
+      "no surgery operator",
+      "no pre/post-surgery manifold construction",
+      "no theorem establishing continuation equivalence",
+      "no characteristic scale identified as Planck scale"
+    ]
+  },
+  "anti_collapse": {
+    "forbidden_inferences": [
+      "orthogonal resolution is Ricci-flow surgery",
+      "ontodynamic frustration is mathematically a Ricci singularity",
+      "the text derives Ricci flow",
+      "the text derives a surgery operator",
+      "the Planck scale follows from the present text",
+      "structural correspondence establishes physical equivalence"
+    ]
+  },
+  "research_result": {
+    "result_class": "INCONCLUSIVE",
+    "reason": "The corpus supplies a compatible processual pattern but not the mathematical structures required to test a Ricci-flow/surgery correspondence.",
+    "canonical_upgrade": false,
+    "successor_frontier_state": "UNRESOLVED"
+  }
+}
