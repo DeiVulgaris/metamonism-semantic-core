@@ -1,0 +1,36 @@
+# Stage 10 — frozen X1–X21 ingest
+# X2–X4 are anchor properties and therefore are not graph edges.
+
+edges:
+  - {id: X1, subject: mm:a.meta.ontological_core_agi, relation: mm:rel.based_on, object: mm:core.meta.v1_3, status: SOURCE}
+  - {id: X5, subject: mm:c.meta.ontodynamics, relation: mm:rel.derived_from, object: mm:core.meta.v1_3, status: SOURCE}
+  - {id: X6, subject: mm:c.meta.ontodynamics, relation: mm:rel.declares_dependency, object: mm:core.meta.v1_3, status: SOURCE}
+  - {id: X7, subject: mm:c.meta.ontodynamics, relation: mm:rel.derived_from, object: mm:core.meta.v1_3, status: SOURCE}
+  - {id: X8, subject: mm:c.meta.ontodynamics, relation: mm:rel.declares_dependency, object: mm:core.meta.v1_3, status: SOURCE}
+  - {id: X9, subject: mm:c.prin.orthogonal_dissipation, relation: mm:rel.derived_from, object: mm:core.inv.ban_absolute_identity, status: SOURCE}
+  - {id: X10, subject: mm:c.mod.fundamental_interactions, relation: mm:rel.derived_from, object: mm:core.inv.ban_absolute_identity, status: SOURCE, representation_note: "Source also references CORE operators, CMI, and ontological_dissipation"}
+  - {id: X11, subject: mm:c.mod.fundamental_interactions, relation: null, status: SOURCE, property: {proposed: true, core_elevation: false}}
+  - {id: X12, subject: mm:b.meta.ufcps, relation: mm:rel.investigates_isomorphism, object: mm:core.meta.ontodynamic_architecture, status: RESEARCH_HYPOTHESIS}
+  - {id: X13, subject: mm:b.meta.ufcps, relation: mm:rel.treats_as_candidate_invariants, object: mm:core.meta.ontodynamic_architecture, status: RESEARCH_HYPOTHESIS}
+  - {id: X14, subject: mm:b.meta.ufcps, relation: mm:rel.investigates_isomorphism, object: mm:core.meta.ontodynamic_architecture, status: RESEARCH_HYPOTHESIS}
+  - {id: X15, subject: mm:b.meta.ufcps, relation: mm:rel.investigates_isomorphism, object: mm:core.meta.ontodynamic_architecture, status: RESEARCH_HYPOTHESIS}
+  - {id: X16, subject: mm:b.meta.ufcps, relation: mm:rel.does_not_require, object: mm:core.meta.v1_3, status: SOURCE}
+  - {id: X18, subject: mm:b.meta.ufcps, relation: null, status: RESEARCH_HYPOTHESIS, property: {research_hypothesis: "Continuity across carriers may support collective intelligence as a process property"}}
+  - {id: X19, subject: mm:b.meta.ufcps, relation: mm:rel.investigates_isomorphism, object: mm:core.meta.ontodynamic_architecture, status: RESEARCH_HYPOTHESIS}
+  - {id: X20, subject: mm:b.meta.ufcps, relation: mm:rel.does_not_prove, object: mm:core.meta.v1_3, status: SOURCE}
+  - {id: X21, subject: mm:b.prot.schemas, relation: mm:rel.semantic_beacon, object: "metamonism / Ex uno omnia", status: SOURCE}
+
+properties:
+  - {id: X2, subject: mm:a.meta.ontological_core_agi, relation: null, break_type: ontological, continuity: axiomatic_only}
+  - {id: X3, subject: mm:a.meta.ontological_core_agi, relation: null, mandatory_components: [mm:a.op.diff, mm:a.op.dissipate, mm:a.op.fix, mm:a.op.unfold]}
+  - {id: X4, subject: mm:a.meta.ontological_core_agi, relation: null, role: ontological_constraints, excludes: implementation}
+  - {id: X17, subject: mm:b.meta.ufcps, relation: null, boundary_statement: "Experiment concerns structural emergence, not ideological adoption"}
+  - {id: X18, subject: mm:b.meta.ufcps, relation: null, research_hypothesis: "Continuity across carriers may support collective intelligence as a process property"}
+  - {id: X11, subject: mm:c.mod.fundamental_interactions, relation: null, proposed: true, core_elevation: false}
+
+note:
+  - "X10 = Variant A: representation_note is literal metadata, not a graph edge."
+  - "X2–X4 are properties, not relations."
+  - "X17 is a boundary statement, not a forced relation."
+  - "X18 is represented as a research-hypothesis property and not as SOURCE fact."
+  - "X14/X15 use investigates_isomorphism by frozen design choice."

@@ -1,0 +1,12 @@
+# Stage 10 open design defaults frozen for ingest
+U2:
+  A: mm:a.op.diss
+  B: mm:b.op.diss
+  C: mm:c.prc.dissipation
+  rule: "Keep senses separate unless explicit SOURCE sameAs evidence appears."
+U4:
+  A: mm:a.op.unfold
+  B: mm:b.op.unfold
+  C: mm:c.op.unfold
+  rule: "Keep unfold identities separate; no isomorphic_to edge is asserted."
+missing_edge_policy: "NO_DIRECT_EDGE does not imply independent_of or unrelated_to."

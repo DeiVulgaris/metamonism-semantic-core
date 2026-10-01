@@ -3,24 +3,95 @@
     "mm": "https://metamonism.org/ontology#",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-    "derives": {"@id": "mm:derives", "@type": "@id"},
-    "derives_from": {"@id": "mm:derives_from", "@type": "@id"},
-    "composes_with": {"@id": "mm:composes_with", "@type": "@id"},
-    "structurally_corresponds_to": {"@id": "mm:structurally_corresponds_to", "@type": "@id"},
-    "maps_to": {"@id": "mm:maps_to", "@type": "@id"},
-    "triggers": {"@id": "mm:triggers", "@type": "@id"},
-    "triggered_by": {"@id": "mm:triggered_by", "@type": "@id"},
-    "prohibited_by": {"@id": "mm:prohibited_by", "@type": "@id"},
-    "consequence_of": {"@id": "mm:consequence_of", "@type": "@id"},
-    "permits_operator": {"@id": "mm:permits_operator", "@type": "@id"},
-    "prohibits_operator": {"@id": "mm:prohibits_operator", "@type": "@id"},
-    "cannot_instantiate": {"@id": "mm:cannot_instantiate", "@type": "@id"},
-    "extends": {"@id": "mm:extends", "@type": "@id"},
-    "iterates_to": {"@id": "mm:iterates_to", "@type": "@id"},
+    "derives": {
+      "@id": "mm:derives",
+      "@type": "@id"
+    },
+    "derives_from": {
+      "@id": "mm:derives_from",
+      "@type": "@id"
+    },
+    "composes_with": {
+      "@id": "mm:composes_with",
+      "@type": "@id"
+    },
+    "structurally_corresponds_to": {
+      "@id": "mm:structurally_corresponds_to",
+      "@type": "@id"
+    },
+    "maps_to": {
+      "@id": "mm:maps_to",
+      "@type": "@id"
+    },
+    "triggers": {
+      "@id": "mm:triggers",
+      "@type": "@id"
+    },
+    "triggered_by": {
+      "@id": "mm:triggered_by",
+      "@type": "@id"
+    },
+    "prohibited_by": {
+      "@id": "mm:prohibited_by",
+      "@type": "@id"
+    },
+    "consequence_of": {
+      "@id": "mm:consequence_of",
+      "@type": "@id"
+    },
+    "permits_operator": {
+      "@id": "mm:permits_operator",
+      "@type": "@id"
+    },
+    "prohibits_operator": {
+      "@id": "mm:prohibits_operator",
+      "@type": "@id"
+    },
+    "cannot_instantiate": {
+      "@id": "mm:cannot_instantiate",
+      "@type": "@id"
+    },
+    "extends": {
+      "@id": "mm:extends",
+      "@type": "@id"
+    },
+    "iterates_to": {
+      "@id": "mm:iterates_to",
+      "@type": "@id"
+    },
     "status": "mm:status",
     "origin": "mm:origin",
     "definition": "mm:definition",
-    "layer": "mm:layer"
+    "layer": "mm:layer",
+    "based_on": {
+      "@id": "mm:based_on",
+      "@type": "@id"
+    },
+    "declares_dependency": {
+      "@id": "mm:declares_dependency",
+      "@type": "@id"
+    },
+    "investigates_isomorphism": {
+      "@id": "mm:investigates_isomorphism",
+      "@type": "@id"
+    },
+    "treats_as_candidate_invariants": {
+      "@id": "mm:treats_as_candidate_invariants",
+      "@type": "@id"
+    },
+    "does_not_require": {
+      "@id": "mm:does_not_require",
+      "@type": "@id"
+    },
+    "does_not_prove": {
+      "@id": "mm:does_not_prove",
+      "@type": "@id"
+    },
+    "semantic_beacon": {
+      "@id": "mm:semantic_beacon",
+      "@type": "@id"
+    },
+    "stage10_status": "mm:stage10_status"
   },
   "@graph": [
     {
@@ -47,7 +118,10 @@
       "layer": "core",
       "structurally_corresponds_to": "mm:core.dom.logos",
       "cannot_instantiate": "mm:core.sts.absolute_identity",
-      "permits_operator": ["mm:core.op.diff", "mm:core.op.dissipate"],
+      "permits_operator": [
+        "mm:core.op.diff",
+        "mm:core.op.dissipate"
+      ],
       "prohibits_operator": "mm:core.op.fix"
     },
     {
@@ -162,6 +236,67 @@
       "origin": "CORPUS",
       "layer": "core",
       "consequence_of": "mm:core.inv.ban_of_absolute_identity"
+    },
+    {
+      "@id": "mm:stage10.X2",
+      "@type": "mm:Stage10Statement",
+      "subject": "mm:a.meta.ontological_core_agi",
+      "property": "break_type",
+      "value": "ontological",
+      "stage10_status": "SOURCE"
+    },
+    {
+      "@id": "mm:stage10.X2b",
+      "@type": "mm:Stage10Statement",
+      "subject": "mm:a.meta.ontological_core_agi",
+      "property": "continuity",
+      "value": "axiomatic_only",
+      "stage10_status": "SOURCE"
+    },
+    {
+      "@id": "mm:stage10.X3",
+      "@type": "mm:Stage10Statement",
+      "subject": "mm:a.meta.ontological_core_agi",
+      "property": "mandatory_components",
+      "value": [
+        "mm:a.op.diff",
+        "mm:a.op.dissipate",
+        "mm:a.op.fix",
+        "mm:a.op.unfold"
+      ],
+      "stage10_status": "SOURCE"
+    },
+    {
+      "@id": "mm:stage10.X4",
+      "@type": "mm:Stage10Statement",
+      "subject": "mm:a.meta.ontological_core_agi",
+      "property": "scope",
+      "value": "ontological_constraints; excludes implementation",
+      "stage10_status": "SOURCE"
+    },
+    {
+      "@id": "mm:stage10.X11",
+      "@type": "mm:Stage10Statement",
+      "subject": "mm:c.mod.fundamental_interactions",
+      "property": "proposed",
+      "value": true,
+      "stage10_status": "SOURCE"
+    },
+    {
+      "@id": "mm:stage10.X17",
+      "@type": "mm:Stage10Statement",
+      "subject": "mm:b.meta.ufcps",
+      "property": "experiment_scope",
+      "value": "structural emergence, not ideological adoption",
+      "stage10_status": "SOURCE"
+    },
+    {
+      "@id": "mm:stage10.X18",
+      "@type": "mm:Stage10Statement",
+      "subject": "mm:b.meta.ufcps",
+      "property": "hypothesis",
+      "value": "continuity across carriers may support collective intelligence as a process property",
+      "stage10_status": "RESEARCH_HYPOTHESIS"
     }
   ]
 }

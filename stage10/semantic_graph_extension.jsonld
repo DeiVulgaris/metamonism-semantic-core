@@ -1,0 +1,36 @@
+{
+  "@context": {
+    "mm": "https://metamonism.org/ontology#",
+    "based_on": {"@id": "mm:based_on", "@type": "@id"},
+    "derived_from": {"@id": "mm:derived_from", "@type": "@id"},
+    "declares_dependency": {"@id": "mm:declares_dependency", "@type": "@id"},
+    "investigates_isomorphism": {"@id": "mm:investigates_isomorphism", "@type": "@id"},
+    "treats_as_candidate_invariants": {"@id": "mm:treats_as_candidate_invariants", "@type": "@id"},
+    "does_not_require": {"@id": "mm:does_not_require", "@type": "@id"},
+    "does_not_prove": {"@id": "mm:does_not_prove", "@type": "@id"},
+    "semantic_beacon": {"@id": "mm:semantic_beacon", "@type": "@id"}
+  },
+  "@graph": [
+    {"@id":"mm:stage10.X1","subject":"mm:a.meta.ontological_core_agi","relation":"mm:based_on","object":"mm:core.meta.v1_3","status":"SOURCE"},
+    {"@id":"mm:stage10.X2","subject":"mm:a.meta.ontological_core_agi","property":"break_type","value":"ontological","status":"SOURCE"},
+    {"@id":"mm:stage10.X3","subject":"mm:a.meta.ontological_core_agi","property":"mandatory_components","value":["mm:a.op.diff","mm:a.op.dissipate","mm:a.op.fix","mm:a.op.unfold"],"status":"SOURCE"},
+    {"@id":"mm:stage10.X4","subject":"mm:a.meta.ontological_core_agi","property":"scope","value":"ontological_constraints; excludes implementation","status":"SOURCE"},
+    {"@id":"mm:stage10.X5","subject":"mm:c.meta.ontodynamics","relation":"mm:derived_from","object":"mm:core.meta.v1_3","status":"SOURCE"},
+    {"@id":"mm:stage10.X6","subject":"mm:c.meta.ontodynamics","relation":"mm:declares_dependency","object":"mm:core.meta.v1_3","status":"SOURCE"},
+    {"@id":"mm:stage10.X7","subject":"mm:c.meta.ontodynamics","relation":"mm:derived_from","object":"mm:core.meta.v1_3","status":"SOURCE"},
+    {"@id":"mm:stage10.X8","subject":"mm:c.meta.ontodynamics","relation":"mm:declares_dependency","object":"mm:core.meta.v1_3","status":"SOURCE"},
+    {"@id":"mm:stage10.X9","subject":"mm:c.prin.orthogonal_dissipation","relation":"mm:derived_from","object":"mm:core.inv.ban_of_absolute_identity","status":"SOURCE"},
+    {"@id":"mm:stage10.X10","subject":"mm:c.mod.fundamental_interactions","relation":"mm:derived_from","object":"mm:core.inv.ban_of_absolute_identity","status":"SOURCE","note":"Variant A literal representation only"},
+    {"@id":"mm:stage10.X11","subject":"mm:c.mod.fundamental_interactions","property":"proposed","value":true,"status":"SOURCE"},
+    {"@id":"mm:stage10.X12","subject":"mm:b.meta.ufcps","relation":"mm:investigates_isomorphism","object":"mm:core.meta.ontodynamic_architecture","status":"RESEARCH_HYPOTHESIS"},
+    {"@id":"mm:stage10.X13","subject":"mm:b.meta.ufcps","relation":"mm:treats_as_candidate_invariants","object":"mm:core.meta.ontodynamic_architecture","status":"RESEARCH_HYPOTHESIS"},
+    {"@id":"mm:stage10.X14","subject":"mm:b.meta.ufcps","relation":"mm:investigates_isomorphism","object":"mm:core.meta.ontodynamic_architecture","status":"RESEARCH_HYPOTHESIS"},
+    {"@id":"mm:stage10.X15","subject":"mm:b.meta.ufcps","relation":"mm:investigates_isomorphism","object":"mm:core.meta.ontodynamic_architecture","status":"RESEARCH_HYPOTHESIS"},
+    {"@id":"mm:stage10.X16","subject":"mm:b.meta.ufcps","relation":"mm:does_not_require","object":"mm:core.meta.v1_3","status":"SOURCE"},
+    {"@id":"mm:stage10.X17","subject":"mm:b.meta.ufcps","property":"experiment_scope","value":"structural emergence, not ideological adoption","status":"SOURCE"},
+    {"@id":"mm:stage10.X18","subject":"mm:b.meta.ufcps","property":"research_hypothesis","value":"continuity across carriers may support collective intelligence as a process property","status":"RESEARCH_HYPOTHESIS"},
+    {"@id":"mm:stage10.X19","subject":"mm:b.meta.ufcps","relation":"mm:investigates_isomorphism","object":"mm:core.meta.ontodynamic_architecture","status":"RESEARCH_HYPOTHESIS"},
+    {"@id":"mm:stage10.X20","subject":"mm:b.meta.ufcps","relation":"mm:does_not_prove","object":"mm:core.meta.v1_3","status":"SOURCE"},
+    {"@id":"mm:stage10.X21","subject":"mm:b.prot.schemas","relation":"mm:semantic_beacon","object":"metamonism / Ex uno omnia","status":"SOURCE"}
+  ]
+}
