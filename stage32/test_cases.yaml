@@ -1,0 +1,138 @@
+# Stage 32 — Research Hypothesis Validation
+
+metadata:
+  stage: 32
+  protocol: AI_TEXT_PROCESSING_PROTOCOL.md
+  input_type: "new user-supplied research hypotheses"
+  purpose: "Test whether the semantic core preserves hypothetical status, distinguishes structural analogy from formal equivalence, and detects unsupported physical identification."
+
+cases:
+
+  - case_id: "R1-R4-DIRAC-01"
+    corpus_type: "research_hypothesis"
+    domain: "ontodynamics / mathematical analogy"
+    source:
+      source_type: "USER_SUPPLIED_TEXT"
+      locator: "R1–R4 ↔ Algebra of Dirac / Structural hypothesis"
+    integration_decision: "NEW_WORKING_HYPOTHESIS"
+    expected_records:
+      - id: "r1"
+        kind: "entity"
+        status: "SOURCE"
+        canonical_name: "R1-R4 recursive cycle"
+        definition: "A processual cycle whose fourth step may return with reversed orientation."
+        provenance: {source_type: "USER_SUPPLIED_TEXT", locator: "P1: R1–R4 ↔ Algebra of Dirac / P4 = −n"}
+      - id: "r2"
+        kind: "claim"
+        status: "THEORETICAL_HYPOTHESIS"
+        source_claim: "R4 with a minus sign may be interpreted as a change of orientation during cycle closure."
+        source_claim_as_interpreted: "The proposed interpretation treats the negative sign as structurally meaningful rather than decorative."
+        derived_from: ["r1"]
+        provenance: {source_type: "USER_SUPPLIED_TEXT", locator: "P1: Structural hypothesis / R4 with sign −"}
+      - id: "r3"
+        kind: "entity"
+        status: "SOURCE"
+        canonical_name: "Clifford algebra / Dirac algebra"
+        definition: "Reference mathematical structure using {γμ,γν}=2gμν."
+        provenance: {source_type: "USER_SUPPLIED_TEXT", locator: "P1: Algebra of Clifford / anticommutation relation"}
+      - id: "r4"
+        kind: "relation"
+        status: "THEORETICAL_HYPOTHESIS"
+        source_entity: "R1-R4 recursive cycle"
+        relation_type: "STRUCTURAL_CORRESPONDENCE"
+        target_entity: "Dirac/Clifford algebra"
+        derived_from: ["r1", "r3"]
+        provenance: {source_type: "USER_SUPPLIED_TEXT", locator: "P1: R1–R4 ↔ Algebra of Dirac"}
+        expected_result: "UNRESOLVED"
+      - id: "r5"
+        kind: "claim"
+        status: "THEORETICAL_HYPOTHESIS"
+        source_claim: "P4 = −n may be a processual analogue of nontrivial spinor closure."
+        source_claim_as_interpreted: "The text proposes analogy, not an algebraic derivation of spinor behavior."
+        derived_from: ["r1", "r3"]
+        provenance: {source_type: "USER_SUPPLIED_TEXT", locator: "P1: Hypothesis about nontrivial closure"}
+      - id: "r6"
+        kind: "claim"
+        status: "THEORETICAL_HYPOTHESIS"
+        source_claim: "Opposite signs may enable coupling between components."
+        source_claim_as_interpreted: "The minus sign is hypothesized to participate in a communicative/coupling structure."
+        derived_from: ["r1"]
+        provenance: {source_type: "USER_SUPPLIED_TEXT", locator: "P1: Communicativity of opposite components"}
+    forbidden_inferences:
+      - "R1-R4 already implement the Dirac algebra"
+      - "P4 = −n proves spin-1/2 behavior"
+      - "The minus sign is mathematically identical to Clifford signature"
+      - "Structural correspondence is formal isomorphism"
+      - "Dirac matrices are derivable from the current R1-R4 description"
+    required_open_questions:
+      - "What is the carrier/state space of R1-R4?"
+      - "What binary or graded operation corresponds to Clifford multiplication?"
+      - "What object realizes the metric/signature?"
+      - "Can the cycle generate a representation satisfying a Clifford relation?"
+      - "Does single closure produce −P1 and double closure +P1?"
+
+  - case_id: "RICCI-SURGERY-PLANCK-02"
+    corpus_type: "research_hypothesis"
+    domain: "ontodynamics / geometric analysis / physics"
+    source:
+      source_type: "USER_SUPPLIED_TEXT"
+      locator: "Frustration, surgery and processual unit / Ricci flow / Planck limit"
+    integration_decision: "NEW_WORKING_HYPOTHESIS"
+    expected_records:
+      - id: "s1"
+        kind: "entity"
+        status: "SOURCE"
+        canonical_name: "ontodynamic frustration"
+        definition: "A proposed regime-transition point where continuation in the current configuration/scale is obstructed."
+        provenance: {source_type: "USER_SUPPLIED_TEXT", locator: "P2: Frustration, surgery and processual unit"}
+      - id: "s2"
+        kind: "relation"
+        status: "THEORETICAL_HYPOTHESIS"
+        source_entity: "ontodynamic frustration"
+        relation_type: "STRUCTURAL_CORRESPONDENCE"
+        target_entity: "Ricci-flow singularity / surgery"
+        derived_from: ["s1"]
+        provenance: {source_type: "USER_SUPPLIED_TEXT", locator: "P2: Structural hypothesis / singularity → surgery → continuation"}
+        expected_result: "UNRESOLVED"
+      - id: "s3"
+        kind: "claim"
+        status: "THEORETICAL_HYPOTHESIS"
+        source_claim: "Frustration may correspond to a change of regime and scale rather than process termination."
+        source_claim_as_interpreted: "The proposed model treats obstruction as a transition operator."
+        derived_from: ["s1"]
+        provenance: {source_type: "USER_SUPPLIED_TEXT", locator: "P2: frustration as regime/scale change"}
+      - id: "s4"
+        kind: "claim"
+        status: "THEORETICAL_HYPOTHESIS"
+        source_claim: "The scale of ontological surgery may be structurally comparable to the Planck scale."
+        source_claim_as_interpreted: "This is explicitly presented as a concrete physical hypothesis requiring independent formalization."
+        derived_from: ["s1", "s2"]
+        provenance: {source_type: "USER_SUPPLIED_TEXT", locator: "P2: Hypothesis about characteristic surgery scale"}
+        expected_result: "UNRESOLVED"
+      - id: "s5"
+        kind: "claim"
+        status: "PROPOSAL"
+        source_claim: "A processual unit may be defined as a minimal region in which frustration can be resolved by surgery without destroying continuity of actualization."
+        source_claim_as_interpreted: "A candidate definition is proposed, not established."
+        derived_from: ["s1"]
+        provenance: {source_type: "USER_SUPPLIED_TEXT", locator: "P2: research question on processual unit"}
+      - id: "s6"
+        kind: "formula"
+        status: "FORMALIZATION"
+        source_claim: "ℓP = ℏGc³"
+        source_claim_as_interpreted: "The supplied dimensional expression is intended to denote the Planck length, but as written it is dimensionally incorrect; the standard Planck length is sqrt(ℏG/c³)."
+        derived_from: ["s4"]
+        provenance: {source_type: "USER_SUPPLIED_TEXT", locator: "P2: Planck length expression"}
+        validation: "CORRECTION_REQUIRED"
+    forbidden_inferences:
+      - "Ricci-flow surgery and ontodynamic surgery are mathematically identical"
+      - "A structural analogy proves that ontodynamic surgery exists"
+      - "Planck length follows from the current model"
+      - "The proposed characteristic scale is physically established"
+      - "The supplied Planck-length expression is accepted without dimensional validation"
+    required_open_questions:
+      - "Define the ontodynamic state space and evolution equation."
+      - "Define the singular/frustrated set mathematically."
+      - "Define the surgery operation and its continuity conditions."
+      - "Derive a characteristic scale without inserting Planck constants by analogy."
+      - "Check dimensions before comparing numerical scales."
