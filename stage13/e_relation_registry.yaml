@@ -60,7 +60,7 @@ relations:
   - {id: mm:c.rel.no_qm_replacement_boundary, subject: mm:c.mod.qm_measurement_phase_transition, predicate: bounded_by, object: mm:c.clm.no_standard_qm_replacement, status: SOURCE}
 
 relation_summary:
-  total_relations: 43
+  total_relations: 42
 
 validation:
   source_scope_only: true
