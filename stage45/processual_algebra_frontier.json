@@ -1,0 +1,53 @@
+{
+  "frontier_id": "RF-PROCESSUAL-ALGEBRA-D1D5-001",
+  "research_program_id": "RP-DIRAC-PROCESSUAL-ALGEBRA",
+  "trajectory_id": "RT-stage45-dirac-001",
+  "frontier_state": "UNRESOLVED",
+  "epistemic_status": "THEORETICAL_HYPOTHESIS",
+  "subject": {"ref": "P1-P4-processual-structure"},
+  "unresolved_difference": "It is unknown whether P1-P4 can independently supply a carrier, composition law, bilinear form, and anticommutator satisfying Clifford relations.",
+  "evidence": [
+    "Chapter 3 defines P0->P1->P2->P3->P4.",
+    "Chapter 3 describes orthogonal unfolding and +n->-n.",
+    "Chapter 3 permits future Clifford/Dirac structural comparison.",
+    "Chapter 3 explicitly rejects structural isomorphism as physical identity."
+  ],
+  "provenance": {
+    "repository": "user-supplied Zenodo source",
+    "path": "METAMONISM: Chapter 3. Processual Ontodynamics",
+    "ref": "user_supplied_attachment",
+    "locator": "lines 34-46; 317-323; 324-345"
+  },
+  "derived_from": ["stage45/dirac_matrix_research_program.md"],
+  "constraints": [
+    "P1-P4 must not be treated as generators without justification.",
+    "No Clifford product may be imported before D2.",
+    "No metric signature may be imported before D3."
+  ],
+  "blockers": [
+    "carrier undefined",
+    "composition law undefined",
+    "bilinear/quadratic form undefined",
+    "anticommutator undefined"
+  ],
+  "open_questions": [
+    "What mathematical carrier represents the processual structure?",
+    "What operation composes processual transitions?",
+    "Can orthogonality be formalized without assuming a Clifford product?",
+    "Can a bilinear form be derived rather than imposed?",
+    "What algebraic law, if any, follows from +n->-n?"
+  ],
+  "admissible_transitions": [
+    {"type": "DEFINE", "status": "AVAILABLE"},
+    {"type": "FORMALIZE", "status": "CONDITIONAL", "prerequisites": ["carrier_defined"]},
+    {"type": "COMPARE", "status": "CONDITIONAL", "prerequisites": ["algebra_defined"]},
+    {"type": "COUNTEREXAMPLE", "status": "AVAILABLE"}
+  ],
+  "forbidden_inferences": [
+    "P1-P4 are already Dirac gamma matrices",
+    "four stages imply Clifford algebra",
+    "+n->-n proves spin-1/2",
+    "orientation reversal is identical to a gamma-matrix sign",
+    "Dirac equation follows from the current source"
+  ]
+}

@@ -1,0 +1,38 @@
+suite: processual-composition-d2
+version: "1.0"
+
+vectors:
+  - id: C1_compatible
+    input: "T2∘T1"
+    expected: VALID_COMPOSITION
+    reason: "Codomain of T1 matches domain of T2."
+
+  - id: C2_incompatible
+    input: "T2∘T0"
+    expected: UNDEFINED
+    reason: "The source and target states do not match in the minimal path representation."
+
+  - id: C3_associativity
+    input: "(T3∘T2)∘T1 = T3∘(T2∘T1)"
+    expected: VALID_WHERE_DEFINED
+    reason: "Associativity is inherited from composition of maps."
+
+  - id: C4_transition_not_product
+    input: "P1 P2"
+    expected: PROHIBITED
+    reason: "The source supplies processual succession, not multiplication of states."
+
+  - id: C5_orientation
+    input: "R(n)"
+    expected: "-n"
+    reason: "This is the source-grounded orientation reversal."
+
+  - id: C6_orientation_square
+    input: "R²"
+    expected: UNRESOLVED
+    reason: "R(n)=-n alone does not determine the algebraic square of R."
+
+  - id: C7_clifford_import
+    input: "T_i T_j + T_j T_i = 2g_ij I"
+    expected: PROHIBITED
+    reason: "No product, metric, or identity has yet been independently derived."

@@ -1,0 +1,55 @@
+suite: processual-algebra-d1-d5
+version: "1.0"
+
+vectors:
+  - id: D1_no_carrier
+    input: {carrier: null}
+    expected: BLOCKED
+    reason: "No algebraic object may be inferred without a defined carrier."
+
+  - id: D1_candidate_carrier
+    input: {carrier: "V,q", provenance: "WORKING_PROPOSAL"}
+    expected: PROPOSED
+    reason: "A vector-space/quadratic carrier is a candidate only until justified."
+
+  - id: D2_state_transition_not_product
+    input:
+      process: "P1->P2"
+      operation: null
+    expected: BLOCKED
+    reason: "A transition is not automatically an algebraic multiplication."
+
+  - id: D3_signature_not_assumed
+    input:
+      orthogonality: true
+      metric_signature: null
+    expected: BLOCKED
+    reason: "Orthogonality alone does not determine Euclidean or Lorentzian signature."
+
+  - id: D4_product_required
+    input:
+      product_defined: false
+      anticommutator: "e_mu e_nu + e_nu e_mu"
+    expected: BLOCKED
+    reason: "Anticommutator requires a defined binary product."
+
+  - id: D5_not_stipulated
+    input:
+      clifford_relation: "stipulated"
+    expected: REJECTED
+    reason: "Stipulating the target relation is not a test."
+
+  - id: D5_verified
+    input:
+      product_defined: true
+      bilinear_form_defined: true
+      relation_verified: true
+    expected: PASS
+    reason: "Only explicit verification can establish the Clifford relation for the constructed algebra."
+
+  - id: orientation_square_open
+    input:
+      R_n: "-n"
+      R_squared: null
+    expected: UNRESOLVED
+    reason: "R(n)=-n does not determine R^2."
