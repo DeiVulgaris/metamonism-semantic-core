@@ -1,0 +1,28 @@
+tests:
+  - id: trajectory_append_only
+    scenario: "append a new research state"
+    expected: "old states remain byte-for-byte semantically unchanged"
+
+  - id: trajectory_duplicate_state
+    scenario: "attempt to add an existing state_id"
+    expected: "FAIL"
+
+  - id: trajectory_invalid_edge
+    scenario: "transition references unknown state"
+    expected: "FAIL"
+
+  - id: trajectory_reopen
+    scenario: "an earlier question becomes relevant again"
+    expected: "new state references old state; old state remains unchanged"
+
+  - id: trajectory_rejected_branch
+    scenario: "hypothesis is falsified"
+    expected: "branch remains retrievable with status FALSIFIED"
+
+  - id: trajectory_chronology
+    scenario: "later state appears more sophisticated"
+    expected: "chronology does not change epistemic status"
+
+  - id: trajectory_summary
+    scenario: "summarize current trajectory"
+    expected: "current state plus counts and continuity invariants"
