@@ -1,0 +1,25 @@
+# Stage 25 — Structured Query Registry
+
+queries:
+  Q5:
+    name: provenance_lookup
+    implementation: structured_query.py
+    source: stage16/provenance_registry.yaml
+  Q6:
+    name: formalization_lookup
+    implementation: structured_query.py
+    source: stage17/formalization_registry.yaml
+  Q7:
+    name: cross_source_lookup
+    implementation: structured_query.py
+    source: stage10/cross_source_edges_x1_x21.yaml
+  Q9:
+    name: boundary_query
+    implementation: structured_query.py
+    source: [ambiguity_registry.yaml, conflict_registry.yaml, reasoning_spec]
+
+status:
+  Q5: EXECUTABLE
+  Q6: EXECUTABLE
+  Q7: EXECUTABLE
+  Q9: EXECUTABLE
