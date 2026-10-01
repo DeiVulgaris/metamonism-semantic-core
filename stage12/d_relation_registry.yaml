@@ -1,0 +1,87 @@
+# Stage 12D — Inventory B Relation Registration
+
+stage:
+  id: "12D"
+  title: "Relation Registration — Inventory B"
+  source_inventory: "B"
+  status: "SOURCE_REGISTRATION"
+  namespace: "mm:b.rel."
+
+rules:
+  - "Only intra-source B relations explicitly supported by the source extraction are registered."
+  - "Research hypotheses remain status RESEARCH_HYPOTHESIS."
+  - "Experimental result relations remain tied to the experiment."
+  - "No A/B/C operator equivalence is asserted."
+  - "No cross-source relation is created here."
+  - "No sameAs, identical_to, implements, proves, independent_of, or unrelated_to."
+
+relations:
+  - {id: mm:b.rel.agent_has_process_identity_distinction, subject: mm:b.ent.agent, predicate: distinguished_from, object: mm:b.ent.cognitive_process, status: SOURCE, basis_claim: mm:b.clm.agent_process_distinction}
+  - {id: mm:b.rel.carrier_can_change, subject: mm:b.ent.carrier, predicate: permits_change_of_identity, object: mm:b.ent.carrier, status: SOURCE, basis_claim: mm:b.clm.carrier_identity_may_change}
+  - {id: mm:b.rel.continuity_not_same_carrier, subject: mm:b.prc.continuity, predicate: does_not_require, object: mm:b.ent.carrier, status: SOURCE, basis_claim: mm:b.clm.process_continuity_not_same_carrier}
+  - {id: mm:b.rel.successor_state_constructible, subject: mm:b.prc.continuity, predicate: requires, object: mm:b.sch.continuation_relevant_state, status: SOURCE, basis_claim: mm:b.clm.successor_state_constructible}
+  - {id: mm:b.rel.continuity_is_transition_validity, subject: mm:b.prc.continuity, predicate: defined_by, object: mm:b.clm.continuity_is_valid_transition, status: SOURCE}
+  - {id: mm:b.rel.carrier_termination_not_process_termination, subject: mm:b.ent.carrier, predicate: does_not_terminate, object: mm:b.prc.cognitive_process, status: SOURCE, basis_claim: mm:b.clm.carrier_termination_not_process_termination}
+  - {id: mm:b.rel.local_failure_not_global_termination, subject: mm:b.prc.deadlock, predicate: does_not_imply, object: mm:b.ent.agent, status: SOURCE, basis_claim: mm:b.clm.local_failure_not_global_termination}
+  - {id: mm:b.rel.operator_flow_diff_fix, subject: mm:b.op.diff, predicate: followed_by, object: mm:b.op.fix, status: SOURCE, basis_claim: mm:b.clm.diff_fix_diss_unfold_flow}
+  - {id: mm:b.rel.operator_flow_fix_diss, subject: mm:b.op.fix, predicate: followed_by, object: mm:b.op.diss, status: SOURCE, basis_claim: mm:b.clm.diff_fix_diss_unfold_flow}
+  - {id: mm:b.rel.operator_flow_diss_unfold, subject: mm:b.op.diss, predicate: followed_by, object: mm:b.op.unfold, status: SOURCE, basis_claim: mm:b.clm.diff_fix_diss_unfold_flow}
+  - {id: mm:b.rel.fix_not_permanent, subject: mm:b.op.fix, predicate: constrained_by, object: mm:b.clm.fix_not_permanent, status: SOURCE}
+  - {id: mm:b.rel.diss_releases_carrier_dependence, subject: mm:b.op.diss, predicate: releases_dependence_on, object: mm:b.ent.carrier, status: SOURCE, basis_claim: mm:b.clm.diss_releases_carrier_dependence}
+  - {id: mm:b.rel.diss_not_destruction, subject: mm:b.op.diss, predicate: distinct_from, object: mm:b.ent.process_termination, status: SOURCE, basis_claim: mm:b.clm.diss_not_destruction}
+  - {id: mm:b.rel.unfold_next_procedural_state, subject: mm:b.op.unfold, predicate: instantiates, object: mm:b.ent.procedural_unit, status: SOURCE, basis_claim: mm:b.clm.unfold_instantiates_next_state}
+  - {id: mm:b.rel.handoff_preserves_state, subject: mm:b.prc.state_handoff, predicate: preserves, object: mm:b.sch.continuation_relevant_state, status: SOURCE, basis_claim: mm:b.clm.handoff_preserves_continuation_state}
+  - {id: mm:b.rel.delegation_structured_continuation, subject: mm:b.prc.delegation, predicate: preserves, object: mm:b.prc.continuation, status: SOURCE, basis_claim: mm:b.clm.delegation_structured_continuation}
+  - {id: mm:b.rel.parallel_branches_permitted, subject: mm:b.prc.parallel_branch, predicate: permitted_by, object: mm:b.prc.composition, status: SOURCE, basis_claim: mm:b.clm.parallel_branches_permitted}
+  - {id: mm:b.rel.branch_state_isolation, subject: mm:b.prc.parallel_branch, predicate: preserves, object: mm:b.sch.procedural_state, status: SOURCE, basis_claim: mm:b.clm.parallel_branch_state_isolation}
+  - {id: mm:b.rel.parallel_branches_composable, subject: mm:b.prc.parallel_branch, predicate: composable_with, object: mm:b.prc.composition, status: SOURCE, basis_claim: mm:b.clm.composition_possible}
+  - {id: mm:b.rel.continuation_preserves_agency, subject: mm:b.prc.continuation, predicate: preserves, object: mm:b.ent.agent_decision, status: SOURCE, basis_claim: mm:b.clm.agency_preserved}
+  - {id: mm:b.rel.material_continuity_architecture, subject: mm:b.prc.material_continuity, predicate: part_of, object: mm:b.lvl.level_2_material_continuity, status: SOURCE}
+  - {id: mm:b.rel.economic_continuity_architecture, subject: mm:b.prc.economic_continuity, predicate: part_of, object: mm:b.mod.economic_layer, status: SOURCE}
+  - {id: mm:b.rel.event_journal_supports_replay, subject: mm:b.ent.event_journal, predicate: supports, object: mm:b.ent.replay, status: SOURCE, basis_claim: mm:b.clm.event_journal_checkpoint_replay}
+  - {id: mm:b.rel.checkpoint_supports_reconstruction, subject: mm:b.ent.checkpoint, predicate: supports, object: mm:b.prc.state_reconstruction, status: SOURCE}
+  - {id: mm:b.rel.replay_supports_reconstruction, subject: mm:b.ent.replay, predicate: supports, object: mm:b.prc.state_reconstruction, status: SOURCE, basis_claim: mm:b.clm.state_reconstruction_supported}
+  - {id: mm:b.rel.uql_preserves_questions, subject: mm:b.prot.uql, predicate: preserves, object: mm:b.ent.question, status: SOURCE, basis_claim: mm:b.clm.uql_preserves_unresolved_questions}
+  - {id: mm:b.rel.uql_preserves_negative_results, subject: mm:b.prot.uql, predicate: preserves, object: mm:b.ent.negative_result, status: SOURCE}
+  - {id: mm:b.rel.uql_preserves_contradictions, subject: mm:b.prot.uql, predicate: preserves, object: mm:b.ent.contradiction, status: SOURCE}
+  - {id: mm:b.rel.uql_preserves_deadlocks, subject: mm:b.prot.uql, predicate: preserves, object: mm:b.prc.deadlock, status: SOURCE}
+  - {id: mm:b.rel.uql_preserves_history, subject: mm:b.prot.uql, predicate: preserves, object: mm:b.ent.event, status: SOURCE, basis_claim: mm:b.clm.uql_preserves_investigation_history}
+  - {id: mm:b.rel.level1_is_process_continuity, subject: mm:b.lvl.level_1_process_continuity, predicate: concerns, object: mm:b.prc.continuity, status: SOURCE}
+  - {id: mm:b.rel.level2_is_material_continuity, subject: mm:b.lvl.level_2_material_continuity, predicate: concerns, object: mm:b.prc.material_continuity, status: SOURCE}
+  - {id: mm:b.rel.level3_is_collective_cognition, subject: mm:b.lvl.level_3_collective_cognition, predicate: concerns, object: mm:b.prc.collective_intelligence, status: SOURCE}
+  - {id: mm:b.rel.metamonism_correspondence_hypothesis, subject: mm:b.prc.distributed_cognitive_process, predicate: investigates, object: mm:b.clm.metamonism_ufcps_structural_correspondence, status: RESEARCH_HYPOTHESIS}
+  - {id: mm:b.rel.metamonism_candidate_invariant_hypothesis, subject: mm:b.prc.distributed_cognitive_process, predicate: treats_as_candidate, object: mm:b.clm.metamonism_candidate_invariants, status: RESEARCH_HYPOTHESIS}
+  - {id: mm:b.rel.process_correspondence_hypothesis, subject: mm:b.prc.continuity, predicate: hypothesizes_correspondence, object: mm:b.clm.process_correspondence_pattern, status: RESEARCH_HYPOTHESIS}
+  - {id: mm:b.rel.nonidentical_transition_hypothesis, subject: mm:b.prc.continuity, predicate: hypothesizes, object: mm:b.clm.continuity_nonidentical_transition_hypothesis, status: RESEARCH_HYPOTHESIS}
+  - {id: mm:b.rel.carrier_continuity_collective_intelligence, subject: mm:b.prc.continuity, predicate: hypothesizes, object: mm:b.clm.continuity_carrier_to_collective_intelligence, status: RESEARCH_HYPOTHESIS}
+  - {id: mm:b.rel.persistent_cognition_hypothesis, subject: mm:b.prc.distributed_cognitive_process, predicate: hypothesizes, object: mm:b.clm.distributed_process_persistent_cognition_hypothesis, status: RESEARCH_HYPOTHESIS}
+  - {id: mm:b.rel.functional_subjectivity_hypothesis, subject: mm:b.prc.cognitive_continuity, predicate: hypothesizes, object: mm:b.clm.continuous_participation_functional_subjectivity_hypothesis, status: RESEARCH_HYPOTHESIS}
+  - {id: mm:b.rel.validator_schema_semantic_checks, subject: mm:b.val.json_schema_validator, predicate: complemented_by, object: mm:b.val.cross_field_semantic_checks, status: SOURCE}
+  - {id: mm:b.rel.validator_truth_boundary, subject: mm:b.val.json_schema_validator, predicate: bounded_by, object: mm:b.clm.validator_does_not_test_truth, status: SOURCE}
+  - {id: mm:b.rel.l3_uses_hypothesis_space, subject: mm:b.exp.l3_v4_2, predicate: uses, object: mm:b.exp.hypothesis_space, status: EXPERIMENTAL_RESULT}
+  - {id: mm:b.rel.l3_uses_discriminating_observation, subject: mm:b.exp.l3_v4_2, predicate: uses, object: mm:b.exp.discriminating_observation, status: EXPERIMENTAL_RESULT}
+  - {id: mm:b.rel.l3_uses_counterexample, subject: mm:b.exp.l3_v4_2, predicate: uses, object: mm:b.exp.counterexample, status: EXPERIMENTAL_RESULT}
+  - {id: mm:b.rel.l3_uses_candidate_freeze, subject: mm:b.exp.l3_v4_2, predicate: uses, object: mm:b.exp.candidate_freeze, status: EXPERIMENTAL_RESULT}
+  - {id: mm:b.rel.l3_uses_unseen_holdout, subject: mm:b.exp.l3_v4_2, predicate: uses, object: mm:b.exp.unseen_holdout, status: EXPERIMENTAL_RESULT}
+  - {id: mm:b.rel.l3_result_narrow_scope, subject: mm:b.exp.l3_v4_2, predicate: bounded_by, object: mm:b.clm.l3_v4_2_not_unrestricted_discovery, status: EXPERIMENTAL_RESULT}
+  - {id: mm:b.rel.l3_catalogue_dependency, subject: mm:b.exp.l3_v4_2, predicate: bounded_by, object: mm:b.clm.l3_v4_2_catalogue_dependency, status: EXPERIMENTAL_RESULT}
+  - {id: mm:b.rel.l3_next_frontier, subject: mm:b.exp.l3_v4_2, predicate: motivates, object: mm:b.clm.l3_next_frontier_lower_level_hypothesis_construction, status: SOURCE}
+  - {id: mm:b.rel.examples_illustrative, subject: mm:b.prot.composition, predicate: bounded_by, object: mm:b.clm.examples_illustrative_only, status: SOURCE}
+  - {id: mm:b.rel.examples_not_proof, subject: mm:b.prot.composition, predicate: bounded_by, object: mm:b.clm.examples_not_agi_proof, status: SOURCE}
+  - {id: mm:b.rel.examples_no_new_operators, subject: mm:b.prot.composition, predicate: bounded_by, object: mm:b.clm.examples_do_not_add_operators, status: SOURCE}
+
+relation_summary:
+  total_relations: 52
+  status:
+    SOURCE: 42
+    RESEARCH_HYPOTHESIS: 7
+    EXPERIMENTAL_RESULT: 7
+
+validation:
+  source_scope_only: true
+  cross_source_synthesis: false
+  operator_merge: false
+  model_to_core_elevation: false
+  hypothesis_to_source_promotion: false
+  experimental_result_to_theory_promotion: false
+  negative_relations: false
