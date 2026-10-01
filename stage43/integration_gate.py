@@ -23,7 +23,7 @@ def valid_chain(record):
     return not missing
 
 
-def reject_failure(case):
+def reject_failure(case, record):
     """Return True when an injected corruption is correctly rejected."""
     rules = {
         "wrong_program_identity": lambda x: x["program_id"] != x["resolved_program_id"],
@@ -89,7 +89,7 @@ def run_gate():
                                             "resolved_id":"RP-r1r4-dirac",
                                             "identity_asserted":False},
     }
-    failures = {name: reject_failure(name) for name, data in injections.items()}
+    failures = {name: reject_failure(name, data) for name, data in injections.items()}
     # The helper evaluates the named rule against its corresponding case.
     assert all(failures.values()), failures
     return {"status":"PASS","invariants":sorted(INVARIANTS),
