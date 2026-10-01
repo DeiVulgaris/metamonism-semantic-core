@@ -266,3 +266,59 @@ stage11c_relation_ids:
   - mm:a.rel.version_invariants
   - mm:a.rel.version_disqualifiers
   - mm:a.rel.failure_taxonomy_records
+
+# STAGE 12D — INVENTORY B RELATION IDS
+stage12d_relation_ids:
+  - mm:b.rel.agent_has_process_identity_distinction
+  - mm:b.rel.carrier_can_change
+  - mm:b.rel.continuity_not_same_carrier
+  - mm:b.rel.successor_state_constructible
+  - mm:b.rel.continuity_is_transition_validity
+  - mm:b.rel.carrier_termination_not_process_termination
+  - mm:b.rel.local_failure_not_global_termination
+  - mm:b.rel.operator_flow_diff_fix
+  - mm:b.rel.operator_flow_fix_diss
+  - mm:b.rel.operator_flow_diss_unfold
+  - mm:b.rel.fix_not_permanent
+  - mm:b.rel.diss_releases_carrier_dependence
+  - mm:b.rel.diss_not_destruction
+  - mm:b.rel.unfold_next_procedural_state
+  - mm:b.rel.handoff_preserves_state
+  - mm:b.rel.delegation_structured_continuation
+  - mm:b.rel.parallel_branches_permitted
+  - mm:b.rel.branch_state_isolation
+  - mm:b.rel.parallel_branches_composable
+  - mm:b.rel.continuation_preserves_agency
+  - mm:b.rel.material_continuity_architecture
+  - mm:b.rel.economic_continuity_architecture
+  - mm:b.rel.event_journal_supports_replay
+  - mm:b.rel.checkpoint_supports_reconstruction
+  - mm:b.rel.replay_supports_reconstruction
+  - mm:b.rel.uql_preserves_questions
+  - mm:b.rel.uql_preserves_negative_results
+  - mm:b.rel.uql_preserves_contradictions
+  - mm:b.rel.uql_preserves_deadlocks
+  - mm:b.rel.uql_preserves_history
+  - mm:b.rel.level1_is_process_continuity
+  - mm:b.rel.level2_is_material_continuity
+  - mm:b.rel.level3_is_collective_cognition
+  - mm:b.rel.metamonism_correspondence_hypothesis
+  - mm:b.rel.metamonism_candidate_invariant_hypothesis
+  - mm:b.rel.process_correspondence_hypothesis
+  - mm:b.rel.nonidentical_transition_hypothesis
+  - mm:b.rel.carrier_continuity_collective_intelligence
+  - mm:b.rel.persistent_cognition_hypothesis
+  - mm:b.rel.functional_subjectivity_hypothesis
+  - mm:b.rel.validator_schema_semantic_checks
+  - mm:b.rel.validator_truth_boundary
+  - mm:b.rel.l3_uses_hypothesis_space
+  - mm:b.rel.l3_uses_discriminating_observation
+  - mm:b.rel.l3_uses_counterexample
+  - mm:b.rel.l3_uses_candidate_freeze
+  - mm:b.rel.l3_uses_unseen_holdout
+  - mm:b.rel.l3_result_narrow_scope
+  - mm:b.rel.l3_catalogue_dependency
+  - mm:b.rel.l3_next_frontier
+  - mm:b.rel.examples_illustrative
+  - mm:b.rel.examples_not_proof
+  - mm:b.rel.examples_no_new_operators
