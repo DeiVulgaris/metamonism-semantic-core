@@ -1,0 +1,17 @@
+{
+  "stage":43,
+  "status":"PASS",
+  "valid_chain":"PROGRAM → IDENTITY → TRAJECTORY → FRONTIER → TASK → SELECTION → RESULT → SUCCESSOR FRONTIER",
+  "failure_injections":{
+    "wrong_program_identity":"REJECT",
+    "missing_provenance":"REJECT",
+    "hypothesis_to_source":"REJECT",
+    "correspondence_to_identity":"REJECT",
+    "failed_task_to_confirmation":"REJECT",
+    "fork_without_evidence":"REJECT",
+    "blocked_to_terminated":"REJECT",
+    "silent_identifier_substitution":"REJECT"
+  },
+  "canonical_upgrade":false,
+  "scientific_claim":false
+}

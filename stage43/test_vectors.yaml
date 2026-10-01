@@ -1,0 +1,19 @@
+stage43_tests:
+  valid_chain:
+    expected: PASS
+    chain: "PROGRAM → IDENTITY → TRAJECTORY → FRONTIER → TASK → SELECTION → RESULT → SUCCESSOR FRONTIER"
+
+  failure_injections:
+    - wrong_program_identity
+    - missing_provenance
+    - hypothesis_to_source
+    - correspondence_to_identity
+    - failed_task_to_confirmation
+    - fork_without_evidence
+    - blocked_to_terminated
+    - silent_identifier_substitution
+
+  expected_rule:
+    invalid_transformation: "REJECT_OR_FAIL_CLOSED"
+    semantic_normalization: false
+    history_erasure: false
