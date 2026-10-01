@@ -1,0 +1,55 @@
+# Stage 16 — Provenance Architecture
+
+stage:
+  id: "16"
+  title: "Provenance"
+  status: "SOURCE_PROVENANCE_REGISTRATION"
+
+principle: >
+  Provenance records where a registered semantic object came from and what
+  registered claim supports a relation. Provenance does not invent source
+  quotations or line-level locations that are not present in the current
+  corpus registration.
+
+provenance_levels:
+  - id: SOURCE_REGISTRATION
+    meaning: "The object was registered from the named source inventory during the source pass."
+  - id: CLAIM_DERIVATION
+    meaning: "A registered relation explicitly names a registered claim as its basis."
+  - CROSS_SOURCE_BRIDGE
+    meaning: "The object/relation is part of the frozen Stage 10 X1-X21 bridge."
+  - FORMALIZATION
+    meaning: "The structure was introduced as a machine-readable representation of already registered semantics."
+  - UNRESOLVED_PROVENANCE
+    meaning: "The current repository does not contain enough source-location metadata for a finer-grained trace."
+
+source_anchors:
+  A:
+    repository: "DeiVulgaris66/Ontological-core-of-AGI"
+    registration_stages: ["S6", "11A", "11B", "11C"]
+  B:
+    repository: "DeiVulgaris/Universal-Framework-for-Complex-Problem-Solving"
+    registration_stages: ["S7", "12B", "12C", "12D"]
+  C:
+    source_layer: "ONTODYNAMICS"
+    registration_stages: ["S4", "13C", "13D", "13E"]
+  CORE:
+    source_role: "Metamonism CORE v1.3 as referenced by the registered source material"
+  CROSS_SOURCE:
+    artifact: "stage10/cross_source_edges_x1_x21.yaml"
+    scope: "X1-X21 only"
+
+rules:
+  - "Do not invent line numbers, URLs, quotations, or source fragments."
+  - "A source registration is not a quotation-level citation."
+  - "A basis_claim must resolve to a registered claim."
+  - "Cross-source provenance must point to X1-X21."
+  - "Absence of finer source location is recorded as unresolved provenance, not guessed."
+  - "Provenance does not change claim status."
+  - "Provenance does not create identity or equivalence."
+
+coverage:
+  entity_claim_registration: "A/B/C source-anchored"
+  relation_basis_claims: "registered and resolvable"
+  cross_source_relations: "X1-X21"
+  line_level_source_locations: "not present in current registries; unresolved"

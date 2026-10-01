@@ -1,0 +1,12 @@
+# Stage 16 — Provenance Registry
+
+This registry is intentionally source-level rather than quotation-level. It records provenance that is actually present in the current semantic-core artifacts.
+
+records:
+  - {object_scope: "mm:a.*", level: SOURCE_REGISTRATION, source_inventory: A, source_anchor: "DeiVulgaris66/Ontological-core-of-AGI", status: REGISTERED}
+  - {object_scope: "mm:b.*", level: SOURCE_REGISTRATION, source_inventory: B, source_anchor: "DeiVulgaris/Universal-Framework-for-Complex-Problem-Solving", status: REGISTERED}
+  - {object_scope: "mm:c.*", level: SOURCE_REGISTRATION, source_inventory: C, source_anchor: "ONTODYNAMICS", status: REGISTERED}
+  - {object_scope: "mm:core.*", level: SOURCE_REGISTRATION, source_inventory: CORE, source_anchor: "Metamonism CORE v1.3", status: REGISTERED}
+  - {object_scope: "stage10.X1-X21", level: CROSS_SOURCE_BRIDGE, source_inventory: CROSS_SOURCE, source_anchor: "stage10/cross_source_edges_x1_x21.yaml", status: REGISTERED}
+  - {object_scope: "A/B/C relation basis_claim fields", level: CLAIM_DERIVATION, source_inventory: A|B|C, source_anchor: "stage11/12/13 relation registries", status: REGISTERED}
+  - {object_scope: "fine-grained source locations", level: UNRESOLVED_PROVENANCE, source_inventory: A|B|C, source_anchor: "not preserved in current registration", status: UNRESOLVED}
