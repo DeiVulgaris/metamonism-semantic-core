@@ -1,0 +1,29 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"mm:identity_registry:v1",
+  "title":"Research Identity Mapping",
+  "type":"object",
+  "required":["mapping_id","left_ref","right_ref","relation_type","assertion_status","scope","evidence","provenance"],
+  "properties":{
+    "mapping_id":{"type":"string","minLength":1},
+    "left_ref":{"type":"string","minLength":1},
+    "right_ref":{"type":"string","minLength":1},
+    "relation_type":{"enum":["IDENTITY_EQUIVALENCE","ALIAS","VERSION_CONTINUATION","DERIVATION","FORK","MERGE","UNRESOLVED_IDENTITY"]},
+    "assertion_status":{"enum":["PROPOSED","ASSERTED","REJECTED","UNRESOLVED"]},
+    "scope":{"enum":["RESEARCH_PROGRAM","RESEARCH_TRAJECTORY","RESEARCH_FRONTIER","RESEARCH_TASK"]},
+    "evidence":{"type":"array","items":{"type":"string"}},
+    "provenance":{
+      "type":"object",
+      "required":["repository","path","ref","locator"],
+      "properties":{
+        "repository":{"type":"string","minLength":1},
+        "path":{"type":"string","minLength":1},
+        "ref":{"type":"string","minLength":1},
+        "locator":{"type":"string","minLength":1}
+      }
+    },
+    "derived_from":{"type":"array","items":{"type":"string"}},
+    "notes":{"type":"string"}
+  },
+  "additionalProperties":false
+}
