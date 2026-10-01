@@ -1,0 +1,46 @@
+{
+  "stage": 28,
+  "case": "monos_logos",
+  "question": "What is the relation between Monos and Logos, and what does the corpus actually establish about their correspondence?",
+  "source_derived": {
+    "monos": {
+      "scope": "CORE",
+      "status": "SOURCE",
+      "meaning": [
+        "Monos is continuous, processual differentiation.",
+        "Monos is non-symbolic and not a static substrate."
+      ]
+    },
+    "logos": {
+      "scope": "CORE",
+      "status": "SOURCE",
+      "meaning": [
+        "Logos is the epistemic space of models, theories, and fixed representations.",
+        "Stable relations and discrete entities exist through fix operations."
+      ]
+    },
+    "relation": {
+      "status": "SOURCE",
+      "relation_type": "STRUCTURAL_CORRESPONDENCE",
+      "registered_relation": "mm:rel.structurally_corresponds_to",
+      "formal_isomorphism": "UNRESOLVED"
+    }
+  },
+  "comparison": {
+    "shared_pattern": "Monos and Logos are presented as distinct semantic domains connected by differentiation, stabilization, and representation.",
+    "preserved_difference": [
+      "Monos is processual/non-symbolic.",
+      "Logos is representational/model-forming.",
+      "The corpus asserts structural correspondence but does not provide a formal mapping sufficient to establish mathematical isomorphism."
+    ]
+  },
+  "cross_inventory_result": {
+    "status": "STRUCTURAL_CORRESPONDENCE",
+    "not_established": [
+      "Monos and Logos are identical.",
+      "Monos and Logos are mathematically isomorphic.",
+      "Logos is merely a representation of Monos.",
+      "Monos is merely a physical substrate corresponding one-to-one with Logos."
+    ]
+  }
+}
