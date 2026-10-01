@@ -364,3 +364,69 @@ stage12b_entity_ids:
   - mm:b.exp.counterexample
   - mm:b.exp.candidate_freeze
   - mm:b.exp.unseen_holdout
+
+# STAGE 12C — INVENTORY B CLAIM IDS
+stage12c_claim_ids:
+  - mm:b.clm.agent_process_distinction
+  - mm:b.clm.carrier_identity_may_change
+  - mm:b.clm.process_continuity_not_same_carrier
+  - mm:b.clm.successor_state_constructible
+  - mm:b.clm.states_nonidentical
+  - mm:b.clm.continuity_is_valid_transition
+  - mm:b.clm.carrier_termination_not_process_termination
+  - mm:b.clm.local_failure_not_global_termination
+  - mm:b.clm.diff_fix_diss_unfold_flow
+  - mm:b.clm.fix_not_permanent
+  - mm:b.clm.diss_releases_carrier_dependence
+  - mm:b.clm.diss_not_destruction
+  - mm:b.clm.unfold_instantiates_next_state
+  - mm:b.clm.handoff_preserves_continuation_state
+  - mm:b.clm.delegation_structured_continuation
+  - mm:b.clm.parallel_branches_permitted
+  - mm:b.clm.parallel_branch_state_isolation
+  - mm:b.clm.composition_possible
+  - mm:b.clm.agency_preserved
+  - mm:b.clm.material_continuity_part_architecture
+  - mm:b.clm.economic_continuity_part_architecture
+  - mm:b.clm.persistence_recovery_part_architecture
+  - mm:b.clm.event_journal_checkpoint_replay
+  - mm:b.clm.state_reconstruction_supported
+  - mm:b.clm.uql_preserves_unresolved_questions
+  - mm:b.clm.uql_preserves_negative_results
+  - mm:b.clm.uql_preserves_contradictions
+  - mm:b.clm.uql_preserves_deadlocks
+  - mm:b.clm.uql_preserves_derived_questions
+  - mm:b.clm.uql_preserves_investigation_history
+  - mm:b.clm.level_1_process_continuity
+  - mm:b.clm.level_2_material_continuity
+  - mm:b.clm.level_3_collective_cognition
+  - mm:b.clm.metamonism_ufcps_structural_correspondence
+  - mm:b.clm.metamonism_candidate_invariants
+  - mm:b.clm.process_correspondence_pattern
+  - mm:b.clm.continuity_nonidentical_transition_hypothesis
+  - mm:b.clm.continuity_carrier_to_collective_intelligence
+  - mm:b.clm.distributed_process_persistent_cognition_hypothesis
+  - mm:b.clm.continuous_participation_functional_subjectivity_hypothesis
+  - mm:b.clm.ufcps_does_not_establish_phenomenal_consciousness
+  - mm:b.clm.ufcps_does_not_establish_human_equivalent_agi
+  - mm:b.clm.ufcps_does_not_establish_automatic_swarm_intelligence
+  - mm:b.clm.ufcps_does_not_establish_arbitrary_convergence
+  - mm:b.clm.ufcps_does_not_establish_byzantine_consensus
+  - mm:b.clm.ufcps_does_not_establish_universal_fault_tolerance
+  - mm:b.clm.ufcps_does_not_establish_truth_external_events
+  - mm:b.clm.ufcps_does_not_require_metamonism
+  - mm:b.clm.epistemic_definition_type
+  - mm:b.clm.epistemic_architectural_invariant_type
+  - mm:b.clm.epistemic_mathematical_claim_type
+  - mm:b.clm.epistemic_empirical_hypothesis_type
+  - mm:b.clm.validator_json_schema_and_semantic_checks
+  - mm:b.clm.validator_does_not_test_truth
+  - mm:b.clm.simulation_supports_failure_injection
+  - mm:b.clm.l3_v4_2_narrow_pass
+  - mm:b.clm.l3_v4_2_not_unrestricted_discovery
+  - mm:b.clm.l3_v4_2_not_creativity_consciousness_subjectivity_agi
+  - mm:b.clm.l3_v4_2_catalogue_dependency
+  - mm:b.clm.l3_next_frontier_lower_level_hypothesis_construction
+  - mm:b.clm.examples_illustrative_only
+  - mm:b.clm.examples_not_agi_proof
+  - mm:b.clm.examples_do_not_add_operators
