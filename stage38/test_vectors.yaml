@@ -1,0 +1,42 @@
+stage: 38
+name: frontier_to_research_task_engine
+vectors:
+  - id: V1
+    case: R1-R4 / Dirac untested frontier
+    expected:
+      - generates_define_task
+      - generates_formalize_task
+      - generates_compare_task
+      - generates_counterexample_task
+      - preserves_hypothesis_status
+      - no_task_is_a_conclusion
+  - id: V2
+    case: blocked Ricci / Planck frontier
+    expected:
+      - blocked_or_conditional_tasks_only
+      - missing_definition_not_invented
+      - provenance_preserved
+  - id: V3
+    case: conflicting frontier
+    expected:
+      - compare_or_branch_task_allowed
+      - no_silent_reconciliation
+      - contradiction_preserved
+  - id: V4
+    case: negative result
+    expected:
+      - failed_task_remains_research_information
+      - result_updates_frontier
+      - prior_state_not_deleted
+  - id: V5
+    case: missing provenance
+    expected:
+      - validation_fails
+  - id: V6
+    case: non-SOURCE without derived_from
+    expected:
+      - validation_fails
+  - id: V7
+    case: prohibited termination
+    expected:
+      - termination_task_not_ready
