@@ -799,3 +799,141 @@ stage34/process_state_schema.yaml
 stage34/test_vectors.yaml
 stage34/README.md
 ```
+
+
+## 27. Research Trajectory Memory
+
+A research program must preserve not only its current state but also the path
+by which that state was reached.
+
+Stage 35 introduces `RESEARCH_TRAJECTORY`.
+
+A trajectory records:
+
+- ordered research states;
+- transitions between states;
+- branching hypotheses;
+- tests and failures;
+- revisions;
+- rejected and falsified branches;
+- reopening of earlier questions;
+- provenance for every transition.
+
+### 27.1 History is semantic information
+
+The same proposition can have different research meaning depending on whether
+it is:
+
+- newly proposed;
+- repeatedly tested;
+- weakened by counterexample;
+- retained after failed alternatives;
+- reopened after a later discovery.
+
+Therefore history must not be discarded as editorial detail.
+
+### 27.2 Append-only rule
+
+Previous states MUST NOT be rewritten.
+
+If a later interpretation changes the understanding of an earlier state, create a
+new state linked by an explicit relation such as `REVISES` or `REFERENCES`.
+
+Do not retroactively rewrite the earlier state.
+
+### 27.3 Failed branches are retained
+
+A rejected or falsified hypothesis remains part of the trajectory.
+
+It may encode a constraint:
+
+```text
+hypothesis
+    ↓
+test
+    ↓
+failure
+    ↓
+constraint on future search
+```
+
+Deleting the failed branch destroys information about the search space.
+
+### 27.4 Research is non-linear
+
+A previous question may become relevant again.
+
+When that occurs, create a new state linked to the earlier state with
+`REOPENS`.
+
+The earlier state remains unchanged.
+
+Thus:
+
+```text
+state₄
+   ...
+state₁₁
+   ↓
+REOPENS
+   ↓
+state₁₂
+```
+
+is valid research history.
+
+### 27.5 Chronology is not evidence
+
+Later states do not automatically have higher epistemic status.
+
+The following inference is forbidden:
+
+```text
+later formulation
+      ↓
+therefore more true
+```
+
+Temporal order is provenance information, not proof.
+
+### 27.6 Three-dimensional research memory
+
+The system should preserve:
+
+```text
+SEMANTIC STATE
+    what is known
+
+RESEARCH STATE
+    what is being investigated
+
+TRAJECTORY
+    how we arrived here
+```
+
+Together with the Stage 34 process engine:
+
+```text
+TRAJECTORY
+    ↓
+CURRENT STATE
+    ↓
+NEXT ADMISSIBLE ACTION
+    ↓
+NEW STATE
+    ↓
+TRAJECTORY
+```
+
+This creates a closed operational loop for continuing research while keeping
+canonical ontology isolated from unfinished reasoning.
+
+Stage 35 implements this layer in:
+
+```text
+stage35/research_trajectory_schema.yaml
+stage35/research_trajectory.yaml
+stage35/trajectory_engine.py
+stage35/test_vectors.yaml
+stage35/README.md
+```

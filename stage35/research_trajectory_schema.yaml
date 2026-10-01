@@ -1,0 +1,102 @@
+schema_version: "1.0"
+object_type: RESEARCH_TRAJECTORY
+
+purpose: >
+  Preserve the history of a research program as an ordered sequence of
+  explicitly evidenced states and transitions, including failed branches,
+  rejected hypotheses, blockers, revisions and returns.
+
+principle:
+  statement: >
+    The current research state is meaningful only together with the path by
+    which it was reached. Preserve trajectory without turning history into
+    truth.
+
+required:
+  - trajectory_id
+  - program_id
+  - states
+  - transitions
+  - branches
+  - current_state
+  - continuity_invariants
+
+state:
+  required:
+    - state_id
+    - timestamp_or_version
+    - lifecycle
+    - epistemic_status
+    - summary
+    - evidence
+    - open_questions
+    - blockers
+    - provenance
+  evidence:
+    item:
+      - claim
+      - status
+      - provenance
+
+transition:
+  required:
+    - transition_id
+    - from_state
+    - to_state
+    - action
+    - trigger
+    - evidence
+    - status
+    - provenance
+  allowed_status:
+    - SOURCE
+    - INFERENCE
+    - FORMALIZATION
+    - THEORETICAL_HYPOTHESIS
+    - PROPOSAL
+    - UNRESOLVED
+    - CONFLICT
+
+branch:
+  required:
+    - branch_id
+    - parent_state
+    - hypothesis
+    - status
+    - provenance
+  allowed_status:
+    - ACTIVE
+    - REJECTED
+    - FALSIFIED
+    - SUSPENDED
+    - MERGED
+    - ABANDONED
+
+continuity_invariants:
+  - history is append-only
+  - previous states are never overwritten by later interpretations
+  - rejected branches remain retrievable
+  - a transition cannot erase its trigger or provenance
+  - current state does not invalidate previous state
+  - historical priority does not imply epistemic priority
+  - repeated failure is information, not deletion
+  - return to an earlier question creates a new state linked to the earlier state
+  - branches may merge only when the evidence and semantic relation are explicit
+
+state_relation_types:
+  - FOLLOWS
+  - REVISES
+  - TESTS
+  - FALSIFIES
+  - BLOCKS
+  - REOPENS
+  - BRANCHES
+  - MERGES
+  - REFERENCES
+
+forbidden:
+  - retroactive rewriting of source evidence
+  - deletion of failed research branches to make the trajectory look linear
+  - treating chronological order as proof
+  - treating repeated hypothesis occurrence as increased truth
+  - replacing a historical state with a later AI summary
