@@ -1,0 +1,52 @@
+{
+  "stage": "D2",
+  "status": "PARTIALLY_RESOLVED",
+  "epistemic_status": "FORMALIZATION",
+  "integration_scope": "WORKING",
+  "source_grounding": {
+    "source": "Chapter 3 Processual Ontodynamics",
+    "locator": "lines 34-46; 317-323; 324-345",
+    "source_claim": "P0->P1->P2->P3->P4 with +n->-n at the P3->P4 transition"
+  },
+  "objects": {
+    "states": ["P0", "P1", "P2", "P3", "P4"],
+    "transitions": ["T0", "T1", "T2", "T3"],
+    "orientation_operator": "R"
+  },
+  "composition": {
+    "rule": "compatible transition composition",
+    "examples": [
+      "T1∘T0: P0->P2",
+      "T2∘T1: P1->P3",
+      "T3∘T2: P2->P4"
+    ],
+    "associativity": "inherited from function/path composition where defined"
+  },
+  "orientation": {
+    "R(n)": "-n",
+    "R_squared": "UNRESOLVED"
+  },
+  "structure_obtained": "PATH_OR_TRANSITION_COMPOSITION",
+  "algebra_obtained": false,
+  "clifford_structure_obtained": false,
+  "blockers": [
+    "common carrier undefined",
+    "total operator domains undefined",
+    "identity operator undefined",
+    "additive/scalar structure undefined",
+    "composition involving R undefined"
+  ],
+  "forbidden_inferences": [
+    "transition composition is Clifford multiplication",
+    "P_i are algebra generators",
+    "R is a gamma matrix",
+    "R²=-I because spinor theory has such structures",
+    "associativity of transitions proves an algebra"
+  ],
+  "provenance": {
+    "repository": "user-supplied Zenodo source",
+    "path": "METAMONISM: Chapter 3. Processual Ontodynamics",
+    "ref": "user_supplied_attachment",
+    "locator": "lines 34-46; 317-323; 324-345"
+  }
+}
