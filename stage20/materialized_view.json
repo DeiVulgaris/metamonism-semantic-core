@@ -1,0 +1,24 @@
+{
+  "stage": 20,
+  "name": "controlled_semantic_expansion_view",
+  "mode": "derived_registry_view",
+  "authority": {
+    "entities": ["stage11/a_entity_registry.yaml","stage12/b_entity_registry.yaml","stage13/c_entity_registry.yaml"],
+    "claims": ["stage11/b_claim_registry.yaml","stage12/c_claim_registry.yaml","stage13/d_claim_registry.yaml"],
+    "relations": ["stage11/c_relation_registry.yaml","stage12/d_relation_registry.yaml","stage13/e_relation_registry.yaml"],
+    "formalizations": ["stage17/formalization_registry.yaml"],
+    "provenance": ["stage16/provenance_registry.yaml"],
+    "cross_source": ["stage10/cross_source_edges_x1_x21.yaml"]
+  },
+  "scope": {
+    "A": {"entities":32,"claims":46,"relations":44},
+    "B": {"entities":94,"claims":65,"relations":53},
+    "C": {"entities":42,"claims":51,"relations":42},
+    "cross_source_bridge": 21,
+    "formalizations": 25
+  },
+  "admission_policy": "registry_only",
+  "new_semantic_assertions": 0,
+  "new_cross_inventory_identity_assertions": 0,
+  "status_transformation": false
+}
