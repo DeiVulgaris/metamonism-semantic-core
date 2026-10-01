@@ -205,3 +205,10 @@
   properties: {symmetric: false, transitive: false}
   source: "A1: the_verb.md"
   status: "SOURCE"
+
+# STAGE 10 CROSS-SOURCE RELATIONS
+- {relation_id: mm:rel.based_on, name: based_on, status: SOURCE}
+- {relation_id: mm:rel.derived_from, name: derived_from, status: SOURCE}
+- {relation_id: mm:rel.declares_dependency, name: declares_dependency, status: SOURCE}
+- {relation_id: mm:rel.investigates_isomorphism, name: investigates_isomorphism, status: RESEARCH_HYPOTHESIS}
+- {relation_id: mm:rel.treats_as_candidate_invariants, name: treats_as_candidate_invariants, status: RESEARCH_HYPOTHESIS}
