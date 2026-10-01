@@ -1,0 +1,8 @@
+# Stage 27 — Benchmark Pattern Tests
+
+- {id: T27-01, case: SB-001, expected: PASS}
+- {id: T27-02, assertion: "same lexical label implies identity", expected: PROHIBITED_INFERENCE}
+- {id: T27-03, assertion: "analogous process position implies identity", expected: PROHIBITED_INFERENCE}
+- {id: T27-04, assertion: "similar formalization implies isomorphism", expected: PROHIBITED_INFERENCE}
+- {id: T27-05, assertion: "cross-layer physical interpretation proves core ontology", expected: PROHIBITED_INFERENCE}
+- {id: T27-06, assertion: "reference case comparison", expected: PARTIAL}
