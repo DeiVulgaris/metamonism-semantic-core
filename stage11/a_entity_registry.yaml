@@ -1,0 +1,230 @@
+# Stage 11A — Inventory A Entity Registration
+# Source scope: Inventory A — Ontological-core-of-AGI
+# Audit scope: S6 SOURCE PASS + Stage 7 classification
+# Registration only: no cross-source synthesis, no semantic merging.
+
+stage:
+  id: "11A"
+  title: "Full Semantic Registration — Inventory A entities"
+  source_inventory: "A"
+  source_repository: "Deivulgaris66/Ontological-core-of-AGI"
+  status: "SOURCE_REGISTRATION"
+  merge_policy: "scoped_ids_only"
+
+registration_rules:
+  - "An Inventory A construct receives an mm:a.* ID even when a similarly named core construct exists."
+  - "Claims are deferred to Stage 11B."
+  - "Relations are deferred to Stage 11C."
+  - "No sameAs, identical_to, implements, proves, independent_of, or unrelated_to edges are created."
+  - "Historical/source terminology is preserved."
+
+entities:
+  - id: mm:a.inv.ban_absolute_identity
+    canonical_name: "Ban of Absolute Identity"
+    category: inv
+    status: SOURCE
+    role: "foundational ontological constraint"
+
+  - id: mm:a.sts.absolute_identity
+    canonical_name: "Absolute Identity"
+    category: sts
+    status: SOURCE
+    role: "forbidden state"
+
+  - id: mm:a.dom.monos
+    canonical_name: "Monos"
+    category: dom
+    status: SOURCE
+    role: "non-representational processual domain"
+
+  - id: mm:a.dom.logos
+    canonical_name: "Logos"
+    category: dom
+    status: SOURCE
+    role: "representational and addressable domain"
+
+  - id: mm:a.op.diff
+    canonical_name: "diff (Inventory A)"
+    category: op
+    status: SOURCE
+    role: "enforced differentiation"
+
+  - id: mm:a.op.dissipate
+    canonical_name: "dissipate (Inventory A)"
+    category: op
+    status: SOURCE
+    role: "compulsory dispersion / anti-saturation"
+
+  - id: mm:a.op.fix
+    canonical_name: "fix (Inventory A)"
+    category: op
+    status: SOURCE
+    role: "local stabilization in Logos"
+
+  - id: mm:a.op.unfold
+    canonical_name: "unfold (Inventory A)"
+    category: op
+    status: SOURCE
+    role: "rupture condition / re-differentiation trigger"
+
+  - id: mm:a.prc.processual_core
+    canonical_name: "Processual Core"
+    category: prc
+    status: SOURCE
+    role: "processual construct"
+
+  - id: mm:a.prc.processual_divergence
+    canonical_name: "Processual Divergence"
+    category: prc
+    status: SOURCE
+    role: "post-unfold divergence construct"
+
+  - id: mm:a.sts.self_identity_lock
+    canonical_name: "Self-Identity Lock"
+    category: sts
+    status: SOURCE
+    role: "forbidden closure condition"
+
+  - id: mm:a.sts.structural_closure
+    canonical_name: "Structural Closure"
+    category: sts
+    status: SOURCE
+    role: "closure condition associated with Unfold"
+
+  - id: mm:a.sts.closure
+    canonical_name: "Closure"
+    category: sts
+    status: SOURCE
+    role: "terminal closure / cognitive-death condition"
+
+  - id: mm:a.prc.trigger_condition
+    canonical_name: "Trigger Condition"
+    category: prc
+    status: SOURCE
+    role: "named condition class for Unfold activation"
+
+  - id: mm:a.ent.invariant
+    canonical_name: "Invariant"
+    category: ent
+    status: SOURCE
+    role: "stabilized structure subject to fixation and rupture"
+
+  - id: mm:a.ent.representation
+    canonical_name: "Representation"
+    category: ent
+    status: SOURCE
+    role: "fixed representational structure"
+
+  - id: mm:a.ent.cognitive_fixation
+    canonical_name: "Cognitive Fixation"
+    category: ent
+    status: SOURCE
+    role: "fixation of representation or invariant"
+
+  - id: mm:a.ent.self_model
+    canonical_name: "Self-Model"
+    category: ent
+    status: SOURCE
+    role: "representational construct"
+
+  - id: mm:a.ent.world_model
+    canonical_name: "World Model"
+    category: ent
+    status: SOURCE
+    role: "representational construct"
+
+  - id: mm:a.ent.memory_reasoning_planning
+    canonical_name: "Memory / Reasoning / Planning"
+    category: ent
+    status: SOURCE
+    role: "constrained cognitive subsystem class"
+
+  - id: mm:a.ent.concept
+    canonical_name: "Concept"
+    category: ent
+    status: SOURCE
+    role: "representational cognitive construct"
+
+  - id: mm:a.prot.ontological_test_suite
+    canonical_name: "Ontological Test Suite (OTS)"
+    category: prot
+    status: SOURCE
+    role: "ontological death filter, not intelligence benchmark"
+
+  - id: mm:a.lvl.l0_domain_separation
+    canonical_name: "L0 Domain Separation"
+    category: lvl
+    status: SOURCE
+    role: "OTS layer"
+
+  - id: mm:a.lvl.l1_fixation_protection
+    canonical_name: "L1 Fixation Protection"
+    category: lvl
+    status: SOURCE
+    role: "OTS layer"
+
+  - id: mm:a.lvl.l2_unfold_integrity
+    canonical_name: "L2 Unfold Integrity"
+    category: lvl
+    status: SOURCE
+    role: "OTS layer"
+
+  - id: mm:a.lvl.l3_structural_saturation
+    canonical_name: "L3 Structural Saturation"
+    category: lvl
+    status: SOURCE
+    role: "OTS layer"
+
+  - id: mm:a.crit.ontological_death_filter
+    canonical_name: "Ontological Death Filter"
+    category: crit
+    status: SOURCE
+    role: "OTS interpretation"
+
+  - id: mm:a.crit.agi
+    canonical_name: "AGI Ontological Criterion"
+    category: crit
+    status: SOURCE
+    role: "criterion tied to recursive self-application and enforced Unfold"
+
+  - id: mm:a.mod.disqualifiers
+    canonical_name: "OTS Disqualifiers"
+    category: mod
+    status: SOURCE
+    role: "named disqualifying condition set"
+
+  - id: mm:a.prot.failures
+    canonical_name: "Failure Modes"
+    category: prot
+    status: SOURCE
+    role: "failure taxonomy / test evidence"
+
+  - id: mm:a.meta.version
+    canonical_name: "Ontological Core VERSION"
+    category: meta
+    status: SOURCE
+    role: "version and scope metadata"
+
+  - id: mm:a.meta.dependencies
+    canonical_name: "Ontological Core Dependencies"
+    category: meta
+    status: SOURCE
+    role: "dependency metadata"
+
+registration_summary:
+  total_registered: 32
+  stage10_existing_scoped_ids: 4
+  new_stage11a_ids: 28
+  deferred:
+    - "claims"
+    - "intra-source relations"
+    - "full failure/disqualifier atomization"
+    - "JSON-LD integration"
+
+validation:
+  operator_merge_check: PASS
+  cross_source_edges_created: false
+  model_to_core_elevation: false
+  claims_created: false
+  relation_reconstruction: false
+  negative_independence_edges: false

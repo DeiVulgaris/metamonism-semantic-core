@@ -129,3 +129,50 @@ stage10_ids:
   - mm:c.op.unfold
   - mm:c.prin.orthogonal_dissipation
   - mm:c.mod.fundamental_interactions
+
+# STAGE 11A — INVENTORY A FULL ENTITY REGISTRATION
+stage11a_categories:
+  ent: "Named entity / construct"
+  sts: "State / forbidden state"
+  crit: "Criterion / test"
+  prot: "Protocol / test suite"
+  lvl: "Architecture level"
+  mod: "Named model / set"
+  meta: "Metadata construct"
+
+stage11a_ids:
+  - mm:a.inv.ban_absolute_identity
+  - mm:a.sts.absolute_identity
+  - mm:a.dom.monos
+  - mm:a.dom.logos
+  - mm:a.op.diff
+  - mm:a.op.dissipate
+  - mm:a.op.fix
+  - mm:a.op.unfold
+  - mm:a.prc.processual_core
+  - mm:a.prc.processual_divergence
+  - mm:a.sts.self_identity_lock
+  - mm:a.sts.structural_closure
+  - mm:a.sts.closure
+  - mm:a.prc.trigger_condition
+  - mm:a.ent.invariant
+  - mm:a.ent.representation
+  - mm:a.ent.cognitive_fixation
+  - mm:a.ent.self_model
+  - mm:a.ent.world_model
+  - mm:a.ent.memory_reasoning_planning
+  - mm:a.ent.concept
+  - mm:a.prot.ontological_test_suite
+  - mm:a.lvl.l0_domain_separation
+  - mm:a.lvl.l1_fixation_protection
+  - mm:a.lvl.l2_unfold_integrity
+  - mm:a.lvl.l3_structural_saturation
+  - mm:a.crit.ontological_death_filter
+  - mm:a.crit.agi
+  - mm:a.mod.disqualifiers
+  - mm:a.prot.failures
+  - mm:a.meta.version
+  - mm:a.meta.dependencies
+
+# Stage 11A rule: these IDs are scoped to Inventory A.
+# Similar names in core/B/C remain distinct unless explicit SOURCE identity is later established.
