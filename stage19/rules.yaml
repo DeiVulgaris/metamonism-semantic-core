@@ -1,0 +1,21 @@
+# Stage 19 — Automated Integrity Rules
+
+rules:
+  - {id: R01, name: inventory_scope, severity: ERROR}
+  - {id: R02, name: registry_resolution, severity: ERROR}
+  - {id: R03, name: cross_source_bridge, severity: ERROR}
+  - {id: R04, name: unauthorized_cross_inventory_relation, severity: ERROR}
+  - {id: R05, name: forbidden_relation_tokens, severity: ERROR}
+  - {id: R06, name: operator_separation, severity: ERROR}
+  - {id: R07, name: model_core_boundary, severity: ERROR}
+  - {id: R08, name: hypothesis_status_boundary, severity: ERROR}
+  - {id: R09, name: formalization_resolution, severity: ERROR}
+  - {id: R10, name: query_registry, severity: ERROR}
+  - {id: R11, name: provenance_boundary, severity: ERROR}
+  - {id: R12, name: negative_edge_absence, severity: ERROR}
+
+policy:
+  documentation_mentions_do_not_count_as_semantic_edges: true
+  missing_relation_does_not_mean_independence: true
+  model_to_core_elevation_forbidden: true
+  hypotheses_not_promoted: true
