@@ -79,7 +79,7 @@ claims:
   - {id: mm:b.clm.ufcps_does_not_establish_truth_external_events, category: epistemic_boundary, status: SOURCE, text: "UFCPS does not establish truth of externally supplied events."}
   - {id: mm:b.clm.ufcps_does_not_require_metamonism, category: epistemic_boundary, status: SOURCE, text: "UFCPS does not require external systems to implement Metamonism."}
   - {id: mm:b.clm.experiments_not_metamonism_proof, category: epistemic_boundary, status: SOURCE, text: "UFCPS experiments are not intended to prove Metamonism."}
-  - {id: mm:b.clm_experiment_structural_emergence_not_adoption, category: epistemic_boundary, status: SOURCE, text: "The experiment concerns structural emergence rather than ideological adoption of Metamonism."}
+  - {id: mm:b.clm.experiment_structural_emergence_not_adoption, category: epistemic_boundary, status: SOURCE, text: "The experiment concerns structural emergence rather than ideological adoption of Metamonism."}
 
   # Epistemic typology
   - {id: mm:b.clm.epistemic_definition_type, category: epistemic_typology, status: SOURCE, text: "Definition is an epistemic type used by the source."}
@@ -105,7 +105,7 @@ claims:
   - {id: mm:b.clm.examples_do_not_add_operators, category: epistemic_boundary, status: SOURCE, text: "Examples do not introduce new operators, invariants, or levels."}
 
 summary:
-  total_claims: 63
+  total_claims: 64
   status_counts:
     SOURCE: 57
     RESEARCH_HYPOTHESIS: 7
