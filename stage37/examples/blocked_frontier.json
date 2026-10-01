@@ -1,0 +1,43 @@
+{
+  "frontier_id": "RF-blocked",
+  "research_program_id": "RP-r1r4-dirac",
+  "trajectory_id": "RT-r1r4-dirac-001",
+  "frontier_state": "BLOCKED",
+  "epistemic_status": "THEORETICAL_HYPOTHESIS",
+  "subject": {
+    "ref": "mm:research.r1_r4_dirac",
+    "label": "R1-R4 / Dirac structural hypothesis"
+  },
+  "unresolved_difference": "Can the R1-R4 recursive structure admit a formal correspondence with a Clifford/Dirac algebra?",
+  "evidence": [
+    "source:r1-r4-cycle",
+    "source:dirac-clifford-reference"
+  ],
+  "provenance": {
+    "repository": "DeiVulgaris/Metamonism",
+    "path": "research/r1-r4-dirac.md",
+    "ref": "9f107f36b1a18633261e9666b32a59340c5f345d",
+    "locator": "research hypothesis section"
+  },
+  "derived_from": [
+    "source:r1-r4-cycle",
+    "source:dirac-clifford-reference"
+  ],
+  "blockers": [
+    "missing state space"
+  ],
+  "open_questions": [
+    "What is the algebraic operation?",
+    "What is the metric/signature?",
+    "Is there a Clifford representation?"
+  ],
+  "admissible_transitions": [
+    {
+      "type": "FORMALIZE",
+      "status": "BLOCKED",
+      "prerequisites": [
+        "state space"
+      ]
+    }
+  ]
+}
