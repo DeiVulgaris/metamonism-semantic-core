@@ -492,3 +492,45 @@ stage12d_missing_entity_ids:
   - mm:b.prc.cognitive_process
   - mm:b.ent.process_termination
   - mm:b.ent.agent_decision
+
+# STAGE 13C — INVENTORY C ENTITY IDS
+stage13c_entity_ids:
+  - mm:c.mod.ontodynamics
+  - mm:c.mod.world
+  - mm:c.prc.orthogonality
+  - mm:c.prc.metric_unfolding
+  - mm:c.prc.four_d_global_centripetal_flow
+  - mm:c.prc.localization_node
+  - mm:c.prc.mass
+  - mm:c.prc.force_interaction_modality
+  - mm:c.prc.gravity_shadow
+  - mm:c.prc.orbit
+  - mm:c.prc.matter
+  - mm:c.prc.actualization_flux
+  - mm:c.mod.gravity
+  - mm:c.mod.orbit
+  - mm:c.mod.casimir_demonstration
+  - mm:c.mod.thermodynamics
+  - mm:c.mod.qm_measurement_phase_transition
+  - mm:c.mod.photon_metastable_process
+  - mm:c.mod.eternal_dynamic_reality
+  - mm:c.mod.bb_metric_expansion_reinterpretation
+  - mm:c.mod.baryon_birth_death
+  - mm:c.mod.redshift
+  - mm:c.mod.large_scale_structure
+  - mm:c.mod.cold_nucleogenesis
+  - mm:c.mod.cmb_photon_graveyard
+  - mm:c.mod.gas_galaxy_cycle
+  - mm:c.mod.supernova_without_remnants
+  - mm:c.mod.gravity_screening
+  - mm:c.mod.photon_complete_cosmology
+  - mm:c.prc.photon_one_axis_unlocked
+  - mm:c.prc.photon_locked_xy_plane
+  - mm:c.prc.photon_open_z_axis
+  - mm:c.prc.photon_aging
+  - mm:c.prc.photon_energy_dissipation
+  - mm:c.prc.eternal_reality_sequence
+  - mm:c.prc.cold_nucleogenesis_sequence
+  - mm:c.prc.gas_galaxy_sequence
+  - mm:c.prc.supernova_sequence
+  - mm:c.meta.model_operator_mapping
