@@ -532,3 +532,23 @@
   origin: "CORPUS"
   source: "S6: GLOSSARY.md; S6: OPERATORS.md#O8"
   aliases: ["maximize", "minimize", "equilibrate", "converge", "finalize"]
+
+# STAGE 10 MINIMAL CROSS-SOURCE ANCHORS
+- {id: mm:core.meta.v1_3, canonical_name: "Metamonism CORE v1.3", type: meta, layer: core, status: SOURCE, origin: CORPUS}
+- {id: mm:core.meta.ontodynamic_architecture, canonical_name: "Metamonism ontodynamic architecture", type: meta, layer: core, status: RESEARCH_HYPOTHESIS, origin: JOINT_THEORETICAL_WORK}
+- {id: mm:a.meta.ontological_core_agi, canonical_name: "Ontological Core for AGI", type: meta, layer: a, status: SOURCE, origin: CORPUS}
+- {id: mm:b.meta.ufcps, canonical_name: "Universal Framework for Complex Problem Solving", type: meta, layer: b, status: SOURCE, origin: CORPUS}
+- {id: mm:c.meta.ontodynamics, canonical_name: "ONTODYNAMICS", type: meta, layer: c, status: SOURCE, origin: CORPUS}
+- {id: mm:b.prot.schemas, canonical_name: "UFCPS Schemas", type: Protocol Anchor, layer: b, status: SOURCE, origin: CORPUS}
+- {id: mm:a.op.diff, canonical_name: "diff (Inventory A)", type: Operator, layer: a, status: SOURCE, origin: CORPUS}
+- {id: mm:a.op.dissipate, canonical_name: "dissipate (Inventory A)", type: Operator, layer: a, status: SOURCE, origin: CORPUS}
+- {id: mm:a.op.fix, canonical_name: "fix (Inventory A)", type: Operator, layer: a, status: SOURCE, origin: CORPUS}
+- {id: mm:a.op.unfold, canonical_name: "unfold (Inventory A)", type: Operator, layer: a, status: SOURCE, origin: CORPUS}
+- {id: mm:b.op.diff, canonical_name: "diff (Inventory B)", type: Operator, layer: b, status: SOURCE, origin: CORPUS}
+- {id: mm:b.op.diss, canonical_name: "diss (Inventory B)", type: Operator, layer: b, status: SOURCE, origin: CORPUS}
+- {id: mm:b.op.fix, canonical_name: "fix (Inventory B)", type: Operator, layer: b, status: SOURCE, origin: CORPUS}
+- {id: mm:b.op.unfold, canonical_name: "unfold (Inventory B)", type: Operator, layer: b, status: SOURCE, origin: CORPUS}
+- {id: mm:c.prc.dissipation, canonical_name: "Dissipation (Inventory C)", type: Process, layer: c, status: SOURCE, origin: CORPUS}
+- {id: mm:c.op.unfold, canonical_name: "unfold (Inventory C)", type: Operator, layer: c, status: SOURCE, origin: CORPUS}
+- {id: mm:c.prin.orthogonal_dissipation, canonical_name: "Orthogonal Dissipation", type: Principle, layer: c, status: SOURCE, origin: CORPUS}
+- {id: mm:c.mod.fundamental_interactions, canonical_name: "Fundamental Interactions Model", type: Model, layer: c, status: PROPOSAL, origin: CORPUS}
