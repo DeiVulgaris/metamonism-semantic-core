@@ -1,0 +1,80 @@
+schema_version: "1.0"
+object_type: RESEARCH_PROCESS_STATE
+
+purpose: >
+  Machine-readable snapshot of where a research program currently stands and
+  what transitions are admissible next.
+
+required:
+  - program_id
+  - lifecycle
+  - epistemic_status
+  - blockers
+  - open_questions
+  - tests
+  - failures
+  - admissible_transitions
+  - selected_transition
+  - canonical_promotion
+
+fields:
+  blockers:
+    item:
+      - term
+      - question
+      - blocking
+  open_questions:
+    item:
+      - question
+  tests:
+    item:
+      - id
+      - status
+      - expected_observation
+      - falsifier
+  failures:
+    item:
+      - test_id
+      - reason
+      - consequence
+      - provenance
+  admissible_transitions:
+    item:
+      - action
+      - reason
+      - requires
+      - produces
+      - priority
+  selected_transition:
+    required:
+      - action
+      - reason
+      - requires
+      - produces
+      - priority
+  canonical_promotion:
+    type: boolean
+    invariant: false
+
+transition_actions:
+  DEFINE_BLOCKER:
+    meaning: "Make a missing definition explicit or deliberately preserve it as unresolved."
+  DESIGN_TEST:
+    meaning: "Convert an open question into a falsifiable test."
+  RUN_TEST:
+    meaning: "Execute or evaluate a registered test without changing source status."
+  ANALYZE_FAILURE:
+    meaning: "Turn a failed result into a constraint, counterexample, or revised test."
+  REFINE_QUESTION:
+    meaning: "Narrow or decompose a question without answering it by assumption."
+  REVIEW_STATE:
+    meaning: "Request human/AI review when no safe automatic transition exists."
+
+invariants:
+  - selected_transition must be one of admissible_transitions.
+  - canonical_promotion is always false at the process-engine stage.
+  - the engine emits actions, never semantic conclusions.
+  - missing definitions cannot be silently supplied as SOURCE.
+  - a failed test cannot be silently converted to success.
+  - an analogy cannot be promoted by transition generation.
+  - no transition may erase provenance or prior states.
