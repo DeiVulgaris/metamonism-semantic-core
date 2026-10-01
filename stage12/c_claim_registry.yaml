@@ -105,7 +105,7 @@ claims:
   - {id: mm:b.clm.examples_do_not_add_operators, category: epistemic_boundary, status: SOURCE, text: "Examples do not introduce new operators, invariants, or levels."}
 
 summary:
-  total_claims: 64
+  total_claims: 65
   status_counts:
     SOURCE: 57
     RESEARCH_HYPOTHESIS: 7
