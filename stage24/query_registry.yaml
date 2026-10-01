@@ -1,0 +1,20 @@
+# Stage 24 — Executable Query Registry
+
+queries:
+  Q1: {name: identity_lookup, status: executable}
+  Q2: {name: claim_lookup, status: executable}
+  Q3: {name: relation_lookup, status: executable}
+  Q4: {name: basis_lookup, status: executable}
+  Q5: {name: provenance_lookup, status: structured_partial}
+  Q6: {name: formalization_lookup, status: structured_partial}
+  Q7: {name: cross_source_lookup, status: structured_partial}
+  Q8: {name: status_audit, status: executable}
+  Q9: {name: boundary_query, status: structured_partial}
+  Q10: {name: operator_query, status: executable}
+
+result_statuses:
+  - RESOLVED
+  - PARTIAL
+  - UNRESOLVED
+  - EMPTY
+  - PROHIBITED_INFERENCE
