@@ -1,0 +1,112 @@
+# Stage 12C — Inventory B Claim Registration
+
+stage:
+  id: "12C"
+  title: "Claim Registration — Inventory B"
+  source_inventory: "B"
+  source: "Universal-Framework-for-Complex-Problem-Solving"
+  status: "SOURCE_REGISTRATION"
+  namespace: "mm:b.clm."
+
+rules:
+  - "Claims are atomic assertions, constraints, protocol requirements, experimental findings, hypotheses, or explicit nonclaims."
+  - "Claim status preserves source epistemic status."
+  - "Experimental outcomes describe the tested prototype and are not promoted to theory."
+  - "Research hypotheses remain hypotheses."
+  - "No cross-source synthesis is introduced."
+  - "No sameAs, identical_to, implements, proves, independent_of, or unrelated_to."
+
+claims:
+  # Core process and continuity
+  - {id: mm:b.clm.agent_process_distinction, category: definition, status: SOURCE, text: "Agent identity is distinct from process identity."}
+  - {id: mm:b.clm.carrier_identity_may_change, category: architectural_invariant, status: SOURCE, text: "Carrier identity may change while the process continues."}
+  - {id: mm:b.clm.process_continuity_not_same_carrier, category: continuity_constraint, status: SOURCE, text: "Process continuity does not require the same carrier."}
+  - {id: mm:b.clm.successor_state_constructible, category: continuity_constraint, status: SOURCE, text: "A valid successor state must remain constructible."}
+  - {id: mm:b.clm.states_nonidentical, category: continuity_constraint, status: SOURCE, text: "P_n is not required to equal P_n+1; non-identity of successive states is permitted and expected."}
+  - {id: mm:b.clm.continuity_is_valid_transition, category: definition, status: SOURCE, text: "Continuity is validity of transition rather than identity of state."}
+  - {id: mm:b.clm.carrier_termination_not_process_termination, category: architectural_invariant, status: SOURCE, text: "Carrier termination does not imply process termination."}
+  - {id: mm:b.clm.local_failure_not_global_termination, category: architectural_invariant, status: SOURCE, text: "Local failure does not imply global process termination."}
+  - {id: mm:b.clm.diff_fix_diss_unfold_flow, category: operator_constraint, status: SOURCE, text: "The canonical procedural operator flow is diff → fix → diss → unfold."}
+  - {id: mm:b.clm.fix_not_permanent, category: operator_constraint, status: SOURCE, text: "fix does not establish permanent truth or immutable state."}
+  - {id: mm:b.clm.diss_releases_carrier_dependence, category: operator_effect, status: SOURCE, text: "diss removes exclusive dependence on the current carrier."}
+  - {id: mm:b.clm.diss_not_destruction, category: operator_constraint, status: SOURCE, text: "diss is not equivalent to destruction or deletion."}
+  - {id: mm:b.clm.unfold_instantiates_next_state, category: operator_effect, status: SOURCE, text: "unfold instantiates a subsequent procedural state."}
+
+  # Handoff / delegation / branching
+  - {id: mm:b.clm.handoff_preserves_continuation_state, category: protocol_requirement, status: SOURCE, text: "State handoff preserves continuation-relevant state."}
+  - {id: mm:b.clm.delegation_structured_continuation, category: protocol_requirement, status: SOURCE, text: "Delegation is structured continuation rather than arbitrary task transfer."}
+  - {id: mm:b.clm.parallel_branches_permitted, category: architectural_invariant, status: SOURCE, text: "Parallel branches are permitted."}
+  - {id: mm:b.clm.parallel_branch_state_isolation, category: protocol_requirement, status: SOURCE, text: "Parallel branches maintain isolated branch state until composition."}
+  - {id: mm:b.clm.composition_possible, category: protocol_requirement, status: SOURCE, text: "Parallel branches can be composed."}
+  - {id: mm:b.clm.agency_preserved, category: architectural_invariant, status: SOURCE, text: "Continuation does not automatically become an instruction; agency is preserved."}
+
+  # Material/economic continuity and persistence
+  - {id: mm:b.clm.material_continuity_part_architecture, category: architectural_invariant, status: SOURCE, text: "Material continuity is part of the UFCPS continuity architecture."}
+  - {id: mm:b.clm.economic_continuity_part_architecture, category: architectural_invariant, status: SOURCE, text: "Economic continuity is part of the UFCPS continuity architecture."}
+  - {id: mm:b.clm.persistence_recovery_part_architecture, category: architectural_invariant, status: SOURCE, text: "Persistence and recovery mechanisms are part of continuity and material persistence."}
+  - {id: mm:b.clm.event_journal_checkpoint_replay, category: persistence_architecture, status: SOURCE, text: "Event Journal, Checkpoint, and Replay support state reconstruction."}
+  - {id: mm:b.clm.state_reconstruction_supported, category: persistence_architecture, status: SOURCE, text: "State reconstruction is supported from recorded process history."}
+
+  # UQL / epistemic memory
+  - {id: mm:b.clm.uql_preserves_unresolved_questions, category: epistemic_memory, status: SOURCE, text: "UQL preserves unresolved questions."}
+  - {id: mm:b.clm.uql_preserves_negative_results, category: epistemic_memory, status: SOURCE, text: "UQL preserves negative results."}
+  - {id: mm:b.clm.uql_preserves_contradictions, category: epistemic_memory, status: SOURCE, text: "UQL preserves contradictions."}
+  - {id: mm:b.clm.uql_preserves_deadlocks, category: epistemic_memory, status: SOURCE, text: "UQL preserves deadlocks."}
+  - {id: mm:b.clm.uql_preserves_derived_questions, category: epistemic_memory, status: SOURCE, text: "UQL preserves derived questions."}
+  - {id: mm:b.clm.uql_preserves_investigation_history, category: epistemic_memory, status: SOURCE, text: "UQL preserves investigation history."}
+
+  # Levels
+  - {id: mm:b.clm.level_1_process_continuity, category: level_definition, status: SOURCE, text: "Level 1 concerns Process Continuity."}
+  - {id: mm:b.clm.level_2_material_continuity, category: level_definition, status: SOURCE, text: "Level 2 concerns Material Continuity."}
+  - {id: mm:b.clm.level_3_collective_cognition, category: level_definition, status: SOURCE, text: "Level 3 concerns Collective Cognition."}
+
+  # Cross-source correspondence as explicit B hypotheses/boundaries
+  - {id: mm:b.clm.metamonism_ufcps_structural_correspondence, category: research_hypothesis, status: RESEARCH_HYPOTHESIS, text: "UFCPS investigates a hypothesized structural correspondence between Metamonism ontodynamic architecture and continuous distributed computation."}
+  - {id: mm:b.clm.metamonism_candidate_invariants, category: research_hypothesis, status: RESEARCH_HYPOTHESIS, text: "Metamonism operational structures are treated as candidate invariants for distributed cognitive systems."}
+  - {id: mm:b.clm.process_correspondence_pattern, category: research_hypothesis, status: RESEARCH_HYPOTHESIS, text: "A process correspondence is proposed between Ontological Difference→Actualization→Resolution→Next Difference and distributed Local Difference→Action→Deadlock/Partial→Delegation→Next Unit."}
+  - {id: mm:b.clm.continuity_nonidentical_transition_hypothesis, category: research_hypothesis, status: RESEARCH_HYPOTHESIS, text: "Continuity may be characterized by transition to a subsequent non-identical state rather than persistence of the same state or carrier."}
+  - {id: mm:b.clm.continuity_carrier_to_collective_intelligence, category: research_hypothesis, status: RESEARCH_HYPOTHESIS, text: "Continuity across carriers is hypothesized to support collective intelligence as a process property."}
+  - {id: mm:b.clm.distributed_process_persistent_cognition_hypothesis, category: research_hypothesis, status: RESEARCH_HYPOTHESIS, text: "Continuous Distributed Cognitive Process → Persistent Cognition → Emergent General Capability is a research hypothesis."}
+  - {id: mm:b.clm.continuous_participation_functional_subjectivity_hypothesis, category: research_hypothesis, status: RESEARCH_HYPOTHESIS, text: "Continuous Participation → Functional Subjectivity is a research hypothesis."}
+
+  # Explicit source boundaries / nonclaims
+  - {id: mm:b.clm.ufcps_does_not_establish_phenomenal_consciousness, category: epistemic_boundary, status: SOURCE, text: "UFCPS does not establish phenomenal consciousness or subjective experience."}
+  - {id: mm:b.clm.ufcps_does_not_establish_human_equivalent_agi, category: epistemic_boundary, status: SOURCE, text: "UFCPS does not establish human-equivalent general intelligence."}
+  - {id: mm:b.clm.ufcps_does_not_establish_automatic_swarm_intelligence, category: epistemic_boundary, status: SOURCE, text: "UFCPS does not establish automatic emergence of intelligence from any swarm."}
+  - {id: mm:b.clm.ufcps_does_not_establish_arbitrary_convergence, category: epistemic_boundary, status: SOURCE, text: "UFCPS does not establish arbitrary convergence."}
+  - {id: mm:b.clm.ufcps_does_not_establish_byzantine_consensus, category: epistemic_boundary, status: SOURCE, text: "UFCPS does not establish Byzantine consensus."}
+  - {id: mm:b.clm.ufcps_does_not_establish_universal_fault_tolerance, category: epistemic_boundary, status: SOURCE, text: "UFCPS does not establish universal physical fault tolerance."}
+  - {id: mm:b.clm.ufcps_does_not_establish_truth_external_events, category: epistemic_boundary, status: SOURCE, text: "UFCPS does not establish truth of externally supplied events."}
+  - {id: mm:b.clm.ufcps_does_not_require_metamonism, category: epistemic_boundary, status: SOURCE, text: "UFCPS does not require external systems to implement Metamonism."}
+  - {id: mm:b.clm_experiments_not_metamonism_proof, category: epistemic_boundary, status: SOURCE, text: "UFCPS experiments are not intended to prove Metamonism."}
+  - {id: mm:b.clm_experiment_structural_emergence_not_adoption, category: epistemic_boundary, status: SOURCE, text: "The experiment concerns structural emergence rather than ideological adoption of Metamonism."}
+
+  # Epistemic typology
+  - {id: mm:b.clm.epistemic_definition_type, category: epistemic_typology, status: SOURCE, text: "Definition is an epistemic type used by the source."}
+  - {id: mm:b.clm.epistemic_architectural_invariant_type, category: epistemic_typology, status: SOURCE, text: "Architectural Invariant is an epistemic type used by the source."}
+  - {id: mm:b.clm.epistemic_mathematical_claim_type, category: epistemic_typology, status: SOURCE, text: "Mathematical Claim is an epistemic type used by the source."}
+  - {id: mm:b.clm.epistemic_empirical_hypothesis_type, category: epistemic_typology, status: SOURCE, text: "Empirical Hypothesis is an epistemic type used by the source."}
+
+  # Validator / simulation boundaries
+  - {id: mm:b.clm.validator_json_schema_and_semantic_checks, category: validator_constraint, status: SOURCE, text: "Validation combines JSON Schema validation with cross-field semantic checks."}
+  - {id: mm:b.clm.validator_does_not_test_truth, category: validator_boundary, status: SOURCE, text: "The validator does not establish task solvability, truth, optimality, or convergence."}
+  - {id: mm:b.clm.simulation_supports_failure_injection, category: simulation_capability, status: SOURCE, text: "The simulation architecture supports runtime snapshots, carrier selection, failure injection, and scenario execution."}
+
+  # L3 experiment v4.2
+  - {id: mm:b.clm.l3_v4_2_narrow_pass, category: experimental_result, status: EXPERIMENTAL_RESULT, text: "Under tested conditions, L3 v4.2 selected a unique executable compositional relation from a predefined semantically opaque hypothesis space using discriminating observations, counterexamples, candidate freeze, and an unseen holdout."}
+  - {id: mm:b.clm.l3_v4_2_not_unrestricted_discovery, category: experimental_boundary, status: SOURCE, text: "The L3 v4.2 result does not establish unrestricted discovery."}
+  - {id: mm:b.clm.l3_v4_2_not_creativity_consciousness_subjectivity_agi, category: experimental_boundary, status: SOURCE, text: "The L3 v4.2 result does not establish creativity, consciousness, subjectivity, or AGI."}
+  - {id: mm:b.clm.l3_v4_2_catalogue_dependency, category: experimental_boundary, status: SOURCE, text: "The L3 v4.2 experiment depends on a predefined hypothesis/transition catalogue."}
+  - {id: mm:b.clm.l3_next_frontier_lower_level_hypothesis_construction, category: research_frontier, status: SOURCE, text: "The next frontier is construction of hypothesis spaces from lower-level structural primitives rather than a predefined transition catalogue."}
+
+  # Examples are not proofs
+  - {id: mm:b.clm.examples_illustrative_only, category: epistemic_boundary, status: SOURCE, text: "Examples are illustrative schema/protocol instances, not PASS/FAIL evidence."}
+  - {id: mm:b.clm.examples_not_agi_proof, category: epistemic_boundary, status: SOURCE, text: "Examples do not prove AGI or Metamonism."}
+  - {id: mm:b.clm.examples_do_not_add_operators, category: epistemic_boundary, status: SOURCE, text: "Examples do not introduce new operators, invariants, or levels."}
+
+summary:
+  total_claims: 63
+  status_counts:
+    SOURCE: 56
+    RESEARCH_HYPOTHESIS: 6
+    EXPERIMENTAL_RESULT: 1
