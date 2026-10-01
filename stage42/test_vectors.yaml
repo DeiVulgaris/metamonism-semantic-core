@@ -1,0 +1,25 @@
+stage42_tests:
+  - id: V1
+    case: explicit_alias
+    expected: "explicit evidence permits ASSERTED ALIAS"
+  - id: V2
+    case: lexical_similarity
+    expected: "labels alone never establish identity"
+  - id: V3
+    case: version_continuation
+    expected: "history remains continuous"
+  - id: V4
+    case: fork
+    expected: "fork identities remain distinct"
+  - id: V5
+    case: derivation
+    expected: "derived identity is not collapsed into source"
+  - id: V6
+    case: unresolved
+    expected: "unresolved identity stays non-asserted"
+  - id: V7
+    case: epistemic_independence
+    expected: "identity mapping does not alter epistemic status"
+  - id: V8
+    case: history_preservation
+    expected: "original identifiers remain retrievable"
