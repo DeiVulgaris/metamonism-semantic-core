@@ -107,6 +107,6 @@ claims:
 summary:
   total_claims: 63
   status_counts:
-    SOURCE: 56
-    RESEARCH_HYPOTHESIS: 6
+    SOURCE: 57
+    RESEARCH_HYPOTHESIS: 7
     EXPERIMENTAL_RESULT: 1
