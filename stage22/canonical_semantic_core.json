@@ -1,0 +1,45 @@
+{
+  "schema_version": "22.1",
+  "generated_from": {
+    "registries": [
+      "stage11",
+      "stage12",
+      "stage13"
+    ],
+    "bridge": "stage10/cross_source_edges_x1_x21.yaml",
+    "provenance": "stage16/provenance_registry.yaml",
+    "formalizations": "stage17/formalization_registry.yaml"
+  },
+  "scope": {
+    "new_semantic_assertions": 0,
+    "new_entities": 0,
+    "new_claims": 0,
+    "new_relations": 0,
+    "new_cross_source_edges": 0
+  },
+  "inventories": {
+    "A": {
+      "entities": 32,
+      "claims": 46,
+      "relations": 44
+    },
+    "B": {
+      "entities": 94,
+      "claims": 65,
+      "relations": 53
+    },
+    "C": {
+      "entities": 42,
+      "claims": 51,
+      "relations": 42
+    }
+  },
+  "cross_source": {
+    "X1_X21": 21
+  },
+  "formalizations": {
+    "count": 25
+  },
+  "status_policy": "preserve_source_status",
+  "semantics": "derived_aggregation_only"
+}
