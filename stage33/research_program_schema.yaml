@@ -1,0 +1,184 @@
+schema_version: "1.0"
+object_type: RESEARCH_PROGRAM
+purpose: >
+  A controlled workspace for continuing unresolved reasoning without promoting
+  hypotheses, analogies, reconstructions, or attempted derivations into the
+  canonical semantic core.
+
+principle:
+  name: process_continuity
+  statement: >
+    Preserve the conditions under which a line of reasoning can continue.
+    A research program records what is known, what is proposed, what remains
+    undefined, what must be tested, and what result would change its status.
+
+epistemic_status:
+  allowed:
+    - SOURCE
+    - INFERENCE
+    - FORMALIZATION
+    - THEORETICAL_HYPOTHESIS
+    - PROPOSAL
+    - UNRESOLVED
+    - CONFLICT
+    - USED_BUT_UNDEFINED
+    - PRIOR_THEORETICAL_FORMULATION
+    - MODEL_SPECIFIC
+
+integration_scope:
+  allowed:
+    - CANONICAL
+    - WORKING
+    - MODEL_SPECIFIC
+    - HISTORICAL
+
+lifecycle:
+  allowed:
+    - OPEN
+    - FORMALIZING
+    - TESTING
+    - BLOCKED
+    - REJECTED
+    - PARTIALLY_SUPPORTED
+    - SUPPORTED
+    - INTEGRATED
+  rule: >
+    Lifecycle describes the state of the investigation, not truth of the
+    hypothesis. SUPPORTED does not by itself authorize canonical integration.
+
+required:
+  - id
+  - title
+  - question
+  - status
+  - lifecycle
+  - provenance
+  - source_claims
+  - working_entities
+  - proposed_relations
+  - required_definitions
+  - tests
+  - open_questions
+  - forbidden_inferences
+  - next_transition
+
+fields:
+  id:
+    type: string
+    pattern: "mm:rp.*"
+  title:
+    type: string
+  question:
+    type: string
+  status:
+    type: epistemic_status
+  lifecycle:
+    type: lifecycle
+  integration_scope:
+    type: integration_scope
+  provenance:
+    required:
+      - repository
+      - path
+      - ref
+      - locator
+  source_claims:
+    type: list
+    item_fields:
+      - id
+      - source_claim
+      - status
+      - provenance
+  working_entities:
+    type: list
+    item_fields:
+      - id
+      - label
+      - kind
+      - status
+      - provenance
+  proposed_relations:
+    type: list
+    item_fields:
+      - source
+      - relation
+      - target
+      - status
+      - derived_from
+      - provenance
+  candidate_formalizations:
+    type: list
+    item_fields:
+      - expression
+      - role
+      - status
+      - derived_from
+      - validation
+  required_definitions:
+    type: list
+    item_fields:
+      - term
+      - question
+      - blocking
+  tests:
+    type: list
+    item_fields:
+      - id
+      - test
+      - expected_observation
+      - falsifier
+      - status
+  derivations:
+    type: list
+    item_fields:
+      - id
+      - premises
+      - conclusion
+      - hidden_assumptions
+      - status
+      - derived_from
+  counterexamples:
+    type: list
+  open_questions:
+    type: list
+  forbidden_inferences:
+    type: list
+  next_transition:
+    type: object
+    required:
+      - trigger
+      - action
+      - evidence_required
+
+invariants:
+  - A RESEARCH_PROGRAM never becomes canonical merely because it is old, repeated, elegant, or internally coherent.
+  - Every non-SOURCE statement must have a derived_from path.
+  - Every source-grounded statement must have a provenance locator.
+  - Structural correspondence never upgrades itself to identity or formal isomorphism.
+  - Analogy never upgrades itself to proof.
+  - A failed test changes the research program; it does not erase its provenance.
+  - Undefined terms remain explicit blockers until defined or deliberately removed.
+  - Candidate formalization is not equivalent to source formalization.
+  - Negative results and counterexamples are first-class research state.
+  - Multiple competing hypotheses may coexist.
+  - The canonical core may be updated only through the existing validation and registration gates.
+
+transition_logic:
+  continue:
+    when: open_questions_or_tests_remain
+    action: preserve_current_state_and_add_next_test
+  refine:
+    when: counterexample_or_failed_test_reveals_local_defect
+    action: revise_candidate_without_rewriting_source_claims
+  branch:
+    when: competing_explanations_are_live
+    action: create_explicit_competing_hypotheses
+  promote:
+    when: independent_evidence_and_validation_are_satisfied
+    action: submit_candidate_to_canonical_registration_gate
+  reject:
+    when: decisive_falsifier_is_met
+    action: retain_record_as_rejected_historical_research
+  block:
+    when: required_definition_or_measurement_is_missing
+    action: register_blocker_and_preserve_question
