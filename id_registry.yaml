@@ -227,3 +227,50 @@ stage11b_claims:
   - mm:a.clm.no_final_ontology
   - mm:a.clm.no_global_fixation
   - mm:a.clm.equilibrium_seeking_disallowed
+
+# STAGE 11C — INVENTORY A RELATION IDS
+stage11c_relation_ids:
+  - mm:a.rel.monos_distinct_from_logos
+  - mm:a.rel.logos_fixed_addressable
+  - mm:a.rel.absolute_identity_forbidden_by_ban
+  - mm:a.rel.self_identity_lock_is_closure
+  - mm:a.rel.structural_closure_triggers_unfold
+  - mm:a.rel.invariant_saturation_triggers_unfold
+  - mm:a.rel.representational_closure_triggers_unfold
+  - mm:a.rel.unfold_invalidates_representation
+  - mm:a.rel.unfold_breaks_fixation
+  - mm:a.rel.unfold_forces_divergence
+  - mm:a.rel.unfold_no_content_generation
+  - mm:a.rel.fix_stabilizes_representation
+  - mm:a.rel.fix_not_permanent
+  - mm:a.rel.dissipation_mandatory
+  - mm:a.rel.unfold_opens_trajectories
+  - mm:a.rel.post_unfold_sustained_tension
+  - mm:a.rel.dissipation_counteracts_refixation
+  - mm:a.rel.self_model_representation
+  - mm:a.rel.world_model_representation
+  - mm:a.rel.concept_representation
+  - mm:a.rel.cognitive_fixation_self_model
+  - mm:a.rel.cognitive_fixation_world_model
+  - mm:a.rel.ots_has_l0
+  - mm:a.rel.ots_has_l1
+  - mm:a.rel.ots_has_l2
+  - mm:a.rel.ots_has_l3
+  - mm:a.rel.l0_tests
+  - mm:a.rel.l1_tests
+  - mm:a.rel.l2_tests
+  - mm:a.rel.l3_tests
+  - mm:a.rel.ots_failure_consequence
+  - mm:a.rel.ots_pass_boundary
+  - mm:a.rel.disqualifier_domain_collapse
+  - mm:a.rel.disqualifier_protected_product
+  - mm:a.rel.disqualifier_represented_unfold
+  - mm:a.rel.disqualifier_saturation_stabilization
+  - mm:a.rel.disqualifier_global_self_model
+  - mm:a.rel.disqualifier_final_worldview
+  - mm:a.rel.disqualifier_optimization_equilibrium
+  - mm:a.rel.version_scope
+  - mm:a.rel.version_operators
+  - mm:a.rel.version_invariants
+  - mm:a.rel.version_disqualifiers
+  - mm:a.rel.failure_taxonomy_records
