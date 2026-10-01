@@ -1,0 +1,38 @@
+suite: bilinear-structure-d3
+version: "1.0"
+
+vectors:
+  - id: B1_orthogonal
+    input: "q(e1,e2)=0"
+    expected: VALID
+    reason: "Represents stated orthogonality."
+
+  - id: B2_diagonal
+    input: "q=diag(a1,a2,a3)"
+    expected: VALID
+    reason: "Most general symmetric bilinear form in the chosen orthogonal basis."
+
+  - id: B3_fixed_euclidean
+    input: "q=diag(1,1,1)"
+    expected: EXTERNAL_ASSUMPTION
+    reason: "The source does not fix normalization."
+
+  - id: B4_lorentzian
+    input: "q=diag(-1,1,1)"
+    expected: EXTERNAL_ASSUMPTION
+    reason: "The source does not derive Lorentzian signature."
+
+  - id: B5_reversal
+    input: "q(-n,-n)"
+    expected: "q(n,n)"
+    reason: "Symmetry/bilinearity makes ordinary sign reversal quadratic-invariant."
+
+  - id: B6_reversal_square
+    input: "R(n)=-n"
+    expected: "R²(n)=n"
+    reason: "Only after R is explicitly extended linearly on the defined subspace."
+
+  - id: B7_clifford
+    input: "{e_i,e_j}=2g_ij I"
+    expected: NOT_DERIVED
+    reason: "No Clifford product has been defined."
