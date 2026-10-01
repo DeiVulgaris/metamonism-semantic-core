@@ -176,3 +176,55 @@ stage11a_ids:
 
 # Stage 11A rule: these IDs are scoped to Inventory A.
 # Similar names in core/B/C remain distinct unless explicit SOURCE identity is later established.
+
+
+# STAGE 11B — INVENTORY A CLAIM REGISTRATION
+stage11b_claim_prefix: mm:a.clm.
+stage11b_claims:
+  - mm:a.clm.domain_separation
+  - mm:a.clm.logos_fixed_addressable
+  - mm:a.clm.no_shared_logos_monos_structures
+  - mm:a.clm.no_representational_continuity
+  - mm:a.clm.monos_not_symbolic
+  - mm:a.clm.monos_no_memory_state_space
+  - mm:a.clm.monos_not_directly_accessible
+  - mm:a.clm.no_complete_logos_model
+  - mm:a.clm.no_global_coherent_self_model
+  - mm:a.clm.no_self_justifying_loops
+  - mm:a.clm.no_final_representation
+  - mm:a.clm.no_global_stabilization
+  - mm:a.clm.unfold_not_module
+  - mm:a.clm.unfold_trigger_conditions
+  - mm:a.clm.unfold_destroys_invariant_fixation
+  - mm:a.clm.unfold_forces_redifferentiation
+  - mm:a.clm.unfold_no_content_generation
+  - mm:a.clm.post_unfold_multiple_trajectories
+  - mm:a.clm.post_unfold_sustained_tension
+  - mm:a.clm.global_refixation_counteracted
+  - mm:a.clm.dissipation_mandatory
+  - mm:a.clm.fix_not_permanent_truth
+  - mm:a.clm.architecture_self_application
+  - mm:a.clm.ots_is_ontological_filter
+  - mm:a.clm.ots_failure_disqualifies
+  - mm:a.clm.ots_pass_not_agi_proof
+  - mm:a.clm.behavioral_benchmarks_not_ontology
+  - mm:a.clm.l0_domain_separation
+  - mm:a.clm.l1_fixation_protection
+  - mm:a.clm.l2_unfold_integrity
+  - mm:a.clm.l3_structural_saturation
+  - mm:a.clm.disqualifier_domain_collapse
+  - mm:a.clm.disqualifier_protected_product
+  - mm:a.clm.disqualifier_represented_unfold
+  - mm:a.clm.disqualifier_saturation_stabilization
+  - mm:a.clm.disqualifier_global_self_model
+  - mm:a.clm.disqualifier_final_worldview
+  - mm:a.clm.disqualifier_optimization_equilibrium
+  - mm:a.clm.failure_taxonomy
+  - mm:a.clm.version_scope
+  - mm:a.clm.mandatory_operator_set
+  - mm:a.clm.required_invariants
+  - mm:a.clm.disqualifier_set
+  - mm:a.clm.no_final_ontology
+  - mm:a.clm.no_global_fixation
+  - mm:a.clm.equilibrium_seeking_disallowed
+  - mm:a.clm.undefined

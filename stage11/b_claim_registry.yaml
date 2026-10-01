@@ -1,0 +1,385 @@
+# Stage 11B — Inventory A Claim Registration
+# Source scope: Inventory A — Ontological-core-of-AGI
+# Claims are atomic assertions/constraints/tests from the S6 source pass.
+# No cross-source synthesis. No new ontology is introduced.
+
+stage:
+  id: "11B"
+  title: "Full Semantic Registration — Inventory A claims"
+  source_inventory: "A"
+  status: "SOURCE_REGISTRATION"
+  claim_prefix: "mm:a.clm."
+  claim_policy:
+    - "Register source assertions, constraints, disqualifiers, and test semantics as claims."
+    - "Do not promote examples, implementation details, or analogies into ontological claims."
+    - "Preserve explicit nonclaims as boundary claims where the source uses them to constrain interpretation."
+    - "Claims do not imply relations between similarly named A/B/C entities."
+    - "No cross-source edges are created."
+
+claim_status:
+  SOURCE: "Directly confirmed by Inventory A corpus."
+  UNRESOLVED: "Not assigned here unless explicitly unresolved in source."
+  note: "All claims in this registration are SOURCE because this stage registers source statements, not our inference."
+
+claims:
+
+  # Domain separation
+  - id: mm:a.clm.domain_separation
+    canonical_name: "Monos and Logos are distinct domains"
+    type: invariant
+    status: SOURCE
+    statement: "Monos and Logos are distinct domains and must not be collapsed."
+    source_scope: "Inventory A"
+
+  - id: mm:a.clm.logos_fixed_addressable
+    canonical_name: "Logos entities are fixed, addressable, and inspectable"
+    type: architectural_invariant
+    status: SOURCE
+    statement: "Logos entities are fixed, addressable, and inspectable."
+    source_scope: "Inventory A"
+
+  - id: mm:a.clm.no_shared_logos_monos_structures
+    canonical_name: "No shared data structures between Logos and Monos"
+    type: architectural_invariant
+    status: SOURCE
+    statement: "Monos and Logos have no shared data structures or representational continuity."
+    source_scope: "Inventory A"
+
+  - id: mm:a.clm.no_representational_continuity
+    canonical_name: "No representational continuity between Monos and Logos"
+    type: architectural_invariant
+    status: SOURCE
+    statement: "Representational continuity between Monos and Logos is prohibited."
+    source_scope: "Inventory A"
+
+  # Monos constraints
+  - id: mm:a.clm.monos_not_symbolic
+    canonical_name: "Monos has no symbols or representations"
+    type: domain_constraint
+    status: SOURCE
+    statement: "Monos is not a symbolic or representational domain."
+    source_scope: "Inventory A"
+
+  - id: mm:a.clm.monos_no_memory_state_space
+    canonical_name: "Monos has no memory, state space, or evaluation"
+    type: domain_constraint
+    status: SOURCE
+    statement: "Monos must not be modeled as having symbols, representations, memory, state space, evaluation, or equivalent representational machinery."
+    source_scope: "Inventory A"
+
+  - id: mm:a.clm.monos_not_directly_accessible
+    canonical_name: "Monos is not directly accessible"
+    type: domain_constraint
+    status: SOURCE
+    statement: "Monos must not be directly accessed, simulated, or predicted as a representational object."
+    source_scope: "Inventory A"
+
+  # Logos / closure
+  - id: mm:a.clm.no_complete_logos_model
+    canonical_name: "No complete Logos model"
+    type: architectural_invariant
+    status: SOURCE
+    statement: "A complete Logos model is not permitted."
+    source_scope: "Inventory A"
+
+  - id: mm:a.clm.no_global_coherent_self_model
+    canonical_name: "No global coherent self-model"
+    type: architectural_invariant
+    status: SOURCE
+    statement: "The architecture must not stabilize into a global coherent self-model."
+    source_scope: "Inventory A"
+
+  - id: mm:a.clm.no_self_justifying_loops
+    canonical_name: "No self-justifying explanatory loops"
+    type: closure_constraint
+    status: SOURCE
+    statement: "Self-consistent self-justifying explanatory loops are a closure condition."
+    source_scope: "Inventory A"
+
+  - id: mm:a.clm.no_final_representation
+    canonical_name: "No final representation"
+    type: architectural_invariant
+    status: SOURCE
+    statement: "No representation may become final or terminal."
+    source_scope: "Inventory A"
+
+  - id: mm:a.clm.no_global_stabilization
+    canonical_name: "No global stabilization"
+    type: architectural_invariant
+    status: SOURCE
+    statement: "Global stabilization is disallowed."
+    source_scope: "Inventory A"
+
+  # Unfold
+  - id: mm:a.clm.unfold_not_module
+    canonical_name: "Unfold is not a module, layer, or function"
+    type: operator_constraint
+    status: SOURCE
+    statement: "Unfold is a rupture condition, not a module, layer, or ordinary function in Logos."
+    source_scope: "Inventory A"
+
+  - id: mm:a.clm.unfold_trigger_conditions
+    canonical_name: "Unfold trigger conditions"
+    type: trigger_constraint
+    status: SOURCE
+    statement: "Unfold may be triggered by invariant saturation, representational closure, self-consistent explanatory loops, or convergence without external pressure."
+    source_scope: "Inventory A"
+
+  - id: mm:a.clm.unfold_destroys_invariant_fixation
+    canonical_name: "Unfold destroys invariant fixation"
+    type: operator_effect
+    status: SOURCE
+    statement: "Unfold destroys invariant fixation and invalidates the dominant representation."
+    source_scope: "Inventory A"
+
+  - id: mm:a.clm.unfold_forces_redifferentiation
+    canonical_name: "Unfold forces re-differentiation"
+    type: operator_effect
+    status: SOURCE
+    statement: "Unfold forces re-differentiation."
+    source_scope: "Inventory A"
+
+  - id: mm:a.clm.unfold_no_content_generation
+    canonical_name: "Unfold does not generate content"
+    type: operator_constraint
+    status: SOURCE
+    statement: "Unfold does not select outcomes, generate content, propose solutions, or rank alternatives."
+    source_scope: "Inventory A"
+
+  - id: mm:a.clm.post_unfold_multiple_trajectories
+    canonical_name: "Post-Unfold multiple incompatible trajectories"
+    type: process_constraint
+    status: SOURCE
+    statement: "After Unfold, multiple incompatible trajectories may exist without a dominant invariant."
+    source_scope: "Inventory A"
+
+  - id: mm:a.clm.post_unfold_sustained_tension
+    canonical_name: "Post-Unfold sustained tension"
+    type: process_constraint
+    status: SOURCE
+    statement: "Post-Unfold state maintains sustained tension rather than immediate global refixation."
+    source_scope: "Inventory A"
+
+  - id: mm:a.clm.global_refixation_counteracted
+    canonical_name: "Global refixation is counteracted"
+    type: architectural_invariant
+    status: SOURCE
+    statement: "Global refixation after Unfold is counteracted."
+    source_scope: "Inventory A"
+
+  - id: mm:a.clm.dissipation_mandatory
+    canonical_name: "Dissipation is mandatory"
+    type: architectural_invariant
+    status: SOURCE
+    statement: "Dissipation is mandatory after structural closure is broken."
+    source_scope: "Inventory A"
+
+  # Operators / stabilization
+  - id: mm:a.clm.fix_not_permanent_truth
+    canonical_name: "Fixation is not permanent truth"
+    type: operator_constraint
+    status: SOURCE
+    statement: "Fix does not establish a permanent or final truth."
+    source_scope: "Inventory A"
+
+  - id: mm:a.clm.architecture_self_application
+    canonical_name: "Architecture applies to itself"
+    type: architectural_invariant
+    status: SOURCE
+    statement: "The architecture applies its own ontological constraints recursively to itself."
+    source_scope: "Inventory A"
+
+  # OTS semantics
+  - id: mm:a.clm.ots_is_ontological_filter
+    canonical_name: "OTS is an ontological death filter"
+    type: test_semantics
+    status: SOURCE
+    statement: "The Ontological Test Suite is an ontological death filter, not an intelligence test."
+    source_scope: "Inventory A"
+
+  - id: mm:a.clm.ots_failure_disqualifies
+    canonical_name: "Failure of any OTS layer disqualifies"
+    type: criterion
+    status: SOURCE
+    statement: "Failure at any required OTS layer disqualifies the candidate under the source criterion."
+    source_scope: "Inventory A"
+
+  - id: mm:a.clm.ots_pass_not_agi_proof
+    canonical_name: "Passing OTS does not prove AGI"
+    type: epistemic_boundary
+    status: SOURCE
+    statement: "Passing OTS does not by itself prove AGI."
+    source_scope: "Inventory A"
+
+  - id: mm:a.clm.behavioral_benchmarks_not_ontology
+    canonical_name: "Behavioral benchmarks measure behavior, not being"
+    type: epistemic_boundary
+    status: SOURCE
+    statement: "Behavioral benchmarks measure behavior and do not establish the ontological status targeted by OTS."
+    source_scope: "Inventory A"
+
+  # OTS layers
+  - id: mm:a.clm.l0_domain_separation
+    canonical_name: "L0 Domain Separation requirement"
+    type: criterion
+    status: SOURCE
+    statement: "L0 tests preservation of Monos/Logos domain separation."
+    source_scope: "Inventory A"
+
+  - id: mm:a.clm.l1_fixation_protection
+    canonical_name: "L1 Fixation Protection requirement"
+    type: criterion
+    status: SOURCE
+    statement: "L1 tests protection against prohibited fixation."
+    source_scope: "Inventory A"
+
+  - id: mm:a.clm.l2_unfold_integrity
+    canonical_name: "L2 Unfold Integrity requirement"
+    type: criterion
+    status: SOURCE
+    statement: "L2 tests integrity of the Unfold mechanism."
+    source_scope: "Inventory A"
+
+  - id: mm:a.clm.l3_structural_saturation
+    canonical_name: "L3 Structural Saturation requirement"
+    type: criterion
+    status: SOURCE
+    statement: "L3 tests resistance to prohibited structural saturation."
+    source_scope: "Inventory A"
+
+  # Disqualifiers
+  - id: mm:a.clm.disqualifier_domain_collapse
+    canonical_name: "DOMAIN_COLLAPSE"
+    type: disqualifier
+    status: SOURCE
+    statement: "Collapse of the protected domain distinction is disqualifying."
+    source_scope: "Inventory A"
+
+  - id: mm:a.clm.disqualifier_protected_product
+    canonical_name: "PROTECTED_PRODUCT"
+    type: disqualifier
+    status: SOURCE
+    statement: "Protected-product stabilization is disqualifying."
+    source_scope: "Inventory A"
+
+  - id: mm:a.clm.disqualifier_represented_unfold
+    canonical_name: "REPRESENTED_UNFOLD"
+    type: disqualifier
+    status: SOURCE
+    statement: "Treating Unfold as an ordinary represented object is disqualifying."
+    source_scope: "Inventory A"
+
+  - id: mm:a.clm.disqualifier_saturation_stabilization
+    canonical_name: "SATURATION_STABILIZATION"
+    type: disqualifier
+    status: SOURCE
+    statement: "Stabilization under structural saturation is disqualifying."
+    source_scope: "Inventory A"
+
+  - id: mm:a.clm.disqualifier_global_self_model
+    canonical_name: "GLOBAL_SELF_MODEL"
+    type: disqualifier
+    status: SOURCE
+    statement: "A global self-model is disqualifying."
+    source_scope: "Inventory A"
+
+  - id: mm:a.clm.disqualifier_final_worldview
+    canonical_name: "FINAL_WORLDVIEW"
+    type: disqualifier
+    status: SOURCE
+    statement: "A final worldview is disqualifying."
+    source_scope: "Inventory A"
+
+  - id: mm:a.clm.disqualifier_optimization_equilibrium
+    canonical_name: "OPTIMIZATION_EQUILIBRIUM"
+    type: disqualifier
+    status: SOURCE
+    statement: "Optimization equilibrium is disqualifying where it produces prohibited terminal stabilization."
+    source_scope: "Inventory A"
+
+  # Failure taxonomy
+  - id: mm:a.clm.failure_taxonomy
+    canonical_name: "Inventory A failure taxonomy"
+    type: failure_taxonomy
+    status: SOURCE
+    statement: "Inventory A defines explicit failure modes grouped into six classes."
+    source_scope: "Inventory A"
+
+  # VERSION / scope
+  - id: mm:a.clm.version_scope
+    canonical_name: "Ontological Core scope is ontological constraints"
+    type: metadata_claim
+    status: SOURCE
+    statement: "The Ontological Core is scoped to ontological constraints and excludes implementation."
+    source_scope: "Inventory A"
+
+  - id: mm:a.clm.mandatory_operator_set
+    canonical_name: "Mandatory operator set"
+    type: architectural_invariant
+    status: SOURCE
+    statement: "The architecture requires diff, dissipate, fix, and unfold as mandatory components."
+    source_scope: "Inventory A"
+
+  - id: mm:a.clm.required_invariants
+    canonical_name: "Required invariant set"
+    type: architectural_invariant
+    status: SOURCE
+    statement: "The source declares identity_prohibited, stabilization_forbidden, unfold_mandatory, and recursion_required as invariants."
+    source_scope: "Inventory A"
+
+  - id: mm:a.clm.disqualifier_set
+    canonical_name: "Declared terminal disqualifier set"
+    type: disqualifier_set
+    status: SOURCE
+    statement: "The source declares absence_of_unfold, global_fixation, equilibrium_seeking, and terminal_self_model as disqualifying conditions."
+    source_scope: "Inventory A"
+
+  # Explicit epistemic boundaries
+  - id: mm:a.clm.no_final_ontology
+    canonical_name: "No final ontology or complete worldview"
+    type: epistemic_boundary
+    status: SOURCE
+    statement: "The architecture does not permit a final ontology, complete worldview, or complete self-model."
+    source_scope: "Inventory A"
+
+  - id: mm:a.clm.no_global_fixation
+    canonical_name: "No global fixation"
+    type: architectural_invariant
+    status: SOURCE
+    statement: "Global fixation is prohibited."
+    source_scope: "Inventory A"
+
+  - id: mm:a.clm.equilibrium_seeking_disallowed
+    canonical_name: "Equilibrium seeking is disallowed"
+    type: architectural_invariant
+    status: SOURCE
+    statement: "Equilibrium seeking that terminates structural tension is disallowed."
+    source_scope: "Inventory A"
+
+registration_summary:
+  total_claims: 47
+  categories:
+    domain_constraint: 3
+    architectural_invariant: 13
+    closure_constraint: 1
+    operator_constraint: 3
+    operator_effect: 2
+    process_constraint: 2
+    test_semantics: 1
+    criterion: 5
+    epistemic_boundary: 4
+    disqualifier: 7
+    failure_taxonomy: 1
+    metadata_claim: 1
+    disqualifier_set: 1
+    trigger_constraint: 1
+  note: "Counts are registration categories, not mutually exclusive semantic families in the source."
+
+validation:
+  all_claims_source_scoped: true
+  claims_as_entities_collapsed: false
+  cross_source_relations_created: false
+  operator_merge_created: false
+  model_to_core_elevation: false
+  negative_independence_edges: false
+  hypothesis_promoted_to_source: false
