@@ -1,0 +1,23 @@
+{
+  "stage":41,
+  "status":"PASS",
+  "runs":[
+    {
+      "case":"r1_r4_formalization",
+      "selection_policy":"DEPENDENCY_FIRST",
+      "result_class":"INCONCLUSIVE",
+      "successor_frontier_state":"UNRESOLVED",
+      "epistemic_status":"THEORETICAL_HYPOTHESIS",
+      "canonical_upgrade":false
+    },
+    {
+      "case":"ricci_definition",
+      "selection_policy":"USER_SELECTED",
+      "result_class":"BLOCKED",
+      "successor_frontier_state":"BLOCKED",
+      "epistemic_status":"THEORETICAL_HYPOTHESIS",
+      "canonical_upgrade":false
+    }
+  ],
+  "finding":"Closed-loop control flow works; identifier continuity needs an explicit alias/identity mechanism."
+}
