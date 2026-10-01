@@ -27,6 +27,34 @@ The central methodological principle is:
 
 The semantic layer preserves the distinction between what is explicitly present in the source corpus, what follows as an inference, what is merely a formalization, what remains unresolved, and what belongs to historical or theoretical formulations.
 
+## Primary Operational Use: AI Text Processing
+
+The repository is not only a semantic database. Its primary operational purpose is to serve as an **instruction and control layer for AI systems processing new Meta-Monism texts**.
+
+The AI processing protocol is defined in:
+
+**AI_TEXT_PROCESSING_PROTOCOL.md**
+
+The protocol instructs an AI how to:
+
+- segment source text into atomic semantic units;
+- distinguish entities, claims, and relations;
+- preserve epistemic status;
+- match new material against the existing semantic core;
+- prevent semantic collapse;
+- distinguish identity, equivalence, structural correspondence, extension, and unresolved relations;
+- separate source claims from AI inference and formalization;
+- preserve contradictions, ambiguities, historical formulations, and undefined terms;
+- validate candidate additions before registration;
+- maintain traceability from processed text back to source evidence.
+
+The central objective is:
+
+> **Make Meta-Monism machine-processable without making it machine-rewritten.**
+
+The semantic core therefore functions as a **semantic control system for AI text processing**, not merely as a dictionary of Meta-Monist terminology.
+
+
 ---
 
 ## Source Repositories
