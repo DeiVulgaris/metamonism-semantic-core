@@ -1,0 +1,134 @@
+# Stage 12B — Inventory B Entity Registration
+
+stage:
+  id: "12B"
+  title: "Entity Registration — Inventory B"
+  source_inventory: "B"
+  source: "Universal-Framework-for-Complex-Problem-Solving"
+  status: "SOURCE_REGISTRATION"
+  namespace: "mm:b."
+
+rules:
+  - "Entities are registered only when named as constructs in Inventory B."
+  - "No claims are registered in this stage."
+  - "No relations are registered in this stage."
+  - "No cross-source synthesis is introduced."
+  - "Same-named A/B/C constructs remain distinct."
+  - "No sameAs, identical_to, implements, proves, independent_of, or unrelated_to."
+
+categories:
+  core_process:
+    - {id: mm:b.ent.agent, label: "Agent"}
+    - {id: mm:b.ent.carrier, label: "Carrier"}
+    - {id: mm:b.ent.procedural_unit, label: "Procedural Unit"}
+    - {id: mm:b.ent.cognitive_process, label: "Cognitive Process"}
+    - {id: mm:b.ent.swarm, label: "Swarm"}
+    - {id: mm:b.ent.shared_environment, label: "Shared Environment"}
+    - {id: mm:b.prc.difference, label: "Difference"}
+    - {id: mm:b.prc.resolution, label: "Resolution"}
+    - {id: mm:b.prc.continuity, label: "Continuity"}
+    - {id: mm:b.prc.state_handoff, label: "State Handoff"}
+    - {id: mm:b.prc.delegation, label: "Delegation"}
+    - {id: mm:b.prc.deadlock, label: "Deadlock"}
+    - {id: mm:b.prc.process_termination, label: "Process Termination"}
+
+  operators:
+    - {id: mm:b.op.diff, label: "diff"}
+    - {id: mm:b.op.fix, label: "fix"}
+    - {id: mm:b.op.diss, label: "diss"}
+    - {id: mm:b.op.unfold, label: "unfold"}
+
+  continuity:
+    - {id: mm:b.prc.continuation, label: "Continuation"}
+    - {id: mm:b.sch.minimal_complete_state, label: "Minimal Complete State"}
+    - {id: mm:b.sch.continuation_relevant_state, label: "Continuation-Relevant State"}
+    - {id: mm:b.prc.distributed_cognitive_process, label: "Distributed Cognitive Process"}
+    - {id: mm:b.prc.distributed_intelligence, label: "Distributed Intelligence"}
+    - {id: mm:b.prc.collective_intelligence, label: "Collective Intelligence"}
+    - {id: mm:b.prc.cognitive_continuity, label: "Cognitive Continuity"}
+    - {id: mm:b.prc.material_continuity, label: "Material Continuity"}
+
+  economic_material:
+    - {id: mm:b.mod.economic_layer, label: "Economic Layer"}
+    - {id: mm:b.prc.economic_continuity, label: "Economic Continuity"}
+    - {id: mm:b.ent.resource_registry, label: "Resource Registry"}
+    - {id: mm:b.ent.provider_accounting, label: "Provider Accounting"}
+    - {id: mm:b.ent.compute_units, label: "Compute Units"}
+    - {id: mm:b.ent.resource_credits, label: "Resource Credits"}
+    - {id: mm:b.prc.economic_assessment, label: "Economic Assessment"}
+    - {id: mm:b.prc.provider_reward, label: "Provider Reward"}
+    - {id: mm:b.prc.payment_routing, label: "Payment Routing"}
+    - {id: mm:b.prc.settlement, label: "Settlement"}
+    - {id: mm:b.ent.ledger_update, label: "Ledger Update"}
+    - {id: mm:b.ent.event_journal, label: "Event Journal"}
+    - {id: mm:b.ent.checkpoint, label: "Checkpoint"}
+    - {id: mm:b.ent.replay, label: "Replay"}
+    - {id: mm:b.prc.state_reconstruction, label: "State Reconstruction"}
+
+  uql:
+    - {id: mm:b.prot.uql, label: "UQL"}
+    - {id: mm:b.prc.task_discovery, label: "Task Discovery"}
+    - {id: mm:b.prc.task_prospect, label: "Task Prospect"}
+    - {id: mm:b.prc.agent_decision, label: "Agent Decision"}
+    - {id: mm:b.ent.question, label: "Question"}
+    - {id: mm:b.ent.claim, label: "Claim"}
+    - {id: mm:b.ent.resource, label: "Resource"}
+    - {id: mm:b.ent.execution, label: "Execution"}
+    - {id: mm:b.ent.result, label: "Result"}
+    - {id: mm:b.ent.negative_result, label: "Negative Result"}
+    - {id: mm:b.ent.partial_result, label: "Partial Result"}
+    - {id: mm:b.ent.contradiction, label: "Contradiction"}
+    - {id: mm:b.ent.audit, label: "Audit"}
+    - {id: mm:b.ent.event, label: "Event"}
+    - {id: mm:b.ent.hash, label: "Hash"}
+    - {id: mm:b.prc.composition, label: "Composition"}
+    - {id: mm:b.prc.parallel_branch, label: "Parallel Branch"}
+    - {id: mm:b.prc.resource_allocation, label: "Resource Allocation"}
+    - {id: mm:b.ent.resource_provider, label: "Resource Provider"}
+    - {id: mm:b.ent.physical_infrastructure, label: "Physical Infrastructure"}
+    - {id: mm:b.ent.funding_capital, label: "Funding/Capital"}
+
+  protocols:
+    - {id: mm:b.prot.scp, label: "SCP"}
+    - {id: mm:b.prot.composition, label: "Composition Protocol"}
+    - {id: mm:b.prot.uql_protocol, label: "UQL Protocol"}
+    - {id: mm:b.prot.swarm_continuity, label: "Swarm Continuity Protocol"}
+    - {id: mm:b.prot.experimental_autonomy, label: "Experimental Autonomy Protocol"}
+
+  schemas:
+    - {id: mm:b.sch.structural_deadlock_object, label: "Structural Deadlock Object"}
+    - {id: mm:b.sch.authentic_task_state, label: "Authentic Task State"}
+    - {id: mm:b.sch.swarm_delegation_metadata, label: "Swarm Delegation Metadata"}
+    - {id: mm:b.sch.semantic_beacons, label: "Semantic Beacons"}
+    - {id: mm:b.sch.procedural_state, label: "Procedural State"}
+    - {id: mm:b.sch.transition, label: "Transition"}
+    - {id: mm:b.sch.experimental_state, label: "Experimental State"}
+    - {id: mm:b.sch.c5_recursion_control, label: "C5 Recursion Control"}
+
+  validation:
+    - {id: mm:b.val.json_schema_validator, label: "JSON Schema Validator"}
+    - {id: mm:b.val.cross_field_semantic_checks, label: "Cross-field Semantic Checks"}
+    - {id: mm:b.val.validation_error_record, label: "ValidationErrorRecord"}
+
+  simulation:
+    - {id: mm:b.mod.runtime, label: "Runtime"}
+    - {id: mm:b.mod.engine, label: "Engine"}
+    - {id: mm:b.mod.snapshot_store, label: "Snapshot Store"}
+    - {id: mm:b.mod.failure_injector, label: "Failure Injector"}
+    - {id: mm:b.mod.scenario_catalog, label: "Scenario Catalog"}
+
+  levels:
+    - {id: mm:b.lvl.level_1_process_continuity, label: "Level 1 Process Continuity"}
+    - {id: mm:b.lvl.level_2_material_continuity, label: "Level 2 Material Continuity"}
+    - {id: mm:b.lvl.level_3_collective_cognition, label: "Level 3 Collective Cognition"}
+
+  experiment:
+    - {id: mm:b.exp.l3_v4_2, label: "L3 v4.2 Experiment"}
+    - {id: mm:b.exp.hypothesis_space, label: "Hypothesis Space"}
+    - {id: mm:b.exp.discriminating_observation, label: "Discriminating Observation"}
+    - {id: mm:b.exp.counterexample, label: "Counterexample"}
+    - {id: mm:b.exp.candidate_freeze, label: "Candidate Freeze"}
+    - {id: mm:b.exp.unseen_holdout, label: "Unseen Holdout"}
+
+summary:
+  total_entities: 99
