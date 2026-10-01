@@ -1,0 +1,45 @@
+# Stage 20 — Expansion Manifest
+
+stage: 20
+name: controlled_semantic_expansion
+base: stage19-automated-integrity
+authority:
+  semantic_authority: "stage11-stage13 registries"
+  provenance_authority: "stage16/provenance_registry.yaml"
+  formalization_authority: "stage17/formalization_registry.yaml"
+  bridge_authority: "stage10/cross_source_edges_x1_x21.yaml"
+
+admission:
+  mode: "registry_only"
+  new_mm_entities: 0
+  new_mm_claims: 0
+  new_mm_relations: 0
+  new_cross_source_relations: 0
+
+materialized_counts:
+  inventory_a:
+    entities: 32
+    claims: 46
+    relations: 44
+  inventory_b:
+    entities: 94
+    claims: 65
+    relations: 53
+  inventory_c:
+    entities: 42
+    claims: 51
+    relations: 42
+  cross_source:
+    bridge_records: 21
+  formalizations:
+    records: 25
+
+status_policy:
+  SOURCE: "preserve"
+  RESEARCH_HYPOTHESIS: "preserve"
+  EXPERIMENTAL_RESULT: "preserve"
+  CANONICAL_WITHIN_LAYER: "preserve"
+  MODEL_SPECIFIC: "preserve"
+  DRAFT_HYPOTHESIS: "preserve"
+  PROPOSED: "preserve"
+  UNRESOLVED: "preserve"
