@@ -1,0 +1,103 @@
+{
+  "source": {
+    "title": "МЕТАМОНИЗМ: Глава 3. Процессуальная онтодинамика",
+    "author": "Myshko, A.",
+    "year": 2026,
+    "doi": "10.5281/zenodo.22730697",
+    "source_ref": "user_supplied_attachment",
+    "key_locator": "L49-L400"
+  },
+  "hypothesis_under_test": "Fr → transition/resolution → continuation is structurally comparable to Ricci-flow singularity → surgery → continuation.",
+  "source_side": {
+    "frustration": {
+      "status": "SOURCE",
+      "expression": "Fr = necessity of continuation + impossibility of completing by the previous method",
+      "locator": "L61-L69"
+    },
+    "pre_transition": {
+      "status": "SOURCE",
+      "expression": "P0 → P1 → P2 → P3 → P4 → Fr",
+      "locator": "L61-L69"
+    },
+    "scale_transition": {
+      "status": "SOURCE",
+      "expression": "P4 → P5; Ck → Ck+1; Ck+1 != Ck; Ck+1 ≅ Ck",
+      "locator": "L100-L120"
+    },
+    "continuation": {
+      "status": "SOURCE",
+      "expression": "P5 → P6 → P7 → P8",
+      "locator": "L121-L129"
+    },
+    "open_continuity": {
+      "status": "SOURCE",
+      "expression": "local closure + interlevel openness = dynamic stability",
+      "locator": "L172-L189; L292-L296"
+    },
+    "general_resolution_rule": {
+      "status": "SOURCE",
+      "expression": "Fr →⊥ new regime of actualization",
+      "locator": "L285-L291"
+    }
+  },
+  "ricci_side": {
+    "status": "EXTERNAL_REFERENCE",
+    "core_structure": "Ricci flow develops finite-time singular regions; surgery is a geometric procedure used to continue the flow past such singularities.",
+    "sources": [
+      "Perelman, Ricci flow with surgery on three-manifolds, arXiv:math/0303109",
+      "AMS Notices survey on Ricci flow and surgery"
+    ]
+  },
+  "comparison": {
+    "relation_type": "STRUCTURAL_CORRESPONDENCE",
+    "epistemic_status": "THEORETICAL_HYPOTHESIS",
+    "frontier_state": "PARTIALLY_RESOLVED",
+    "supported_axes": [
+      {
+        "axis": "continuation_obstruction",
+        "myshko": "previous geometric mode is exhausted while continuation remains required",
+        "ricci": "smooth Ricci flow encounters a singular regime requiring a different continuation procedure"
+      },
+      {
+        "axis": "regime_transition",
+        "myshko": "P4 → P5 is explicitly a transition to a new localization scale",
+        "ricci": "surgery changes the geometric description at singular regions before continuation"
+      },
+      {
+        "axis": "continuity",
+        "myshko": "process continues through P5 → P6 → P7 → P8 and interlevel openness",
+        "ricci": "Ricci flow with surgery is constructed to continue beyond singularities"
+      }
+    ],
+    "critical_mismatches": [
+      "Myshko does not define a singular geometric quantity analogous to curvature blow-up.",
+      "Myshko does not define a surgery operator acting on a manifold or metric.",
+      "P4 → P5 is described as scale/localization transition, not cutting and capping a singular region.",
+      "No invariant-preserving correspondence between the two transition procedures is given.",
+      "No theorem or derivation maps the ontodynamic state space to Ricci-flow metrics.",
+      "The Planck scale is not derived from P4 → P5."
+    ]
+  },
+  "result": {
+    "class": "PARTIALLY_CONFIRMING",
+    "interpretation": "The corpus confirms that the proposed structural comparison has a nontrivial source-side basis: frustration, exhausted continuation mode, regime/scale transition, and continued process are explicitly present. It does not confirm mathematical equivalence with Ricci-flow surgery.",
+    "canonical_upgrade": false,
+    "strong_claim_status": "UNRESOLVED"
+  },
+  "next_tests": [
+    "Define ontodynamic state space and transition operator.",
+    "Define a mathematical frustration/singularity criterion.",
+    "Define the P4 → P5 operator independently of the Ricci analogy.",
+    "Identify what is preserved across P4 → P5.",
+    "Construct a candidate map from ontodynamic states to Ricci-flow geometric data.",
+    "Test whether the map preserves the relevant transition structure.",
+    "Only then investigate any characteristic scale, including but not assuming the Planck scale."
+  ],
+  "forbidden_inferences": [
+    "P4 → P5 is already Ricci surgery",
+    "Frustration is curvature blow-up",
+    "scale transition is equivalent to cutting and capping",
+    "the text derives Ricci flow",
+    "Planck scale follows from the comparison"
+  ]
+}
