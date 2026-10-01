@@ -486,3 +486,9 @@ stage12d_relation_ids:
   - mm:b.rel.examples_illustrative
   - mm:b.rel.examples_not_proof
   - mm:b.rel.examples_no_new_operators
+
+# STAGE 12D — INVENTORY B MISSING ENTITY IDS
+stage12d_missing_entity_ids:
+  - mm:b.prc.cognitive_process
+  - mm:b.ent.process_termination
+  - mm:b.ent.agent_decision

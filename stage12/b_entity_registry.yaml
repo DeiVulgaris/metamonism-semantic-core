@@ -130,5 +130,10 @@ categories:
     - {id: mm:b.exp.candidate_freeze, label: "Candidate Freeze"}
     - {id: mm:b.exp.unseen_holdout, label: "Unseen Holdout"}
 
+
+  - {id: mm:b.prc.cognitive_process, label: "Cognitive Process"}
+  - {id: mm:b.ent.process_termination, label: "Process Termination"}
+  - {id: mm:b.ent.agent_decision, label: "Agent Decision"}
+
 summary:
-  total_entities: 91
+  total_entities: 94
