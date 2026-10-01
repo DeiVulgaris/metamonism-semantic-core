@@ -1,0 +1,60 @@
+{
+  "frontier_id": "RF-P4P5-001",
+  "research_program_id": "RP-stage45-ricci-surgery",
+  "trajectory_id": "RT-stage45-001",
+  "frontier_state": "PARTIALLY_RESOLVED",
+  "epistemic_status": "THEORETICAL_HYPOTHESIS",
+  "subject": {
+    "ref": "mm:transition.p4_p5",
+    "description": "Ontodynamic transition from frustrated P4 to new localization scale P5"
+  },
+  "unresolved_difference": "Whether the independently defined P4→P5 transition operator has a mathematically meaningful structural correspondence with Ricci-flow surgery.",
+  "evidence": [
+    "Chapter 3 defines Fr as necessary continuation plus impossibility of completion by the previous method.",
+    "Chapter 3 explicitly defines P4→P5 as transition to a new localization scale.",
+    "Chapter 3 preserves structural correspondence while rejecting identity of successive levels.",
+    "Chapter 3 explicitly continues the process after P5."
+  ],
+  "provenance": {
+    "repository": "user_supplied_corpus",
+    "path": "МЕТАМОНИЗМ: Глава 3 Процессуальная онтодинамика",
+    "ref": "Zenodo:10.5281/zenodo.22730697",
+    "locator": "L61-L120; L121-L189; L285-L296; L324-L400"
+  },
+  "derived_from": [
+    "stage45/chapter3_comparison.json",
+    "stage45/P4_P5_transition_research_program.md"
+  ],
+  "constraints": [
+    "Do not define P4→P5 by importing Ricci surgery.",
+    "Do not infer Planck scale from structural analogy.",
+    "Do not promote structural correspondence to mathematical equivalence."
+  ],
+  "blockers": [
+    "ontodynamic state space is undefined",
+    "mathematical frustration criterion is undefined",
+    "P4→P5 transition operator is undefined",
+    "preserved structure/invariant is undefined",
+    "scale transition is not quantitatively defined"
+  ],
+  "open_questions": [
+    "What is the mathematical state space of P4 and P5?",
+    "What condition constitutes frustration in that state space?",
+    "What operator realizes P4→P5?",
+    "What invariant or structural relation is preserved?",
+    "What quantity defines the change of localization scale?",
+    "Can the resulting operator be independently compared with Ricci surgery?"
+  ],
+  "admissible_transitions": [
+    {"type": "DEFINE", "status": "AVAILABLE"},
+    {"type": "FORMALIZE", "status": "CONDITIONAL"},
+    {"type": "COMPARE", "status": "AVAILABLE"},
+    {"type": "COUNTEREXAMPLE", "status": "AVAILABLE"}
+  ],
+  "forbidden_inferences": [
+    "P4→P5 is Ricci surgery",
+    "Fr is curvature blow-up",
+    "structural correspondence proves mathematical equivalence",
+    "Planck scale follows from the comparison"
+  ]
+}
