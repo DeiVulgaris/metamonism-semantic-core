@@ -1,0 +1,44 @@
+# Stage 15 — Semantic Core Consolidation Manifest
+
+stage:
+  id: "15"
+  title: "Semantic Core Consolidation"
+  purpose: "Verify reconstructability and registry integrity without adding semantic synthesis."
+  status: "PASS_PENDING_FINAL_GATE"
+
+inventories:
+  A:
+    source: "Ontological-core-of-AGI"
+    entities: 32
+    claims: 46
+    relations: 44
+    scope: "mm:a.*"
+  B:
+    source: "Universal-Framework-for-Complex-Problem-Solving"
+    entities: 94
+    claims: 65
+    relations: 53
+    scope: "mm:b.*"
+  C:
+    source: "ONTODYNAMICS"
+    entities: 42
+    claims: 51
+    relations: 42
+    scope: "mm:c.*"
+
+cross_source:
+  stage10_bridge: "X1-X21"
+  entries: 21
+  rule: "Only frozen Stage 10 bridge may create cross-inventory relations."
+
+registry_requirements:
+  - "Every registered entity/claim ID resolves in id_registry.yaml."
+  - "Every registered relation ID resolves in relation_registry.yaml."
+  - "Relation subject/object/basis references resolve in their declared inventory or approved CORE bridge."
+  - "Inventory A/B/C namespaces remain disjoint."
+  - "A/B/C operators remain separately identified."
+  - "Research hypotheses remain RESEARCH_HYPOTHESIS."
+  - "Experimental results remain tied to their source experiment."
+  - "MODEL and CANONICAL_WITHIN_LAYER constructs are not promoted to CORE."
+  - "No implicit identity relation is inferred from naming similarity."
+  - "No missing relation is interpreted as independence."
