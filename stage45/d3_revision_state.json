@@ -1,0 +1,32 @@
+{
+  "revision_id": "D3R-EXHAUSTION-001",
+  "revision_of": "stage45/d3_state.json",
+  "status": "PARTIALLY_RESOLVED",
+  "epistemic_status": "FORMALIZATION",
+  "source_basis": {"repository":"user_supplied_source","path":"Вставленный текст(20261001-231821).txt","ref":"user_supplied_attachment","locator":"lines 34-90; 93-120"},
+  "source_claims": [
+    "After three external orthogonal directions, further external orthogonal unfolding is exhausted.",
+    "Continuation remains necessary after exhaustion.",
+    "Frustration is necessity of continuation plus impossibility of completion by the previous method.",
+    "P4 is not a fourth spatial dimension.",
+    "The transition includes +n -> -n."
+  ],
+  "formalization": {
+    "continuation_set": "D_ext(P) = {d | d is an admissible external orthogonal continuation under the current regime}",
+    "exhaustion": "Exh(P) := D_ext(P) = empty_set",
+    "frustration": "Fr(P) := NeedContinue(P) AND Exh(P)",
+    "regime_transition": "J : (P3, Fr, Regime_old) -> (P4, Regime_new)",
+    "orientation_update": "n_new = -n_old"
+  },
+  "working_hypotheses": ["r_ext(P0)=3, r_ext(P1)=2, r_ext(P2)=1, r_ext(P3)=0 if D_ext receives vector-space structure."],
+  "not_established": [
+    "P4 is a fourth independent spatial direction.",
+    "J is an ordinary linear reflection.",
+    "J^2 = +I.",
+    "J^2 = -I.",
+    "The exhaustion transition is a Clifford generator.",
+    "The process derives Dirac matrices."
+  ],
+  "next_tests": ["DEFINE_CONTINUATION_SPACE","FORMALIZE_EXHAUSTION","DEFINE_REGIME_TRANSITION","TEST_OPERATOR_REALIZATION","TEST_CLIFFORD_COMPATIBILITY"],
+  "canonical_promotion": false
+}

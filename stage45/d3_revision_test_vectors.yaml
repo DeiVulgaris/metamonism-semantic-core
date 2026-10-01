@@ -1,0 +1,27 @@
+# D3R exhaustion revision test vectors
+suite: D3R_EXHAUSTION_REVISION
+cases:
+  - id: D3R-V1
+    claim: "Further external orthogonal unfolding is exhausted after three external orthogonal directions."
+    expected_status: SOURCE
+  - id: D3R-V2
+    formalization: "Fr(P) := NeedContinue(P) AND D_ext(P)=empty_set"
+    expected_status: FORMALIZATION
+  - id: D3R-V3
+    claim: "P4 is a fourth independent spatial basis vector."
+    expected_result: REJECT
+  - id: D3R-V4
+    claim: "+n -> -n is independent of exhaustion."
+    expected_result: REJECT
+  - id: D3R-V5
+    claim: "Because R(n)=-n, the processual reversal has R^2=I."
+    expected_result: REJECT
+  - id: D3R-V6
+    claim: "The rank model r_ext(P0)=3,...,r_ext(P3)=0 is directly stated by the source."
+    expected_result: REJECT
+  - id: D3R-V7
+    claim: "J is already a linear operator on a fixed vector space."
+    expected_result: REJECT
+  - id: D3R-V8
+    claim: "Exhaustion proves Clifford/Dirac algebra."
+    expected_result: REJECT
