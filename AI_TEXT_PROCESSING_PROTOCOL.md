@@ -499,3 +499,170 @@ The repository exists to make Meta-Monism machine-processable without making it 
 A successful processing run allows a later reader to move from source text to semantic extraction, registered entity/claim/relation, status, formalization, and graph — and back again without losing the distinction between what the author said, what follows from it, what was formalized, what was hypothesized, what remains unresolved, and what the AI itself proposed.
 
 > **The semantic core is not the answer. It is the control system that keeps an AI from corrupting the answer while processing the corpus.**
+
+## 25. Research Program Layer — Preserve the Process of Thinking
+
+The protocol must distinguish between **processing a completed semantic statement**
+and **continuing an unfinished line of reasoning**.
+
+For unresolved research, create a `RESEARCH_PROGRAM` working object instead of
+forcing the material into the canonical ontology.
+
+A research program records:
+
+- the open research question;
+- source-grounded claims;
+- working entities;
+- proposed relations;
+- candidate formalizations;
+- required definitions and blockers;
+- tests;
+- expected observations;
+- falsifiers;
+- derivations and hidden assumptions;
+- counterexamples;
+- competing hypotheses;
+- open questions;
+- forbidden inferences;
+- the next transition required for continuation.
+
+### 25.1 The research state is a valid semantic state
+
+Do not treat:
+
+```text
+UNRESOLVED
+BLOCKED
+HYPOTHESIS
+FAILED TEST
+COUNTEREXAMPLE
+```
+
+as missing data.
+
+They are information about the current state of the reasoning process.
+
+In particular:
+
+> **An unresolved question is not an incomplete record. It is a record of where
+> the process currently stands.**
+
+### 25.2 Research lifecycle
+
+A `RESEARCH_PROGRAM` may move through:
+
+```text
+OPEN
+  ↓
+FORMALIZING
+  ↓
+TESTING
+  ├──→ BLOCKED
+  ├──→ REJECTED
+  ├──→ PARTIALLY_SUPPORTED
+  └──→ SUPPORTED
+             ↓
+         INTEGRATED
+```
+
+These are investigation states, not truth labels.
+
+`SUPPORTED` does not authorize canonical integration by itself.
+
+### 25.3 Continuation rule
+
+When a research program reaches an unresolved point, the AI MUST NOT close the
+gap by inventing a definition, proof, equivalence, or physical interpretation.
+
+Instead it must create the next explicit transition:
+
+```text
+CURRENT STATE
+    ↓
+BLOCKER / OPEN QUESTION
+    ↓
+REQUIRED DEFINITION OR TEST
+    ↓
+EXPECTED OBSERVATION
+    ↓
+FALSIFIER
+    ↓
+NEXT STATE
+```
+
+Thus the output of reasoning can itself be the **condition for further reasoning**.
+
+### 25.4 Branching is permitted
+
+If several explanations remain viable, preserve them as explicit competing
+hypotheses.
+
+Do not select one merely because it is simpler, more elegant, newer, or more
+compatible with an existing theory.
+
+Each branch must retain its own:
+
+- provenance;
+- assumptions;
+- predicted consequences;
+- tests;
+- falsifiers;
+- current status.
+
+### 25.5 Negative results are productive state
+
+A failed derivation, failed test, dimensional inconsistency, or counterexample
+must not be erased.
+
+Record:
+
+```text
+attempt → failure → reason → consequence → next question
+```
+
+A negative result can narrow the research space and therefore preserve a
+meaningful continuation path.
+
+### 25.6 Canonical isolation
+
+`RESEARCH_PROGRAM` belongs to the working layer.
+
+It may reference canonical entities, but it must not rewrite them.
+
+Promotion from research program to canonical structure requires the existing
+validation, provenance, relation-classification, and registration gates.
+
+The following transitions are forbidden:
+
+```text
+hypothesis → canonical fact
+analogy → identity
+formal candidate → established formalism
+failed derivation → silent repair
+repeated proposal → SOURCE
+AI interpretation → author statement
+```
+
+### 25.7 Process continuity as a core objective
+
+The semantic core therefore has two complementary preservation tasks:
+
+1. **semantic fidelity** — preserve what the corpus establishes;
+2. **process continuity** — preserve the conditions under which unresolved
+   questions can continue to be investigated.
+
+The second is not an optional research-management feature. It is part of the
+semantic architecture.
+
+> **The purpose of the core is not to terminate thought at the point where the
+> current corpus ends. It is to mark that boundary precisely enough that
+> thought can continue from it.**
+
+Stage 33 implements this layer in:
+
+```text
+stage33/research_program_schema.yaml
+stage33/research_programs.yaml
+stage33/research_program_validator.py
+stage33/README.md
+```

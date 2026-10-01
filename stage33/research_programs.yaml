@@ -1,0 +1,216 @@
+programs:
+  - id: mm:rp.r1_r4_dirac
+    title: "R1-R4 recursive closure and Dirac/Clifford structure"
+    question: >
+      Can the R1-R4 recursive process, including the sign reversal at closure,
+      be formalized as a nontrivial closure structure structurally comparable
+      to Clifford/Dirac algebra without importing the result from the analogy?
+    status: THEORETICAL_HYPOTHESIS
+    lifecycle: FORMALIZING
+    integration_scope: WORKING
+    provenance:
+      repository: "DeiVulgaris/metamonism-semantic-core"
+      path: "stage32/test_cases.yaml"
+      ref: "stage32-research-hypotheses-validation"
+      locator: "r1_r4_dirac"
+    source_claims:
+      - id: rp.r1r4.c1
+        source_claim: "R1-R4 form a recursive cycle; R4 carries a minus sign."
+        status: SOURCE
+        provenance:
+          repository: "DeiVulgaris/metamonism-semantic-core"
+          path: "stage32/test_cases.yaml"
+          ref: "stage32-research-hypotheses-validation"
+          locator: "r1_r4_dirac"
+      - id: rp.r1r4.c2
+        source_claim: "The minus sign may represent orientation reversal at cycle closure."
+        status: THEORETICAL_HYPOTHESIS
+        derived_from: [rp.r1r4.c1]
+        provenance:
+          repository: "DeiVulgaris/metamonism-semantic-core"
+          path: "stage32/test_cases.yaml"
+          ref: "stage32-research-hypotheses-validation"
+          locator: "r1_r4_dirac"
+    working_entities:
+      - id: rp:r1_r4_cycle
+        label: "R1-R4 recursive cycle"
+        kind: PROCESS
+        status: SOURCE
+        provenance:
+          repository: "DeiVulgaris/metamonism-semantic-core"
+          path: "stage32/test_cases.yaml"
+          ref: "stage32-research-hypotheses-validation"
+          locator: "r1_r4_dirac"
+      - id: rp:clifford_dirac_reference
+        label: "Clifford/Dirac algebra reference"
+        kind: FORMAL_REFERENCE
+        status: SOURCE
+        provenance:
+          repository: "DeiVulgaris/metamonism-semantic-core"
+          path: "stage32/test_cases.yaml"
+          ref: "stage32-research-hypotheses-validation"
+          locator: "r1_r4_dirac"
+    proposed_relations:
+      - source: rp:r1_r4_cycle
+        relation: STRUCTURAL_CORRESPONDENCE
+        target: rp:clifford_dirac_reference
+        status: THEORETICAL_HYPOTHESIS
+        derived_from: [rp.r1r4.c2]
+        provenance:
+          repository: "DeiVulgaris/metamonism-semantic-core"
+          path: "stage32/test_cases.yaml"
+          ref: "stage32-research-hypotheses-validation"
+          locator: "r1_r4_dirac"
+    candidate_formalizations:
+      - expression: "{gamma_mu,gamma_nu}=2 g_mu_nu"
+        role: "external formal reference"
+        status: SOURCE
+        validation: "reference_only; not a derivation of R1-R4"
+    required_definitions:
+      - term: "state space of R1-R4"
+        question: "What mathematical objects do R1...R4 act on?"
+        blocking: true
+      - term: "composition law"
+        question: "What operation composes the R-states?"
+        blocking: true
+      - term: "sign/orientation operator"
+        question: "What operation produces the R4 sign reversal?"
+        blocking: true
+      - term: "closure multiplicity"
+        question: "Does one closure or two closures restore the initial state?"
+        blocking: true
+    tests:
+      - id: rp.r1r4.t1
+        test: "Construct an explicit algebraic representation of R1-R4."
+        expected_observation: "A closed operation exists and preserves the stated process semantics."
+        falsifier: "No coherent composition law can represent the cycle."
+        status: OPEN
+      - id: rp.r1r4.t2
+        test: "Compare closure behavior with a defined Clifford/spinor representation."
+        expected_observation: "A precise invariant or operation corresponds."
+        falsifier: "Only visual or verbal similarity remains."
+        status: OPEN
+    derivations: []
+    counterexamples: []
+    open_questions:
+      - "Is the sign reversal an algebraic operation or only notation?"
+      - "What invariant survives closure?"
+      - "What distinguishes single from double closure?"
+      - "Can the proposed structure generate a representation rather than merely resemble one?"
+    forbidden_inferences:
+      - "R1-R4 already implement Dirac algebra."
+      - "A minus sign proves spin-1/2 behavior."
+      - "Structural correspondence is formal isomorphism."
+      - "Dirac matrices are derivable before an R1-R4 algebra is defined."
+    next_transition:
+      trigger: "state_space_and_composition_law_defined"
+      action: "attempt_explicit_algebraic_formalization"
+      evidence_required: "formal definitions plus reproducible derivation"
+
+  - id: mm:rp.frustration_surgery_planck
+    title: "Frustration, surgery and characteristic scale"
+    question: >
+      Can the process frustration -> localization -> rupture -> surgery ->
+      continuation yield a mathematically defined characteristic scale, and
+      can that scale be independently compared with fundamental scales?
+    status: THEORETICAL_HYPOTHESIS
+    lifecycle: FORMALIZING
+    integration_scope: WORKING
+    provenance:
+      repository: "DeiVulgaris/metamonism-semantic-core"
+      path: "stage32/test_cases.yaml"
+      ref: "stage32-research-hypotheses-validation"
+      locator: "ricci_planck"
+    source_claims:
+      - id: rp.surg.c1
+        source_claim: "At P4 the normal reverses and continuation is proposed through frustration, localization, rupture, surgery and P5."
+        status: SOURCE
+        provenance:
+          repository: "DeiVulgaris/metamonism-semantic-core"
+          path: "stage32/test_cases.yaml"
+          ref: "stage32-research-hypotheses-validation"
+          locator: "ricci_planck"
+      - id: rp.surg.c2
+        source_claim: "The process is proposed as structurally comparable to Ricci-flow singularity -> surgery -> continuation."
+        status: THEORETICAL_HYPOTHESIS
+        derived_from: [rp.surg.c1]
+        provenance:
+          repository: "DeiVulgaris/metamonism-semantic-core"
+          path: "stage32/test_cases.yaml"
+          ref: "stage32-research-hypotheses-validation"
+          locator: "ricci_planck"
+    working_entities:
+      - id: rp:ontodynamic_frustration
+        label: "ontodynamic frustration"
+        kind: PROCESS_STATE
+        status: SOURCE
+        provenance:
+          repository: "DeiVulgaris/metamonism-semantic-core"
+          path: "stage32/test_cases.yaml"
+          ref: "stage32-research-hypotheses-validation"
+          locator: "ricci_planck"
+      - id: rp:ricci_surgery_reference
+        label: "Ricci-flow surgery"
+        kind: FORMAL_REFERENCE
+        status: SOURCE
+        provenance:
+          repository: "DeiVulgaris/metamonism-semantic-core"
+          path: "stage32/test_cases.yaml"
+          ref: "stage32-research-hypotheses-validation"
+          locator: "ricci_planck"
+    proposed_relations:
+      - source: rp:ontodynamic_frustration
+        relation: STRUCTURAL_CORRESPONDENCE
+        target: rp:ricci_surgery_reference
+        status: THEORETICAL_HYPOTHESIS
+        derived_from: [rp.surg.c2]
+        provenance:
+          repository: "DeiVulgaris/metamonism-semantic-core"
+          path: "stage32/test_cases.yaml"
+          ref: "stage32-research-hypotheses-validation"
+          locator: "ricci_planck"
+    candidate_formalizations:
+      - expression: "l_P = sqrt(hbar G / c^3)"
+        role: "standard Planck-length reference"
+        status: FORMALIZATION
+        validation: "dimensionally_valid_reference; not a derived result"
+    required_definitions:
+      - term: "state space"
+        question: "What is the evolving state and its metric/geometry?"
+        blocking: true
+      - term: "frustrated set"
+        question: "What exact condition defines frustration?"
+        blocking: true
+      - term: "surgery operator"
+        question: "What transformation changes scale while preserving the required continuity?"
+        blocking: true
+      - term: "characteristic scale"
+        question: "Which invariant or threshold determines the scale?"
+        blocking: true
+    tests:
+      - id: rp.surg.t1
+        test: "Define frustration and surgery independently of Ricci-flow terminology."
+        expected_observation: "The process is mathematically well-defined without borrowing the conclusion."
+        falsifier: "The model requires Ricci surgery as an undeclared primitive."
+        status: OPEN
+      - id: rp.surg.t2
+        test: "Derive a characteristic scale dimensionally from model parameters."
+        expected_observation: "A scale emerges from the model before comparison with Planck units."
+        falsifier: "No scale follows without inserting Planck constants by hand."
+        status: OPEN
+    derivations: []
+    counterexamples: []
+    open_questions:
+      - "What quantity becomes singular, frustrated, or non-continuable?"
+      - "What exactly is localized?"
+      - "What continuity invariant survives surgery?"
+      - "Can a scale be derived rather than fitted?"
+    forbidden_inferences:
+      - "Ricci-flow surgery and ontodynamic surgery are mathematically identical."
+      - "Structural analogy proves ontodynamic surgery."
+      - "Planck length follows from the current model."
+      - "A dimensional coincidence establishes physical identity."
+    next_transition:
+      trigger: "state_space_frustration_and_surgery_defined"
+      action: "derive_characteristic_scale_without_external_target"
+      evidence_required: "independent derivation plus dimensional consistency"
