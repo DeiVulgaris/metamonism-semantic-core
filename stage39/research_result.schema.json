@@ -1,0 +1,49 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"mm:research_result:v1",
+  "title":"Meta-Monism Research Result v1",
+  "description":"A traceable process result produced by execution of a research task. Structure only; not an automatic truth claim.",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["result_id","task_id","frontier_id","research_program_id","trajectory_id","result_class","observation","interpretation","unresolved_difference","evidence","successor_frontier","provenance"],
+  "properties":{
+    "result_id":{"type":"string","minLength":1},
+    "task_id":{"type":"string","minLength":1},
+    "frontier_id":{"type":"string","minLength":1},
+    "research_program_id":{"type":"string","minLength":1},
+    "trajectory_id":{"type":"string","minLength":1},
+    "result_class":{"type":"string","enum":["CONFIRMING","DISCONFIRMING","PARTIALLY_CONFIRMING","INCONCLUSIVE","ANOMALOUS","INVALID","UNREPRODUCIBLE","BLOCKED"]},
+    "task_state_after":{"type":"string","enum":["COMPLETED","FAILED","REJECTED"]},
+    "epistemic_status":{"type":"string","enum":["SOURCE","INFERENCE","FORMALIZATION","THEORETICAL_HYPOTHESIS","PROPOSAL","UNRESOLVED","CONFLICT","USED_BUT_UNDEFINED","PRIOR_THEORETICAL_FORMULATION","MODEL_SPECIFIC"]},
+    "observation":{"type":"string","minLength":1},
+    "interpretation":{"type":"string","minLength":1},
+    "unresolved_difference":{"type":"string","minLength":1},
+    "evidence":{"type":"array","items":{"type":"string","minLength":1}},
+    "constraints":{"type":"array","items":{"type":"string","minLength":1}},
+    "blockers":{"type":"array","items":{"type":"string","minLength":1}},
+    "reproducibility":{"type":"string"},
+    "successor_frontier":{
+      "type":"object",
+      "additionalProperties":false,
+      "required":["frontier_id","research_program_id","trajectory_id","frontier_state","subject","unresolved_difference","provenance","admissible_transitions"],
+      "properties":{
+        "frontier_id":{"type":"string","minLength":1},
+        "research_program_id":{"type":"string","minLength":1},
+        "trajectory_id":{"type":"string","minLength":1},
+        "frontier_state":{"type":"string","enum":["ESTABLISHED","PARTIALLY_RESOLVED","UNRESOLVED","BLOCKED","CONFLICTING","UNTESTED","NEWLY_GENERATED"]},
+        "epistemic_status":{"type":"string","enum":["SOURCE","INFERENCE","FORMALIZATION","THEORETICAL_HYPOTHESIS","PROPOSAL","UNRESOLVED","CONFLICT","USED_BUT_UNDEFINED","PRIOR_THEORETICAL_FORMULATION","MODEL_SPECIFIC"]},
+        "subject":{"type":"object","required":["ref"],"additionalProperties":false,"properties":{"ref":{"type":"string","minLength":1},"label":{"type":"string"}}},
+        "unresolved_difference":{"type":"string","minLength":1},
+        "evidence":{"type":"array","items":{"type":"string","minLength":1}},
+        "provenance":{"type":"object","required":["repository","path","ref","locator"],"additionalProperties":false,"properties":{"repository":{"type":"string","minLength":1},"path":{"type":"string","minLength":1},"ref":{"type":"string","minLength":1},"locator":{"type":"string","minLength":1},"excerpt":{"type":"string"}}},
+        "derived_from":{"type":"array","items":{"type":"string","minLength":1}},
+        "constraints":{"type":"array","items":{"type":"string","minLength":1}},
+        "blockers":{"type":"array","items":{"type":"string","minLength":1}},
+        "open_questions":{"type":"array","items":{"type":"string","minLength":1}},
+        "admissible_transitions":{"type":"array"}
+      }
+    },
+    "provenance":{"type":"object","required":["repository","path","ref","locator"],"additionalProperties":false,"properties":{"repository":{"type":"string","minLength":1},"path":{"type":"string","minLength":1},"ref":{"type":"string","minLength":1},"locator":{"type":"string","minLength":1},"excerpt":{"type":"string"}}},
+    "derived_from":{"type":"array","items":{"type":"string","minLength":1}}
+  }
+}
