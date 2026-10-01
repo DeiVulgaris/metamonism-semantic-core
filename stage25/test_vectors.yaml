@@ -1,0 +1,11 @@
+# Stage 25 — Structured Query Test Vectors
+
+- {id: T25-01, query: [Q5, "mm:a.clm.unfold_trigger_conditions"], expected: RESOLVED}
+- {id: T25-02, query: [Q6, "f17:a.unfold_trigger"], expected: RESOLVED}
+- {id: T25-03, query: [Q7, "X12"], expected: RESOLVED}
+- {id: T25-04, query: [Q7, "mm:b"], expected: RESOLVED}
+- {id: T25-05, query: [Q9, "identity"], expected: PROHIBITED_INFERENCE}
+- {id: T25-06, query: [Q9, "model_core"], expected: PROHIBITED_INFERENCE}
+- {id: T25-07, query: [Q9, "hypothesis"], expected: PROHIBITED_INFERENCE}
+- {id: T25-08, query: [Q9, "independence"], expected: PROHIBITED_INFERENCE}
+- {id: T25-09, query: [Q9, "does_not_exist"], expected: EMPTY}
