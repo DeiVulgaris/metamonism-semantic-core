@@ -1,0 +1,46 @@
+# Stage 10 frozen relation vocabulary
+relations:
+  - id: mm:rel.based_on
+    name: based_on
+    status: SOURCE
+  - id: mm:rel.derived_from
+    name: derived_from
+    status: SOURCE
+  - id: mm:rel.declares_dependency
+    name: declares_dependency
+    status: SOURCE
+  - id: mm:rel.investigates_isomorphism
+    name: investigates_isomorphism
+    status: RESEARCH_HYPOTHESIS
+  - id: mm:rel.treats_as_candidate_invariants
+    name: treats_as_candidate_invariants
+    status: RESEARCH_HYPOTHESIS
+  - id: mm:rel.does_not_require
+    name: does_not_require
+    status: SOURCE
+  - id: mm:rel.does_not_prove
+    name: does_not_prove
+    status: SOURCE
+  - id: mm:rel.uses_as_language
+    name: uses_operators_as_language
+    status: SOURCE
+  - id: mm:rel.semantic_beacon
+    name: semantic_beacon
+    status: SOURCE
+  - id: mm:rel.references
+    name: references_to_core_path
+    status: SOURCE
+
+forbidden_without_new_source:
+  - sameAs
+  - identical_to
+  - implements
+  - proves
+  - independent_of
+  - unrelated_to
+
+rules:
+  - "NO_DIRECT_EDGE is not encoded as a negative edge."
+  - "Stage 8 analogies are annotation only, not relation edges."
+  - "MODEL -> CORE elevation is forbidden by Stage 10 ingest."
+  - "Semantic beacon does not establish isomorphism."
