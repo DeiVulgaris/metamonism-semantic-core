@@ -1,0 +1,78 @@
+# Stage 11C — Inventory A Relation Registration
+
+stage:
+  id: "11C"
+  title: "Full Semantic Registration — Inventory A relations"
+  source_inventory: "A"
+  status: "SOURCE_REGISTRATION"
+  relation_prefix: "mm:a.rel."
+
+rules:
+  - "Only relations explicitly supported by Inventory A source extraction are registered."
+  - "No cross-source relations or Stage 8 analogies are imported."
+  - "No sameAs, identical_to, implements, proves, independent_of, or unrelated_to."
+  - "NO DIRECT EDGE remains an absence, not a negative relation."
+  - "Claims remain separate from relations."
+  - "Operator semantics remain scoped to Inventory A."
+
+relations:
+  - {id: mm:a.rel.monos_distinct_from_logos, subject: mm:a.dom.monos, predicate: distinct_from, object: mm:a.dom.logos, status: SOURCE, basis_claim: mm:a.clm.domain_separation}
+  - {id: mm:a.rel.logos_fixed_addressable, subject: mm:a.dom.logos, predicate: characterized_by, object: mm:a.clm.logos_fixed_addressable, status: SOURCE}
+  - {id: mm:a.rel.absolute_identity_forbidden_by_ban, subject: mm:a.sts.absolute_identity, predicate: prohibited_by, object: mm:a.inv.ban_absolute_identity, status: SOURCE}
+  - {id: mm:a.rel.self_identity_lock_is_closure, subject: mm:a.sts.self_identity_lock, predicate: is_form_of, object: mm:a.sts.closure, status: SOURCE}
+  - {id: mm:a.rel.structural_closure_triggers_unfold, subject: mm:a.sts.structural_closure, predicate: triggers, object: mm:a.op.unfold, status: SOURCE, basis_claim: mm:a.clm.unfold_trigger_conditions}
+  - {id: mm:a.rel.invariant_saturation_triggers_unfold, subject: mm:a.ent.invariant, predicate: triggers, object: mm:a.op.unfold, status: SOURCE}
+  - {id: mm:a.rel.representational_closure_triggers_unfold, subject: mm:a.ent.representation, predicate: triggers, object: mm:a.op.unfold, status: SOURCE}
+  - {id: mm:a.rel.unfold_invalidates_representation, subject: mm:a.op.unfold, predicate: invalidates, object: mm:a.ent.representation, status: SOURCE, basis_claim: mm:a.clm.unfold_destroys_invariant_fixation}
+  - {id: mm:a.rel.unfold_breaks_fixation, subject: mm:a.op.unfold, predicate: breaks, object: mm:a.ent.cognitive_fixation, status: SOURCE}
+  - {id: mm:a.rel.unfold_forces_divergence, subject: mm:a.op.unfold, predicate: produces, object: mm:a.prc.processual_divergence, status: SOURCE, basis_claim: mm:a.clm.unfold_forces_redifferentiation}
+  - {id: mm:a.rel.unfold_no_content_generation, subject: mm:a.op.unfold, predicate: constrained_by, object: mm:a.clm.unfold_no_content_generation, status: SOURCE}
+  - {id: mm:a.rel.fix_stabilizes_representation, subject: mm:a.op.fix, predicate: stabilizes, object: mm:a.ent.representation, status: SOURCE}
+  - {id: mm:a.rel.fix_not_permanent, subject: mm:a.op.fix, predicate: constrained_by, object: mm:a.clm.fix_not_permanent_truth, status: SOURCE}
+  - {id: mm:a.rel.dissipation_mandatory, subject: mm:a.op.dissipate, predicate: required_by, object: mm:a.clm.dissipation_mandatory, status: SOURCE}
+  - {id: mm:a.rel.unfold_opens_trajectories, subject: mm:a.op.unfold, predicate: opens, object: mm:a.prc.processual_divergence, status: SOURCE, basis_claim: mm:a.clm.post_unfold_multiple_trajectories}
+  - {id: mm:a.rel.post_unfold_sustained_tension, subject: mm:a.prc.processual_divergence, predicate: constrained_by, object: mm:a.clm.post_unfold_sustained_tension, status: SOURCE}
+  - {id: mm:a.rel.dissipation_counteracts_refixation, subject: mm:a.op.dissipate, predicate: counteracts, object: mm:a.clm.global_refixation_counteracted, status: SOURCE}
+  - {id: mm:a.rel.self_model_representation, subject: mm:a.ent.self_model, predicate: instance_of, object: mm:a.ent.representation, status: SOURCE}
+  - {id: mm:a.rel.world_model_representation, subject: mm:a.ent.world_model, predicate: instance_of, object: mm:a.ent.representation, status: SOURCE}
+  - {id: mm:a.rel.concept_representation, subject: mm:a.ent.concept, predicate: instance_of, object: mm:a.ent.representation, status: SOURCE}
+  - {id: mm:a.rel.cognitive_fixation_self_model, subject: mm:a.ent.cognitive_fixation, predicate: may_fix, object: mm:a.ent.self_model, status: SOURCE}
+  - {id: mm:a.rel.cognitive_fixation_world_model, subject: mm:a.ent.cognitive_fixation, predicate: may_fix, object: mm:a.ent.world_model, status: SOURCE}
+  - {id: mm:a.rel.ots_has_l0, subject: mm:a.prot.ontological_test_suite, predicate: has_layer, object: mm:a.lvl.l0_domain_separation, status: SOURCE}
+  - {id: mm:a.rel.ots_has_l1, subject: mm:a.prot.ontological_test_suite, predicate: has_layer, object: mm:a.lvl.l1_fixation_protection, status: SOURCE}
+  - {id: mm:a.rel.ots_has_l2, subject: mm:a.prot.ontological_test_suite, predicate: has_layer, object: mm:a.lvl.l2_unfold_integrity, status: SOURCE}
+  - {id: mm:a.rel.ots_has_l3, subject: mm:a.prot.ontological_test_suite, predicate: has_layer, object: mm:a.lvl.l3_structural_saturation, status: SOURCE}
+  - {id: mm:a.rel.l0_tests, subject: mm:a.lvl.l0_domain_separation, predicate: tests, object: mm:a.clm.l0_domain_separation, status: SOURCE}
+  - {id: mm:a.rel.l1_tests, subject: mm:a.lvl.l1_fixation_protection, predicate: tests, object: mm:a.clm.l1_fixation_protection, status: SOURCE}
+  - {id: mm:a.rel.l2_tests, subject: mm:a.lvl.l2_unfold_integrity, predicate: tests, object: mm:a.clm.l2_unfold_integrity, status: SOURCE}
+  - {id: mm:a.rel.l3_tests, subject: mm:a.lvl.l3_structural_saturation, predicate: tests, object: mm:a.clm.l3_structural_saturation, status: SOURCE}
+  - {id: mm:a.rel.ots_failure_consequence, subject: mm:a.prot.ontological_test_suite, predicate: bounded_by, object: mm:a.clm.ots_failure_disqualifies, status: SOURCE}
+  - {id: mm:a.rel.ots_pass_boundary, subject: mm:a.prot.ontological_test_suite, predicate: bounded_by, object: mm:a.clm.ots_pass_not_agi_proof, status: SOURCE}
+  - {id: mm:a.rel.disqualifier_domain_collapse, subject: mm:a.mod.disqualifiers, predicate: includes, object: mm:a.clm.disqualifier_domain_collapse, status: SOURCE}
+  - {id: mm:a.rel.disqualifier_protected_product, subject: mm:a.mod.disqualifiers, predicate: includes, object: mm:a.clm.disqualifier_protected_product, status: SOURCE}
+  - {id: mm:a.rel.disqualifier_represented_unfold, subject: mm:a.mod.disqualifiers, predicate: includes, object: mm:a.clm.disqualifier_represented_unfold, status: SOURCE}
+  - {id: mm:a.rel.disqualifier_saturation_stabilization, subject: mm:a.mod.disqualifiers, predicate: includes, object: mm:a.clm.disqualifier_saturation_stabilization, status: SOURCE}
+  - {id: mm:a.rel.disqualifier_global_self_model, subject: mm:a.mod.disqualifiers, predicate: includes, object: mm:a.clm.disqualifier_global_self_model, status: SOURCE}
+  - {id: mm:a.rel.disqualifier_final_worldview, subject: mm:a.mod.disqualifiers, predicate: includes, object: mm:a.clm.disqualifier_final_worldview, status: SOURCE}
+  - {id: mm:a.rel.disqualifier_optimization_equilibrium, subject: mm:a.mod.disqualifiers, predicate: includes, object: mm:a.clm.disqualifier_optimization_equilibrium, status: SOURCE}
+  - {id: mm:a.rel.version_scope, subject: mm:a.meta.version, predicate: declares, object: mm:a.clm.version_scope, status: SOURCE}
+  - {id: mm:a.rel.version_operators, subject: mm:a.meta.version, predicate: declares, object: mm:a.clm.mandatory_operator_set, status: SOURCE}
+  - {id: mm:a.rel.version_invariants, subject: mm:a.meta.version, predicate: declares, object: mm:a.clm.required_invariants, status: SOURCE}
+  - {id: mm:a.rel.version_disqualifiers, subject: mm:a.meta.version, predicate: declares, object: mm:a.clm.disqualifier_set, status: SOURCE}
+  - {id: mm:a.rel.failure_taxonomy_records, subject: mm:a.prot.failures, predicate: records, object: mm:a.clm.failure_taxonomy, status: SOURCE}
+
+relation_summary:
+  total_relations: 45
+  status:
+    SOURCE: 45
+  cross_source_relations: 0
+  forbidden_relations_created: 0
+  negative_relations_created: 0
+
+validation:
+  source_scope_only: true
+  cross_source_synthesis: false
+  operator_merge: false
+  model_to_core_elevation: false
+  relation_to_claim_collapse: false
+  missing_edge_as_negative: false
