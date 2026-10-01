@@ -1,0 +1,40 @@
+{
+  "id": "DEXT-OP-001",
+  "revision_of": "DEXT-EXH-001",
+  "status": "FORMALIZATION",
+  "canonical_promotion": false,
+  "structures": {
+    "continuation": "Hom_R(S_i,S_j)",
+    "outgoing": "Out_R(S)={T | T in Hom_R(S,-)}",
+    "exhaustion": "E_R(S): Out_R(S)=empty_set",
+    "boundary": "B_R={S | Out_R(S)=empty_set AND NeedContinue(S)}",
+    "regime_transition": "J_R:B_R -> States(R')",
+    "candidate_common_carrier": "W=Span{|S_i>}"
+  },
+  "source_mapping": {
+    "sequence": "P0 -> P1 -> P2 -> P3",
+    "exhaustion": "Out_R(P3)=empty_set",
+    "transition": "P3 --J_R--> P4",
+    "orientation": "n'=-n"
+  },
+  "forks": {
+    "common_carrier": "operator representation may be possible if regimes can coexist on W without semantic collapse",
+    "changing_carrier": "multi-regime transition structure may be the natural object if no common W exists"
+  },
+  "not_established": [
+    "J is linear",
+    "J is a matrix",
+    "J is a reflection",
+    "J^2 is defined",
+    "common carrier W exists",
+    "transition generators satisfy Clifford relations",
+    "Dirac matrices follow"
+  ],
+  "next_tests": [
+    "OP-1 define W without collapsing regimes",
+    "OP-2 represent T on W",
+    "OP-3 represent J as partial map",
+    "OP-4 test common carrier",
+    "OP-5 derive relations"
+  ]
+}
