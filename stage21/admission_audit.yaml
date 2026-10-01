@@ -1,0 +1,21 @@
+# Stage 21 — Source Admission Audit
+
+stage: 21
+mode: "controlled_source_admission"
+new_entities: 0
+new_claims: 0
+new_relations: 0
+new_cross_source_edges: 0
+
+source_queue:
+  total: 8
+  deferred: 8
+  admitted: 0
+
+rationale: "The existing undefined-term registry contains source-visible terminology, but its entries explicitly lack sufficient canonization for new semantic-core identities."
+
+invariants:
+  - "USED_BUT_UNDEFINED is not equivalent to SOURCE entity registration."
+  - "Historical formulation is not current canonical identity."
+  - "Ambiguity resolution does not create a new entity automatically."
+  - "Missing formalization is not permission to invent one."
