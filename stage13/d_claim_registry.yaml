@@ -1,0 +1,91 @@
+# Stage 13D — Inventory C Claim Registration
+
+stage:
+  id: "13D"
+  title: "Claim Registration — Inventory C"
+  source_inventory: "C"
+  source: "ONTODYNAMICS"
+  status: "SOURCE_REGISTRATION"
+  namespace: "mm:c.clm."
+
+rules:
+  - "Claims preserve ONTODYNAMICS layer scope."
+  - "Canonical-within-layer is not CORE status."
+  - "Proposed, hypothesis, and draft claims retain their source status."
+  - "Model-language mappings do not create new CORE operators."
+  - "No cross-source synthesis is introduced."
+  - "No sameAs, identical_to, implements, proves, independent_of, or unrelated_to."
+
+claims:
+  - {id: mm:c.clm.ontodynamics_predictive_applied_layer, category: layer_role, status: SOURCE, text: "ONTODYNAMICS is the predictive/applied layer of Wayward Metamonism."}
+  - {id: mm:c.clm.core_defines_axioms_ontodynamics_unfolds_worlds, category: layer_dependency, status: SOURCE, text: "CORE defines immutable axioms while ONTODYNAMICS unfolds them into Worlds."}
+  - {id: mm:c.clm.models_are_processual_ontology_specifications, category: model_scope, status: SOURCE, text: "ONTODYNAMICS models are operational specifications of one processual ontology, not independent theories."}
+  - {id: mm:c.clm.models_purpose_falsifiable_structure, category: methodology, status: SOURCE, text: "The purpose of the models is to provide falsifiable structure."}
+  - {id: mm:c.clm.core_what_reality_is_ontodynamics_what_implies, category: layer_role, status: SOURCE, text: "CORE addresses what reality is; ONTODYNAMICS addresses what follows physically."}
+  - {id: mm:c.clm.models_derive_from_core_ban, category: derivation_constraint, status: SOURCE, text: "Every ONTODYNAMICS model must derive from CORE axioms, especially the Ban of Absolute Identity."}
+  - {id: mm:c.clm.models_use_diff_diss_fix_language, category: operator_language, status: SOURCE, text: "ONTODYNAMICS models use diff, diss, and fix as model language."}
+
+  # Canonical processual claims within ONTODYNAMICS
+  - {id: mm:c.clm.reality_self_regulating_dissipation, category: ontodynamic_principle, status: CANONICAL_WITHIN_LAYER, text: "Reality is described as self-regulating dissipation from prohibition of absolute identity."}
+  - {id: mm:c.clm.existence_begins_unresolved_conflict, category: ontodynamic_principle, status: CANONICAL_WITHIN_LAYER, text: "Existence begins as unresolved conflict."}
+  - {id: mm:c.clm.conflict_redistributed_not_eliminated, category: ontodynamic_principle, status: CANONICAL_WITHIN_LAYER, text: "Conflict is redistributed rather than eliminated."}
+  - {id: mm:c.clm.redistribution_new_dof_is_dissipation, category: ontodynamic_principle, status: CANONICAL_WITHIN_LAYER, text: "Redistribution into new degrees of freedom is dissipation."}
+  - {id: mm:c.clm.dissipation_not_loss, category: ontodynamic_principle, status: CANONICAL_WITHIN_LAYER, text: "Dissipation is not equivalent to loss."}
+  - {id: mm:c.clm.orthogonality_minimal_channel, category: ontodynamic_principle, status: CANONICAL_WITHIN_LAYER, text: "Orthogonality is treated as the minimal channel of dissipation."}
+  - {id: mm:c.clm.metric_unfolding_0d_to_3d, category: metric_model, status: CANONICAL_WITHIN_LAYER, text: "Metric unfolding is described from 0D to 1D to 2D to 3D, followed by node multiplicity."}
+  - {id: mm:c.clm.orthogonal_dissipation_layer_canonical, category: layer_principle, status: CANONICAL_WITHIN_LAYER, text: "Orthogonal Dissipation is canonical within ONTODYNAMICS, not a global CORE principle."}
+  - {id: mm:c.clm.derived_gravity_shadow_orbit_force_mass, category: model_consequence, status: CANONICAL_WITHIN_LAYER, text: "Gravity-shadow, orbit compensation, force modalities, and mass localization are derived effects within the ONTODYNAMICS model family."}
+  - {id: mm:c.clm.gravity_not_attraction, category: gravity_model, status: CANONICAL_WITHIN_LAYER, text: "Gravity is modeled not as attraction but as a local deficit in global dissipation between screening sources."}
+
+  # Fundamental interactions
+  - {id: mm:c.clm.fundamental_interactions_one_process, category: physical_model, status: PROPOSED, text: "The four fundamental interactions are proposed as geometric regimes of one ontological process."}
+  - {id: mm:c.clm.fundamental_interactions_falsifiable, category: physical_model, status: PROPOSED, text: "The Fundamental Interactions model is proposed as falsifiable."}
+  - {id: mm:c.clm.fundamental_interactions_field_equations_open, category: unresolved, status: UNRESOLVED, text: "Field equations, couplings, and Standard Model/general relativity limits remain open."}
+
+  # Cosmology
+  - {id: mm:c.clm.eternal_dynamic_reality, category: cosmological_model, status: CANONICAL_WITHIN_LAYER, text: "Eternal dynamic reality is canonical within ONTODYNAMICS."}
+  - {id: mm:c.clm.big_bang_metric_expansion_ontologically_impossible, category: cosmological_model, status: MODEL_SPECIFIC, text: "Within the ONTODYNAMICS model, Big Bang / metric expansion is treated as ontologically impossible under the Ban."}
+  - {id: mm:c.clm.baryon_birth_death_necessary, category: cosmological_model, status: MODEL_SPECIFIC, text: "Baryon birth and death are treated as necessary within the eternal dynamic model; mechanisms remain empirical questions."}
+  - {id: mm:c.clm.redshift_frequency_dissipation, category: cosmological_hypothesis, status: DRAFT_HYPOTHESIS, text: "Redshift is modeled as frequency dissipation."}
+  - {id: mm:c.clm.large_scale_diff_field_patterns, category: cosmological_hypothesis, status: DRAFT_HYPOTHESIS, text: "Large-scale structure is treated as patterns of a diff field."}
+  - {id: mm:c.clm.photons_as_dissipation_transport, category: cosmological_hypothesis, status: DRAFT_HYPOTHESIS, text: "Photons are modeled as dissipation transport modes."}
+  - {id: mm:c.clm.particles_stabilized_dissipation_configurations, category: cosmological_hypothesis, status: DRAFT_HYPOTHESIS, text: "Particles are modeled as stabilized dissipation configurations."}
+  - {id: mm:c.clm.thermodynamics_todo, category: unresolved, status: UNRESOLVED, text: "Thermodynamic development remains TODO."}
+
+  # Astrophysics
+  - {id: mm:c.clm.gas_galaxy_cycle, category: astrophysical_model, status: CANONICAL_WITHIN_LAYER, text: "The gas/galaxy cycle is canonical within ONTODYNAMICS."}
+  - {id: mm:c.clm.supernova_without_remnants, category: astrophysical_model, status: MODEL_SPECIFIC, text: "Supernova without remnants is part of the ONTODYNAMICS astrophysical model sequence."}
+  - {id: mm:c.clm.gravity_screening, category: astrophysical_model, status: MODEL_SPECIFIC, text: "Gravity screening is part of the ONTODYNAMICS astrophysical model."}
+
+  # Photon model
+  - {id: mm:c.clm.photon_one_axis_unlocked, category: particle_model, status: MODEL_SPECIFIC, text: "The photon is modeled as a baryon with one axis unlocked."}
+  - {id: mm:c.clm.photon_locked_xy_open_z, category: particle_model, status: MODEL_SPECIFIC, text: "The photon is modeled with locked x,y axes and an open z axis."}
+  - {id: mm:c.clm.photon_c_equals_monos_actualization_speed, category: particle_model, status: MODEL_SPECIFIC, text: "The speed c is identified in the model with Monos actualization speed."}
+  - {id: mm:c.clm.photon_aging_redshift, category: particle_model, status: DRAFT_HYPOTHESIS, text: "Photon aging is proposed as a source of redshift."}
+  - {id: mm:c.clm.cmb_photon_graveyard, category: cosmological_model, status: DRAFT_HYPOTHESIS, text: "CMB is interpreted as a photon graveyard in the model."}
+  - {id: mm:c.clm.photon_maps_e_diff_b_fix_energy_diss, category: model_language, status: MODEL_SPECIFIC, text: "The photon model maps E to diff, B to fix, and energy loss to diss."}
+  - {id: mm:c.clm.photon_reinterprets_hubble_cmb_lensing, category: model_consequence, status: MODEL_SPECIFIC, text: "The photon model reinterprets Hubble expansion, CMB BB relic interpretation, and lensing curvature."}
+  - {id: mm:c.clm.photon_contradicts_cosmological_energy_conservation, category: model_consequence, status: MODEL_SPECIFIC, text: "The model conflicts with photon energy conservation over cosmological distances."}
+
+  # Quantum measurement
+  - {id: mm:c.clm.photon_measurement_phase_transition, category: quantum_model, status: PROPOSED, text: "Photon transformation/measurement is modeled as an ontological phase transition."}
+  - {id: mm:c.clm.photon_metastable_process, category: quantum_model, status: PROPOSED, text: "The photon is treated as a metastable process."}
+  - {id: mm:c.clm.double_slit_distributed_process, category: quantum_model, status: MODEL_SPECIFIC, text: "The double-slit experiment is interpreted as a distributed process."}
+  - {id: mm:c.clm.measurement_phase_transition, category: quantum_model, status: MODEL_SPECIFIC, text: "Measurement is interpreted as a phase transition."}
+  - {id: mm:c.clm.qm_model_not_replacement_formalism, category: epistemic_boundary, status: SOURCE, text: "The quantum model does not replace standard quantum-mechanical mathematical formalism."}
+
+  # H/M and canonical feed
+  - {id: mm:c.clm.h_philosophical_m_machine_oriented, category: layer_format, status: SOURCE, text: "The H/M article layer distinguishes philosophical/academic H from machine-oriented M."}
+  - {id: mm:c.clm.orthogonal_dissipation_machine_feed, category: layer_dependency, status: SOURCE, text: "The machine-oriented layer feeds Orthogonal Dissipation into the canonical principle file."}
+  - {id: mm:c.clm.unified_processual_ontology_exposition, category: exposition, status: SOURCE, text: "The unified exposition presents one processual ontology using diff/fix/diss language."}
+
+  # Cosmological sequence
+  - {id: mm:c.clm.cosmological_sequence, category: model_sequence, status: CANONICAL_WITHIN_LAYER, text: "The ONTODYNAMICS sequence is eternal reality → cold nucleogenesis → gas/galaxy cycle → supernova without remnants."}
+
+  # Explicit model boundaries
+  - {id: mm:c.clm.no_core_merge, category: epistemic_boundary, status: SOURCE, text: "ONTODYNAMICS models are not merged into CORE."}
+  - {id: mm:c.clm.models_require_falsifiability, category: methodological_constraint, status: SOURCE, text: "Models are required to remain falsifiable."}
+  - {id: mm:c.clm.no_standard_qm_replacement, category: epistemic_boundary, status: SOURCE, text: "The ONTODYNAMICS quantum model is not presented as a replacement for standard QM formalism."}
+
+summary:
+  total_claims: 53
