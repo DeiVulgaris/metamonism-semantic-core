@@ -62,7 +62,7 @@ relations:
   - {id: mm:a.rel.failure_taxonomy_records, subject: mm:a.prot.failures, predicate: records, object: mm:a.clm.failure_taxonomy, status: SOURCE}
 
 relation_summary:
-  total_relations: 45
+  total_relations: 44
   status:
     SOURCE: 45
   cross_source_relations: 0
