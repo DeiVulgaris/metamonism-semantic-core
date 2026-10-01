@@ -212,3 +212,9 @@
 - {relation_id: mm:rel.declares_dependency, name: declares_dependency, status: SOURCE}
 - {relation_id: mm:rel.investigates_isomorphism, name: investigates_isomorphism, status: RESEARCH_HYPOTHESIS}
 - {relation_id: mm:rel.treats_as_candidate_invariants, name: treats_as_candidate_invariants, status: RESEARCH_HYPOTHESIS}
+
+- {relation_id: mm:rel.does_not_require, name: does_not_require, status: SOURCE}
+- {relation_id: mm:rel.does_not_prove, name: does_not_prove, status: SOURCE}
+- {relation_id: mm:rel.uses_as_language, name: uses_operators_as_language, status: SOURCE}
+- {relation_id: mm:rel.semantic_beacon, name: semantic_beacon, status: SOURCE}
+- {relation_id: mm:rel.references, name: references_to_core_path, status: SOURCE}
