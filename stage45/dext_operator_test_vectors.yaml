@@ -1,0 +1,33 @@
+# D_ext operator representation tests
+suite: DEXT_OPERATOR
+cases:
+  - id: OP-V1
+    claim: Out_R(S) represents all admissible outgoing continuations in regime R.
+    expected: ACCEPT
+  - id: OP-V2
+    claim: Exhaustion means Out_R(S)=empty_set.
+    expected: ACCEPT
+  - id: OP-V3
+    claim: J_R has the frustration boundary as its domain.
+    expected: ACCEPT
+  - id: OP-V4
+    claim: J_R is automatically a linear endomorphism.
+    expected: REJECT
+  - id: OP-V5
+    claim: J_R^2 is already defined.
+    expected: REJECT
+  - id: OP-V6
+    claim: P4 is another member of the same external continuation family.
+    expected: REJECT
+  - id: OP-V7
+    claim: A common carrier W is already established.
+    expected: REJECT
+  - id: OP-V8
+    claim: {T0,T1,T2,T3,J} is already a Clifford generating set.
+    expected: REJECT
+  - id: OP-V9
+    claim: Failure to find a common carrier proves physical discontinuity.
+    expected: REJECT
+  - id: OP-V10
+    claim: Category-level composition is identical to algebra multiplication.
+    expected: REJECT
