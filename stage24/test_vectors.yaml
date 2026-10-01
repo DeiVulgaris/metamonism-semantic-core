@@ -1,0 +1,8 @@
+# Stage 24 — Query Test Vectors
+
+- {id: T24-01, query: [Q1, "mm:a.op.unfold"], expected: RESOLVED}
+- {id: T24-02, query: [Q2, "mm:a.clm.dissipation_mandatory"], expected: RESOLVED}
+- {id: T24-03, query: [Q4, "mm:a.clm.unfold_trigger_conditions"], expected: RESOLVED}
+- {id: T24-04, query: [Q10, "unfold"], expected: RESOLVED}
+- {id: T24-05, query: [Q1, "does_not_exist"], expected: EMPTY}
+- {id: T24-06, query: [Q7, "Metamonism"], expected: PARTIAL}
