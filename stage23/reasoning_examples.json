@@ -1,0 +1,54 @@
+{
+  "stage": 23,
+  "mode": "controlled_reasoning_examples",
+  "outputs": [
+    {
+      "id": "r23.ex01",
+      "question": "What is the registered path from Monos to unfold in Inventory A?",
+      "premises": [
+        "mm:a.rel.monos_distinct_from_logos",
+        "mm:a.rel.structural_closure_triggers_unfold"
+      ],
+      "result": {
+        "kind": "PATH",
+        "status": "DERIVED",
+        "path": [
+          "mm:a.dom.monos",
+          "mm:a.dom.logos",
+          "mm:a.op.unfold"
+        ]
+      },
+      "note": "This is a path over registered relations; it does not assert that Monos directly triggers unfold."
+    },
+    {
+      "id": "r23.ex02",
+      "question": "What supports the A continuity/rupture relation?",
+      "premises": [
+        "mm:a.rel.structural_closure_triggers_unfold"
+      ],
+      "result": {
+        "kind": "BASIS_LOOKUP",
+        "status": "DERIVED_FROM_SOURCE",
+        "basis_claim": "mm:a.clm.unfold_trigger_conditions"
+      }
+    },
+    {
+      "id": "r23.ex03",
+      "question": "Can the similarly named A/B/C unfold operators be inferred identical?",
+      "result": {
+        "kind": "BLOCKED",
+        "status": "PROHIBITED_INFERENCE",
+        "reason": "namespace separation and absence of explicit identity relation"
+      }
+    },
+    {
+      "id": "r23.ex04",
+      "question": "Does a C model relation prove CORE?",
+      "result": {
+        "kind": "BLOCKED",
+        "status": "PROHIBITED_INFERENCE",
+        "reason": "MODEL_TO_CORE_ELEVATION"
+      }
+    }
+  ]
+}
