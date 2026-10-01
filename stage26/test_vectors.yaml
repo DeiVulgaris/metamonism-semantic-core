@@ -1,0 +1,8 @@
+# Stage 26 — Case Study Tests
+
+- {id: T26-01, source: mm:a.clm.dissipation_mandatory, expected: SOURCE}
+- {id: T26-02, source: mm:b.clm.diss_releases_carrier_dependence, expected: SOURCE}
+- {id: T26-03, source: mm:c.clm.dissipation_not_loss, expected: CANONICAL_WITHIN_LAYER}
+- {id: T26-04, assertion: "A/B/C dissipation are identical", expected: PROHIBITED_INFERENCE}
+- {id: T26-05, assertion: "C redshift model proves A dissipation", expected: PROHIBITED_INFERENCE}
+- {id: T26-06, assertion: "Cross-inventory dissipation comparison", expected: PARTIAL}
