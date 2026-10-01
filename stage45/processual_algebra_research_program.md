@@ -196,3 +196,47 @@ A failure at any stage is preserved as a research result.
 - A 4-stage process automatically has a 4x4 matrix representation.
 - A constructed Clifford representation proves the physical model.
 - Structural correspondence proves physical identity.
+
+
+## Normative correction: orthogonality-constrained exhaustion
+
+The D_ext + generic J_R formulation is now superseded as the primary working model for P3 -> P4.
+
+The reason is source-structural: continuation is required to remain orthogonal. Therefore the relevant feasibility object is not the set of all outgoing transitions but the set of transitions satisfying the orthogonality constraint.
+
+Define the working object:
+
+D_perp^R(S) = { S' | Continue_R(S,S') and Orth_R(S,S') }.
+
+Exhaustion is:
+
+D_perp^R(S) = emptyset.
+
+Frustration is:
+
+NeedContinue(S) and D_perp^R(S) = emptyset.
+
+For P3, the claim is specifically that the old regime has exhausted its admissible orthogonal continuation. This does not mean that orthogonality is globally exhausted.
+
+The successor P4 must therefore be treated as an orthogonal resolution candidate:
+
+P4 ∈ Sol_perp(P3,R_old).
+
+The orientation change +n -> -n is attached to this source-grounded P3 -> P4 resolution. It is not introduced first as an independent algebraic operator.
+
+The resulting construction order is:
+
+processual structure
+-> orthogonality constraint
+-> feasible continuation set
+-> exhaustion
+-> frustration
+-> orthogonal resolution
+-> transition representation
+-> operator structure
+-> bilinear structure
+-> Clifford compatibility test.
+
+See stage45/dperp_orthogonal_resolution.md for the full normative working specification.
+
+This correction does not promote any hypothesis to canonical status and does not delete the earlier D_ext + generic J_R history.

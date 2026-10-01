@@ -1,0 +1,49 @@
+{
+  "state_id": "D3-ORTHOGONAL-RESOLUTION-001",
+  "program_id": "RP-stage45-processual-algebra",
+  "status": "THEORETICAL_HYPOTHESIS",
+  "integration_scope": "WORKING",
+  "frontier_state": "UNRESOLVED",
+  "source_basis": {
+    "repository": "user_supplied_attachment",
+    "document": "МЕТАМОНИЗМ: Глава 3. Процессуальная онтодинамика",
+    "locator": "Chapter 3, source lines 34-46 and 285-300 in supplied text",
+    "source_claims": [
+      "P_i ⊥→ P_{i+1}",
+      "after three external orthogonal directions further continuation by the previous method is exhausted",
+      "frustration follows from structural impossibility of continuation",
+      "P3→P4 is associated with +n→−n",
+      "P4 is not a fourth spatial dimension",
+      "Fr ⊥→ new regime"
+    ]
+  },
+  "formalization": {
+    "state": "S=(P,R,N,C)",
+    "orthogonality_relation": "Orth_R(S,S')",
+    "continuation_set": "D_perp^R(S)={S' | Continue_R(S,S') and Orth_R(S,S')}",
+    "exhaustion": "E_perp^R(S) iff D_perp^R(S)=emptyset",
+    "frustration": "Fr^R(S) iff NeedContinue(S) and D_perp^R(S)=emptyset",
+    "resolution_set": "Sol_perp(S,R_old)={S' | ResolutionContinue(S,S') and Orth_Rnew(S,S')}",
+    "P4_condition": "P4 is an element of Sol_perp(P3,R_old)",
+    "orientation_condition": "+n -> -n is a characteristic of the source-grounded P3->P4 resolution"
+  },
+  "invariants": [
+    "D_perp exhaustion is regime-specific",
+    "orthogonality itself is not declared exhausted globally",
+    "P4 is not an arbitrary transition",
+    "P4 is not a fourth spatial basis vector",
+    "orientation reversal is not yet an algebraic operator",
+    "P4 uniqueness is not assumed",
+    "orthogonality is not identified with a specific metric",
+    "no Clifford algebra is inferred"
+  ],
+  "open_questions": [
+    "Define Orth_R without importing an ungrounded metric",
+    "Define Continue_R",
+    "Construct Sol_perp",
+    "Establish existence or non-existence of P4 solutions",
+    "Determine whether a common operator carrier can represent these transitions",
+    "Test Clifford compatibility only after the operator structure is independently derived"
+  ],
+  "canonical_promotion": false
+}

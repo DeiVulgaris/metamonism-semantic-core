@@ -1,0 +1,60 @@
+tests:
+  - id: V1
+    name: old_regime_orthogonal_exhaustion
+    input: D_perp_old_P3 = empty
+    expected: PASS
+    assertion: "This establishes exhaustion of the old orthogonality-constrained continuation regime, not exhaustion of all continuation."
+
+  - id: V2
+    name: frustration_requires_continuation_need
+    input: NeedContinue_P3 = true, D_perp_old_P3 = empty
+    expected: PASS
+    assertion: "Frustration is present."
+
+  - id: V3
+    name: orthogonal_resolution_is_not_arbitrary_jump
+    input: P4 = arbitrary_transition(P3)
+    expected: REJECT
+    assertion: "P4 must be represented as an admissible orthogonal resolution candidate."
+
+  - id: V4
+    name: P4_not_fourth_spatial_dimension
+    input: identify(P4, fourth_spatial_basis_vector) = true
+    expected: REJECT
+    assertion: "The source explicitly denies that P4 is a fourth spatial dimension."
+
+  - id: V5
+    name: orientation_is_consequence_of_resolution
+    input: orientation_change = primary_operator_R_without_resolution
+    expected: REJECT
+    assertion: "The +n -> -n relation is attached to the P3->P4 orthogonal resolution."
+
+  - id: V6
+    name: orthogonality_not_auto_metric
+    input: Orth_R = Euclidean_inner_product
+    expected: REJECT
+    assertion: "The abstract orthogonality relation must not be silently specialized to a particular metric."
+
+  - id: V7
+    name: non_global_exhaustion
+    input: D_perp_old_P3 = empty, D_perp_new_P3 = nonempty
+    expected: PASS
+    assertion: "The old realization is exhausted while a new orthogonal regime may remain viable."
+
+  - id: V8
+    name: no_uniqueness_assumption
+    input: Sol_perp(P3) = multiple_candidates
+    expected: PASS
+    assertion: "P4 need not be unique unless a separate selection theorem is established."
+
+  - id: V9
+    name: no_clifford_inference
+    input: P4_has_orientation_reversal = true
+    expected: REJECT
+    assertion: "Orientation reversal alone does not establish Clifford algebra."
+
+  - id: V10
+    name: operator_stage_delayed
+    input: build_operator_before_define_orthogonal_resolution = true
+    expected: REJECT
+    assertion: "Operator realization is downstream of the orthogonality-constrained process structure."
