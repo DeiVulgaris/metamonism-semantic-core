@@ -1,0 +1,23 @@
+# Stage 20 — Controlled Expansion Gate
+
+gate:
+  source_of_truth:
+    - stage11/*_registry.yaml
+    - stage12/*_registry.yaml
+    - stage13/*_registry.yaml
+  admission_mode: registry_only
+  semantic_mutation_allowed: false
+  new_cross_source_identity_allowed: false
+
+baseline:
+  A: {entities: 32, claims: 46, relations: 44}
+  B: {entities: 94, claims: 65, relations: 53}
+  C: {entities: 42, claims: 51, relations: 42}
+  X: 21
+  formalizations: 25
+
+acceptance:
+  - "No new mm:* entity/claim/relation is introduced by Stage 20."
+  - "All baseline counts remain stable."
+  - "All Stage 19 integrity constraints remain applicable."
+  - "Only derived views and control metadata may be added."
