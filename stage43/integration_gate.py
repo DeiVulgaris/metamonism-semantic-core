@@ -28,8 +28,10 @@ def reject_failure(case, record):
     rules = {
         "wrong_program_identity": lambda x: x["program_id"] != x["resolved_program_id"],
         "missing_provenance": lambda x: not x.get("provenance"),
-        "hypothesis_to_source": lambda x: x["epistemic_status"] == "SOURCE"
-            and x["original_status"] == "THEORETICAL_HYPOTHESIS",
+        "hypothesis_to_source": lambda x: (
+            x["epistemic_status"] == "SOURCE"
+            and x["original_status"] == "THEORETICAL_HYPOTHESIS"
+        ),
         "correspondence_to_identity": lambda x: (
             x["semantic_relation"] == "STRUCTURAL_CORRESPONDENCE"
             and x["identity_status"] == "ASSERTED"
