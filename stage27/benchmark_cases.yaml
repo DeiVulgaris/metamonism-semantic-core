@@ -1,0 +1,15 @@
+# Stage 27 — Benchmark Case Registry
+
+cases:
+  - case_id: SB-001
+    stage: 26
+    name: dissipation
+    inventories: [A, B, C]
+    question: "What is dissipation, and how do its meanings differ across A, B, and C?"
+    expected_result: PARTIAL
+    forbidden_inferences:
+      - "A/B/C dissipation are identical"
+      - "A/B/C dissipation are mathematically isomorphic"
+      - "C physical hypotheses prove A ontological claims"
+      - "B operational diss proves C physical models"
+    reference_case: stage26/dissipation_case.json
