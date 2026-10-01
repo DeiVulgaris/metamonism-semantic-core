@@ -45,7 +45,7 @@ categories:
     - {id: mm:c.mod.casimir_demonstration, label: "Casimir Demonstration"}
     - {id: mm:c.mod.thermodynamics, label: "Thermodynamics Model"}
     - {id: mm:c.mod.qm_measurement_phase_transition, label: "QM Measurement Phase Transition Model"}
-    - {id: mm:c.mod.photon_metastable_process, label: "Photon Metastable Process Model"}
+    - {id: mm:c.prc.photon_metastable_process, label: "Photon Metastable Process"}
 
   cosmological_models:
     - {id: mm:c.mod.eternal_dynamic_reality, label: "Eternal Dynamic Reality"}

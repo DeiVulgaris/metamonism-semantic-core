@@ -512,7 +512,7 @@ stage13c_entity_ids:
   - mm:c.mod.casimir_demonstration
   - mm:c.mod.thermodynamics
   - mm:c.mod.qm_measurement_phase_transition
-  - mm:c.mod.photon_metastable_process
+  - mm:c.prc.photon_metastable_process
   - mm:c.mod.eternal_dynamic_reality
   - mm:c.mod.bb_metric_expansion_reinterpretation
   - mm:c.mod.baryon_birth_death
