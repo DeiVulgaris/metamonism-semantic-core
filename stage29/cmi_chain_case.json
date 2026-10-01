@@ -1,0 +1,50 @@
+{
+  "stage": 29,
+  "case_id": "SB-003",
+  "case": "cmi_vs_cmi_chain",
+  "question": "What is the relation between CMI and the extended CMI Chain, and does extension preserve identity?",
+  "source_derived": {
+    "cmi": {
+      "id": "mm:core.prc.cmi",
+      "status": "SOURCE",
+      "definition": "Foundational triadic process: Prohibition/Conflict -> Momentum/Moment-Impulse -> Force."
+    },
+    "cmi_chain": {
+      "id": "mm:core.prc.cmi_chain",
+      "status": "SOURCE",
+      "definition": "Extended process chain: Prohibition -> Momentum -> Force -> Energy -> Dissipation (Delta S > 0) -> Arrow of Time."
+    },
+    "relation": {
+      "relation_id": "mm:rel.extends",
+      "source": "mm:core.prc.cmi_chain",
+      "target": "mm:core.prc.cmi",
+      "status": "SOURCE",
+      "semantic_result": "EXTENSION",
+      "identity": "NOT_ESTABLISHED"
+    }
+  },
+  "comparison": {
+    "shared_content": [
+      "CMI triadic segment is retained as the initial structural core of CMI Chain.",
+      "Both describe process rather than a static inventory of entities."
+    ],
+    "added_content": [
+      "Energy",
+      "Dissipation (Delta S > 0)",
+      "Arrow of Time"
+    ],
+    "semantic_difference": "CMI is a foundational triadic formulation; CMI Chain explicitly extends that formulation into a longer process sequence."
+  },
+  "cross_inventory_result": {
+    "result": "EXTENSION",
+    "status": "SOURCE",
+    "basis": "Registered mm:rel.extends relation from CMI Chain to CMI.",
+    "identity": "NOT_ESTABLISHED"
+  },
+  "not_established": [
+    "CMI and CMI Chain are identical.",
+    "CMI Chain is merely an equivalent reformulation of CMI.",
+    "The added stages are semantically empty annotations.",
+    "The extended chain can be collapsed back to CMI without semantic loss."
+  ]
+}

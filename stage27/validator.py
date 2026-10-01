@@ -13,6 +13,7 @@ def main():
     checks = [
         ("has case schema", "case_id" in spec and "comparison_axes" in spec),
         ("has anti-collapse rule", "Anti-collapse Rule" in spec),
+        ("supports extension result", "EXTENSION" in spec and "mm:rel.extends" in spec),
         ("reference case is SB-001", "SB-001" in cases),
         ("reference result is PARTIAL", "expected_result: PARTIAL" in cases),
         ("six test vectors", tests.count("T27-") == 6),

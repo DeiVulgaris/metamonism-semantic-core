@@ -1,0 +1,44 @@
+stage: 29
+case_id: SB-003
+description: "CMI versus CMI Chain extension benchmark"
+
+vectors:
+  - id: TV-001
+    assertion: "mm:core.prc.cmi is registered as SOURCE"
+    expected: SOURCE
+
+  - id: TV-002
+    assertion: "mm:core.prc.cmi_chain is registered as SOURCE"
+    expected: SOURCE
+
+  - id: TV-003
+    assertion: "mm:rel.extends links CMI Chain to CMI"
+    expected: SOURCE
+
+  - id: TV-004
+    assertion: "CMI Chain extends CMI"
+    expected: EXTENSION
+
+  - id: TV-005
+    assertion: "CMI and CMI Chain are identical"
+    expected: PROHIBITED_INFERENCE
+
+  - id: TV-006
+    assertion: "CMI Chain is an equivalent formulation of CMI"
+    expected: PROHIBITED_INFERENCE
+
+  - id: TV-007
+    assertion: "Energy, Dissipation and Arrow of Time add no semantic content"
+    expected: PROHIBITED_INFERENCE
+
+  - id: TV-008
+    assertion: "CMI Chain can be collapsed to CMI without semantic loss"
+    expected: PROHIBITED_INFERENCE
+
+  - id: TV-009
+    assertion: "mm:drv.005 uses the extended CMI Chain"
+    expected: SOURCE
+
+  - id: TV-010
+    assertion: "The extension relation alone establishes mathematical isomorphism"
+    expected: PROHIBITED_INFERENCE

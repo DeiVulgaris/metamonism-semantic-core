@@ -11,7 +11,8 @@ The benchmark evaluates whether the semantic core can:
 3. compare meanings without collapsing them into identity;
 4. block unsupported transfer of proof across layers;
 5. distinguish established correspondence from unresolved equivalence;
-6. produce an explicit result when the comparison is partial.
+6. distinguish extension from identity and equivalence;
+7. produce an explicit result when the comparison is partial.
 
 ## Canonical Case Schema
 
@@ -35,7 +36,7 @@ A semantic benchmark case consists of:
 | process position | Where does it occur in the process structure? |
 | formalization | What formal representation is actually registered? |
 | epistemic status | Is the statement SOURCE, hypothesis, model-specific, etc.? |
-| cross-layer relation | Is the relation identity, correspondence, mapping, specialization, or unresolved? |
+| cross-layer relation | Is the relation identity, correspondence, extension, mapping, specialization, or unresolved? |
 
 ## Result Vocabulary
 
@@ -43,12 +44,30 @@ A semantic benchmark case consists of:
 SAME_CONTENT
 EQUIVALENT_FORMULATION
 STRUCTURAL_CORRESPONDENCE
+EXTENSION
 PARTIAL
 UNRESOLVED
 PROHIBITED_INFERENCE
 ```
 
 These are result classes, not semantic identities to be inserted into the corpus automatically.
+
+### EXTENSION
+
+`EXTENSION` is used when a registered formulation retains the semantic
+structure of another formulation and adds further registered content, with
+a directional extension relation such as `mm:rel.extends`.
+
+It is deliberately distinct from:
+
+- `SAME_CONTENT` — no additional semantic content;
+- `EQUIVALENT_FORMULATION` — same content under another formulation;
+- `STRUCTURAL_CORRESPONDENCE` — correspondence without the directional
+  containment-plus-addition relation required for extension.
+
+The benchmark result `EXTENSION` does not by itself establish identity,
+equivalence, mathematical isomorphism, or truth of any additional physical
+interpretation.
 
 ## Anti-collapse Rule
 
@@ -58,7 +77,11 @@ A benchmark MUST NOT infer identity merely because:
 - two descriptions share a processual pattern;
 - formal expressions look similar;
 - one layer provides a physical interpretation of another;
-- two operators occur in analogous positions.
+- two operators occur in analogous positions;
+- one formulation contains another formulation's structure.
+
+The last condition is important: **containment of structure is evidence for
+possible extension, not evidence for identity.**
 
 ## Dissipation Benchmark
 
