@@ -1,0 +1,33 @@
+# Common carrier operator tests
+suite: COMMON_CARRIER_OPERATOR
+cases:
+  - id: W-V1
+    claim: W can be formally constructed as a free vector space with regime labels.
+    expected: ACCEPT
+  - id: W-V2
+    claim: Regime labels prevent silent identification of old and new regimes.
+    expected: ACCEPT
+  - id: W-V3
+    claim: J maps |P3,R> to |P4,R'>.
+    expected: ACCEPT
+  - id: W-V4
+    claim: J^2 is defined from one application of J alone.
+    expected: REJECT
+  - id: W-V5
+    claim: J^2=0 because J is partial.
+    expected: REJECT
+  - id: W-V6
+    claim: J^2=I follows from orientation reversal.
+    expected: REJECT
+  - id: W-V7
+    claim: n -> -n is multiplication by -1 on W.
+    expected: REJECT
+  - id: W-V8
+    claim: sparse matrix representation proves physical matrix structure.
+    expected: REJECT
+  - id: W-V9
+    claim: common carrier W already proves Clifford algebra.
+    expected: REJECT
+  - id: W-V10
+    claim: J and a later J' are the same operator merely because both cross regime boundaries.
+    expected: REJECT
