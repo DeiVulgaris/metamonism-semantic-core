@@ -1,0 +1,82 @@
+tests:
+  - id: OCS-01
+    name: constrained_exhaustion
+    input:
+      need_continue: true
+      d_perp_old: []
+    expected: PASS
+    assertion: "Frustration follows from continuation being required while the old orthogonal-feasible set is empty."
+
+  - id: OCS-02
+    name: non_global_impossibility
+    input:
+      d_perp_old: []
+      d_perp_new: [P4]
+    expected: PASS
+    assertion: "Old-regime exhaustion does not imply global impossibility."
+
+  - id: OCS-03
+    name: P4_must_be_solution
+    input:
+      p4_class: arbitrary_boundary_jump
+    expected: REJECT
+    assertion: "P4 must be constrained as an orthogonal resolution candidate."
+
+  - id: OCS-04
+    name: orientation_not_definition
+    input:
+      orientation_change: "+n -> -n"
+      orthogonality_constraint_defined: false
+    expected: REJECT
+    assertion: "Orientation reversal alone cannot define the resolution."
+
+  - id: OCS-05
+    name: antiparallel_not_orthogonal
+    input:
+      assume_euclidean_orthogonal: "n and -n"
+    expected: REJECT
+    assertion: "No Euclidean claim that n and -n are orthogonal is permitted."
+
+  - id: OCS-06
+    name: no_metric_injection
+    input:
+      orthogonality_definition: "q(x,y)=0 with q=identity"
+    expected: REJECT
+    assertion: "A Euclidean metric must not be silently imported."
+
+  - id: OCS-07
+    name: p4_not_fourth_dimension
+    input:
+      p4_interpretation: "fourth independent spatial direction"
+    expected: REJECT
+    assertion: "P4 is not treated as a fourth spatial basis vector."
+
+  - id: OCS-08
+    name: no_clifford_inference
+    input:
+      four_processual_positions: true
+      clifford_relation_assumed: true
+    expected: REJECT
+    assertion: "Four positions do not establish Clifford multiplication."
+
+  - id: OCS-09
+    name: resolution_preserves_constraint_type
+    input:
+      old_constraint: "orthogonality"
+      new_resolution_type: "orthogonal_resolution"
+    expected: PASS
+    assertion: "The regime changes while the structural requirement of orthogonal resolution remains."
+
+  - id: OCS-10
+    name: no_unique_solution
+    input:
+      solution_set: [P4a, P4b]
+    expected: PASS
+    assertion: "A resolution candidate does not imply uniqueness."
+
+  - id: OCS-11
+    name: operator_delayed
+    input:
+      operator_defined_before_solution_relation: true
+    expected: REJECT
+    assertion: "Operator realization is downstream of the constrained continuation problem."
