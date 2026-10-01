@@ -1,0 +1,56 @@
+{
+  "stage": "D3",
+  "status": "PARTIALLY_RESOLVED",
+  "epistemic_status": "FORMALIZATION",
+  "integration_scope": "WORKING",
+  "carrier": {
+    "space": "V",
+    "basis": ["e1", "e2", "e3"],
+    "definition": "V=span{e1,e2,e3}",
+    "provenance": "working formalization of three successive external orthogonal directions"
+  },
+  "bilinear_form": {
+    "symbol": "q",
+    "symmetry": true,
+    "matrix_form": "diag(a1,a2,a3)",
+    "coefficients": "UNRESOLVED",
+    "signature": "UNRESOLVED"
+  },
+  "orthogonality": {
+    "rule": "q(e_i,e_j)=0 for i!=j",
+    "provenance": "source-grounded structural orthogonality"
+  },
+  "orientation_reversal": {
+    "rule": "R(n)=-n",
+    "quadratic_invariance": "q(Rn,Rn)=q(n,n)",
+    "R_squared_on_defined_subspace": "I",
+    "scope": "working linear extension; not a claim of a globally defined source operator"
+  },
+  "clifford_product_defined": false,
+  "lorentzian_signature_derived": false,
+  "dirac_structure_derived": false,
+  "unresolved": [
+    "coefficients a_i",
+    "signature",
+    "status of q as fundamental versus representational",
+    "larger carrier",
+    "possible fourth algebraic generator"
+  ],
+  "forbidden_inferences": [
+    "+n->-n is a Lorentzian metric sign",
+    "P4 is a fourth spatial basis vector",
+    "orthogonality implies Clifford multiplication",
+    "q=diag(-1,+1,+1) follows from the source",
+    "R²=-I follows from orientation reversal"
+  ],
+  "provenance": {
+    "repository": "user-supplied Zenodo source",
+    "path": "METAMONISM: Chapter 3. Processual Ontodynamics",
+    "ref": "user_supplied_attachment",
+    "locator": "lines 34-46; 191-224; 317-323; 324-345"
+  },
+  "derived_from": [
+    "stage45/d2_state.json",
+    "stage45/processual_algebra_research_program.md"
+  ]
+}
