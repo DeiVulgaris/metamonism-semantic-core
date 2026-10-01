@@ -1,0 +1,18 @@
+# Stage 23 — Reasoning Rules
+
+rules:
+  - id: R1
+    name: relation_path
+    output: DERIVED
+  - id: R2
+    name: basis_provenance
+    output: DERIVED_FROM_SOURCE
+  - id: R3
+    name: status_preservation
+    output: PRESERVED
+  - id: R4
+    name: namespace_preservation
+    output: PRESERVED
+  - id: R5
+    name: semantic_collapse_prevention
+    output: BLOCKED
