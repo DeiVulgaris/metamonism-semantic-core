@@ -633,3 +633,6 @@ stage13e_relation_ids:
   - mm:c.rel.no_core_merge_boundary
   - mm:c.rel.falsifiability_constraint
   - mm:c.rel.no_qm_replacement_boundary
+  # Stage 15 consolidation — recovered missing B claims
+  - {id: "mm:b.clm.experiments_not_metamonism_proof", canonical_name: "Experiments Not Metamonism Proof", type: "Claim"}
+  - {id: "mm:b.clm.experiment_structural_emergence_not_adoption", canonical_name: "Experiment Structural Emergence Not Adoption", type: "Claim"}
