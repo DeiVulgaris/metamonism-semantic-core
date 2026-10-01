@@ -106,3 +106,26 @@ assigned_ids:
   - {id: "mm:rel.cannot_instantiate", canonical_name: "cannot_instantiate", type: "Relation"}
   - {id: "mm:rel.iterates_to", canonical_name: "iterates_to", type: "Relation"}
   - {id: "mm:rel.extends", canonical_name: "extends", type: "Relation"}
+
+# STAGE 10 SCOPED IDS
+stage10_layers: [core, a, b, c]
+stage10_categories: [inv, dom, op, prc, crit, prot, sch, val, lvl, mod, prin, exp, rel, meta]
+stage10_ids:
+  - mm:core.meta.v1_3
+  - mm:core.meta.ontodynamic_architecture
+  - mm:a.meta.ontological_core_agi
+  - mm:b.meta.ufcps
+  - mm:c.meta.ontodynamics
+  - mm:b.prot.schemas
+  - mm:a.op.diff
+  - mm:a.op.dissipate
+  - mm:a.op.fix
+  - mm:a.op.unfold
+  - mm:b.op.diff
+  - mm:b.op.diss
+  - mm:b.op.fix
+  - mm:b.op.unfold
+  - mm:c.prc.dissipation
+  - mm:c.op.unfold
+  - mm:c.prin.orthogonal_dissipation
+  - mm:c.mod.fundamental_interactions
