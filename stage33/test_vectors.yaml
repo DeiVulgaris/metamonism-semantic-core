@@ -1,0 +1,28 @@
+tests:
+  - id: rp_gate_noncanonical
+    input: "THEORETICAL_HYPOTHESIS program"
+    expected: "integration_scope != CANONICAL"
+
+  - id: rp_gate_provenance
+    input: "non-SOURCE claim without derived_from"
+    expected: "FAIL"
+
+  - id: rp_gate_open_question
+    input: "research program with explicit question and blocker"
+    expected: "PASS"
+
+  - id: rp_gate_analogy
+    input: "STRUCTURAL_CORRESPONDENCE hypothesis"
+    expected: "must not become IDENTITY or FORMAL_ISOMORPHISM"
+
+  - id: rp_gate_falsifier
+    input: "test containing falsifier"
+    expected: "PASS"
+
+  - id: rp_gate_negative_result
+    input: "failed test with preserved provenance"
+    expected: "retain as research state"
+
+  - id: rp_gate_continuation
+    input: "program with next_transition"
+    expected: "PASS"
