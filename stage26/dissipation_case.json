@@ -1,0 +1,55 @@
+{
+  "stage": 26,
+  "case": "dissipation",
+  "question": "What is dissipation, and how do its meanings differ across A, B, and C?",
+  "source_derived": {
+    "A": {
+      "scope": "Ontological-core-of-AGI",
+      "status": "SOURCE",
+      "meaning": [
+        "Dissipation is mandatory after structural closure is broken.",
+        "Dissipation counteracts global refixation."
+      ],
+      "formalization": "post_unfold(S) -> dissipation_required(S)"
+    },
+    "B": {
+      "scope": "UFCPS",
+      "status": "SOURCE",
+      "meaning": [
+        "diss is part of diff -> fix -> diss -> unfold.",
+        "diss removes exclusive dependence on the current carrier.",
+        "diss is not destruction or deletion."
+      ],
+      "formalization": "diff -> fix -> diss -> unfold"
+    },
+    "C": {
+      "scope": "ONTODYNAMICS",
+      "statuses": [
+        "CANONICAL_WITHIN_LAYER",
+        "DRAFT_HYPOTHESIS",
+        "MODEL_SPECIFIC"
+      ],
+      "meaning": [
+        "Dissipation is redistribution into new degrees of freedom.",
+        "Orthogonality is treated as the minimal channel of dissipation.",
+        "Orthogonal Dissipation is canonical within ONTODYNAMICS, not global CORE."
+      ],
+      "formalizations": [
+        "Dissipation != Loss",
+        "Orthogonality -> minimal_channel_of(Dissipation)",
+        "Redshift ~ FrequencyDissipation",
+        "E <-> diff; B <-> fix; EnergyLoss <-> diss"
+      ]
+    }
+  },
+  "cross_inventory_result": {
+    "status": "PARTIAL",
+    "common_pattern": "A processual family resemblance involving leaving or preventing exclusive fixation.",
+    "not_established": [
+      "A/B/C dissipation are identical.",
+      "A/B/C dissipation are mathematically isomorphic.",
+      "C physical hypotheses prove A ontological claims.",
+      "B operational diss proves C physical models."
+    ]
+  }
+}
