@@ -88,4 +88,4 @@ claims:
   - {id: mm:c.clm.no_standard_qm_replacement, category: epistemic_boundary, status: SOURCE, text: "The ONTODYNAMICS quantum model is not presented as a replacement for standard QM formalism."}
 
 summary:
-  total_claims: 53
+  total_claims: 51

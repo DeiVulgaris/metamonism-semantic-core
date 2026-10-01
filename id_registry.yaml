@@ -534,3 +534,57 @@ stage13c_entity_ids:
   - mm:c.prc.gas_galaxy_sequence
   - mm:c.prc.supernova_sequence
   - mm:c.meta.model_operator_mapping
+
+# STAGE 13D — INVENTORY C CLAIM IDS
+stage13d_claim_ids:
+  - mm:c.clm.ontodynamics_predictive_applied_layer
+  - mm:c.clm.core_defines_axioms_ontodynamics_unfolds_worlds
+  - mm:c.clm.models_are_processual_ontology_specifications
+  - mm:c.clm.models_purpose_falsifiable_structure
+  - mm:c.clm.core_what_reality_is_ontodynamics_what_implies
+  - mm:c.clm.models_derive_from_core_ban
+  - mm:c.clm.models_use_diff_diss_fix_language
+  - mm:c.clm.reality_self_regulating_dissipation
+  - mm:c.clm.existence_begins_unresolved_conflict
+  - mm:c.clm.conflict_redistributed_not_eliminated
+  - mm:c.clm.redistribution_new_dof_is_dissipation
+  - mm:c.clm.dissipation_not_loss
+  - mm:c.clm.orthogonality_minimal_channel
+  - mm:c.clm.metric_unfolding_0d_to_3d
+  - mm:c.clm.orthogonal_dissipation_layer_canonical
+  - mm:c.clm.derived_gravity_shadow_orbit_force_mass
+  - mm:c.clm.gravity_not_attraction
+  - mm:c.clm.fundamental_interactions_one_process
+  - mm:c.clm.fundamental_interactions_falsifiable
+  - mm:c.clm.fundamental_interactions_field_equations_open
+  - mm:c.clm.eternal_dynamic_reality
+  - mm:c.clm.big_bang_metric_expansion_ontologically_impossible
+  - mm:c.clm.baryon_birth_death_necessary
+  - mm:c.clm.redshift_frequency_dissipation
+  - mm:c.clm.large_scale_diff_field_patterns
+  - mm:c.clm.photons_as_dissipation_transport
+  - mm:c.clm.particles_stabilized_dissipation_configurations
+  - mm:c.clm.thermodynamics_todo
+  - mm:c.clm.gas_galaxy_cycle
+  - mm:c.clm.supernova_without_remnants
+  - mm:c.clm.gravity_screening
+  - mm:c.clm.photon_one_axis_unlocked
+  - mm:c.clm.photon_locked_xy_open_z
+  - mm:c.clm.photon_c_equals_monos_actualization_speed
+  - mm:c.clm.photon_aging_redshift
+  - mm:c.clm.cmb_photon_graveyard
+  - mm:c.clm.photon_maps_e_diff_b_fix_energy_diss
+  - mm:c.clm.photon_reinterprets_hubble_cmb_lensing
+  - mm:c.clm.photon_contradicts_cosmological_energy_conservation
+  - mm:c.clm.photon_measurement_phase_transition
+  - mm:c.clm.photon_metastable_process
+  - mm:c.clm.double_slit_distributed_process
+  - mm:c.clm.measurement_phase_transition
+  - mm:c.clm.qm_model_not_replacement_formalism
+  - mm:c.clm.h_philosophical_m_machine_oriented
+  - mm:c.clm.orthogonal_dissipation_machine_feed
+  - mm:c.clm.unified_processual_ontology_exposition
+  - mm:c.clm.cosmological_sequence
+  - mm:c.clm.no_core_merge
+  - mm:c.clm.models_require_falsifiability
+  - mm:c.clm.no_standard_qm_replacement
