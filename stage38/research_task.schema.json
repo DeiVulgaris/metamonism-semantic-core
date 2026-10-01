@@ -1,0 +1,29 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"mm:research_task:v1",
+  "title":"Meta-Monism Research Task v1",
+  "description":"A traceable research obligation instantiated from an admissible frontier transition. Structure only; not a truth claim.",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["task_id","frontier_id","research_program_id","trajectory_id","transition_type","task_state","objective","why_now","prerequisites","expected_output","provenance"],
+  "properties":{
+    "task_id":{"type":"string","minLength":1},
+    "frontier_id":{"type":"string","minLength":1},
+    "research_program_id":{"type":"string","minLength":1},
+    "trajectory_id":{"type":"string","minLength":1},
+    "transition_type":{"type":"string","enum":["DEFINE","FORMALIZE","TEST","COMPARE","DERIVE","COUNTEREXAMPLE","REPLICATE","BRANCH","COMPOSE","DELEGATE","REFRAME","TERMINATE"]},
+    "transition_status":{"type":"string","enum":["AVAILABLE","CONDITIONAL","BLOCKED","PROHIBITED"]},
+    "task_state":{"type":"string","enum":["PROPOSED","READY","BLOCKED","PROHIBITED","IN_PROGRESS","COMPLETED","FAILED","REJECTED"]},
+    "epistemic_status":{"type":"string","enum":["SOURCE","INFERENCE","FORMALIZATION","THEORETICAL_HYPOTHESIS","PROPOSAL","UNRESOLVED","CONFLICT","USED_BUT_UNDEFINED","PRIOR_THEORETICAL_FORMULATION","MODEL_SPECIFIC"]},
+    "objective":{"type":"string","minLength":1},
+    "why_now":{"type":"string","minLength":1},
+    "unresolved_difference":{"type":"string"},
+    "prerequisites":{"type":"array","items":{"type":"string","minLength":1}},
+    "constraints":{"type":"array","items":{"type":"string","minLength":1}},
+    "expected_output":{"type":"string","minLength":1},
+    "forbidden_outcomes":{"type":"array","items":{"type":"string","minLength":1}},
+    "provenance":{"type":"object","additionalProperties":false,"required":["repository","path","ref","locator"],"properties":{"repository":{"type":"string","minLength":1},"path":{"type":"string","minLength":1},"ref":{"type":"string","minLength":1},"locator":{"type":"string","minLength":1},"excerpt":{"type":"string"}}},
+    "derived_from":{"type":"array","items":{"type":"string","minLength":1}},
+    "result_frontier_ids":{"type":"array","items":{"type":"string","minLength":1}}
+  }
+}
