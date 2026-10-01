@@ -1,0 +1,15 @@
+# Stage 18 — Query Registry
+
+query_registry:
+  - {id: q18.identity_lookup, class: Q1, returns: registration}
+  - {id: q18.claim_lookup, class: Q2, returns: claims}
+  - {id: q18.relation_lookup, class: Q3, returns: relations}
+  - {id: q18.basis_lookup, class: Q4, returns: basis_claim}
+  - {id: q18.provenance_lookup, class: Q5, returns: provenance}
+  - {id: q18.formalization_lookup, class: Q6, returns: formalizations}
+  - {id: q18.cross_source_lookup, class: Q7, returns: X1_X21}
+  - {id: q18.status_audit, class: Q8, returns: status_filtered_records}
+  - {id: q18.boundary_query, class: Q9, returns: epistemic_boundaries}
+  - {id: q18.operator_query, class: Q10, returns: scoped_operators}
+
+result_statuses: [RESOLVED, PARTIAL, UNRESOLVED, EMPTY, PROHIBITED_INFERENCE]
