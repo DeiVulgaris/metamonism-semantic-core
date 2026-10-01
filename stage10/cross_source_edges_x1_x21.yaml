@@ -25,8 +25,6 @@ properties:
   - {id: X3, subject: mm:a.meta.ontological_core_agi, relation: null, mandatory_components: [mm:a.op.diff, mm:a.op.dissipate, mm:a.op.fix, mm:a.op.unfold]}
   - {id: X4, subject: mm:a.meta.ontological_core_agi, relation: null, role: ontological_constraints, excludes: implementation}
   - {id: X17, subject: mm:b.meta.ufcps, relation: null, boundary_statement: "Experiment concerns structural emergence, not ideological adoption"}
-  - {id: X18, subject: mm:b.meta.ufcps, relation: null, research_hypothesis: "Continuity across carriers may support collective intelligence as a process property"}
-  - {id: X11, subject: mm:c.mod.fundamental_interactions, relation: null, proposed: true, core_elevation: false}
 
 note:
   - "X10 = Variant A: representation_note is literal metadata, not a graph edge."
