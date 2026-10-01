@@ -641,3 +641,36 @@ The objective is not to make Meta-Monism appear more complete than it is.
 
 The objective is to make its existing semantic structure **explicit, traceable, machine-readable, and extensible**.
 
+
+
+## Research Program Layer
+
+Stage 33 adds a controlled working layer for **continuing unresolved reasoning**.
+
+The `RESEARCH_PROGRAM` object preserves:
+
+- open research questions;
+- source-grounded claims and provenance;
+- working entities and proposed relations;
+- candidate formalizations;
+- missing definitions and blockers;
+- tests, expected observations and falsifiers;
+- derivations, assumptions and counterexamples;
+- competing hypotheses;
+- explicit next transitions.
+
+This layer is deliberately separated from the canonical semantic core.
+
+Its purpose is not to store unfinished answers as if they were facts, but to
+preserve the **conditions under which an answer may become possible**.
+
+See:
+- `stage33/research_program_schema.yaml`
+- `stage33/research_programs.yaml`
+- `stage33/research_program_validator.py`
+- `stage33/README.md`
+
+The architectural principle is:
+
+> Semantic fidelity preserves what has been established. Process continuity
+> preserves where thinking can continue.
