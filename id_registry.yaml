@@ -588,3 +588,48 @@ stage13d_claim_ids:
   - mm:c.clm.no_core_merge
   - mm:c.clm.models_require_falsifiability
   - mm:c.clm.no_standard_qm_replacement
+
+# STAGE 13E — INVENTORY C RELATION IDS
+stage13e_relation_ids:
+  - mm:c.rel.ontodynamics_predictive_layer
+  - mm:c.rel.models_operational_specifications
+  - mm:c.rel.models_derive_from_core_ban
+  - mm:c.rel.models_use_operator_language
+  - mm:c.rel.orthogonal_dissipation_layer_principle
+  - mm:c.rel.orthogonality_minimal_channel
+  - mm:c.rel.metric_unfolding_produces_dimensions
+  - mm:c.rel.dissipation_generates_structure
+  - mm:c.rel.gravity_shadow_model_consequence
+  - mm:c.rel.gravity_screening_model
+  - mm:c.rel.fundamental_interactions_unifies_regimes
+  - mm:c.rel.fundamental_interactions_falsifiable
+  - mm:c.rel.fundamental_interactions_open_formalism
+  - mm:c.rel.eternal_dynamic_reality_model
+  - mm:c.rel.bb_reinterpretation_model
+  - mm:c.rel.baryon_birth_death_model
+  - mm:c.rel.redshift_frequency_dissipation
+  - mm:c.rel.large_scale_diff_patterns
+  - mm:c.rel.photons_transport_dissipation
+  - mm:c.rel.particles_stabilized_dissipation
+  - mm:c.rel.gas_galaxy_cycle
+  - mm:c.rel.supernova_without_remnants
+  - mm:c.rel.gravity_screening
+  - mm:c.rel.photon_one_axis_unlocked
+  - mm:c.rel.photon_xy_locked_z_open
+  - mm:c.rel.photon_c_actualization_speed
+  - mm:c.rel.photon_aging_redshift
+  - mm:c.rel.cmb_photon_graveyard
+  - mm:c.rel.photon_model_reinterprets_hubble
+  - mm:c.rel.photon_model_energy_conservation_tension
+  - mm:c.rel.photon_measurement_phase_transition
+  - mm:c.rel.double_slit_distributed_process
+  - mm:c.rel.measurement_phase_transition
+  - mm:c.rel.qm_model_bounded_by_standard_formalism
+  - mm:c.rel.h_layer_machine_layer
+  - mm:c.rel.orthogonal_dissipation_machine_feed
+  - mm:c.rel.cosmological_sequence_eternal_to_nucleogenesis
+  - mm:c.rel.cosmological_sequence_nucleogenesis_to_gas
+  - mm:c.rel.cosmological_sequence_gas_to_supernova
+  - mm:c.rel.no_core_merge_boundary
+  - mm:c.rel.falsifiability_constraint
+  - mm:c.rel.no_qm_replacement_boundary
