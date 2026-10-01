@@ -1,0 +1,38 @@
+{
+  "id": "W-OP-001",
+  "revision_of": "DEXT-OP-001",
+  "status": "FORMALIZATION",
+  "canonical_promotion": false,
+  "carrier": {
+    "definition": "W = Span_F{|P_i,R>}",
+    "purpose": "common formal carrier preserving regime labels"
+  },
+  "operators": {
+    "T": "partial linear continuation operator defined on admissible transition domain",
+    "J": "partial regime-changing operator J_R|P3,R>=|P4,R'>",
+    "J0": "optional zero extension, modeling convention only"
+  },
+  "compositions": [
+    "J_R T_2 T_1 where domains match",
+    "J' J_R only if a successor J' is independently defined"
+  ],
+  "critical_result": "J_R^2 is undefined because membership of |P4,R'> in dom(J_R) is not established",
+  "not_established": [
+    "W is physical state space",
+    "W has a metric or inner product",
+    "J is multiplication by -1",
+    "J^2=0",
+    "+I",
+    "-I",
+    "Clifford relations",
+    "Dirac matrices"
+  ],
+  "next_tests": [
+    "W-1 minimal carrier",
+    "W-2 partial operator matrices",
+    "W-3 all compatible compositions",
+    "W-4 derived commutation relations",
+    "W-5 process-derived bilinear form",
+    "W-6 Clifford compatibility"
+  ]
+}
