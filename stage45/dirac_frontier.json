@@ -1,0 +1,61 @@
+{
+  "frontier_id": "RF-DIRAC-P14-001",
+  "research_program_id": "RP-stage45-dirac-correspondence",
+  "trajectory_id": "RT-stage45-002",
+  "frontier_state": "UNRESOLVED",
+  "epistemic_status": "THEORETICAL_HYPOTHESIS",
+  "subject": {
+    "ref": "mm:process.p1_p4",
+    "description": "Processual P1-P4 structure and orientation reversal +n -> -n"
+  },
+  "source_evidence": [
+    "P0 -> P1 -> P2 -> P3 -> P4",
+    "+n -> -n at P3 -> P4",
+    "Chapter 3 explicitly permits further Clifford/Dirac structural comparison"
+  ],
+  "provenance": {
+    "repository": "user_supplied_corpus",
+    "path": "МЕТАМОНИЗМ: Глава 3 Процессуальная онтодинамика",
+    "ref": "Zenodo:10.5281/zenodo.22730697",
+    "locator": "L34-L46; L317-L323; L324-L345"
+  },
+  "derived_from": [
+    "stage45/dirac_matrix_research_program.md"
+  ],
+  "unresolved_difference": "Whether the processual P1-P4 structure can independently generate an algebra admitting a Clifford/Dirac matrix representation.",
+  "blockers": [
+    "carrier undefined",
+    "composition law undefined",
+    "algebraic identity undefined",
+    "metric/bilinear form undefined",
+    "anticommutator undefined",
+    "matrix representation undefined"
+  ],
+  "open_questions": [
+    "What mathematical objects correspond to P1-P4?",
+    "What operation composes those objects?",
+    "Does a bilinear form emerge from the processual geometry?",
+    "Can the anticommutator be derived rather than imposed?",
+    "Does +n -> -n correspond to an algebraic operation with a derivable order?",
+    "Can a representation satisfy the Clifford relation?"
+  ],
+  "admissible_transitions": [
+    {"type": "DEFINE", "status": "AVAILABLE"},
+    {"type": "FORMALIZE", "status": "CONDITIONAL"},
+    {"type": "COMPARE", "status": "AVAILABLE"},
+    {"type": "COUNTEREXAMPLE", "status": "AVAILABLE"}
+  ],
+  "forbidden_inferences": [
+    "P1-P4 are already gamma matrices",
+    "four processual stages imply a Clifford algebra",
+    "+n -> -n proves spin-1/2",
+    "orientation reversal is identical to a gamma-matrix sign",
+    "Dirac equation follows from the current source"
+  ],
+  "result": {
+    "relation_type": "STRUCTURAL_CORRESPONDENCE",
+    "status": "THEORETICAL_HYPOTHESIS",
+    "expected_result": "UNRESOLVED",
+    "canonical_upgrade": false
+  }
+}
