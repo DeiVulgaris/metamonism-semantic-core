@@ -310,6 +310,21 @@ Every processed source should produce, where applicable:
 - evidence;
 - status.
 
+### Mandatory evidence provenance
+
+Every extracted entity, claim, and relation MUST carry machine-readable provenance.
+
+At minimum record:
+
+- source repository;
+- document path;
+- source ref/version/commit when available;
+- section, heading, paragraph, or line range;
+- optional short source excerpt.
+
+The provenance locator is part of the semantic record, not merely editorial metadata.
+
+
 ### C. Atomic claims
 - claim ID;
 - subject;
@@ -317,7 +332,15 @@ Every processed source should produce, where applicable:
 - object;
 - evidence;
 - status;
-- formalization if present.
+- formalization if present;
+- `source_claim` — source wording or faithful quotation/paraphrase;
+- `source_claim_as_interpreted` — semantic interpretation, if different;
+- `derived_from` — mandatory for every non-SOURCE claim.
+
+The distinction between `source_claim` and `source_claim_as_interpreted` prevents an AI interpretation from silently becoming the wording of the source.
+
+For `INFERENCE`, `FORMALIZATION`, `THEORETICAL_HYPOTHESIS`, and `PROPOSAL`, `derived_from` MUST identify the source claims, registered entities, or prior derivations from which the statement was constructed.
+
 
 ### D. Relations
 - source;
@@ -325,7 +348,11 @@ Every processed source should produce, where applicable:
 - target;
 - direction;
 - status;
-- evidence.
+- evidence;
+- provenance locator;
+- `derived_from` when the relation is not SOURCE.
+
+A relation must not be inferred solely from co-occurrence in source prose.
 
 ### E. Derivations
 - premises;
@@ -385,6 +412,14 @@ Before registering an element ask:
 - Can another AI reconstruct why this entry exists?
 
 If any answer is unknown, preserve the uncertainty instead of guessing.
+
+### Provenance gate
+
+Registration MUST fail if an atomic source-grounded claim has no provenance locator.
+
+Registration MUST fail if a non-SOURCE claim has no `derived_from` path.
+
+An AI may process a source without enough evidence to register a conclusion, but it must not register an unsupported conclusion as if its provenance were known.
 
 ## 21. Forbidden AI Behaviors
 
