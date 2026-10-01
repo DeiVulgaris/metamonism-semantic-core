@@ -698,3 +698,26 @@ The engine does not generate theoretical conclusions. It computes admissible
 next actions from blockers, open questions, tests and failures.
 
 See `stage34/research_process_engine.py`.
+
+
+## Research Trajectory Memory
+
+Stage 35 preserves the path of research, not only its current state.
+
+```text
+TRAJECTORY
+    ↓
+CURRENT STATE
+    ↓
+NEXT ADMISSIBLE ACTION
+    ↓
+NEW STATE
+    ↓
+TRAJECTORY
+```
+
+Previous states are append-only. Failed branches remain retrievable. Returning
+to an old question creates a new state rather than rewriting history.
+
+See `stage35/research_trajectory_schema.yaml` and
+`stage35/trajectory_engine.py`.
