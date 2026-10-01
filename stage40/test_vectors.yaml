@@ -1,0 +1,33 @@
+schema_version: "1.0"
+stage: 40
+object: RESEARCH_SELECTION_DECISION
+vectors:
+  - id: V1_user_selected
+    policy: USER_SELECTED
+    expected: explicit_ready_task_only
+  - id: V2_dependency_first
+    policy: DEPENDENCY_FIRST
+    expected: lowest_external_dependency_depth
+  - id: V3_blocker_first
+    policy: BLOCKER_FIRST
+    expected: highest_external_blocker_reduction
+  - id: V4_cheapest_test
+    policy: CHEAPEST_TEST_FIRST
+    expected: lowest_external_test_cost
+  - id: V5_information_gain
+    policy: INFORMATION_GAIN
+    expected: highest_external_information_gain
+  - id: V6_parallel
+    policy: PARALLEL_BRANCHING
+    expected: all_explicitly_eligible_branches
+  - id: V7_missing_metric
+    policy: INFORMATION_GAIN
+    expected: blocked_without_metric_fabrication
+  - id: V8_no_ready
+    policy: DEPENDENCY_FIRST
+    expected: no_eligible_task
+  - id: V9_anti_collapse
+    expected:
+      selection_does_not_upgrade_epistemic_status: true
+      selection_does_not_modify_frontier: true
+      selection_does_not_delete_competitors: true
