@@ -1,0 +1,72 @@
+# Stage 13E — Inventory C Relation Registration
+
+stage:
+  id: "13E"
+  title: "Relation Registration — Inventory C"
+  source_inventory: "C"
+  status: "SOURCE_REGISTRATION"
+  namespace: "mm:c.rel."
+
+rules:
+  - "Relations remain within ONTODYNAMICS unless explicitly registered as source-layer dependency."
+  - "Canonical-within-layer does not imply CORE elevation."
+  - "Model relations preserve model status."
+  - "No A/B/C operator equivalence is asserted."
+  - "No cross-source synthesis is introduced."
+  - "No sameAs, identical_to, implements, proves, independent_of, or unrelated_to."
+
+relations:
+  - {id: mm:c.rel.ontodynamics_predictive_layer, subject: mm:c.mod.ontodynamics, predicate: is_layer_of, object: mm:c.mod.world, status: SOURCE}
+  - {id: mm:c.rel.models_operational_specifications, subject: mm:c.mod.ontodynamics, predicate: contains, object: mm:c.mod.fundamental_interactions, status: SOURCE, basis_claim: mm:c.clm.models_are_processual_ontology_specifications}
+  - {id: mm:c.rel.models_derive_from_core_ban, subject: mm:c.mod.ontodynamics, predicate: depends_on, object: mm:c.clm.models_derive_from_core_ban, status: SOURCE}
+  - {id: mm:c.rel.models_use_operator_language, subject: mm:c.mod.ontodynamics, predicate: uses_as_language, object: mm:c.meta.model_operator_mapping, status: SOURCE}
+  - {id: mm:c.rel.orthogonal_dissipation_layer_principle, subject: mm:c.prin.orthogonal_dissipation, predicate: canonical_within, object: mm:c.mod.ontodynamics, status: CANONICAL_WITHIN_LAYER, basis_claim: mm:c.clm.orthogonal_dissipation_layer_canonical}
+  - {id: mm:c.rel.orthogonality_minimal_channel, subject: mm:c.prc.orthogonality, predicate: functions_as, object: mm:c.prc.dissipation, status: CANONICAL_WITHIN_LAYER, basis_claim: mm:c.clm.orthogonality_minimal_channel}
+  - {id: mm:c.rel.metric_unfolding_produces_dimensions, subject: mm:c.prc.metric_unfolding, predicate: unfolds_to, object: mm:c.prc.localization_node, status: CANONICAL_WITHIN_LAYER, basis_claim: mm:c.clm.metric_unfolding_0d_to_3d}
+  - {id: mm:c.rel.dissipation_generates_structure, subject: mm:c.prc.dissipation, predicate: contributes_to, object: mm:c.prc.matter, status: CANONICAL_WITHIN_LAYER, basis_claim: mm:c.clm.redistribution_new_dof_is_dissipation}
+  - {id: mm:c.rel.gravity_shadow_model_consequence, subject: mm:c.prc.gravity_shadow, predicate: derived_within, object: mm:c.mod.gravity, status: CANONICAL_WITHIN_LAYER}
+  - {id: mm:c.rel.gravity_screening_model, subject: mm:c.mod.gravity_screening, predicate: part_of, object: mm:c.mod.gravity, status: MODEL_SPECIFIC}
+  - {id: mm:c.rel.fundamental_interactions_unifies_regimes, subject: mm:c.mod.fundamental_interactions, predicate: proposes, object: mm:c.prc.force_interaction_modality, status: PROPOSED, basis_claim: mm:c.clm.fundamental_interactions_one_process}
+  - {id: mm:c.rel.fundamental_interactions_falsifiable, subject: mm:c.mod.fundamental_interactions, predicate: constrained_by, object: mm:c.clm.fundamental_interactions_falsifiable, status: PROPOSED}
+  - {id: mm:c.rel.fundamental_interactions_open_formalism, subject: mm:c.mod.fundamental_interactions, predicate: bounded_by, object: mm:c.clm.fundamental_interactions_field_equations_open, status: UNRESOLVED}
+  - {id: mm:c.rel.eternal_dynamic_reality_model, subject: mm:c.mod.eternal_dynamic_reality, predicate: canonical_within, object: mm:c.mod.ontodynamics, status: CANONICAL_WITHIN_LAYER}
+  - {id: mm:c.rel.bb_reinterpretation_model, subject: mm:c.mod.bb_metric_expansion_reinterpretation, predicate: applies_to, object: mm:c.mod.eternal_dynamic_reality, status: MODEL_SPECIFIC}
+  - {id: mm:c.rel.baryon_birth_death_model, subject: mm:c.mod.baryon_birth_death, predicate: part_of, object: mm:c.mod.eternal_dynamic_reality, status: MODEL_SPECIFIC}
+  - {id: mm:c.rel.redshift_frequency_dissipation, subject: mm:c.mod.redshift, predicate: modeled_as, object: mm:c.prc.photon_energy_dissipation, status: DRAFT_HYPOTHESIS}
+  - {id: mm:c.rel.large_scale_diff_patterns, subject: mm:c.mod.large_scale_structure, predicate: modeled_as, object: mm:c.prc.dissipation, status: DRAFT_HYPOTHESIS}
+  - {id: mm:c.rel.photons_transport_dissipation, subject: mm:c.mod.photon_complete_cosmology, predicate: models, object: mm:c.prc.photon_energy_dissipation, status: DRAFT_HYPOTHESIS}
+  - {id: mm:c.rel.particles_stabilized_dissipation, subject: mm:c.mod.photon_complete_cosmology, predicate: models, object: mm:c.prc.dissipation, status: DRAFT_HYPOTHESIS}
+  - {id: mm:c.rel.gas_galaxy_cycle, subject: mm:c.mod.gas_galaxy_cycle, predicate: canonical_within, object: mm:c.mod.ontodynamics, status: CANONICAL_WITHIN_LAYER}
+  - {id: mm:c.rel.supernova_without_remnants, subject: mm:c.mod.supernova_without_remnants, predicate: follows_in_sequence, object: mm:c.mod.gas_galaxy_cycle, status: MODEL_SPECIFIC}
+  - {id: mm:c.rel.gravity_screening, subject: mm:c.mod.gravity_screening, predicate: constrains, object: mm:c.mod.gravity, status: MODEL_SPECIFIC}
+  - {id: mm:c.rel.photon_one_axis_unlocked, subject: mm:c.mod.photon_complete_cosmology, predicate: models_as, object: mm:c.prc.photon_one_axis_unlocked, status: MODEL_SPECIFIC}
+  - {id: mm:c.rel.photon_xy_locked_z_open, subject: mm:c.prc.photon_one_axis_unlocked, predicate: characterized_by, object: mm:c.prc.photon_open_z_axis, status: MODEL_SPECIFIC}
+  - {id: mm:c.rel.photon_c_actualization_speed, subject: mm:c.mod.photon_complete_cosmology, predicate: identifies_c_with, object: mm:c.prc.actualization_flux, status: MODEL_SPECIFIC}
+  - {id: mm:c.rel.photon_aging_redshift, subject: mm:c.prc.photon_aging, predicate: contributes_to, object: mm:c.mod.redshift, status: DRAFT_HYPOTHESIS}
+  - {id: mm:c.rel.cmb_photon_graveyard, subject: mm:c.mod.cmb_photon_graveyard, predicate: interprets, object: mm:c.mod.eternal_dynamic_reality, status: DRAFT_HYPOTHESIS}
+  - {id: mm:c.rel.photon_model_reinterprets_hubble, subject: mm:c.mod.photon_complete_cosmology, predicate: reinterprets, object: mm:c.mod.bb_metric_expansion_reinterpretation, status: MODEL_SPECIFIC}
+  - {id: mm:c.rel.photon_model_energy_conservation_tension, subject: mm:c.mod.photon_complete_cosmology, predicate: conflicts_with, object: mm:c.clm.photon_contradicts_cosmological_energy_conservation, status: MODEL_SPECIFIC}
+  - {id: mm:c.rel.photon_measurement_phase_transition, subject: mm:c.mod.qm_measurement_phase_transition, predicate: models, object: mm:c.prc.photon_metastable_process, status: PROPOSED}
+  - {id: mm:c.rel.double_slit_distributed_process, subject: mm:c.mod.qm_measurement_phase_transition, predicate: interprets, object: mm:c.clm.double_slit_distributed_process, status: MODEL_SPECIFIC}
+  - {id: mm:c.rel.measurement_phase_transition, subject: mm:c.mod.qm_measurement_phase_transition, predicate: interprets, object: mm:c.clm.measurement_phase_transition, status: MODEL_SPECIFIC}
+  - {id: mm:c.rel.qm_model_bounded_by_standard_formalism, subject: mm:c.mod.qm_measurement_phase_transition, predicate: bounded_by, object: mm:c.clm.qm_model_not_replacement_formalism, status: SOURCE}
+  - {id: mm:c.rel.h_layer_machine_layer, subject: mm:c.mod.ontodynamics, predicate: distinguishes, object: mm:c.clm.h_philosophical_m_machine_oriented, status: SOURCE}
+  - {id: mm:c.rel.orthogonal_dissipation_machine_feed, subject: mm:c.prin.orthogonal_dissipation, predicate: feeds, object: mm:c.clm.orthogonal_dissipation_machine_feed, status: SOURCE}
+  - {id: mm:c.rel.cosmological_sequence_eternal_to_nucleogenesis, subject: mm:c.prc.eternal_reality_sequence, predicate: precedes, object: mm:c.prc.cold_nucleogenesis_sequence, status: CANONICAL_WITHIN_LAYER}
+  - {id: mm:c.rel.cosmological_sequence_nucleogenesis_to_gas, subject: mm:c.prc.cold_nucleogenesis_sequence, predicate: precedes, object: mm:c.prc.gas_galaxy_sequence, status: CANONICAL_WITHIN_LAYER}
+  - {id: mm:c.rel.cosmological_sequence_gas_to_supernova, subject: mm:c.prc.gas_galaxy_sequence, predicate: precedes, object: mm:c.prc.supernova_sequence, status: CANONICAL_WITHIN_LAYER}
+  - {id: mm:c.rel.no_core_merge_boundary, subject: mm:c.mod.ontodynamics, predicate: bounded_by, object: mm:c.clm.no_core_merge, status: SOURCE}
+  - {id: mm:c.rel.falsifiability_constraint, subject: mm:c.mod.ontodynamics, predicate: constrained_by, object: mm:c.clm.models_require_falsifiability, status: SOURCE}
+  - {id: mm:c.rel.no_qm_replacement_boundary, subject: mm:c.mod.qm_measurement_phase_transition, predicate: bounded_by, object: mm:c.clm.no_standard_qm_replacement, status: SOURCE}
+
+relation_summary:
+  total_relations: 43
+
+validation:
+  source_scope_only: true
+  cross_source_synthesis: false
+  operator_merge: false
+  model_to_core_elevation: false
+  canonical_to_core_elevation: false
+  hypothesis_to_source_promotion: false
+  negative_relations: false
