@@ -227,4 +227,3 @@ stage11b_claims:
   - mm:a.clm.no_final_ontology
   - mm:a.clm.no_global_fixation
   - mm:a.clm.equilibrium_seeking_disallowed
-  - mm:a.clm.undefined

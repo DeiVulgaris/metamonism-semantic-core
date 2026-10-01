@@ -357,7 +357,7 @@ claims:
     source_scope: "Inventory A"
 
 registration_summary:
-  total_claims: 47
+  total_claims: 46
   categories:
     domain_constraint: 3
     architectural_invariant: 13
