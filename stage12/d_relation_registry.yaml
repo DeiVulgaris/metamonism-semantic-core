@@ -71,9 +71,9 @@ relations:
   - {id: mm:b.rel.examples_no_new_operators, subject: mm:b.prot.composition, predicate: bounded_by, object: mm:b.clm.examples_do_not_add_operators, status: SOURCE}
 
 relation_summary:
-  total_relations: 52
+  total_relations: 53
   status:
-    SOURCE: 42
+    SOURCE: 39
     RESEARCH_HYPOTHESIS: 7
     EXPERIMENTAL_RESULT: 7
 
