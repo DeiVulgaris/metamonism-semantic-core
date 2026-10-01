@@ -1,0 +1,39 @@
+{
+  "id": "DEXT-EXH-001",
+  "revision_of": "D3R-EXHAUSTION-001",
+  "status": "FORMALIZATION",
+  "canonical_promotion": false,
+  "objects": {
+    "state": "S=(P,R,N,C)",
+    "continuation_set": "D_ext(S)",
+    "exhaustion": "E(S): D_ext(S)=empty_set",
+    "continuation_required": "N(S)",
+    "frustration": "Fr(S): N(S) AND E(S)",
+    "regime_transition": "J:(S,Fr,R)->S'",
+    "boundary": "boundary_R={S | D_ext(S)=empty_set AND N(S)=true}"
+  },
+  "source_basis": {
+    "repository": "user_supplied_source",
+    "path": "Вставленный текст(20261001-231821).txt",
+    "ref": "user_supplied_attachment",
+    "locator": "lines 34-90; 93-120"
+  },
+  "not_established": [
+    "D_ext is a source-native mathematical object",
+    "D_ext is a vector space",
+    "J is a linear reflection",
+    "J^2=+I",
+    "J^2=-I",
+    "P4 is a fourth spatial dimension",
+    "the transition system already forms a Clifford algebra",
+    "Dirac matrices follow from the construction"
+  ],
+  "next_tests": [
+    "DEXT-1 carrier definition",
+    "DEXT-2 exhaustion transition completeness",
+    "DEXT-3 partial-operator realization of J",
+    "DEXT-4 orientation transformation",
+    "DEXT-5 common operator carrier",
+    "DEXT-6 derived algebraic relations"
+  ]
+}
