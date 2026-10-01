@@ -78,7 +78,7 @@ claims:
   - {id: mm:b.clm.ufcps_does_not_establish_universal_fault_tolerance, category: epistemic_boundary, status: SOURCE, text: "UFCPS does not establish universal physical fault tolerance."}
   - {id: mm:b.clm.ufcps_does_not_establish_truth_external_events, category: epistemic_boundary, status: SOURCE, text: "UFCPS does not establish truth of externally supplied events."}
   - {id: mm:b.clm.ufcps_does_not_require_metamonism, category: epistemic_boundary, status: SOURCE, text: "UFCPS does not require external systems to implement Metamonism."}
-  - {id: mm:b.clm_experiments_not_metamonism_proof, category: epistemic_boundary, status: SOURCE, text: "UFCPS experiments are not intended to prove Metamonism."}
+  - {id: mm:b.clm.experiments_not_metamonism_proof, category: epistemic_boundary, status: SOURCE, text: "UFCPS experiments are not intended to prove Metamonism."}
   - {id: mm:b.clm_experiment_structural_emergence_not_adoption, category: epistemic_boundary, status: SOURCE, text: "The experiment concerns structural emergence rather than ideological adoption of Metamonism."}
 
   # Epistemic typology
