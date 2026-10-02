@@ -1,0 +1,27 @@
+name: Research Loop R1
+
+on:
+  push:
+    paths:
+      - "stage63_research_loop_r1/**"
+      - ".github/workflows/research_loop_r1.yml"
+  pull_request:
+    paths:
+      - "stage63_research_loop_r1/**"
+      - ".github/workflows/research_loop_r1.yml"
+  workflow_dispatch:
+
+jobs:
+  research_loop_r1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run R1 test suite
+        working-directory: stage63_research_loop_r1
+        run: |
+          python3 -m unittest test_research_loop_r1.py -v
