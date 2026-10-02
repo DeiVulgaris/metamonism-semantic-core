@@ -1,0 +1,50 @@
+# Stage 54 — Ricci hypothesis test vectors
+
+- id: rf-001-process-pattern
+  expected: STRUCTURAL_CORRESPONDENCE
+
+- id: rf-002-frustration-singularity
+  expected: UNRESOLVED
+  forbidden: identity
+
+- id: rf-003-orthogonal-surgery
+  expected: UNRESOLVED
+  forbidden:
+    - identity
+    - mathematical_equivalence
+
+- id: rf-004-continuation
+  expected: PARTIAL
+
+- id: rf-005-unfold-surgery
+  expected: PARTIAL
+  forbidden: identity
+
+- id: rf-006-planck
+  expected: UNRESOLVED
+  forbidden:
+    - derivation
+    - prediction
+
+- id: rf-007-ricci-equation
+  expected: UNRESOLVED
+  forbidden: deduction
+- id: ufcps-001-negative-result-as-input
+  expected: CONTINUATION_INPUT
+  invariant: negative_result_does_not_terminate_process
+
+- id: ufcps-002-unresolved-as-input
+  expected: CONTINUATION_INPUT
+  invariant: unresolved_state_remains_process_information
+
+- id: ufcps-003-new-data-enables-step
+  expected: SUCCESSOR_CONSTRUCTIBLE
+  condition: new_information_sufficient_for_next_argument
+
+- id: ufcps-004-no-automatic-selection
+  expected: TASK_PROSPECT
+  constraint: successor_opportunity_is_not_automatic_decision
+
+- id: ufcps-005-frustration-information-bridge
+  expected: STRUCTURAL_CORRESPONDENCE
+  chain: frustration -> boundary_information -> resolution_candidate -> continuation
