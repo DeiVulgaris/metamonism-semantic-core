@@ -1,0 +1,60 @@
+tests:
+  - id: AOC-01
+    name: one_operator_repeated
+    expected: PASS
+    assertion: "Successive acts use the same fundamental P unless the source explicitly introduces a distinct operator."
+
+  - id: AOC-02
+    name: local_argument_not_global_invariant
+    expected: PASS
+    assertion: "I_* and I_n have different semantic roles."
+
+  - id: AOC-03
+    name: result_to_next_argument
+    expected: PASS
+    assertion: "R_n is related to A_{n+1}; they are not identical."
+
+  - id: AOC-04
+    name: domain_scope
+    expected: PASS
+    assertion: "Dom(P) constrains actualization arguments, not the entire possibility space D."
+
+  - id: AOC-05
+    name: outside_domain_not_global_impossibility
+    expected: REJECT
+    assertion: "A pair outside Dom(P) is not thereby every kind of globally impossible configuration."
+
+  - id: AOC-06
+    name: geometry_downstream
+    expected: REJECT
+    assertion: "Geometry may not be introduced before the actualization/continuation chain."
+
+  - id: AOC-07
+    name: d_perp_downstream
+    expected: REJECT
+    assertion: "D_perp may not be treated as primitive before the trajectory-level continuation problem."
+
+  - id: AOC-08
+    name: no_new_root_invariant
+    expected: PASS
+    assertion: "Continuation does not automatically create a new fundamental invariant."
+
+  - id: AOC-09
+    name: f_not_new_axiom
+    expected: PASS
+    assertion: "F is a continuation mapping, not a second foundational principle."
+
+  - id: AOC-10
+    name: no_p_sequence_of_fundamental_operators
+    expected: REJECT
+    assertion: "P0,P1,P2 must not be introduced as different fundamental operators without source support."
+
+  - id: AOC-11
+    name: boundary_is_operator_relative
+    expected: PASS
+    assertion: "P(A_n)=empty describes failure of nontrivial actualization for the current argument."
+
+  - id: AOC-12
+    name: orthogonality_downstream
+    expected: PASS
+    assertion: "Orthogonal resolution occurs downstream of distinguishable continuation and exhaustion of the current mode."
