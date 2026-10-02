@@ -95,7 +95,7 @@ def classify_retrieval(
         result_class = "NO_ADEQUATE_INFO"
         basis = "NO_QUERY_INTENT"
 
-    return {
+    output = {
         "classification_id": _classification_id(retrieval_id, result_class),
         "retrieval_id": retrieval_id,
         "query_id": query_id,
@@ -111,6 +111,14 @@ def classify_retrieval(
             "classification": "OPERATIONAL_ONLY",
         },
     }
+    affected_step_id = _text(
+        retrieval.get("affected_step_id")
+        or _mapping(retrieval.get("metadata")).get("affected_step_id")
+        or _mapping(retrieval.get("source")).get("affected_step_id")
+    )
+    if affected_step_id:
+        output["affected_step_id"] = affected_step_id
+    return output
 
 
 def classify_many(
