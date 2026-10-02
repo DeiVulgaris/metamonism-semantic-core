@@ -1,0 +1,150 @@
+{
+  "schema": "mm:invariant_rooted_derivation:v1",
+  "derivation_id": "IRD-STAGE46-CH3-001",
+  "root": {
+    "id": "axiom_ban_of_absolute_identity",
+    "kind": "INVARIANT",
+    "status": "SOURCE",
+    "provenance": {
+      "repository": "Deivulgaris66/Metamonism",
+      "path": "CORE/axioms.yaml",
+      "ref": "axiom_ban_of_absolute_identity"
+    }
+  },
+  "program_id": "RP-stage46-invariant-rooted-derivation",
+  "integration_scope": "WORKING",
+  "frontier_state": "UNRESOLVED",
+  "chain": [
+    {
+      "id": "I0",
+      "type": "ROOT",
+      "status": "SOURCE",
+      "claim": "Absolute identity is ontologically impossible.",
+      "derived_from": []
+    },
+    {
+      "id": "I1",
+      "type": "DIRECT_CONSEQUENCE",
+      "status": "SOURCE_SUPPORTED",
+      "claim": "Differentiation/continuation is necessary.",
+      "derived_from": [
+        "I0"
+      ]
+    },
+    {
+      "id": "I2",
+      "type": "REQUIRED_PROCESS_CONDITION",
+      "status": "INFERENCE",
+      "claim": "Continuation cannot terminate in absolute identity.",
+      "derived_from": [
+        "I1"
+      ]
+    },
+    {
+      "id": "I3",
+      "type": "REQUIRED_PROCESS_CONDITION",
+      "status": "INFERENCE",
+      "claim": "A successor must preserve non-identity.",
+      "derived_from": [
+        "I2"
+      ]
+    },
+    {
+      "id": "I4",
+      "type": "DERIVED_CONSTRAINT",
+      "status": "THEORETICAL_HYPOTHESIS",
+      "claim": "Genuine continuation requires a non-redundant distinction.",
+      "derived_from": [
+        "I3"
+      ]
+    },
+    {
+      "id": "I5",
+      "type": "DERIVED_CONSTRAINT",
+      "status": "THEORETICAL_HYPOTHESIS",
+      "claim": "Orthogonality is the admissible constraint for non-redundant continuation in the Chapter 3 geometric construction.",
+      "derived_from": [
+        "I4"
+      ]
+    },
+    {
+      "id": "I6",
+      "type": "FORMALIZATION",
+      "status": "FORMALIZATION",
+      "claim": "D_perp is the set of continuations satisfying continuation and orthogonality.",
+      "derived_from": [
+        "I5"
+      ]
+    },
+    {
+      "id": "I7",
+      "type": "EXHAUSTION",
+      "status": "SOURCE_SUPPORTED",
+      "claim": "D_perp^old(P3)=emptyset.",
+      "derived_from": [
+        "I6"
+      ]
+    },
+    {
+      "id": "I8",
+      "type": "FRUSTRATION",
+      "status": "FORMALIZATION",
+      "claim": "NeedContinue(P3) and D_perp^old(P3)=emptyset imply frustration.",
+      "derived_from": [
+        "I7"
+      ]
+    },
+    {
+      "id": "I9",
+      "type": "RESOLUTION_CONSTRAINT",
+      "status": "THEORETICAL_HYPOTHESIS",
+      "claim": "Resolution must preserve continuation and the root-derived non-identity requirement.",
+      "derived_from": [
+        "I8",
+        "I3"
+      ]
+    },
+    {
+      "id": "I10",
+      "type": "ORTHOGONAL_RESOLUTION",
+      "status": "THEORETICAL_HYPOTHESIS",
+      "claim": "P4 is a candidate orthogonal resolution.",
+      "derived_from": [
+        "I9",
+        "I5"
+      ]
+    },
+    {
+      "id": "I11",
+      "type": "ORIENTATION_FEATURE",
+      "status": "SOURCE",
+      "claim": "The Chapter 3 P3 to P4 pattern includes +n -> -n.",
+      "derived_from": [
+        "I10"
+      ]
+    }
+  ],
+  "unique_resolution_target": {
+    "status": "THEORETICAL_HYPOTHESIS",
+    "claim": "Orthogonal resolution may be the only admissible resolution class that preserves the root-derived constraints.",
+    "proof_status": "UNRESOLVED"
+  },
+  "invariants": [
+    "Every non-root node has an explicit path to the root.",
+    "No conclusion becomes a premise before its derivation edge is registered.",
+    "Orthogonality is not treated as the root axiom.",
+    "P4 is not defined independently of the rooted chain.",
+    "Orientation reversal is downstream of resolution.",
+    "Uniqueness of resolution principle is distinct from uniqueness of P4.",
+    "No metric is imported by default.",
+    "No Clifford structure is inferred."
+  ],
+  "open_questions": [
+    "Prove or refute I4.",
+    "Prove or refute I5.",
+    "Test uniqueness of orthogonal resolution class.",
+    "Formalize the Chapter 3 chain without circular definitions.",
+    "Derive transition/operator structure from the rooted chain."
+  ],
+  "canonical_promotion": false
+}

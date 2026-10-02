@@ -1,0 +1,66 @@
+tests:
+  - id: IRD-01
+    name: root_required
+    input: derivation_starts_at: P3
+    expected: REJECT
+    assertion: "A research derivation must identify its root invariant before using P3 as a premise."
+
+  - id: IRD-02
+    name: every_node_has_root_path
+    input: node: I10
+    expected: PASS
+    assertion: "I10 has an explicit predecessor chain ending at I0."
+
+  - id: IRD-03
+    name: orthogonality_not_root
+    input: root: orthogonality
+    expected: REJECT
+    assertion: "Orthogonality is a derived research node, not the foundational root."
+
+  - id: IRD-04
+    name: orientation_downstream
+    input: premise_order: "+n -> -n -> therefore orthogonality"
+    expected: REJECT
+    assertion: "Orientation reversal must not be used as the primary reason for orthogonal resolution."
+
+  - id: IRD-05
+    name: p4_not_arbitrary
+    input: p4_source: "generic_boundary_jump"
+    expected: REJECT
+    assertion: "P4 must be constrained by the rooted resolution chain."
+
+  - id: IRD-06
+    name: uniqueness_of_principle_not_state
+    input:
+      unique_resolution_class: true
+      unique_P4_state: false
+    expected: PASS
+    assertion: "A unique resolution principle does not imply a unique concrete state."
+
+  - id: IRD-07
+    name: hidden_assumption_is_visible
+    input: inference: "I4 -> I5"
+    expected: PASS
+    assertion: "The central orthogonality step is explicitly marked as a theoretical hypothesis."
+
+  - id: IRD-08
+    name: no_metric_injection
+    input:
+      orthogonality: "Euclidean inner product"
+    expected: REJECT
+    assertion: "No metric may be imported to manufacture the desired conclusion."
+
+  - id: IRD-09
+    name: no_clifford_shortcut
+    input:
+      chain: "I0 -> four stages -> Clifford"
+    expected: REJECT
+    assertion: "The derivation must pass through the processual constraint chain before algebraic comparison."
+
+  - id: IRD-10
+    name: no_circularity
+    input:
+      derive_orthogonality_from_resolution: true
+      derive_resolution_from_orthogonality: true
+    expected: REJECT
+    assertion: "Orthogonality and resolution may not define each other circularly."
