@@ -1,0 +1,170 @@
+{
+  "schema": "mm:actualization_domain_scope:v1",
+  "derivation_id": "ADS-STAGE49-001",
+  "source": {
+    "author": "Myshko, A.",
+    "year": 2026,
+    "title": "МЕТАМОНИЗМ: Глава 1. Логические категории, оператор актуализации и возникновение первого инварианта",
+    "doi": "10.5281/zenodo.22312437",
+    "source_ref": "user_supplied_text",
+    "key_claims": [
+      "D is the space of all possible configurations of differences",
+      "I is the space of identity conditions/invariants",
+      "P:(D×I)→R is the actualization operator",
+      "(D,I)∈Dom(P) iff D≠I",
+      "(I,I)∉Dom(P)",
+      "R is a result of actualization",
+      "actualized distinguishable reality is the phenomenological starting fact"
+    ]
+  },
+  "roots": [
+    {
+      "id": "R0",
+      "type": "PHENOMENOLOGICAL_ROOT",
+      "status": "SOURCE",
+      "scope": "ACTUALIZATION_TRAJECTORY",
+      "claim": "There exists actualized distinguishable reality."
+    },
+    {
+      "id": "R1",
+      "type": "ACTUALIZATION_INVARIANT",
+      "status": "SOURCE",
+      "scope": "ACTUALIZATION_DOMAIN",
+      "claim": "Complete identity is outside the nontrivial actualization domain of P.",
+      "formal": "(I,I) notin Dom(P)"
+    }
+  ],
+  "scope_layers": [
+    "POSSIBILITY_SPACE",
+    "ACTUALIZATION_DOMAIN",
+    "ACTUALIZATION_TRAJECTORY",
+    "MODEL_SPECIFIC"
+  ],
+  "active_chain": [
+    {
+      "id": "A0",
+      "claim": "(I,I) is excluded from Dom(P).",
+      "status": "SOURCE",
+      "scope": "ACTUALIZATION_DOMAIN",
+      "from": [
+        "R1"
+      ]
+    },
+    {
+      "id": "A1",
+      "claim": "An active actualization cannot terminate in contentually exhaustive identity.",
+      "status": "SOURCE_SUPPORTED",
+      "scope": "ACTUALIZATION_TRAJECTORY",
+      "from": [
+        "R0",
+        "A0"
+      ]
+    },
+    {
+      "id": "A2",
+      "claim": "Continued actualization must avoid contentual self-exhaustion.",
+      "status": "SOURCE",
+      "scope": "ACTUALIZATION_TRAJECTORY",
+      "from": [
+        "A1"
+      ]
+    },
+    {
+      "id": "A3",
+      "claim": "Actualization continues through distinguishable states.",
+      "status": "SOURCE",
+      "scope": "ACTUALIZATION_TRAJECTORY",
+      "from": [
+        "A2"
+      ]
+    },
+    {
+      "id": "A4",
+      "claim": "Ordered distinguishable continuation gives temporal form.",
+      "status": "SOURCE",
+      "scope": "ACTUALIZATION_TRAJECTORY",
+      "from": [
+        "A3"
+      ]
+    },
+    {
+      "id": "A5",
+      "claim": "Differentiation of continuation directions gives spatial/directional form.",
+      "status": "SOURCE",
+      "scope": "ACTUALIZATION_TRAJECTORY",
+      "from": [
+        "A3"
+      ]
+    },
+    {
+      "id": "A6",
+      "claim": "Indefinite repetition along an exhausted direction approaches contentual identity.",
+      "status": "SOURCE",
+      "scope": "ACTUALIZATION_TRAJECTORY",
+      "from": [
+        "A5"
+      ]
+    },
+    {
+      "id": "A7",
+      "claim": "Continuation therefore requires logically independent resolution.",
+      "status": "SOURCE",
+      "scope": "ACTUALIZATION_TRAJECTORY",
+      "from": [
+        "A6"
+      ]
+    },
+    {
+      "id": "A8",
+      "claim": "Chapter 2 identifies orthogonal resolution as the processual form of this requirement.",
+      "status": "SOURCE",
+      "scope": "ACTUALIZATION_TRAJECTORY",
+      "from": [
+        "A7"
+      ]
+    },
+    {
+      "id": "A9",
+      "claim": "Exhaustion of the current directional mode produces frustration.",
+      "status": "SOURCE",
+      "scope": "ACTUALIZATION_TRAJECTORY",
+      "from": [
+        "A8"
+      ]
+    },
+    {
+      "id": "A10",
+      "claim": "Orthogonal resolution opens the next regime/state.",
+      "status": "SOURCE_SUPPORTED",
+      "scope": "ACTUALIZATION_TRAJECTORY",
+      "from": [
+        "A9",
+        "A8"
+      ]
+    },
+    {
+      "id": "A11",
+      "claim": "Further actualization is recursively continued.",
+      "status": "SOURCE",
+      "scope": "ACTUALIZATION_TRAJECTORY",
+      "from": [
+        "A10"
+      ]
+    }
+  ],
+  "anti_inflation": [
+    "The invariant constrains actualization, not the total possibility space.",
+    "Elements outside Dom(P) are not automatically globally impossible.",
+    "A possible configuration is not automatically an actualized state.",
+    "Chapter 2 consequences are scoped to continuing actualization.",
+    "D_perp is local to an actualized state and regime.",
+    "P4 is a trajectory state, not a universal fourth dimension."
+  ],
+  "next_frontier": [
+    "Formalize Dom(P) minimally.",
+    "Formalize actualization trajectories.",
+    "Formalize the transition from contentual exhaustion to logically independent continuation.",
+    "Connect Chapter 2 orthogonal resolution to Chapter 3 without globalizing its scope."
+  ],
+  "canonical_promotion": false
+}
