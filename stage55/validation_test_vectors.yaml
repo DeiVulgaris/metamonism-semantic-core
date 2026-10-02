@@ -1,0 +1,22 @@
+stage: 55
+name: core_ufcps_task_bridge
+
+vectors:
+  - id: T1
+    case: ready_frontier
+    expected: READY
+  - id: T2
+    case: missing_unresolved_difference
+    expected: BLOCKED
+  - id: T3
+    case: missing_provenance
+    expected: BLOCKED
+  - id: T4
+    case: negative_result
+    expected: frontier_update_not_termination
+  - id: T5
+    case: contradiction
+    expected: preserve_branches_and_form_new_difference
+  - id: T6
+    case: inconclusive
+    expected: preserve_uncertainty_and_identify_discriminating_data
