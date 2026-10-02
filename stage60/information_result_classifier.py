@@ -111,13 +111,6 @@ def classify_retrieval(
             "classification": "OPERATIONAL_ONLY",
         },
     }
-    affected_step_id = _text(
-        retrieval.get("affected_step_id")
-        or _mapping(retrieval.get("metadata")).get("affected_step_id")
-        or _mapping(retrieval.get("source")).get("affected_step_id")
-    )
-    if affected_step_id:
-        output["affected_step_id"] = affected_step_id
     return output
 
 
