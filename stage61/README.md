@@ -53,5 +53,5 @@ This preserves historical and semantic integrity.
 
 ## Status
 
-Stage 61 is an executable reasoning/frontier integration layer.
-It does not add a canonical ontology claim.
+Stage 61 is **CLOSED**. The stage is complete and frozen; further work belongs
+to a new architectural stage.
