@@ -16,9 +16,16 @@ def run(
     chain: Mapping[str, Any],
     *,
     query_intent: str | None = None,
+    affected_step_id: str | None = None,
 ) -> dict[str, Any]:
     """Classify information, then re-run the explicit reasoning chain from its root invariant."""
     classification = classify_retrieval(retrieval, query_intent=query_intent)
+    if affected_step_id:
+        classification["affected_step_id"] = str(affected_step_id).strip()
+        classification["classification_basis"] = {
+            **dict(classification.get("classification_basis", {})),
+            "impact_reference_basis": "SEMANTIC_VALIDATION",
+        }
     trace = replay(chain, classification)
     return {
         "status": trace.get("status", "BLOCKED"),
@@ -37,6 +44,7 @@ def demo() -> dict[str, Any]:
     }
     chain = {
         "chain_id": "MM-CH2-CHAIN",
+        "question_id": "Q-MM-CH2-DEMO",
         "root_invariant": {
             "id": "mm:core.inv.ban_of_indifference",
             "statement": "Nontrivial actualization excludes the identity/indifference case.",
