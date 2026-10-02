@@ -7,6 +7,7 @@
   "required":["trace_id","root_invariant","chain_path","steps","information_result","consequence","next_action","provenance"],
   "properties":{
     "trace_id":{"type":"string","minLength":1},
+    "question_id":{"type":"string"},
     "root_invariant":{"type":"object","additionalProperties":true},
     "chain_path":{"type":"array","minItems":2,"items":{"type":"string","minLength":1}},
     "steps":{"type":"array","minItems":1,"items":{"type":"object","additionalProperties":true}},
