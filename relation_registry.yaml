@@ -367,3 +367,23 @@ stage13e_relation_ids:
   - mm:c.rel.no_core_merge_boundary
   - mm:c.rel.falsifiability_constraint
   - mm:c.rel.no_qm_replacement_boundary
+
+
+# --- Stage 53 derived-consequence relations ---
+- relation_id: mm:rel.resolves
+  name: "resolves"
+  semantics: "X resolves the continuation blockage represented by Y without implying deletion or disappearance of Y as historical information."
+  domain: ["process", "state"]
+  range: ["process", "state"]
+  properties: {symmetric: false, transitive: false}
+  source: "S10: Chapter 2; S11: Chapter 3"
+  status: "SOURCE"
+
+- relation_id: mm:rel.enables_continuation
+  name: "enables_continuation"
+  semantics: "X opens an admissible non-redundant continuation channel for Y."
+  domain: ["process", "structure"]
+  range: ["process"]
+  properties: {symmetric: false, transitive: false}
+  source: "S10: Chapter 2; S11: Chapter 3"
+  status: "SOURCE"
