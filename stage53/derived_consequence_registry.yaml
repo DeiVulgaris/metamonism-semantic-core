@@ -1,5 +1,24 @@
 # Stage 53 — Derived Consequence Registry
 
+# Resolution mechanism distinction
+
+- resolution_mechanism:
+    id: mm:core.op.unfold
+    resolves:
+      - mm:core.sts.self_identity_lock
+      - mm:core.sts.closure
+    role: "local closure/fixation resolution"
+    status: "SOURCE"
+    source: "Ontological-core-of-AGI: OPERATORS.md O4"
+
+- resolution_mechanism:
+    id: mm:core.prc.orthogonal_resolution
+    resolves:
+      - mm:core.prc.frustration
+    role: "exhausted-mode continuation resolution"
+    status: "SOURCE"
+    source: "S10: Chapter 2; S11: Chapter 3"
+
 - id: mm:core.prc.frustration
   canonical_name: "Frustration"
   type: "Process / Constraint State"
