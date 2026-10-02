@@ -60,6 +60,11 @@ assigned_ids:
   - {id: "mm:core.prc.autonegation", canonical_name: "Autonegation", type: "Process"}
   - {id: "mm:core.prc.diff_diss_fix_cycle", canonical_name: "diff∘diss∘fix Cycle", type: "Process"}
   - {id: "mm:core.prc.unbounded_recursion", canonical_name: "Unbounded Recursion", type: "Process"}
+  - {id: "mm:core.prc.frustration", canonical_name: "Frustration", type: "Process / Constraint State"}
+  - {id: "mm:core.prc.orthogonal_resolution", canonical_name: "Orthogonal Resolution", type: "Process / Structural Consequence"}
+  - {id: "mm:core.prc.continuation", canonical_name: "Continuation", type: "Process"}
+  - {id: "mm:rel.resolves", canonical_name: "resolves", type: "Relation"}
+  - {id: "mm:rel.enables_continuation", canonical_name: "enables_continuation", type: "Relation"}
 
   # Principles
   - {id: "mm:core.prn.motion_as_necessity", canonical_name: "Motion as Necessity", type: "Principle"}
