@@ -42,3 +42,12 @@ This is a semantic/structural representation. It is not a proof of a unique phys
 ## Result
 
 PASS — DERIVED CONSEQUENCE LAYER REGISTERED
+
+## Resolution Architecture
+
+```
+Local closure / fixation → unfold → renewed differentiation
+Exhausted mode → frustration → orthogonal resolution → continuation
+```
+
+The two resolution mechanisms are explicitly non-identical and both are non-terminal.
