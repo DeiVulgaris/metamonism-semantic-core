@@ -95,7 +95,7 @@ def classify_retrieval(
         result_class = "NO_ADEQUATE_INFO"
         basis = "NO_QUERY_INTENT"
 
-    return {
+    output = {
         "classification_id": _classification_id(retrieval_id, result_class),
         "retrieval_id": retrieval_id,
         "query_id": query_id,
@@ -111,6 +111,7 @@ def classify_retrieval(
             "classification": "OPERATIONAL_ONLY",
         },
     }
+    return output
 
 
 def classify_many(

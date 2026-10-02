@@ -7,6 +7,7 @@
   "required":["classification_id","retrieval_id","query_id","result_class","classification_basis","provenance"],
   "properties":{
     "classification_id":{"type":"string","minLength":1},
+    "affected_step_id":{"type":"string","minLength":1},
     "retrieval_id":{"type":"string","minLength":1},
     "query_id":{"type":"string","minLength":1},
     "result_class":{"type":"string","enum":["SOLUTION_FOUND","METHOD_FOUND","EVIDENCE_FOUND","CONTRADICTION_FOUND","INFORMATION_GAP","NO_ADEQUATE_INFO","RETRIEVAL_FAILURE"]},

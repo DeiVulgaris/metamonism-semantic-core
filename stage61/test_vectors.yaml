@@ -1,0 +1,18 @@
+stage: 61
+name: impact_localized_frontier_rebuild
+
+cases:
+  - result_class: CONTRADICTION_FOUND
+    affected_step_id: S3
+    expected_impact_mode: EXPLICIT_STEP_REFERENCE
+    expected_anchor: S3
+    expected_effect: REQUIRES_RECONCILIATION
+  - result_class: EVIDENCE_FOUND
+    affected_step_id: S3
+    expected_impact_mode: EXPLICIT_STEP_REFERENCE
+    expected_anchor: S3
+    expected_effect: REQUIRES_VALIDATION
+  - result_class: METHOD_FOUND
+    expected_impact_mode: TAIL_FALLBACK
+    expected_anchor: S4
+    expected_effect: REQUIRES_VALIDATION

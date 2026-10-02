@@ -1,0 +1,39 @@
+name: Semantic Core Stage 61
+
+on:
+  push:
+    paths:
+      - "stage60/**"
+      - "stage61/**"
+      - ".github/workflows/semantic_core_stage61.yml"
+  pull_request:
+    paths:
+      - "stage60/**"
+      - "stage61/**"
+      - ".github/workflows/semantic_core_stage61.yml"
+  workflow_dispatch:
+
+jobs:
+  stage61:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Compile Stage 60 and 61
+        run: |
+          python -m py_compile stage60/*.py stage61/*.py
+      - name: Run Stage 60 pipeline
+        run: |
+          python stage60/invariant_reasoning_pipeline.py --demo
+      - name: Run Stage 61 localizer
+        working-directory: stage61
+        run: |
+          python impact_localizer.py --demo
+      - name: Run Stage 61 test matrix
+        working-directory: stage61
+        run: |
+          python test_stage61.py
