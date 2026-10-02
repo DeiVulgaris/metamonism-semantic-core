@@ -45,11 +45,11 @@ def validate_frontier(frontier: Mapping[str, Any]) -> list[str]:
 
 
 def default_intents(frontier: Mapping[str, Any]) -> list[str]:
-    if _text := text(frontier.get("query_intents")):
-        return [x.strip().upper() for x in _text.split(",") if x.strip()]
     explicit = frontier.get("query_intents")
     if isinstance(explicit, list) and explicit:
         return [text(x).upper() for x in explicit if text(x)]
+    if isinstance(explicit, str) and explicit.strip():
+        return [x.strip().upper() for x in explicit.split(",") if x.strip()]
     return [
         "SOLUTION_DISCOVERY",
         "METHOD_DISCOVERY",
