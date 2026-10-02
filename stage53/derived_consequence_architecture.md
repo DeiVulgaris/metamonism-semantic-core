@@ -155,3 +155,82 @@ Still unresolved:
 > What additional mathematical structure is necessary and sufficient to construct the orthogonally resolved successor non-arbitrarily from the current result?
 
 Stage 53 therefore records the semantic mechanism before attempting a unique mathematical realization.
+
+## 9. Two Resolution Mechanisms
+
+The core contains two distinct resolution mechanisms that operate at different levels.
+
+### 9.1 unfold — resolution of closure/fixation
+
+Source: Ontological-core-of-AGI, OPERATORS.md, O4.
+
+`unfold` is the operator of enforced rupture. It invalidates fixation when closure is detected, reintroduces differentiation, and restores processual pressure.
+
+Thus:
+
+    fixation / closure
+            |
+         unfold
+            |
+    reintroduced differentiation
+
+`unfold` resolves an **internal closure of the current representation or fixed structure**.
+
+### 9.2 Orthogonal Resolution — resolution of exhausted continuation mode
+
+Orthogonal Resolution operates at the next structural level. When continuation remains necessary but the current mode of differentiation is exhausted, the process requires a logically independent continuation channel.
+
+Thus:
+
+    current mode exhausted
+            |
+    Orthogonal Resolution
+            |
+    new independent channel
+            |
+    Continuation
+
+Orthogonal Resolution therefore does not replace `unfold`.
+
+### 9.3 Composition of the two
+
+The two mechanisms can participate in one continuation architecture:
+
+    Fixation / Closure
+            |
+         unfold
+            |
+    renewed differentiation
+            |
+    dissipation / continued process
+            |
+    current mode exhaustion
+            |
+       frustration
+            |
+    Orthogonal Resolution
+            |
+    new continuation channel
+            |
+       continuation
+
+This gives a two-level resolution architecture:
+
+- `unfold` breaks a local closure;
+- Orthogonal Resolution changes the available mode of continuation when that mode is exhausted.
+
+Neither mechanism is terminal. Both exist to preserve non-terminal processual continuation.
+
+### 9.4 Non-equivalence rule
+
+Do not encode:
+
+    unfold = orthogonal_resolution
+
+as identity.
+
+The supported relation is:
+
+    unfold -> renewed differentiation -> possible exhaustion -> orthogonal resolution
+
+The exact conditions under which every instance of frustration must be preceded by `unfold` remain context-dependent and are not asserted here.
