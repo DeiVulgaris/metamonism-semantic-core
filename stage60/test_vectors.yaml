@@ -1,0 +1,35 @@
+stage: 60
+name: invariant_rooted_reasoning_replay
+
+classification:
+  - retrieval_status: FOUND
+    intent: SOLUTION_DISCOVERY
+    expected: SOLUTION_FOUND
+  - retrieval_status: FOUND
+    intent: METHOD_DISCOVERY
+    expected: METHOD_FOUND
+  - retrieval_status: FOUND
+    intent: EVIDENCE_DISCOVERY
+    expected: EVIDENCE_FOUND
+  - retrieval_status: FOUND
+    intent: CONTRADICTION_CHECK
+    expected: CONTRADICTION_FOUND
+  - retrieval_status: NOT_FOUND
+    intent: INFORMATION_GAP
+    expected: INFORMATION_GAP
+  - retrieval_status: NOT_FOUND
+    intent: SOLUTION_DISCOVERY
+    expected: NO_ADEQUATE_INFO
+  - retrieval_status: ERROR
+    intent: SOLUTION_DISCOVERY
+    expected: RETRIEVAL_FAILURE
+
+replay:
+  root_id: mm:core.inv.ban_of_indifference
+  required_first_step: mm:core.prc.dissipation
+  required_steps:
+    - mm:core.prc.dissipation
+    - mm:core.prc.space_time
+    - mm:core.prc.ray
+    - mm:core.prc.orthogonal_resolution
+  contradiction_effect: REQUIRES_RECONCILIATION

@@ -1,0 +1,38 @@
+name: Semantic Core Stage 60
+
+on:
+  push:
+    paths:
+      - "stage60/**"
+      - ".github/workflows/semantic_core_stage60.yml"
+  pull_request:
+    paths:
+      - "stage60/**"
+      - ".github/workflows/semantic_core_stage60.yml"
+  workflow_dispatch:
+
+jobs:
+  stage60:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Compile Stage 60
+        run: |
+          python -m py_compile stage60/*.py
+      - name: Run classifier demo
+        run: |
+          python stage60/information_result_classifier.py --demo
+      - name: Run replay demo
+        run: |
+          python stage60/invariant_reasoning_replay.py --demo
+      - name: Run end-to-end pipeline demo
+        run: |
+          python stage60/invariant_reasoning_pipeline.py --demo
+      - name: Run Stage 60 test matrix
+        run: |
+          python stage60/test_stage60.py

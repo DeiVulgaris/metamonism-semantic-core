@@ -1,0 +1,16 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://github.com/Deivulgaris/metamonism-semantic-core/blob/main/stage60/result_classification.schema.json",
+  "title":"Information Result Classification v1",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["classification_id","retrieval_id","query_id","result_class","classification_basis","provenance"],
+  "properties":{
+    "classification_id":{"type":"string","minLength":1},
+    "retrieval_id":{"type":"string","minLength":1},
+    "query_id":{"type":"string","minLength":1},
+    "result_class":{"type":"string","enum":["SOLUTION_FOUND","METHOD_FOUND","EVIDENCE_FOUND","CONTRADICTION_FOUND","INFORMATION_GAP","NO_ADEQUATE_INFO","RETRIEVAL_FAILURE"]},
+    "classification_basis":{"type":"object","additionalProperties":true},
+    "provenance":{"type":"object","additionalProperties":true}
+  }
+}
