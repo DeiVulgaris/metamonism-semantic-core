@@ -937,3 +937,174 @@ stage35/trajectory_engine.py
 stage35/test_vectors.yaml
 stage35/README.md
 ```
+
+
+
+## 28. Invariant-Rooted Derivation
+
+For theoretical reconstruction, semantic extraction alone is insufficient.
+
+A derivation MUST be rooted in an explicitly registered invariant or foundational constraint.
+
+The AI MUST NOT begin a derivation from an arbitrary intermediate object merely because that object is visually prominent, mathematically convenient, or already present in the source.
+
+The required pattern is:
+
+```text
+ROOT INVARIANT
+    ↓
+DIRECT CONSEQUENCE
+    ↓
+REQUIRED CONDITION
+    ↓
+DERIVED CONSTRAINT
+    ↓
+ADMISSIBLE RESOLUTION
+    ↓
+NEXT STATE
+```
+
+### 28.1 Root requirement
+
+Every non-root derivation node MUST have:
+
+- explicit predecessor(s);
+- a derivation relation;
+- epistemic status;
+- provenance for source premises;
+- an explicit path back to a registered root.
+
+A floating premise is not admissible as the basis of a canonical derivation.
+
+### 28.2 Consequence-before-object rule
+
+Do not introduce an intermediate object before identifying the constraint that requires it.
+
+For example, the reasoning:
+
+```text
+P3
+→ assume orthogonality
+→ find exhaustion
+→ introduce P4
+```
+
+is weaker than:
+
+```text
+invariant
+→ necessary differentiation
+→ necessary continuation
+→ non-redundant continuation requirement
+→ candidate orthogonality constraint
+→ constrained continuation set
+→ exhaustion
+→ frustration
+→ admissible resolution
+→ P4
+```
+
+The second chain exposes its own assumptions and therefore permits them to be tested.
+
+### 28.3 Derived constraints are not automatically source facts
+
+A chain may contain SOURCE, INFERENCE, FORMALIZATION, THEORETICAL_HYPOTHESIS, and PROPOSAL nodes.
+
+The existence of a path from the invariant does NOT automatically make every node a theorem.
+
+In particular, if the step
+
+```text
+non-redundant continuation
+        ↓
+orthogonality
+```
+
+is not yet proven, it MUST remain explicitly marked as a theoretical hypothesis.
+
+### 28.4 No circular derivation
+
+A node cannot be used to justify the condition that was required to introduce that node.
+
+Forbidden:
+
+```text
+orthogonality → resolution
+resolution → therefore orthogonality
+```
+
+unless an independent proof establishes the second implication.
+
+### 28.5 Minimal sufficient consequence
+
+At each step ask:
+
+> What is the weakest consequence that must follow before the next object can be introduced?
+
+Do not add stronger assumptions merely because they make later mathematics easier.
+
+This is the processual version of a minimal-assumption rule.
+
+### 28.6 Rooted derivation and research frontier
+
+When the chain reaches an unproven step, the unresolved edge becomes part of the research frontier.
+
+Thus:
+
+```text
+ROOT
+ ↓
+DERIVATION CHAIN
+ ↓
+UNRESOLVED EDGE
+ ↓
+RESEARCH FRONTIER
+ ↓
+TEST / FORMALIZATION / COUNTEREXAMPLE
+ ↓
+UPDATED CHAIN
+```
+
+An unresolved derivation edge is therefore not a reason to invent the missing result. It is the exact location where further research must continue.
+
+### 28.7 Special rule for the Chapter 3 process
+
+For the current processual-algebra program, the root-to-resolution chain is provisionally registered as:
+
+```text
+ban of absolute identity
+        ↓
+necessary differentiation
+        ↓
+necessary continuation
+        ↓
+preservation of non-identity
+        ↓
+non-redundant continuation
+        ↓
+orthogonality constraint
+        ↓
+D_perp
+        ↓
+old-regime exhaustion
+        ↓
+frustration
+        ↓
+orthogonal resolution
+        ↓
+P4
+        ↓
++n → -n
+```
+
+The edge from non-redundant continuation to orthogonality remains THEORETICAL_HYPOTHESIS until independently justified.
+
+This rule prevents the research from starting at P3, P4, orthogonality, or orientation reversal as unexplained premises.
+
+### 28.8 Canonical control invariant
+
+The following invariant applies to all future research stages:
+
+> **No derived object may be used as a premise until its path from a registered invariant has been made explicit.**
+
+The derivation graph therefore becomes part of provenance and process continuity, not merely a presentation aid.
