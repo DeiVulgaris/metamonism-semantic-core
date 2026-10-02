@@ -43,3 +43,31 @@ Can frustration and Orthogonal Resolution be represented by a geometric evolutio
 ## Executed Validation
 
 The Stage 54 test matrix was executed independently against the registered state. All nine structural controls passed. No mapping was promoted to mathematical identity, and the canonical ontology remained unchanged.
+
+## 10. UFCPS Information Bridge
+
+UFCPS explicitly permits negative results, contradictions, deadlocks, and unresolved questions to become inputs to subsequent processes. This supplies an information-mediated continuation mechanism.
+
+The combined architecture is:
+
+    current regime
+         ↓
+    frustration / blocked continuation
+         ↓
+    boundary result
+         ↓
+    preserved structured information
+         ↓
+    new distinction / data
+         ↓
+    resolution candidate
+         ↓
+    continuation
+
+The new data do not guarantee a successor automatically. They make a successor constructible when they are sufficient to define the next admissible argument.
+
+## 11. Revised Research Frontier
+
+> What is the minimal boundary information required for a frustrated process to construct an admissible orthogonal successor?
+
+This question links Stage 52 F, Stage 53 Orthogonal Resolution, Stage 54 Ricci comparison, and the UFCPS continuation architecture.
