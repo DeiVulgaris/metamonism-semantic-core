@@ -258,8 +258,8 @@
   subject_entity: mm:core.prc.frustration
   statement: "Frustration is a condition of blocked continuation, not termination of the process."
   type: "Distinction Claim"
-  status: "SOURCE"
-  origin: "CORPUS"
+  status: "INFERENCE"
+  origin: "AI_RECONSTRUCTION"
   source: "S10: Chapter 2 continuation chain"
 
 - claim_id: mm:core.clm.orthogonal_resolution_required_at_exhaustion
@@ -282,8 +282,8 @@
   subject_entity: mm:core.prc.orthogonal_resolution
   statement: "Orthogonal resolution denotes logical/processual independence before any specific Euclidean orthogonality is assigned."
   type: "Scope Constraint"
-  status: "SOURCE"
-  origin: "CORPUS"
+  status: "FORMALIZATION"
+  origin: "JOINT_THEORETICAL_WORK"
   source: "S10: Chapter 2; Stage 45 orthogonality revisions"
 
 - claim_id: mm:core.clm.orthogonal_resolution_continues_dissipation
