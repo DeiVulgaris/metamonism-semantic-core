@@ -1771,3 +1771,43 @@ P + Dom(P)
 ```
 
 This rule prevents the semantic core from beginning with a preconstructed geometry and then fitting P to it.
+
+
+---
+
+## Stage 53 — Derived Consequence Registration Gate
+
+The semantic core must register not only primary entities and operators, but also named processual consequences required to explain continuation.
+
+For every such consequence, record:
+
+1. a stable ID;
+2. a process/state type;
+3. explicit provenance;
+4. the relation by which it follows from prior registered structures;
+5. its downstream role in continuation.
+
+Current core chain:
+
+    Dissipation
+        |
+    Frustration
+        |
+    Orthogonal Resolution
+        |
+    Continuation
+        |
+    Dissipation continues
+
+The AI must not infer these relations merely from co-occurrence. Each consequence requires an explicit registered relation and provenance.
+
+Orthogonal Resolution is a semantic/processual consequence. Its exact mathematical realization remains unresolved.
+
+### Anti-collapse rule
+
+Do not collapse:
+
+- frustration into termination;
+- orthogonal resolution into arbitrary change of direction;
+- orthogonal resolution into Euclidean perpendicularity by definition;
+- continuation into a new fundamental invariant;
