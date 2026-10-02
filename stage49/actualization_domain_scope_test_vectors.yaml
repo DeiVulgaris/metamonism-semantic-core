@@ -1,0 +1,60 @@
+tests:
+  - id: ADS-01
+    name: domain_not_total_possibility
+    input: "(I,I) notin Dom(P)"
+    expected: PASS
+    assertion: "This constrains the actualization operator, not all elements of D."
+
+  - id: ADS-02
+    name: outside_domain_not_global_impossibility
+    input: "x notin Dom(P)"
+    expected: REJECT
+    assertion: "Outside the current operator domain does not by itself mean the configuration is globally impossible."
+
+  - id: ADS-03
+    name: possibility_not_actualization
+    input: "x in D"
+    expected: REJECT
+    assertion: "Membership in possibility space does not imply actualization."
+
+  - id: ADS-04
+    name: trajectory_scope
+    input: "orthogonal_resolution applied to every x in D"
+    expected: REJECT
+    assertion: "Orthogonal resolution applies to the continuing actualization trajectory, not automatically to all possibilities."
+
+  - id: ADS-05
+    name: two_roots_distinguished
+    input: "phenomenological existence + actualization invariant"
+    expected: PASS
+    assertion: "Existence of actualized reality and domain exclusion are distinct source inputs."
+
+  - id: ADS-06
+    name: p4_scope
+    input: "P4 = universal fourth possibility dimension"
+    expected: REJECT
+    assertion: "P4 is a trajectory state arising in a specific continuation."
+
+  - id: ADS-07
+    name: global_dynamics_inflation
+    input: "(I,I) notin Dom(P) -> every possible configuration must differentiate"
+    expected: REJECT
+    assertion: "This exceeds the source scope."
+
+  - id: ADS-08
+    name: chapter2_scope
+    input: "Chapter 2 chain applied to active actualization"
+    expected: PASS
+    assertion: "The Chapter 2 consequences are processual consequences within continuing actualization."
+
+  - id: ADS-09
+    name: dom_not_all_pairs
+    input: "Dom(P) = D × I"
+    expected: REJECT
+    assertion: "Chapter 1 explicitly restricts the domain by D != I."
+
+  - id: ADS-10
+    name: no_global_spacetime
+    input: "continuation -> D is globally a spacetime manifold"
+    expected: REJECT
+    assertion: "Spatiality and temporality arise as forms of the actualization process."
