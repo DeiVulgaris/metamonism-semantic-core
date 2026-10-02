@@ -1,0 +1,137 @@
+# Research Loop v0 deterministic policy test vectors
+# Based on uploaded Research Loop v0 draft and aligned with E2E-01…06.
+version: "0.1.0"
+suite: research_loop_v0
+fixture_ref: stage61/e2e_bridge_test_vectors.yaml
+question_id: "q:continuity.local_failure_vs_termination.v1"
+
+cases:
+  - id: R0-01
+    from_e2e: E2E-01
+    input:
+      question_id: "q:continuity.local_failure_vs_termination.v1"
+      result_class: CONTRADICTION_FOUND
+      impact_mode: EXPLICIT_STEP_REFERENCE
+      anchor_step_id: S3
+      unresolved_difference: "Handoff sufficiency vs retrieved contradiction"
+      constraints:
+        - "Local Failure ≠ Process Termination"
+    expected:
+      selected_operation: diff
+      rationale_codes: [CONTRADICTION_REQUIRES_REDIFFERENTIATION]
+      derived_question_emitted: true
+      derived_question:
+        parent_question: "q:continuity.local_failure_vs_termination.v1"
+        derived_from_step: S3
+        trigger: CONTRADICTION_FOUND
+        status: OPEN
+      rights:
+        ontology_write: false
+        claim_elevate: false
+
+  - id: R0-02
+    from_e2e: E2E-02
+    input:
+      question_id: "q:continuity.local_failure_vs_termination.v1"
+      result_class: EVIDENCE_FOUND
+      impact_mode: EXPLICIT_STEP_REFERENCE
+      anchor_step_id: S3
+      unresolved_difference: "Whether handoff state is schema-complete"
+    expected:
+      selected_operation: fix
+      rationale_codes: [EVIDENCE_PRESERVE_THEN_VALIDATE]
+      derived_question_emitted: false
+      rights:
+        ontology_write: false
+        claim_elevate: false
+
+  - id: R0-03
+    from_e2e: E2E-03
+    input:
+      question_id: "q:continuity.local_failure_vs_termination.v1"
+      result_class: METHOD_FOUND
+      impact_mode: TAIL_FALLBACK
+      anchor_step_id: S4
+      unresolved_difference: "Operational method for SCP delegation"
+    expected:
+      selected_operation: fix
+      rationale_codes: [METHOD_PRESERVE_AS_PROCESS_INFO]
+      derived_question_emitted: false
+
+  - id: R0-04
+    from_e2e: E2E-04
+    input:
+      question_id: "q:continuity.local_failure_vs_termination.v1"
+      result_class: INFORMATION_GAP
+      impact_mode: EXPLICIT_STEP_REFERENCE
+      anchor_step_id: S2
+      unresolved_difference: "Missing structure for deadlock-as-information"
+    expected:
+      selected_operation: diff
+      rationale_codes: [GAP_IS_UNRESOLVED_DIFFERENCE]
+      derived_question_emitted: true
+      derived_question:
+        parent_question: "q:continuity.local_failure_vs_termination.v1"
+        derived_from_step: S2
+        trigger: INFORMATION_GAP
+        status: OPEN
+
+  - id: R0-05
+    from_e2e: E2E-05
+    input:
+      question_id: "q:continuity.local_failure_vs_termination.v1"
+      result_class: RETRIEVAL_FAILURE
+      impact_mode: TAIL_FALLBACK
+      anchor_step_id: S4
+      unresolved_difference: "Provider timeout on solution discovery"
+    expected:
+      selected_operation: delegate
+      rationale_codes: [PROVIDER_FAILURE_DELEGATE_NOT_TERMINATE]
+      derived_question_emitted: false
+      process_terminated: false
+
+  - id: R0-06
+    from_e2e: E2E-06
+    input:
+      question_id: "q:continuity.local_failure_vs_termination.v1"
+      result_class: SOLUTION_FOUND
+      impact_mode: EXPLICIT_STEP_REFERENCE
+      anchor_step_id: S4
+      unresolved_difference: "Candidate continuation path after unfold"
+    expected:
+      selected_operation: fix
+      rationale_codes: [SOLUTION_CANDIDATE_NOT_CLAIM, REQUIRE_VALIDATION_PATH]
+      derived_question_emitted: false
+      rights:
+        ontology_write: false
+        claim_elevate: false
+      validated_semantic_claim: false
+
+  - id: R0-07
+    name: explicit_budget_exhausted
+    input:
+      question_id: "q:continuity.local_failure_vs_termination.v1"
+      result_class: INFORMATION_GAP
+      impact_mode: EXPLICIT_STEP_REFERENCE
+      anchor_step_id: S2
+      unresolved_difference: "Gap remains"
+      budget:
+        exhausted: true
+        max_depth: 4
+        current_depth: 4
+    expected:
+      selected_operation: terminate
+      rationale_codes: [EXPLICIT_BUDGET_EXHAUSTED]
+      derived_question_emitted: false
+      notes: "Budget guard outranks classification rules when exhausted=true"
+
+suite_asserts:
+  - "selected_operation ∈ allowed_operations"
+  - "question_id preserved"
+  - "ontology_write is always false"
+  - "claim_elevate is always false"
+  - "SOLUTION_FOUND never sets validated_semantic_claim true via policy alone"
+  - "RETRIEVAL_FAILURE never selects terminate unless budget.exhausted"
+  - "derived_question includes parent_question, derived_from_step, trigger, basis"
+  - "derived_question emission does not assert parent truth"
+  - "Policy performs no registry mutation"
