@@ -373,10 +373,10 @@ stage13e_relation_ids:
 - relation_id: mm:rel.resolves
   name: "resolves"
   semantics: "X resolves the continuation blockage represented by Y without implying deletion or disappearance of Y as historical information."
-  domain: ["process", "state"]
-  range: ["process", "state"]
+  domain: ["operator", "process", "state", "structure"]
+  range: ["operator", "process", "state", "structure"]
   properties: {symmetric: false, transitive: false}
-  source: "S10: Chapter 2; S11: Chapter 3"
+  source: "S10: Chapter 2; S11: Chapter 3; Ontological-core-of-AGI: OPERATORS.md O4"
   status: "SOURCE"
 
 - relation_id: mm:rel.enables_continuation
