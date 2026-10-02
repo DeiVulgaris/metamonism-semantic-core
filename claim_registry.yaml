@@ -101,6 +101,14 @@
   origin: "CORPUS"
   source: "S6 OPERATORS.md + GLOSSARY.md"
 
+- claim_id: mm:core.clm.unfold_resolves_closure
+  subject_entity: mm:core.op.unfold
+  statement: "unfold resolves local closure/fixation by enforced rupture, invalidating fixation and restoring processual pressure."
+  type: "Operator Consequence"
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "Ontological-core-of-AGI: OPERATORS.md O4"
+
 - claim_id: mm:core.clm.maps_to_is_static_projection
   subject_entity: mm:rel.maps_to
   statement: "maps_to is a STATIC relation of representation (Monos → Logos), not a processual transition."
