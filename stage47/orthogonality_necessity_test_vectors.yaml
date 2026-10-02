@@ -1,0 +1,80 @@
+tests:
+  - id: ONA-01
+    name: root_alone_not_sufficient
+    input: root_only: "ban of absolute identity"
+    expected: PASS
+    assertion: "The root invariant alone does not uniquely determine a geometry of continuation."
+
+  - id: ONA-02
+    name: nonredundancy_not_orthogonality
+    input: condition: "successor outside previous span"
+    expected: REJECT_IF_CLAIMED_ORTHOGONAL
+    assertion: "Independence from a span does not imply orthogonality to it."
+
+  - id: ONA-03
+    name: bilinear_route_conditional
+    input:
+      invariant_relation: "nondegenerate bilinear q"
+      preservation: "q(x+delta,x+delta)=q(x,x)"
+    expected: PASS
+    assertion: "Under the stated additional condition, first-order preservation yields q(x,delta)=0."
+
+  - id: ONA-04
+    name: no_metric_import
+    input:
+      bilinear_q: "Euclidean identity matrix"
+      provenance: "none"
+    expected: REJECT
+    assertion: "A convenient Euclidean metric cannot be imported as if derived from the root."
+
+  - id: ONA-05
+    name: orthogonal_complement_exhaustion
+    input:
+      dimension: 3
+      realized_independent_directions: 3
+      q: "nondegenerate"
+    expected: PASS
+    assertion: "Under these explicit assumptions E=V and E_perp={0}."
+
+  - id: ONA-06
+    name: p4_not_fourth_vector
+    input:
+      p4: "new independent vector inside same 3D carrier after exhaustion"
+    expected: REJECT
+    assertion: "This contradicts the old-regime exhaustion premise."
+
+  - id: ONA-07
+    name: uniqueness_direction
+    input:
+      orthogonal_complement_dimension: 2
+    expected: PASS
+    assertion: "A unique orthogonal constraint class does not imply a unique direction."
+
+  - id: ONA-08
+    name: uniqueness_principle_unresolved
+    input:
+      claim: "orthogonality is the only possible resolution"
+      proof: "none"
+    expected: REJECT
+    assertion: "The uniqueness claim remains a research hypothesis."
+
+  - id: ONA-09
+    name: orientation_downstream
+    input:
+      derivation: "+n -> -n therefore orthogonality"
+    expected: REJECT
+    assertion: "Orientation reversal is downstream of the resolution."
+
+  - id: ONA-10
+    name: clifford_downstream
+    input:
+      derivation: "orthogonality -> gamma matrices"
+    expected: REJECT
+    assertion: "Orthogonality does not establish a Clifford algebra."
+
+  - id: ONA-11
+    name: negative_result_preserved
+    input:
+      result: "root alone insufficient"
+    expected: PASS
+    assertion: "The failure of a direct derivation is retained as information."
