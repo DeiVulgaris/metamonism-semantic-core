@@ -1,0 +1,31 @@
+# Stage 54 — Ricci hypothesis test vectors
+
+- id: rf-001-process-pattern
+  expected: STRUCTURAL_CORRESPONDENCE
+
+- id: rf-002-frustration-singularity
+  expected: UNRESOLVED
+  forbidden: identity
+
+- id: rf-003-orthogonal-surgery
+  expected: UNRESOLVED
+  forbidden:
+    - identity
+    - mathematical_equivalence
+
+- id: rf-004-continuation
+  expected: PARTIAL
+
+- id: rf-005-unfold-surgery
+  expected: PARTIAL
+  forbidden: identity
+
+- id: rf-006-planck
+  expected: UNRESOLVED
+  forbidden:
+    - derivation
+    - prediction
+
+- id: rf-007-ricci-equation
+  expected: UNRESOLVED
+  forbidden: deduction
