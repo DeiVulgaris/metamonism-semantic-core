@@ -1,0 +1,31 @@
+stage: 56
+name: semantic_ufcps_runtime
+
+vectors:
+  - id: R1
+    case: valid_frontier_to_question
+    expected: READY
+  - id: R2
+    case: missing_unresolved_difference
+    expected: BLOCKED
+  - id: R3
+    case: missing_provenance
+    expected: BLOCKED
+  - id: R4
+    case: frontier_to_procedural_state
+    expected: UFCPS_SHAPED
+  - id: R5
+    case: negative_result
+    expected: UNRESOLVED_FRONTIER_UPDATE
+  - id: R6
+    case: contradiction
+    expected: PRESERVE_CONFLICT
+  - id: R7
+    case: inconclusive
+    expected: PRESERVE_UNCERTAINTY
+  - id: R8
+    case: solution
+    expected: RESOLUTION_CANDIDATE_REQUIRES_VALIDATION
+  - id: R9
+    case: deadlock
+    expected: BLOCKED_BUT_CONTINUABLE
