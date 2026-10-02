@@ -1,0 +1,142 @@
+{
+  "schema": "mm:chapter2_rooted_chain:v1",
+  "derivation_id": "CH2-RC-001",
+  "source": {
+    "author": "Myshko, A.",
+    "year": 2026,
+    "title": "МЕТАМОНИЗМ Глава 2. Продолжение актуализации: диссипация тождества, возникновение пространственности и временности и ортогональное разрешение",
+    "doi": "10.5281/zenodo.22396258",
+    "source_ref": "user_supplied_attachment",
+    "locator": "lines 16-20, 52-73, 74-100, 101-118, 119-166, 210-239, 240-260"
+  },
+  "root": {
+    "id": "axiom_ban_of_absolute_identity",
+    "source_status": "SOURCE",
+    "provenance": {
+      "repository": "Deivulgaris66/Metamonism",
+      "path": "CORE/axioms.yaml",
+      "ref": "axiom_ban_of_absolute_identity"
+    }
+  },
+  "active_chain": [
+    {
+      "id": "C0",
+      "claim": "Ban of Indifference is the single foundational invariant.",
+      "status": "SOURCE",
+      "from": [
+        "root"
+      ]
+    },
+    {
+      "id": "C1",
+      "claim": "Contentually exhaustive identity is impossible.",
+      "status": "SOURCE",
+      "from": [
+        "C0"
+      ]
+    },
+    {
+      "id": "C2",
+      "claim": "Dissipation of identity is the first necessary consequence.",
+      "status": "SOURCE",
+      "from": [
+        "C1"
+      ]
+    },
+    {
+      "id": "C3",
+      "claim": "Continuation of actualization is necessary.",
+      "status": "SOURCE",
+      "from": [
+        "C2"
+      ]
+    },
+    {
+      "id": "C4",
+      "claim": "Continuation produces a sequence of distinct states.",
+      "status": "SOURCE",
+      "from": [
+        "C3"
+      ]
+    },
+    {
+      "id": "C5",
+      "claim": "Temporality and spatiality arise as forms of continuation.",
+      "status": "SOURCE",
+      "from": [
+        "C4"
+      ]
+    },
+    {
+      "id": "C6",
+      "claim": "Directionality is required by non-identical continuation.",
+      "status": "SOURCE",
+      "from": [
+        "C5"
+      ]
+    },
+    {
+      "id": "C7",
+      "claim": "Indefinite continuation along an already actualized direction risks contentual exhaustion.",
+      "status": "SOURCE",
+      "from": [
+        "C6"
+      ]
+    },
+    {
+      "id": "C8",
+      "claim": "Continuation therefore requires logically independent continuation.",
+      "status": "SOURCE",
+      "from": [
+        "C7"
+      ]
+    },
+    {
+      "id": "C9",
+      "claim": "When the current mode is exhausted, continuation requires orthogonal resolution.",
+      "status": "SOURCE",
+      "from": [
+        "C8"
+      ]
+    },
+    {
+      "id": "C10",
+      "claim": "Concrete orthogonal resolution is defined by preserving prior structure and avoiding coincidence.",
+      "status": "SOURCE",
+      "from": [
+        "C9"
+      ]
+    },
+    {
+      "id": "C11",
+      "claim": "A specific concrete geometry such as equidistance is not established as unique.",
+      "status": "SOURCE",
+      "from": [
+        "C10"
+      ]
+    },
+    {
+      "id": "C12",
+      "claim": "Chapter 3 may instantiate the general resolution as P3→P4 with +n→-n.",
+      "status": "CROSS_SOURCE_CORRESPONDENCE",
+      "from": [
+        "C9"
+      ]
+    }
+  ],
+  "status_corrections": {
+    "stage47_negative_result": "retained_as_historical",
+    "current_source_level_orthogonality": "SOURCE",
+    "current_mathematical_orthogonality": "UNRESOLVED",
+    "current_metric": "UNRESOLVED",
+    "current_unique_geometry": "UNRESOLVED"
+  },
+  "frontiers": [
+    "formalize logically independent continuation",
+    "formalize processual orthogonal resolution without importing a metric",
+    "derive exhaustion from accumulated process",
+    "compare Chapter 2 general mechanism with Chapter 3 P3→P4",
+    "only then test operator algebra and Clifford compatibility"
+  ],
+  "canonical_promotion": false
+}
