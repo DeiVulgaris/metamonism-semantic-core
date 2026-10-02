@@ -104,6 +104,8 @@ def locate_impact(
         affected["information_effect"] = "REQUIRES_RECONCILIATION"
     else:
         affected["information_effect"] = "REQUIRES_VALIDATION"
+    if impact_mode == "TAIL_FALLBACK":
+        affected["fallback_label"] = "procedural_tail_fallback_not_causal_attribution"
 
     information_result = dict(_mapping(reasoning_trace.get("information_result")))
     information_result.update({
