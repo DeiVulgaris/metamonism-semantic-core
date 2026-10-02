@@ -1108,3 +1108,90 @@ The following invariant applies to all future research stages:
 > **No derived object may be used as a premise until its path from a registered invariant has been made explicit.**
 
 The derivation graph therefore becomes part of provenance and process continuity, not merely a presentation aid.
+
+
+## 29. Cross-Document Derivation Closure
+
+A derivation over the Meta-Monism corpus must be evaluated over the entire ordered corpus, not only over one isolated document.
+
+A later primary source may explicitly establish intermediate consequences that were left unresolved in an earlier research reconstruction.
+
+Therefore:
+
+ROOT INVARIANT
+→ earlier derived architecture
+→ later explicit refinement
+→ further specialization
+→ formal research
+
+must be treated as one provenance-bearing derivation graph when the documents explicitly connect themselves.
+
+### 29.1 Temporal source strengthening
+
+If an earlier research state records:
+
+A → B = UNRESOLVED
+
+and a later primary source explicitly states or derives B from A through identified intermediate steps, the active corpus graph may be strengthened to:
+
+A → ... → B = SOURCE
+
+The earlier research state MUST remain retrievable.
+
+This is not retroactive rewriting. It is addition of stronger source evidence to the active graph.
+
+### 29.2 General rule
+
+> Use the strongest explicit source-supported derivation available in the corpus, while preserving weaker historical research states as history.
+
+This prevents two opposite errors:
+
+1. treating a source-established consequence as an AI hypothesis forever;
+2. silently rewriting the history of how the AI previously understood the corpus.
+
+### 29.3 Chapter 2 consequence chain
+
+For the current corpus the active source-level chain is:
+
+Ban of Indifference
+→ Dissipation of identity
+→ Continuation
+→ Distinct sequence
+→ Temporality / spatiality
+→ Directionality
+→ logically independent continuation
+→ orthogonal resolution
+→ exhaustion of current mode
+→ frustration
+→ new orthogonal resolution
+→ recursive continuation
+
+The source explicitly presents the subsequent structures as necessary consequences of the single foundational invariant.
+
+### 29.4 Source necessity versus mathematical proof
+
+A source may state that a consequence is necessary without supplying the formal proof required by a later mathematical program.
+
+Therefore distinguish:
+
+SOURCE
+author explicitly asserts necessity
+
+from:
+
+FORMAL PROOF
+necessity has been independently demonstrated in a formal system.
+
+A source-level theorem is not automatically a completed mathematical derivation in a newly constructed formal system.
+
+### 29.5 Current consequence for orthogonality
+
+For Chapter 2:
+
+- conceptual/processual necessity of orthogonal resolution = SOURCE;
+- definition of orthogonal resolution at the processual level = SOURCE;
+- uniqueness of the concrete geometric realization = not established;
+- specific metric realization = unresolved;
+- algebraic/Clifford realization = unresolved.
+
+The AI must not downgrade the first two merely because the latter mathematical questions remain open.
