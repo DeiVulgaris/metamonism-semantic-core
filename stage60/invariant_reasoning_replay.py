@@ -149,11 +149,15 @@ def replay(chain: Mapping[str, Any], classification: Mapping[str, Any]) -> dict[
         "query_id": _text(classification.get("query_id")),
         "result_class": result_class,
     }
+    chain_path = [root["id"]] + [
+        step["to_id"] for step in steps
+    ]
 
     return {
         "status": "REPLAYED",
         "trace_id": _trace_id(_text(root["id"]), information_result["classification_id"]),
         "root_invariant": root,
+        "chain_path": chain_path,
         "steps": steps,
         "information_result": information_result,
         "consequence": consequence,
