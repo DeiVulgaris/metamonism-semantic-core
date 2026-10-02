@@ -406,9 +406,6 @@
   source: "S10: Chapter 2; S11: Chapter 3"
   relations:
     - relation: mm:rel.consequence_of
-      target: mm:core.prc.dissipation_of_identity
-      status: "SOURCE"
-    - relation: mm:rel.consequence_of
       target: mm:core.sts.self_identity_lock
       status: "SOURCE"
   claims:
@@ -450,9 +447,6 @@
   relations:
     - relation: mm:rel.consequence_of
       target: mm:core.prc.orthogonal_resolution
-      status: "SOURCE"
-    - relation: mm:rel.consequence_of
-      target: mm:core.prc.dissipation_of_identity
       status: "SOURCE"
   claims:
     - mm:core.clm.continuation_constructs_next_admissible_argument
