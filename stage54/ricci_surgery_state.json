@@ -1,0 +1,59 @@
+{
+  "stage": 54,
+  "title": "Ricci-flow surgery hypothesis run",
+  "integration_scope": "RESEARCH_WORKSPACE",
+  "canonical_upgrade": false,
+  "mappings": [
+    {
+      "from": "mm:core.prc.frustration",
+      "to": "ricci_flow.singularity",
+      "relation": "STRUCTURAL_CORRESPONDENCE",
+      "status": "UNRESOLVED"
+    },
+    {
+      "from": "mm:core.prc.orthogonal_resolution",
+      "to": "ricci_flow.surgery",
+      "relation": "STRUCTURAL_CORRESPONDENCE",
+      "status": "UNRESOLVED"
+    },
+    {
+      "from": "mm:core.prc.continuation",
+      "to": "ricci_flow.post_surgery_flow",
+      "relation": "STRUCTURAL_CORRESPONDENCE",
+      "status": "PARTIAL"
+    },
+    {
+      "from": "mm:core.op.unfold",
+      "to": "ricci_flow.surgery",
+      "relation": "STRUCTURAL_CORRESPONDENCE",
+      "status": "PARTIAL"
+    },
+    {
+      "from": "mm:core.op.dissipate",
+      "to": "ricci_flow.evolution",
+      "relation": "STRUCTURAL_CORRESPONDENCE",
+      "status": "UNRESOLVED"
+    },
+    {
+      "from": "mm:core.op.fix",
+      "to": "ricci_flow.canonicalization",
+      "relation": "STRUCTURAL_CORRESPONDENCE",
+      "status": "UNRESOLVED"
+    }
+  ],
+  "surviving_pattern": [
+    "continuation",
+    "current-regime obstruction",
+    "special resolution",
+    "new state",
+    "continued evolution"
+  ],
+  "next_questions": [
+    "Define an ontodynamic state carrier.",
+    "Define an ontodynamic evolution law.",
+    "Define the frustration/singular set.",
+    "Define orthogonal resolution mathematically.",
+    "Define pre/post-resolution continuity.",
+    "Test whether a curvature-like functional can be derived rather than imported."
+  ]
+}
