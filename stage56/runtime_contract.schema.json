@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Deivulgaris/metamonism-semantic-core/blob/main/stage56/runtime_contract.schema.json",
+  "title": "Semantic Core UFCPS Runtime Contract v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "runtime_id",
+    "frontier",
+    "question",
+    "task_prospect",
+    "procedural_state",
+    "provenance"
+  ],
+  "properties": {
+    "runtime_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "frontier": {
+      "type": "object",
+      "required": [
+        "frontier_id",
+        "question_id",
+        "state",
+        "epistemic_status",
+        "formulation",
+        "unresolved_difference",
+        "provenance"
+      ]
+    },
+    "question": {
+      "type": "object"
+    },
+    "task_prospect": {
+      "type": "object"
+    },
+    "procedural_state": {
+      "type": "object"
+    },
+    "provenance": {
+      "type": "object"
+    }
+  }
+}
