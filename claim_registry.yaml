@@ -101,6 +101,14 @@
   origin: "CORPUS"
   source: "S6 OPERATORS.md + GLOSSARY.md"
 
+- claim_id: mm:core.clm.unfold_resolves_closure
+  subject_entity: mm:core.op.unfold
+  statement: "unfold resolves local closure/fixation by enforced rupture, invalidating fixation and restoring processual pressure."
+  type: "Operator Consequence"
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "Ontological-core-of-AGI: OPERATORS.md O4"
+
 - claim_id: mm:core.clm.maps_to_is_static_projection
   subject_entity: mm:rel.maps_to
   statement: "maps_to is a STATIC relation of representation (Monos → Logos), not a processual transition."
@@ -243,3 +251,69 @@
   status: "SOURCE"
   origin: "CORPUS"
   source: "A2: FORCES"
+
+
+# --- Stage 53: Derived Consequences ---
+- claim_id: mm:core.clm.frustration_requires_continuation_and_exhaustion
+  subject_entity: mm:core.prc.frustration
+  statement: "Frustration occurs when continuation remains necessary while the current differentiation mode is exhausted."
+  type: "Processual Consequence"
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S10: Chapter 2; S11: Chapter 3"
+
+- claim_id: mm:core.clm.frustration_is_not_termination
+  subject_entity: mm:core.prc.frustration
+  statement: "Frustration is a condition of blocked continuation, not termination of the process."
+  type: "Distinction Claim"
+  status: "INFERENCE"
+  origin: "AI_RECONSTRUCTION"
+  source: "S10: Chapter 2 continuation chain"
+
+- claim_id: mm:core.clm.orthogonal_resolution_required_at_exhaustion
+  subject_entity: mm:core.prc.orthogonal_resolution
+  statement: "When the current mode is exhausted but continuation remains necessary, continuation requires an orthogonal resolution."
+  type: "Processual Consequence"
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S10: Chapter 2, section 2.3–2.4"
+
+- claim_id: mm:core.clm.orthogonal_resolution_opens_nonredundant_continuation
+  subject_entity: mm:core.prc.orthogonal_resolution
+  statement: "Orthogonal resolution opens a logically independent, non-redundant continuation channel."
+  type: "Processual Consequence"
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S10: Chapter 2, Definition 2.1; S11: Chapter 3"
+
+- claim_id: mm:core.clm.orthogonal_resolution_is_processual_not_euclidean_by_definition
+  subject_entity: mm:core.prc.orthogonal_resolution
+  statement: "Orthogonal resolution denotes logical/processual independence before any specific Euclidean orthogonality is assigned."
+  type: "Scope Constraint"
+  status: "FORMALIZATION"
+  origin: "JOINT_THEORETICAL_WORK"
+  source: "S10: Chapter 2; Stage 45 orthogonality revisions"
+
+- claim_id: mm:core.clm.orthogonal_resolution_continues_dissipation
+  subject_entity: mm:core.prc.orthogonal_resolution
+  statement: "Orthogonal resolution opens a new degree of freedom in which dissipation can continue after exhaustion of the previous mode."
+  type: "Processual Consequence"
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S11: Chapter 3, orthogonality as minimal channel; redistribution into new degrees of freedom"
+
+- claim_id: mm:core.clm.continuation_constructs_next_admissible_argument
+  subject_entity: mm:core.prc.continuation
+  statement: "Continuation constructs the next admissible non-identical argument for actualization."
+  type: "Processual Consequence"
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S10: Chapter 2; Stage 52"
+
+- claim_id: mm:core.clm.continuation_preserves_nonidentity
+  subject_entity: mm:core.prc.continuation
+  statement: "Continuation preserves re-entry into the actualization domain rather than producing complete identity."
+  type: "Scope Constraint"
+  status: "SOURCE"
+  origin: "CORPUS"
+  source: "S10: Chapter 2; Stage 49–52"

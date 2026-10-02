@@ -39,6 +39,14 @@
       "@id": "mm:consequence_of",
       "@type": "@id"
     },
+    "resolves": {
+      "@id": "mm:resolves",
+      "@type": "@id"
+    },
+    "enables_continuation": {
+      "@id": "mm:enables_continuation",
+      "@type": "@id"
+    },
     "permits_operator": {
       "@id": "mm:permits_operator",
       "@type": "@id"
@@ -179,7 +187,11 @@
       "status": "SOURCE",
       "origin": "CORPUS",
       "layer": "core",
-      "triggered_by": "mm:core.sts.self_identity_lock"
+      "triggered_by": "mm:core.sts.self_identity_lock",
+      "resolves": [
+        "mm:core.sts.self_identity_lock",
+        "mm:core.sts.closure"
+      ]
     },
     {
       "@id": "mm:core.op.reflection",
@@ -236,6 +248,38 @@
       "origin": "CORPUS",
       "layer": "core",
       "consequence_of": "mm:core.inv.ban_of_absolute_identity"
+    },
+    {
+      "@id": "mm:core.prc.frustration",
+      "@type": "mm:Process",
+      "rdfs:label": "Frustration",
+      "definition": "A processual condition in which continuation is required while the current differentiation mode is exhausted.",
+      "status": "SOURCE",
+      "origin": "CORPUS",
+      "layer": "core",
+      "consequence_of": "mm:core.sts.self_identity_lock"
+    },
+    {
+      "@id": "mm:core.prc.orthogonal_resolution",
+      "@type": "mm:Process",
+      "rdfs:label": "Orthogonal Resolution",
+      "definition": "Minimal processual resolution supplying a logically independent continuation when the current mode is exhausted.",
+      "status": "SOURCE",
+      "origin": "CORPUS",
+      "layer": "core",
+      "consequence_of": "mm:core.prc.frustration",
+      "resolves": "mm:core.prc.frustration",
+      "enables_continuation": "mm:core.prc.continuation"
+    },
+    {
+      "@id": "mm:core.prc.continuation",
+      "@type": "mm:Process",
+      "rdfs:label": "Continuation",
+      "definition": "Resumption of actualization in a newly admissible, non-identical successor argument.",
+      "status": "SOURCE",
+      "origin": "CORPUS",
+      "layer": "core",
+      "consequence_of": "mm:core.prc.orthogonal_resolution"
     },
     {
       "@id": "mm:stage10.X2",

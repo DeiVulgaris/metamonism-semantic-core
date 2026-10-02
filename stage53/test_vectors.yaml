@@ -1,0 +1,41 @@
+# Stage 53 test vectors — derived consequences
+
+- id: dc-001-frustration
+  input:
+    dissipation_active: true
+    need_continue: true
+    current_mode_exhausted: true
+  expected:
+    entity: mm:core.prc.frustration
+    status: SOURCE
+    is_termination: false
+
+- id: dc-002-orthogonal-resolution
+  input:
+    frustration: true
+    current_mode_exhausted: true
+  expected:
+    entity: mm:core.prc.orthogonal_resolution
+    resolves: mm:core.prc.frustration
+    opens_continuation: true
+
+- id: dc-003-continuation
+  input:
+    orthogonal_resolution: true
+  expected:
+    entity: mm:core.prc.continuation
+    next_argument_nonidentical: true
+
+- id: dc-004-dissipation-continuity
+  input:
+    orthogonal_resolution: true
+    continuation: true
+  expected:
+    dissipation_continues: true
+
+- id: dc-005-no-euclidean-collapse
+  input:
+    orthogonal_resolution: true
+  expected:
+    fourth_spatial_dimension: false
+    euclidean_perpendicularity_assumed: false

@@ -1,0 +1,60 @@
+{
+  "schema": "mm:minimal_continuation_map:v1",
+  "stage_id": "STAGE52",
+  "program_id": "RP-stage50-actualization-operator-continuation",
+  "status": "WORKING",
+  "integration_scope": "WORKING",
+  "frontier_state": "UNRESOLVED",
+  "root_invariant": {
+    "id": "axiom_ban_of_absolute_identity",
+    "status": "SOURCE",
+    "scope": "ACTUALIZATION_DOMAIN",
+    "provenance": {
+      "repository": "Deivulgaris66/Metamonism",
+      "path": "CORE/axioms.yaml",
+      "ref": "axiom_ban_of_absolute_identity"
+    }
+  },
+  "source_basis": {
+    "chapter2": {
+      "title": "МЕТАМОНИЗМ Глава 2. Продолжение актуализации: диссипация тождества, возникновение пространственности и временности и ортогональное разрешение",
+      "doi": "10.5281/zenodo.22396258",
+      "provenance": "user_supplied_attachment",
+      "locator": "lines 167-183",
+      "claims": [
+        "(D_n,I_n)→R_n→(D_{n+1},I_{n+1})→R_{n+1}",
+        "F maps R_n to (D_{n+1},I_{n+1})",
+        "F is not an independent fundamental principle",
+        "F is a necessary continuation mechanism",
+        "F keeps the process inside Dom(P)",
+        "the next argument must satisfy D_{n+1} != I_{n+1}"
+      ]
+    }
+  },
+  "objects": {
+    "argument": "A_n=(D_n,I_n)",
+    "operator": "P",
+    "result": "R_n",
+    "continuation": "F:R→A",
+    "domain": "Dom(P)"
+  },
+  "constraints": [
+    "F(R_n)=(D_{n+1},I_{n+1})",
+    "F(R_n) in Dom(P)",
+    "P(F(R_n))=R_{n+1}",
+    "F introduces no new fundamental invariant",
+    "F preserves trajectory continuity",
+    "F produces a nontrivial successor"
+  ],
+  "status_split": {
+    "source_definition_of_F": "SOURCE",
+    "minimal_typed_formalization": "FORMALIZATION",
+    "explicit_internal_formula": "UNRESOLVED",
+    "geometry": "DOWNSTREAM",
+    "operator_algebra": "DOWNSTREAM"
+  },
+  "frontier": {
+    "question": "What additional structure is necessary and sufficient to construct F non-arbitrarily from R_n while preserving Dom(P) without importing geometry or a new fundamental invariant?"
+  },
+  "canonical_promotion": false
+}

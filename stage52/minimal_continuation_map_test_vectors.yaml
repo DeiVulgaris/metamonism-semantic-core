@@ -1,0 +1,60 @@
+tests:
+  - id: FMIN-01
+    name: correct_type
+    expected: PASS
+    assertion: "F maps an actualized result to the next argument pair."
+
+  - id: FMIN-02
+    name: domain_reentry
+    expected: PASS
+    assertion: "A continuing F must return an argument in Dom(P)."
+
+  - id: FMIN-03
+    name: recursive_application
+    expected: PASS
+    assertion: "P(F(R_n)) produces the next actualized result under the registered process model."
+
+  - id: FMIN-04
+    name: not_arbitrary
+    expected: REJECT
+    assertion: "An unconstrained function R -> D×I is not sufficient to qualify as F."
+
+  - id: FMIN-05
+    name: no_new_root
+    expected: REJECT
+    assertion: "F may not silently create a new foundational invariant."
+
+  - id: FMIN-06
+    name: local_boundary
+    expected: PASS
+    assertion: "F(R_n) outside Dom(P) is a local continuation failure, not global impossibility."
+
+  - id: FMIN-07
+    name: no_geometry_injection
+    expected: REJECT
+    assertion: "F may not presuppose a metric, coordinates, or dimension without derivation."
+
+  - id: FMIN-08
+    name: no_orthogonality_injection
+    expected: REJECT
+    assertion: "Orthogonality is downstream of the current-mode exhaustion chain."
+
+  - id: FMIN-09
+    name: no_physical_force
+    expected: REJECT
+    assertion: "F is not identified with a physical force."
+
+  - id: FMIN-10
+    name: no_clifford_shortcut
+    expected: REJECT
+    assertion: "F does not imply an algebra or Clifford relation by itself."
+
+  - id: FMIN-11
+    name: root_local_distinction
+    expected: PASS
+    assertion: "I_* remains the foundational invariant while I_n may change locally."
+
+  - id: FMIN-12
+    name: proof_obligations
+    expected: PASS
+    assertion: "A candidate F must satisfy type, domain, recursion, provenance, and no-hidden-geometry obligations."
