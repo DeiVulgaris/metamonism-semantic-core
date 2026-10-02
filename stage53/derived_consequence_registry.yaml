@@ -1,0 +1,69 @@
+# Stage 53 — Derived Consequence Registry
+
+- id: mm:core.prc.frustration
+  canonical_name: "Frustration"
+  type: "Process / Constraint State"
+  layer: "core"
+  definition: "A processual condition in which continuation is required while the currently available differentiation mode is exhausted."
+  status: "SOURCE"
+  origin: "CORPUS"
+  source:
+    - "S10: Chapter 2, continuation/exhaustion/frustration"
+    - "S11: Chapter 3, frustration definition"
+  relations:
+    - relation: mm:rel.consequence_of
+      target: mm:core.prc.dissipation_of_identity
+      status: "SOURCE"
+    - relation: mm:rel.consequence_of
+      target: mm:core.sts.self_identity_lock
+      status: "SOURCE"
+  claims:
+    - mm:core.clm.frustration_requires_continuation_and_exhaustion
+    - mm:core.clm.frustration_is_not_termination
+
+- id: mm:core.prc.orthogonal_resolution
+  canonical_name: "Orthogonal Resolution"
+  type: "Process / Structural Consequence"
+  layer: "core"
+  definition: "Minimal processual resolution that supplies a logically independent continuation when the current mode is exhausted, while preserving prior structure and avoiding redundant continuation."
+  status: "SOURCE"
+  origin: "CORPUS"
+  source:
+    - "S10: Chapter 2, Definition 2.1"
+    - "S11: Chapter 3, orthogonality as minimal channel"
+  relations:
+    - relation: mm:rel.consequence_of
+      target: mm:core.prc.frustration
+      status: "SOURCE"
+    - relation: mm:rel.resolves
+      target: mm:core.prc.frustration
+      status: "SOURCE"
+    - relation: mm:rel.enables_continuation
+      target: mm:core.prc.continuation
+      status: "SOURCE"
+  claims:
+    - mm:core.clm.orthogonal_resolution_required_at_exhaustion
+    - mm:core.clm.orthogonal_resolution_opens_nonredundant_continuation
+    - mm:core.clm.orthogonal_resolution_is_processual_not_euclidean_by_definition
+    - mm:core.clm.orthogonal_resolution_continues_dissipation
+
+- id: mm:core.prc.continuation
+  canonical_name: "Continuation"
+  type: "Process"
+  layer: "core"
+  definition: "Resumption of actualization in a newly admissible, non-identical successor argument after a continuity constraint has been resolved."
+  status: "SOURCE"
+  origin: "CORPUS"
+  source:
+    - "S10: Chapter 2, recursive continuation"
+    - "Stage 52: Minimal Continuation Map F"
+  relations:
+    - relation: mm:rel.consequence_of
+      target: mm:core.prc.orthogonal_resolution
+      status: "SOURCE"
+    - relation: mm:rel.consequence_of
+      target: mm:core.prc.dissipation_of_identity
+      status: "SOURCE"
+  claims:
+    - mm:core.clm.continuation_constructs_next_admissible_argument
+    - mm:core.clm.continuation_preserves_nonidentity
