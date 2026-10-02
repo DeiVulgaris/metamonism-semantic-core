@@ -202,7 +202,7 @@ def check_case(
     validate_schema("Stage 56 runtime", schemas["stage56"], runtime)
 
     retrieval = mock_provider(case)
-    requested_step = case["mock_retrieval"].get("affected_step_id")
+    requested_step = expected.get("affected_step_id")
     result = stage60_run(
         retrieval,
         chain,
