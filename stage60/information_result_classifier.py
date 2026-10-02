@@ -71,8 +71,8 @@ def classify_retrieval(
         result_class = provider_class
         basis = "PROVIDER_DECLARED_RESULT_CLASS"
     elif status == "NOT_FOUND":
-        result_class = "RETRIEVAL_FAILURE"
-        basis = "RETRIEVAL_STATUS"
+        result_class = "INFORMATION_GAP" if intent == "INFORMATION_GAP" else "NO_ADEQUATE_INFO"
+        basis = "RETRIEVAL_STATUS_AND_QUERY_INTENT"
     elif intent == "SOLUTION_DISCOVERY":
         result_class = "SOLUTION_FOUND"
         basis = "RETRIEVAL_STATUS_AND_QUERY_INTENT"
