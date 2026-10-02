@@ -64,15 +64,15 @@ def classify_retrieval(
         or _mapping(retrieval.get("source")).get("result_class")
     ).upper()
 
-    if provider_class in VALID_CLASSES:
-        result_class = provider_class
-        basis = "PROVIDER_DECLARED_RESULT_CLASS"
-    elif status == "ERROR":
+    if status == "ERROR":
         result_class = "RETRIEVAL_FAILURE"
         basis = "RETRIEVAL_STATUS"
+    elif provider_class in VALID_CLASSES:
+        result_class = provider_class
+        basis = "PROVIDER_DECLARED_RESULT_CLASS"
     elif status == "NOT_FOUND":
-        result_class = "INFORMATION_GAP" if intent == "INFORMATION_GAP" else "NO_ADEQUATE_INFO"
-        basis = "RETRIEVAL_STATUS_AND_QUERY_INTENT"
+        result_class = "RETRIEVAL_FAILURE"
+        basis = "RETRIEVAL_STATUS"
     elif intent == "SOLUTION_DISCOVERY":
         result_class = "SOLUTION_FOUND"
         basis = "RETRIEVAL_STATUS_AND_QUERY_INTENT"
