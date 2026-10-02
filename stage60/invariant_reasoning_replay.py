@@ -58,6 +58,13 @@ def validate_chain(chain: Mapping[str, Any]) -> list[str]:
         status = _text(step.get("status")).upper()
         if status and status not in VALID_STATUSES:
             errors.append(f"step_{index}_invalid_status:{status}")
+        if index == 1 and _text(step.get("from_id")) != _text(root.get("id")):
+            errors.append("first_step_not_rooted_in_invariant")
+            if index > 1:
+                previous = steps[index - 2]
+                if _text(step.get("from_id")) != _text(previous.get("to_id")):
+                    errors.append(f"step_{index}_not_connected_to_previous")
+
     return sorted(set(errors))
 
 
