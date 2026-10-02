@@ -110,3 +110,36 @@ This pattern survives the comparison.
 - the ontodynamic state carrier is a Riemannian metric;
 - the Planck scale is the surgery scale;
 - the Ban of Indifference derives the Ricci equation.
+## 7. Information-mediated resolution
+
+The UFCPS corpus adds an important intermediate mechanism to the abstract comparison: the boundary result itself can become structured input for the next process.
+
+    current regime
+        ↓
+    obstruction / negative / unresolved result
+        ↓
+    preserved information
+        ↓
+    new distinction / data
+        ↓
+    successor construction
+        ↓
+    continuation
+
+This makes the comparison with surgery more precise without identifying the two theories.
+
+Ricci surgery modifies the geometric carrier directly at a singular boundary.
+UFCPS modifies the informational/procedural state available to the next carrier.
+Stage 53 combines these ideas at the abstract level through frustration and orthogonal resolution.
+
+Candidate general pattern:
+
+    continued process
+         ↓
+    current regime becomes insufficient
+         ↓
+    boundary produces information
+         ↓
+    resolution changes the admissible state space
+         ↓
+    continuation in a new regime
