@@ -1500,3 +1500,179 @@ A_n
 ```
 
 This prevents the model from beginning with an unexplained geometric space of orthogonal options.
+
+
+## 32. Logic Layer: From Semantic Records to Derivations
+
+Semantic registration alone is not reasoning.
+
+The processing architecture therefore distinguishes:
+
+```
+SOURCE / SEMANTIC RECORD
+        ↓
+REGISTERED PREMISES
+        ↓
+REGISTERED LOGICAL RULE
+        ↓
+INFERENCE
+        ↓
+DERIVED PROPOSITION
+        ↓
+NEXT ADMISSIBLE INFERENCE
+```
+
+### 32.1 A semantic record is not a conclusion
+
+A statement may be present in the corpus without being the conclusion of a derivation performed by the system.
+
+Conversely, a derived proposition may be logically obtained from registered premises without thereby becoming SOURCE.
+
+The AI MUST preserve this difference.
+
+### 32.2 Explicit premises
+
+Every logical inference MUST identify the premises it actually uses.
+
+Missing premises may not be invented from semantic similarity or contextual plausibility.
+
+### 32.3 Explicit rule
+
+Every non-source conclusion MUST identify the logical rule that produces it.
+
+A rule MUST have:
+
+- stable identifier;
+- explicit premises;
+- explicit conclusion;
+- provenance;
+- epistemic status.
+
+### 32.4 Proof ancestry
+
+A derived proposition MUST preserve its ancestor chain.
+
+The minimal proof object is:
+
+```
+PROOF
+  conclusion
+  premises
+  rule_id
+  status
+  provenance
+  ancestors
+```
+
+This makes it possible to reconstruct why the system reached a conclusion.
+
+### 32.5 Source-derived necessity versus formal proof
+
+When a source explicitly says that X necessarily follows from Y, the system may register:
+
+```
+SOURCE: Y → X is asserted by the author
+```
+
+A separate formal proof of Y → X in an independently specified mathematical system remains a different object.
+
+Do not collapse:
+
+```
+authorial necessity
+≠
+formal derivation
+≠
+empirical truth
+```
+
+### 32.6 Operator-first reasoning
+
+For the actualization program, the logical layer must preserve:
+
+```
+A_n=(D_n,I_n)
+      ↓ P
+R_n
+      ↓ F
+A_{n+1}
+      ↓ P
+R_{n+1}
+```
+
+The same fundamental P is not silently replaced by a sequence of unrelated operators.
+
+### 32.7 Domain reasoning
+
+A domain rule applies to the current argument of P.
+
+The engine MUST reject the scope inflation:
+
+```
+A_n ∉ Dom(P)
+→ every configuration in D is impossible
+```
+
+The admissible interpretation is local:
+
+```
+A_n ∉ Dom(P)
+→ the current argument cannot produce a nontrivial result through P
+```
+
+### 32.8 Logical continuation
+
+A continuing actualization step requires a successor argument that is itself admissible for another nontrivial act of P.
+
+Therefore the core continuation condition is:
+
+```
+A_n ∈ Dom(P)
+→ P(A_n)=R_n
+→ F(R_n)=A_{n+1}
+→ A_{n+1} ∈ Dom(P)
+```
+
+The exact mathematical structure of F remains an open research problem.
+
+### 32.9 Orthogonal resolution remains downstream
+
+The logic layer MUST NOT begin with an unexplained orthogonality axiom.
+
+The current source-grounded sequence is:
+
+```
+actualization
+→ continuation
+→ distinguishable succession
+→ current-mode exhaustion
+→ orthogonal resolution
+```
+
+The mathematical representation of this sequence may be formalized, but a metric or Clifford algebra must not be inserted merely to obtain a desired result.
+
+### 32.10 Logical inflation prohibition
+
+Reject any inference that:
+
+- skips registered premises;
+- silently changes scope;
+- converts SOURCE assertion into universal theorem;
+- converts formal derivation into physical truth;
+- converts orthogonal resolution into a metric;
+- converts a proof of one proposition into proof of a stronger proposition.
+
+The semantic core therefore has three distinct layers:
+
+```
+SEMANTICS
+what is given
+
+LOGIC
+what follows under registered rules
+
+RESEARCH
+what remains to be established
+```
+
+These layers must remain interoperable but non-collapsed.
