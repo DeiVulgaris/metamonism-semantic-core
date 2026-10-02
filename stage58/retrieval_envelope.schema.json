@@ -1,0 +1,18 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://github.com/Deivulgaris/metamonism-semantic-core/blob/main/stage58/retrieval_envelope.schema.json",
+  "title":"Information Space Retrieval Envelope v1",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["retrieval_id","query_id","source","locator","content_reference","retrieval_status","provenance"],
+  "properties":{
+    "retrieval_id":{"type":"string","minLength":1},
+    "query_id":{"type":"string","minLength":1},
+    "source":{"type":"object","additionalProperties":true},
+    "locator":{"type":"string","minLength":1},
+    "content_reference":{"type":"string","minLength":1},
+    "retrieval_status":{"type":"string","enum":["FOUND","NOT_FOUND","PARTIAL","ERROR"]},
+    "relevance":{"type":"string","enum":["UNKNOWN","LOW","MEDIUM","HIGH"]},
+    "provenance":{"type":"object","additionalProperties":true}
+  }
+}
