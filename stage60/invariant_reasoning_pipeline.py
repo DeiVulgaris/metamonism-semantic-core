@@ -7,8 +7,12 @@ import argparse
 import json
 from typing import Any, Mapping, Sequence
 
-from information_result_classifier import classify_retrieval
-from invariant_reasoning_replay import replay
+try:
+    from .information_result_classifier import classify_retrieval
+    from .invariant_reasoning_replay import replay
+except ImportError:
+    from information_result_classifier import classify_retrieval
+    from invariant_reasoning_replay import replay
 
 
 def run(
