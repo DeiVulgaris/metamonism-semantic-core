@@ -227,8 +227,15 @@
     - relation: mm:rel.triggered_by
       target: mm:core.sts.self_identity_lock
       status: "SOURCE"
+    - relation: mm:rel.resolves
+      target: mm:core.sts.self_identity_lock
+      status: "SOURCE"
+    - relation: mm:rel.resolves
+      target: mm:core.sts.closure
+      status: "SOURCE"
   claims:
     - mm:core.clm.unfold_is_dynamic_bridge
+    - mm:core.clm.unfold_resolves_closure
     - mm:core.clm.maps_to_is_static_projection
     - mm:core.clm.unfold_vs_maps_to_distinction
 
