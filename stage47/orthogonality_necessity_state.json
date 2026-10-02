@@ -1,0 +1,72 @@
+{
+  "schema": "mm:orthogonality_necessity_derivation:v1",
+  "derivation_id": "OND-STAGE47-CH3-001",
+  "root": {
+    "id": "axiom_ban_of_absolute_identity",
+    "status": "SOURCE",
+    "provenance": {
+      "repository": "Deivulgaris66/Metamonism",
+      "path": "CORE/axioms.yaml",
+      "ref": "axiom_ban_of_absolute_identity"
+    }
+  },
+  "source": {
+    "repository": "user_supplied_attachment",
+    "document": "МЕТАМОНИЗМ: Глава 3. Процессуальная онтодинамика",
+    "locator": "source lines 34-46 and 285-300",
+    "supported_claims": [
+      "successive processual continuation is orthogonal",
+      "after three external independent orthogonal directions the old external geometric unfolding is exhausted",
+      "continuation does not stop",
+      "P3->P4 uses the same orthogonality principle with reversed normal orientation",
+      "P4 is not a fourth spatial dimension",
+      "Fr -> orthogonal new regime of actualization"
+    ]
+  },
+  "question": "Can orthogonality be derived as a necessary consequence of invariant-preserving non-redundant continuation?",
+  "results": [
+    {
+      "id": "R0",
+      "claim": "The ban on absolute identity alone does not uniquely determine orthogonality.",
+      "status": "INFERENCE",
+      "result": "NEGATIVE_RESULT"
+    },
+    {
+      "id": "R1",
+      "claim": "An invariant level-set gives a tangent continuation constraint.",
+      "status": "FORMALIZATION"
+    },
+    {
+      "id": "R2",
+      "claim": "With an independently established nondegenerate bilinear invariant q, local invariant preservation yields orthogonality to first order.",
+      "status": "FORMALIZATION",
+      "condition": "q is independently justified"
+    },
+    {
+      "id": "R3",
+      "claim": "Non-redundancy alone yields independence from the existing span but not orthogonality.",
+      "status": "INFERENCE"
+    },
+    {
+      "id": "R4",
+      "claim": "Non-redundancy plus suitable symmetry/minimality plus bilinear invariant may select the orthogonal complement as canonical constraint.",
+      "status": "THEORETICAL_HYPOTHESIS"
+    },
+    {
+      "id": "R5",
+      "claim": "If three realized external directions span a 3-dimensional carrier with nondegenerate q, the orthogonal complement is zero.",
+      "status": "FORMALIZATION",
+      "condition": "3D carrier and nondegenerate q"
+    }
+  ],
+  "uniqueness_targets": {
+    "unique_direction": "UNSUPPORTED",
+    "unique_constraint_class": "CONDITIONAL",
+    "unique_resolution_principle": "UNRESOLVED"
+  },
+  "frontier": {
+    "state": "UNRESOLVED",
+    "central_gap": "Identify the invariant property that makes orthogonal continuation necessary rather than merely possible."
+  },
+  "canonical_promotion": false
+}
