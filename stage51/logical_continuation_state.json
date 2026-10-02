@@ -1,0 +1,101 @@
+{
+  "schema": "mm:logical_continuation_core:v1",
+  "stage_id": "STAGE51",
+  "program_id": "RP-stage50-actualization-operator-continuation",
+  "status": "WORKING",
+  "integration_scope": "WORKING",
+  "frontier_state": "UNRESOLVED",
+  "root": {
+    "id": "axiom_ban_of_absolute_identity",
+    "scope": "ACTUALIZATION_DOMAIN",
+    "status": "SOURCE",
+    "provenance": {
+      "repository": "Deivulgaris66/Metamonism",
+      "path": "CORE/axioms.yaml",
+      "ref": "axiom_ban_of_absolute_identity"
+    }
+  },
+  "source_basis": [
+    {
+      "document": "МЕТАМОНИЗМ: Глава 1. Логические категории, оператор актуализации и возникновение первого инварианта",
+      "doi": "10.5281/zenodo.22312437",
+      "provenance": "user_supplied_text",
+      "claims": [
+        "P:(D×I)→R",
+        "D is possible difference configurations",
+        "I supplies identity/invariant conditions",
+        "(D,I)∈Dom(P) iff D≠I",
+        "(I,I)∉Dom(P)"
+      ]
+    },
+    {
+      "document": "МЕТАМОНИЗМ Глава 2. Продолжение актуализации: диссипация тождества, возникновение пространственности и временности и ортогональное разрешение",
+      "doi": "10.5281/zenodo.22396258",
+      "provenance": "user_supplied_attachment",
+      "locator": "lines 167-183 and 210-239",
+      "claims": [
+        "Each result can become the condition for the next act",
+        "(D_n,I_n)→R_n→(D_{n+1},I_{n+1})→R_{n+1}",
+        "F is a continuation mechanism",
+        "orthogonal resolution is required when the current mode is exhausted"
+      ]
+    }
+  ],
+  "objects": {
+    "proposition": "Atom(predicate,args)",
+    "rule": "Rule(rule_id,premises,conclusion,provenance,status)",
+    "proof": "Proof(conclusion,premises,rule_id,ancestors,status)"
+  },
+  "rules": [
+    {
+      "id": "L1_DOMAIN_NONIDENTITY",
+      "status": "SOURCE_FORMALIZATION",
+      "form": "NonIdentity(D,I) -> InDomain(P,(D,I))"
+    },
+    {
+      "id": "L2_DOMAIN_NONTRIVIAL_RESULT",
+      "status": "SOURCE_FORMALIZATION",
+      "form": "InDomain(P,A) -> NonTrivialResult(P,A)"
+    },
+    {
+      "id": "L3_RESULT_TO_NEXT_ARGUMENT",
+      "status": "SOURCE_SUPPORTED_FORMALIZATION",
+      "form": "Actualized(R_n) AND Continue(R_n) -> ExistsNextArgument(A_{n+1})"
+    },
+    {
+      "id": "L4_NEXT_ARGUMENT_REENTERS_DOMAIN",
+      "status": "SOURCE_SUPPORTED_FORMALIZATION",
+      "form": "ExistsNextArgument(A_{n+1}) -> InDomain(P,A_{n+1})"
+    },
+    {
+      "id": "L5_CURRENT_MODE_EXHAUSTION",
+      "status": "SOURCE_FORMALIZATION",
+      "form": "CurrentModeExhausted(A_n) AND NeedContinue(A_n) -> OrthogonalResolutionRequired(A_n)"
+    }
+  ],
+  "continuation_chain": [
+    "A_n",
+    "P(A_n)",
+    "R_n",
+    "F(R_n)=A_{n+1}",
+    "A_{n+1} in Dom(P)"
+  ],
+  "proof_statuses": [
+    "PROVED_WITH_REGISTERED_RULES",
+    "CONDITIONALLY_DERIVED",
+    "BLOCKED",
+    "UNRESOLVED"
+  ],
+  "anti_collapse": [
+    "semantic record is not a logical conclusion",
+    "root invariant does not imply every later conclusion directly",
+    "outside Dom(P) does not mean globally impossible",
+    "F is not a new root invariant",
+    "D_perp is downstream",
+    "logical derivability does not imply physical truth"
+  ],
+  "frontier": {
+    "question": "What is the minimal formal structure of F that keeps repeated actualization inside Dom(P) without adding a new foundational invariant or pre-imposing geometry?"
+  },
+  "canonical_promotion": false
+}

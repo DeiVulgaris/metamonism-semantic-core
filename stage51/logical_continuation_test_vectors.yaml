@@ -1,0 +1,62 @@
+tests:
+  - id: LCC-01
+    name: valid_domain_inference
+    expected: PASS
+    rule: L1_DOMAIN_NONIDENTITY
+
+  - id: LCC-02
+    name: missing_premise
+    expected: REJECT
+    rule: L1_DOMAIN_NONIDENTITY
+    premises: []
+
+  - id: LCC-03
+    name: continuation_chain
+    expected: PASS
+    rule: L3_RESULT_TO_NEXT_ARGUMENT
+
+  - id: LCC-04
+    name: next_argument_reenters_domain
+    expected: PASS
+    rule: L4_NEXT_ARGUMENT_REENTERS_DOMAIN
+
+  - id: LCC-05
+    name: no_globalization
+    expected: REJECT
+    attempted_conclusion: All configurations in D are impossible
+
+  - id: LCC-06
+    name: exhaustion_to_orthogonal_resolution
+    expected: PASS
+    rule: L5_CURRENT_MODE_EXHAUSTION
+
+  - id: LCC-07
+    name: no_arbitrary_resolution
+    expected: REJECT
+    attempted_conclusion: ArbitraryTransition(A_n)
+
+  - id: LCC-08
+    name: no_root_shortcut
+    expected: REJECT
+    premises: [BanOfIndifference]
+    attempted_conclusion: OrthogonalResolutionRequired(A_n)
+
+  - id: LCC-09
+    name: no_metric_injection
+    expected: REJECT
+    attempted_conclusion: EuclideanMetric(A_n)
+
+  - id: LCC-10
+    name: no_clifford_shortcut
+    expected: REJECT
+    attempted_conclusion: CliffordAlgebra
+
+  - id: LCC-11
+    name: result_not_next_argument
+    expected: REJECT
+    attempted_conclusion: R_n = A_{n+1}
+
+  - id: LCC-12
+    name: derivability_not_physical_truth
+    expected: REJECT
+    attempted_conclusion: PhysicalTruth

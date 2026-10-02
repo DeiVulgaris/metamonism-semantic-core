@@ -1,0 +1,40 @@
+version: 1
+stage: STAGE51
+purpose: minimal source-grounded inference rules for sequential actualization
+rules:
+  - id: L1_DOMAIN_NONIDENTITY
+    status: SOURCE_FORMALIZATION
+    premises:
+      - NonIdentity(D,I)
+    conclusion: InDomain(P,(D,I))
+    provenance: Chapter1
+
+  - id: L2_DOMAIN_NONTRIVIAL_RESULT
+    status: SOURCE_FORMALIZATION
+    premises:
+      - InDomain(P,A)
+    conclusion: NonTrivialResult(P,A)
+    provenance: Chapter1
+
+  - id: L3_RESULT_TO_NEXT_ARGUMENT
+    status: SOURCE_SUPPORTED_FORMALIZATION
+    premises:
+      - Actualized(R_n)
+      - Continue(R_n)
+    conclusion: ExistsNextArgument(A_{n+1})
+    provenance: Chapter2
+
+  - id: L4_NEXT_ARGUMENT_REENTERS_DOMAIN
+    status: SOURCE_SUPPORTED_FORMALIZATION
+    premises:
+      - ExistsNextArgument(A_{n+1})
+    conclusion: InDomain(P,A_{n+1})
+    provenance: Chapter2
+
+  - id: L5_CURRENT_MODE_EXHAUSTION
+    status: SOURCE_FORMALIZATION
+    premises:
+      - CurrentModeExhausted(A_n)
+      - NeedContinue(A_n)
+    conclusion: OrthogonalResolutionRequired(A_n)
+    provenance: Chapter2
