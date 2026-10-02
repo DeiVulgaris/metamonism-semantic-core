@@ -112,6 +112,8 @@ def main():
     assert result["status"] == "REPLAYED"
     assert result["classification"]["result_class"] == "CONTRADICTION_FOUND"
     assert result["reasoning_trace"]["root_invariant"]["status"] == "SOURCE"
+    assert result["reasoning_trace"]["chain_path"][0] == "mm:core.inv.ban_of_indifference"
+    assert result["reasoning_trace"]["chain_path"][1] == "dissipation"
     assert result["reasoning_trace"]["steps"][0]["position"] == 1
     assert all(
         step["information_effect"] == "REQUIRES_RECONCILIATION"
