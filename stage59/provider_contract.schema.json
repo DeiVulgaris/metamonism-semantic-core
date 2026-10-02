@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Deivulgaris/metamonism-semantic-core/blob/main/stage59/provider_contract.schema.json",
+  "title": "Information Provider Exchange Contract v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["request", "results"],
+  "properties": {
+    "request": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "query_id",
+        "query_plan_id",
+        "question_id",
+        "intent",
+        "text",
+        "source_classes",
+        "constraints",
+        "exclusions",
+        "provenance"
+      ],
+      "properties": {
+        "query_id": {"type": "string", "minLength": 1},
+        "query_plan_id": {"type": "string", "minLength": 1},
+        "question_id": {"type": "string", "minLength": 1},
+        "intent": {
+          "type": "string",
+          "enum": [
+            "SOLUTION_DISCOVERY",
+            "METHOD_DISCOVERY",
+            "EVIDENCE_DISCOVERY",
+            "CONTRADICTION_CHECK",
+            "INFORMATION_GAP",
+            "PRECEDENT_DISCOVERY",
+            "SOURCE_VALIDATION"
+          ]
+        },
+        "text": {"type": "string", "minLength": 1},
+        "target_difference": {"type": "string"},
+        "source_classes": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "constraints": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "exclusions": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "provenance": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    },
+    "results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["retrieval_status"],
+        "properties": {
+          "retrieval_status": {
+            "type": "string",
+            "enum": ["FOUND", "NOT_FOUND", "PARTIAL", "ERROR"]
+          },
+          "locator": {"type": "string"},
+          "content_reference": {"type": "string"},
+          "title": {"type": "string"},
+          "snippet": {"type": "string"},
+          "content": {"type": "string"},
+          "relevance": {
+            "type": "string",
+            "enum": ["UNKNOWN", "LOW", "MEDIUM", "HIGH"]
+          },
+          "source": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "metadata": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      }
+    }
+  }
+}
