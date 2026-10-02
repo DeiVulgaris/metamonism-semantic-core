@@ -40,6 +40,19 @@
     },
     "provenance": {
       "type": "object"
+    },
+    "formation_status": {
+      "type": "string",
+      "enum": [
+        "READY",
+        "BLOCKED"
+      ]
+    },
+    "blockers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
     }
   }
 }

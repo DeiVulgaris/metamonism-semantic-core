@@ -49,6 +49,8 @@ def assess_frontier(frontier: Mapping[str, Any]) -> tuple[str, list[str]]:
 
     if not _text(frontier.get("frontier_id")):
         blockers.append("frontier_id_missing")
+    if not _text(frontier.get("question_id")):
+        blockers.append("question_id_missing")
     if not _text(frontier.get("state")):
         blockers.append("state_missing")
     if not _text(frontier.get("epistemic_status")):
@@ -80,9 +82,11 @@ def build_task_candidate(frontier: Mapping[str, Any], *, bridge_id: str | None =
         "bridge_id": bridge_id or f"BR-{_text(frontier.get('frontier_id')) or 'UNNAMED'}",
         "source_frontier": {
             "frontier_id": _text(frontier.get("frontier_id")),
+            "question_id": _text(frontier.get("question_id")),
             "state": _text(frontier.get("state")),
             "epistemic_status": _text(frontier.get("epistemic_status")),
         },
+        "question_id": _text(frontier.get("question_id")),
         "question": _text(frontier.get("question")),
         "unresolved_difference": _text(frontier.get("unresolved_difference")),
         "constraints": _list(frontier.get("constraints")),
@@ -102,6 +106,7 @@ def build_task_candidate(frontier: Mapping[str, Any], *, bridge_id: str | None =
 def demo() -> dict[str, Any]:
     ready_frontier = {
         "frontier_id": "FRONTIER-001",
+        "question_id": "Q-55-DEMO",
         "state": "Current derivation reached an unresolved boundary.",
         "epistemic_status": "UNRESOLVED",
         "question": "What additional distinction permits the next admissible continuation?",

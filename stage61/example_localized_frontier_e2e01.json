@@ -1,0 +1,36 @@
+{
+  "frontier_id": "fr:e2e-continuity-001-after-e2e-01",
+  "question_id": "q:continuity.local_failure_vs_termination.v1",
+  "root_invariant_id": "ufcps:scp.inv.local_failure_not_process_termination.v1",
+  "trace_id": "tr:e2e-continuity-001",
+  "anchor_step_id": "S3",
+  "impact_mode": "EXPLICIT_STEP_REFERENCE",
+  "reasoning_prefix": [
+    "S1",
+    "S2",
+    "S3"
+  ],
+  "affected_step": {
+    "step_id": "S3",
+    "information_effect": "REQUIRES_RECONCILIATION",
+    "status": "SOURCE"
+  },
+  "downstream_steps": [
+    {
+      "step_id": "S4",
+      "replay_status": "REQUIRES_REPLAY"
+    }
+  ],
+  "information_result": {
+    "result_class": "CONTRADICTION_FOUND",
+    "retrieval_id": "ret:e2e-01"
+  },
+  "next_required_operation": "reconcile_or_test_affected_step",
+  "provenance": {
+    "stage": "61",
+    "mode": "IMPACT_LOCALIZED_FRONTIER_REBUILD",
+    "suite": "e2e_bridge_continuity",
+    "case": "E2E-01",
+    "ontology_write": false
+  }
+}

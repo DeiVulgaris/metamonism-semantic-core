@@ -236,6 +236,7 @@ The minimal object carries:
 ```
 bridge_id
 source_frontier
+question_id
 question
 unresolved_difference
 constraints

@@ -1,0 +1,39 @@
+name: Semantic Core E2E Bridge
+
+on:
+  push:
+    paths:
+      - "stage55/**"
+      - "stage56/**"
+      - "stage60/**"
+      - "stage61/**"
+      - "e2e/**"
+      - "BRIDGE_RUNTIME_CONTRACT.md"
+      - ".github/workflows/e2e_bridge.yml"
+  pull_request:
+    paths:
+      - "stage55/**"
+      - "stage56/**"
+      - "stage60/**"
+      - "stage61/**"
+      - "e2e/**"
+      - "BRIDGE_RUNTIME_CONTRACT.md"
+      - ".github/workflows/e2e_bridge.yml"
+  workflow_dispatch:
+
+jobs:
+  e2e_bridge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install E2E dependencies
+        run: |
+          python -m pip install pyyaml jsonschema
+      - name: Run complete 55→56→mock→60→61 E2E
+        run: |
+          python e2e/e2e_bridge_runner.py --metrics e2e/e2e_metrics.json

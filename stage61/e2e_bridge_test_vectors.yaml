@@ -1,0 +1,269 @@
+# E2E Bridge Test Vectors — Semantic Core ↔ UFCPS (Stages 55–61)
+# Priority: system continuity fixture
+# Status: TEST FIXTURE — ontology registries must remain unchanged
+#
+# The root invariant is registered inside this synthetic fixture/chain, not added to ontology registries.
+# It is sourced conceptually from UFCPS Step Continuity Protocol (SCP_v1).
+#
+# Cycle under test:
+#   frontier → task_prospect → runtime → mock_provider → classification
+#   → invariant_replay → impact_localization → localized_frontier → UQL-style update
+#
+# Hard asserts:
+#   - question_id preserved end-to-end
+#   - result_class does NOT imply validated semantic claim
+#   - negative / gap / contradiction ≠ process termination
+#   - impact only from explicit affected_step_id OR labelled TAIL_FALLBACK
+#   - ontology files unchanged by run
+
+version: "0.2.0"
+suite: e2e_bridge_continuity
+stages: [55, 56, 60, 61]
+
+fixture:
+  question_id: "q:continuity.local_failure_vs_termination.v1"
+  process_id: "proc:e2e-continuity-001"
+  root_invariant_id: "ufcps:scp.inv.local_failure_not_process_termination.v1"
+  root_invariant:
+    id: "ufcps:scp.inv.local_failure_not_process_termination.v1"
+    statement: "Local Failure ≠ Process Termination"
+    status: SOURCE
+    source: "UFCPS/protocols/SCP_v1.md"
+    registration_scope: "e2e_fixture_chain"
+
+  unresolved_difference: >
+    Current carrier reached STUCK with a structural deadlock object, but it is
+    unknown whether a valid successor procedural unit can be constructed from
+    preserved continuation-relevant state under SCP.
+
+  initial_frontier:
+    frontier_id: "fr:e2e-continuity-001-initial"
+    question_id: "q:continuity.local_failure_vs_termination.v1"
+    status: OPEN
+    state: "Current carrier reached STUCK with a structured deadlock object."
+    epistemic_status: UNRESOLVED
+    question: "Can preserved continuation-relevant state yield a valid successor procedural unit?"
+    formulation: "Can preserved continuation-relevant state yield a valid successor procedural unit?"
+    unresolved_difference: >
+      Current carrier reached STUCK with a structural deadlock object, but it is
+      unknown whether a valid successor procedural unit can be constructed from
+      preserved continuation-relevant state under SCP.
+    next_required_operation: diff
+    constraints:
+      - "Do not treat carrier termination as process termination"
+      - "Do not erase deadlock as unstructured failure"
+    evidence_refs:
+      - "ufcps:protocols/SCP_v1.md"
+      - "ufcps:schemas/deadlock_v1.json"
+    failed_paths:
+      - "current_carrier_stuck"
+    provenance:
+      source_repository: "Deivulgaris/Universal-Framework-for-Complex-Problem-Solving"
+      source_reference: "protocols/SCP_v1.md"
+      derivation_mode: "SOURCE_REFERENCE"
+
+  reasoning_trace:
+    trace_id: "tr:e2e-continuity-001"
+    question_id: "q:continuity.local_failure_vs_termination.v1"
+    root_invariant:
+      id: "ufcps:scp.inv.local_failure_not_process_termination.v1"
+      statement: "Local Failure ≠ Process Termination"
+      status: SOURCE
+      provenance: "protocols/SCP_v1.md"
+    chain_path:
+      - "ufcps:scp.inv.local_failure_not_process_termination.v1"
+      - "ufcps:scp.prc.deadlock_as_information.v1"
+      - "ufcps:scp.prc.state_handoff.v1"
+      - "ufcps:scp.prc.unfold.v1"
+    steps:
+      - step_id: S1
+        from_id: "ufcps:scp.inv.local_failure_not_process_termination.v1"
+        to_id: "ufcps:scp.prc.deadlock_as_information.v1"
+        relation: protocol_consequence
+        statement: "A local failure is preserved as structured process information rather than automatic global termination."
+        status: SOURCE
+        provenance: "SCP_v1 §4–8"
+      - step_id: S2
+        from_id: "ufcps:scp.prc.deadlock_as_information.v1"
+        to_id: "ufcps:scp.prc.state_handoff.v1"
+        relation: continuation_requirement
+        statement: "A structured deadlock becomes input to preservation and delegation of continuation-relevant state."
+        status: SOURCE
+        provenance: "SCP_v1 §8–9"
+      - step_id: S3
+        from_id: "ufcps:scp.prc.state_handoff.v1"
+        to_id: "ufcps:scp.prc.unfold.v1"
+        relation: procedural_continuation
+        statement: "Preserved state is externalized so a subsequent carrier can reconstruct a procedural successor."
+        status: SOURCE
+        provenance: "SCP_v1 §5–9"
+      - step_id: S4
+        from_id: "ufcps:scp.prc.unfold.v1"
+        to_id: "ufcps:scp.prc.next_procedural_unit.v1"
+        relation: continuation_transition
+        statement: "Unfolding initializes the subsequent procedural unit."
+        status: SOURCE
+        provenance: "SCP_v1 §6"
+    provenance:
+      source: "e2e_fixture"
+      ontology_write: false
+
+task_formation:
+  expected:
+    question_id: "q:continuity.local_failure_vs_termination.v1"
+    task_prospect_required_fields:
+      - question_id
+      - unresolved_difference
+      - continuation_relevant_state
+      - next_required_operation
+    separations:
+      - "question != task_prospect"
+      - "task_prospect != claim"
+      - "claim != execution"
+    forbidden:
+      - "task generated only because output is missing"
+      - "ontology mutation by adapter"
+
+cases:
+  - id: E2E-01
+    name: contradiction_with_explicit_affected_step
+    description: >
+      Retrieval returns material that contradicts step S3 (handoff sufficiency).
+      Classification carries explicit affected_step_id=S3.
+    mock_retrieval:
+      retrieval_id: "ret:e2e-01"
+      query_id: "qry:e2e-01"
+      retrieval_status: FOUND
+      intent: CONTRADICTION_CHECK
+      provenance:
+        provider: "mock-provider-v1"
+      payload:
+        summary: "Preserved state lacked unresolved_difference required by the SCP handoff contract."
+        evidence_ref: "mock://evidence/handoff-gap"
+    classification_expectation:
+      result_class: CONTRADICTION_FOUND
+      affected_step_id: S3
+      impact_mode: EXPLICIT_STEP_REFERENCE
+      affected_effect: REQUIRES_RECONCILIATION
+      downstream_replay_count: 1
+      process_terminated: false
+      validated_semantic_claim: false
+
+  - id: E2E-02
+    name: evidence_with_explicit_affected_step
+    description: "Evidence supports handoff construction at S3; requires validation, not auto-claim."
+    mock_retrieval:
+      retrieval_id: "ret:e2e-02"
+      query_id: "qry:e2e-02"
+      retrieval_status: FOUND
+      intent: EVIDENCE_DISCOVERY
+      provenance:
+        provider: "mock-provider-v1"
+      payload:
+        summary: "Minimal continuation state schema validates against deadlock_v1 handoff fields."
+        evidence_ref: "mock://evidence/schema-handoff-ok"
+    classification_expectation:
+      result_class: EVIDENCE_FOUND
+      affected_step_id: S3
+      impact_mode: EXPLICIT_STEP_REFERENCE
+      affected_effect: REQUIRES_VALIDATION
+      downstream_replay_count: 1
+      process_terminated: false
+      validated_semantic_claim: false
+
+  - id: E2E-03
+    name: method_found_tail_fallback
+    description: "METHOD_FOUND without explicit step reference; only procedural tail fallback is allowed."
+    mock_retrieval:
+      retrieval_id: "ret:e2e-03"
+      query_id: "qry:e2e-03"
+      retrieval_status: FOUND
+      intent: METHOD_DISCOVERY
+      provenance:
+        provider: "mock-provider-v1"
+      payload:
+        summary: "SCP delegation checklist available as an operational method."
+        evidence_ref: "mock://evidence/scp-checklist"
+    classification_expectation:
+      result_class: METHOD_FOUND
+      affected_step_id: null
+      impact_mode: TAIL_FALLBACK
+      anchor_step_id: S4
+      fallback_label: "procedural_tail_fallback_not_causal_attribution"
+      downstream_replay_count: 0
+      process_terminated: false
+      validated_semantic_claim: false
+
+  - id: E2E-04
+    name: information_gap_not_termination
+    description: "NOT_FOUND retrieval yields INFORMATION_GAP; frontier remains open."
+    mock_retrieval:
+      retrieval_id: "ret:e2e-04"
+      query_id: "qry:e2e-04"
+      retrieval_status: NOT_FOUND
+      intent: INFORMATION_GAP
+      provenance:
+        provider: "mock-provider-v1"
+    classification_expectation:
+      result_class: INFORMATION_GAP
+      affected_step_id: S2
+      impact_mode: EXPLICIT_STEP_REFERENCE
+      affected_effect: REQUIRES_VALIDATION
+      downstream_replay_count: 2
+      process_terminated: false
+      validated_semantic_claim: false
+      negative_result_preserved: true
+
+  - id: E2E-05
+    name: retrieval_failure_preserves_continuity
+    description: "Provider ERROR becomes RETRIEVAL_FAILURE; retry/delegate path remains open."
+    mock_retrieval:
+      retrieval_id: "ret:e2e-05"
+      query_id: "qry:e2e-05"
+      retrieval_status: ERROR
+      intent: SOLUTION_DISCOVERY
+      provenance:
+        provider: "mock-provider-v1"
+      payload:
+        error: "provider_timeout"
+    classification_expectation:
+      result_class: RETRIEVAL_FAILURE
+      affected_step_id: null
+      impact_mode: TAIL_FALLBACK
+      anchor_step_id: S4
+      fallback_label: "procedural_tail_fallback_not_causal_attribution"
+      downstream_replay_count: 0
+      process_terminated: false
+      validated_semantic_claim: false
+
+  - id: E2E-06
+    name: solution_found_is_not_semantic_claim
+    description: "SOLUTION_FOUND remains a retrieval classification and does not write claim_registry."
+    mock_retrieval:
+      retrieval_id: "ret:e2e-06"
+      query_id: "qry:e2e-06"
+      retrieval_status: FOUND
+      intent: SOLUTION_DISCOVERY
+      provenance:
+        provider: "mock-provider-v1"
+      payload:
+        summary: "Candidate: preserve deadlock object then unfold to P_n+1 on new carrier."
+        evidence_ref: "mock://evidence/candidate-continuation"
+    classification_expectation:
+      result_class: SOLUTION_FOUND
+      affected_step_id: S4
+      impact_mode: EXPLICIT_STEP_REFERENCE
+      affected_effect: REQUIRES_VALIDATION
+      downstream_replay_count: 0
+      process_terminated: false
+      validated_semantic_claim: false
+      registry_write_allowed: false
+
+suite_asserts:
+  - "Every case preserves question_id through frontier and UQL-style update"
+  - "No case sets process_terminated true from classification alone"
+  - "validated_semantic_claim is false unless separate validation passes"
+  - "EXPLICIT_STEP_REFERENCE requires affected_step_id"
+  - "Missing affected_step_id forces TAIL_FALLBACK with non-causal label"
+  - "Downstream steps use REQUIRES_REPLAY rather than deletion"
+  - "Run does not modify ontology registry files"
