@@ -4,7 +4,7 @@
   "title":"Impact Localized Frontier v1",
   "type":"object",
   "additionalProperties":false,
-  "required":["frontier_id","question_id","root_invariant_id","trace_id","anchor_step_id","impact_mode","reasoning_prefix","affected_step","downstream_steps","next_required_operation","provenance"],
+  "required":["frontier_id","question_id","root_invariant_id","trace_id","anchor_step_id","impact_mode","reasoning_prefix","affected_step","downstream_steps","information_result","next_required_operation","provenance"],
   "properties":{
     "frontier_id":{"type":"string","minLength":1},
     "question_id":{"type":"string","minLength":1},
@@ -15,6 +15,7 @@
     "reasoning_prefix":{"type":"array","minItems":1,"items":{"type":"string","minLength":1}},
     "affected_step":{"type":"object","additionalProperties":true},
     "downstream_steps":{"type":"array","items":{"type":"object","additionalProperties":true}},
+    "information_result":{"type":"object","additionalProperties":true},
     "next_required_operation":{"type":"string","minLength":1},
     "provenance":{"type":"object","additionalProperties":true}
   }
