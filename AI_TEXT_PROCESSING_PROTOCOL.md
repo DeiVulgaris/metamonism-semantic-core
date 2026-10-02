@@ -1676,3 +1676,98 @@ what remains to be established
 ```
 
 These layers must remain interoperable but non-collapsed.
+
+
+## 33. Minimal Continuation Constructor
+
+The continuation map F MUST be treated at the weakest source-compatible level.
+
+For the current corpus:
+
+```
+F : R → A
+F(R_n) = A_{n+1} = (D_{n+1}, I_{n+1})
+```
+
+Its semantic role is to provide the argument conditions for the next application of P.
+
+The source explicitly states that F is not an independent fundamental principle. It is a necessary continuation mechanism.
+
+### 33.1 Minimal obligations of F
+
+A candidate F is admissible only if:
+
+```
+F(R_n) = (D_{n+1},I_{n+1})
+(D_{n+1},I_{n+1}) ∈ Dom(P)
+P(F(R_n)) ≠ □
+```
+
+and the transition remains part of the same continuing actualization trajectory.
+
+### 33.2 Do not over-specify F
+
+Unless the source or an independent derivation requires it, F MUST NOT be assigned:
+
+- a metric;
+- coordinates;
+- a differential equation;
+- a probability law;
+- an optimization criterion;
+- a physical force interpretation;
+- a geometric transformation;
+- an algebraic multiplication law.
+
+The weakest valid constructor is preferable to a stronger invented mechanism.
+
+### 33.3 F is not a universal generator
+
+Do not interpret F as:
+
+```
+F = generator of all possible states in D
+```
+
+Its scope is the continuation of an already actualized trajectory.
+
+### 33.4 F and invariant preservation
+
+The foundational invariant remains external to the local constructor:
+
+```
+I_* = foundational invariant
+F(R_n) = (D_{n+1},I_{n+1})
+```
+
+A new local I_{n+1} does not automatically create a new foundational invariant.
+
+### 33.5 Failure of F
+
+If F(R_n) is not in Dom(P), record:
+
+```
+continuation construction
+→ domain failure
+→ unresolved boundary
+```
+
+Do not replace the failure with an invented successor.
+
+This boundary is precisely where later processual resolution research begins.
+
+### 33.6 Research order
+
+The preferred order is:
+
+```
+P + Dom(P)
+→ F
+→ repeated actualization
+→ successor distinctions
+→ exhaustion of current mode
+→ orthogonal resolution
+→ geometry
+→ algebra
+```
+
+This rule prevents the semantic core from beginning with a preconstructed geometry and then fitting P to it.
