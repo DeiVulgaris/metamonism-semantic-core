@@ -1,456 +1,461 @@
-#!/usr/bin/env python3
-"""Minimal in-memory UQL-compatible branch store for Research Loop R1.
+"""
+UQL Branch Store — Research Loop R1 (skeleton)
 
-This is a skeleton, not a replacement for the existing UFCPS UQLStore.
+Durable derived questions, branch identity, append-only history.
+Does NOT write ontology registries (id/claim/relation_registry).
 
-Responsibilities:
-- durable-shaped question objects;
-- explicit branch lineage;
-- append-only history;
-- active frontier index;
-- spawning a derived question from an R0 policy decision.
-
-Non-responsibilities:
-- ontology writes;
-- claim elevation;
-- semantic rewriting;
-- automatic branch merge;
-- autonomous policy selection;
-- execution.
+R0 policy selects transitions; this store persists UQL process objects.
 """
 
 from __future__ import annotations
 
 from copy import deepcopy
+from dataclasses import dataclass, field
 from datetime import datetime, timezone
+from typing import Any, Optional
 import json
-from pathlib import Path
-from typing import Any, Mapping
+import re
 
 
-QUESTION_STATUSES = {"OPEN", "CLOSED"}
-BRANCH_STATUSES = {"ACTIVE", "CLOSED"}
+ACTIVE_QUESTION_STATUSES = frozenset(
+    {
+        "OPEN",
+        "BLOCKED",
+        "WAITING_INFORMATION",
+        "WAITING_VALIDATION,
+    }
+)
 
-
-class UQLBranchStoreError(ValueError):
-    """Base store error."""
-
-
-class UQLNotFound(UQLBranchStoreError):
-    """Requested UQL object does not exist."""
-
-
-class UQLBranchStore:
-    """In-memory UQL-shaped ledger with explicit append-only history."""
-
-    def __init__(self) -> None:
-        self.questions: dict[str, dict[str, Any]] = {}
-        self.branches: dict[str, dict[str, Any]] = {}
-        self.history: list[dict[str, Any]] = []
-        self.frontier: dict[str, list[str]] = {
-            "active_branch_ids": [],
-            "active_tip_question_ids": [],
+# Status transitions allowed by R1 spec (target sets)
+STATUS_TRANSITIONS: dict[str, frozenset[str]] = {
+    "OPEN": frozenset(
+        {
+            "WAITING_INFORMATION",
+            "WAITING_VALIDATION",
+            "BLOCKED",
+            "SUPERSEDED",
+            "RESOLVED_CANDIDATE",
+            "CLOSED_TERMINATED",
         }
+    ),
+    "WAITING_INFORMATION": frozenset({"OPEN", "BLOCKED", "CLOSED_TERMINATED"}),
+    "WAITING_VALIDATION": frozenset(
+        {"OPEN", "RESOLVED_CANDIDATE", "CLOSED_TERMINATED"}
+    ),
+    "BLOCKED": frozenset({"OPEN", "CLOSED_TERMINATED"}),
+    "RESOLVED_CANDIDATE": frozenset({"OPEN", "CLOSED_TERMINATED"}),
+    "SUPERSEDED": frozenset(),
+    "CLOSED_TERMINATED": frozenset(),
+    "CLOSED_RESOLVED": frozenset(),
+}
 
-    # ------------------------------------------------------------------
-    # Root registration
-    # ------------------------------------------------------------------
+
+def _utc_now() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+
+def _slug(text: str, max_len: int = 48) -> str:
+    s = text.lower().strip()
+    s = re.sub(r"^uql:q:", "", s)
+    s = re.sub(r"^q:", "", s)
+    s = re.sub(r"[^a-z0-9]+", ".", s).strip(".")
+    return (s[:max_len] or "q").strip(".")
+
+
+@dataclass
+class UQLBranchStore:
+    """In-memory UQL ledger. Optional JSON path for load/save."""
+
+    questions: dict[str, dict[str, Any]] = field(default_factory=dict)
+    branches: dict[str, dict[str, Any]] = field(default_factory=dict)
+    history: list[dict[str, Any]] = field(default_factory=list)
+    _seq: dict[str, int] = field(default_factory=dict)
+
+    # --- identity ---
+
+    def _next_seq(self, key: str) -> int:
+        n = self._seq.get(key, 0)
+        self._seq[key] = n + 1
+        return n
+
+    def make_root_question_id(self, slug: str) -> str:
+        return f"uql:q:{_slug(slug)}"
+
+    def make_derived_question_id(
+        self,
+        parent_id: str,
+        anchor_step: str,
+        trigger: str,
+        seq: Optional[int] = None,
+    ) -> str:
+        parent_slug = _slug(parent_id)
+        trigger_slug = _slug(trigger, 32)
+        if seq is None:
+            key = f"dq:{parent_id}:{anchor_step}:{trigger}"
+            seq = self._next_seq(key)
+        return f"uql:q:{parent_slug}:d:{anchor_step}:{trigger_slug}:{seq}"
+
+    def make_root_branch_id(self, root_question_id: str) -> str:
+        return f"uql:br:{_slug(root_question_id)}:main"
+
+    def make_child_branch_id(
+        self,
+        root_question_id: str,
+        parent_branch_id: str,
+        anchor_step: str,
+        trigger: str,
+        seq: Optional[int] = None,
+    ) -> str:
+        root_slug = _slug(root_question_id)
+        parent_short = _slug(parent_branch_id, 24)
+        trigger_slug = _slug(trigger, 24)
+        if seq is None:
+            key = f"br:{root_question_id}:{parent_branch_id}:{anchor_step}:{trigger}"
+            seq = self._next_seq(key)
+        return f"uql:br:{root_slug}:{parent_short}:{anchor_step}:{trigger_slug}:{seq}"
+
+    def make_entry_id(self, uql_question_id: str, event_type: str) -> str:
+        key = f"he:{uql_question_id}:{event_type}"
+        seq = self._next_seq(key)
+        return f"uql:he:{_slug(uql_question_id, 40)}:{event_type}:{seq}"
+
+    # --- core writes ---
+
     def register_root(
         self,
-        *,
-        uql_question_id: str,
-        question: str,
+        statement: str,
         unresolved_difference: str,
-        constraints: list[str] | None = None,
-        source: str | None = None,
-        branch_id: str | None = None,
+        constraints: Optional[list[str]] = None,
+        slug: Optional[str] = None,
+        created_from: str = "fixture",
+        provenance: Optional[dict[str, Any]] = None,
     ) -> dict[str, Any]:
-        if uql_question_id in self.questions:
-            raise UQLBranchStoreError(
-                f"question already exists: {uql_question_id}"
-            )
-        root_branch_id = branch_id or f"br:{uql_question_id}"
-        if root_branch_id in self.branches:
-            raise UQLBranchStoreError(
-                f"branch already exists: {root_branch_id}"
-            )
-
-        now = self._now()
-        question_obj = {
-            "uql_question_id": uql_question_id,
+        """Create root question + main branch."""
+        qid = self.make_root_question_id(slug or statement)
+        if qid in self.questions:
+            raise ValueError(f"root already exists: {qid}")
+        bid = self.make_root_branch_id(qid)
+        prov = {"ontology_write": False, **(provenance or {})}
+        question = {
+            "uql_question_id": qid,
+            "statement": statement,
             "status": "OPEN",
-            "branch_id": root_branch_id,
-            "root_question_id": uql_question_id,
-            "parent_question_id": None,
-            "question": question,
+            "branch_id": bid,
+            "parent_uql_question_id": None,
+            "root_uql_question_id": qid,
             "unresolved_difference": unresolved_difference,
             "constraints": list(constraints or []),
-            "provenance": {
-                "parent_question": None,
-                "derived_from_step": None,
-                "trigger": None,
-                "derivation_basis": "ROOT_REGISTRATION",
-                "source": source,
-                "ontology_write": False,
-                "claim_elevate": False,
-            },
+            "created_from": created_from,
+            "origin_step_id": None,
+            "origin_trigger": None,
+            "derivation_basis": None,
+            "provenance": prov,
         }
-        branch_obj = {
-            "branch_id": root_branch_id,
-            "root_question_id": uql_question_id,
+        branch = {
+            "branch_id": bid,
+            "root_uql_question_id": qid,
             "parent_branch_id": None,
             "origin_step_id": None,
             "origin_trigger": None,
-            "tip_question_id": uql_question_id,
             "status": "ACTIVE",
-            "lineage": [root_branch_id],
+            "tip_uql_question_id": qid,
         }
-
-        self.questions[uql_question_id] = question_obj
-        self.branches[root_branch_id] = branch_obj
-        self._history(
-            event_type="ROOT_REGISTERED",
-            uql_question_id=uql_question_id,
-            branch_id=root_branch_id,
-            payload={"source": source},
+        self.questions[qid] = question
+        self.branches[bid] = branch
+        self.append_history(
+            qid,
+            bid,
+            "NOTE",
+            {"event": "root_registered", "statement": statement},
         )
-        self._refresh_frontier()
-        return deepcopy(question_obj)
+        return deepcopy(question)
 
-    # ------------------------------------------------------------------
-    # Derived-question spawn
-    # ------------------------------------------------------------------
-    def spawn_derived(
-        self,
-        policy_decision: Mapping[str, Any],
-    ) -> dict[str, Any]:
-        """Persist an R0 derived question as a new branch.
-
-        The method accepts only an R0-shaped decision and never creates an
-        ontology or claim write. A null derived_question is a no-op.
-        """
-        decision = policy_decision.get("policy_decision", policy_decision)
-        if not isinstance(decision, Mapping):
-            raise UQLBranchStoreError("policy_decision must be an object")
-
-        derived = decision.get("derived_question")
-        if derived is None:
-            return {
-                "spawned": False,
-                "reason": "NO_DERIVED_QUESTION",
-                "question": None,
-            }
-        if not isinstance(derived, Mapping):
-            raise UQLBranchStoreError("derived_question must be an object")
-
-        parent_question_id = self._require(
-            decision.get("question_id"),
-            "policy_decision.question_id",
-        )
-        derived_id = self._require(
-            derived.get("question_id"),
-            "derived_question.question_id",
-        )
-        if parent_question_id not in self.questions:
-            raise UQLNotFound(f"parent question not found: {parent_question_id}")
-        if derived_id in self.questions:
-            raise UQLBranchStoreError(f"question already exists: {derived_id}")
-
-        parent = self.questions[parent_question_id]
-        parent_branch_id = str(parent["branch_id"])
-        parent_branch = self.branches[parent_branch_id]
-
-        derived_from_step = self._require(
-            derived.get("derived_from_step"),
-            "derived_question.derived_from_step",
-        )
-        trigger = self._require(
-            derived.get("trigger"),
-            "derived_question.trigger",
-        )
-        status = self._require(derived.get("status"), "derived_question.status")
-        if status != "OPEN":
-            raise UQLBranchStoreError(
-                "R1 spawn accepts only OPEN derived questions"
-            )
-
-        branch_id = f"br:{derived_id}"
-        if branch_id in self.branches:
-            raise UQLBranchStoreError(f"branch already exists: {branch_id}")
-
-        inherited_constraints = list(
-            derived.get("constraints")
-            or parent.get("constraints")
-            or []
-        )
-
-        question_obj = {
-            "uql_question_id": derived_id,
-            "status": "OPEN",
-            "branch_id": branch_id,
-            "root_question_id": str(parent["root_question_id"]),
-            "parent_question_id": parent_question_id,
-            "question": (
-                str(derived.get("unresolved_difference"))
-                if derived.get("unresolved_difference")
-                else str(derived_id)
-            ),
-            "unresolved_difference": self._require(
-                derived.get("unresolved_difference"),
-                "derived_question.unresolved_difference",
-            ),
-            "constraints": inherited_constraints,
-            "provenance": {
-                "parent_question": parent_question_id,
-                "derived_from_step": derived_from_step,
-                "trigger": trigger,
-                "derivation_basis": self._require(
-                    derived.get("derivation_basis"),
-                    "derived_question.derivation_basis",
-                ),
-                "source": None,
-                "ontology_write": False,
-                "claim_elevate": False,
-            },
-        }
-
-        branch_obj = {
-            "branch_id": branch_id,
-            "root_question_id": str(parent["root_question_id"]),
-            "parent_branch_id": parent_branch_id,
-            "origin_step_id": derived_from_step,
-            "origin_trigger": trigger,
-            "tip_question_id": derived_id,
-            "status": "ACTIVE",
-            "lineage": list(parent_branch["lineage"]) + [branch_id],
-        }
-
-        self.questions[derived_id] = question_obj
-        self.branches[branch_id] = branch_obj
-
-        self._history(
-            event_type="DERIVED_QUESTION_SPAWNED",
-            uql_question_id=derived_id,
-            branch_id=branch_id,
-            payload={
-                "parent_question_id": parent_question_id,
-                "parent_branch_id": parent_branch_id,
-                "origin_step_id": derived_from_step,
-                "trigger": trigger,
-            },
-        )
-        self._refresh_frontier()
-
-        return {
-            "spawned": True,
-            "question": deepcopy(question_obj),
-            "branch": deepcopy(branch_obj),
-        }
-
-    # ------------------------------------------------------------------
-    # Append-only history
-    # ------------------------------------------------------------------
     def append_history(
         self,
-        *,
-        event_type: str,
         uql_question_id: str,
         branch_id: str,
-        payload: Mapping[str, Any] | None = None,
-    ) -> dict[str, Any]:
-        self._ensure_question_branch(uql_question_id, branch_id)
-        return self._history(
-            event_type=event_type,
-            uql_question_id=uql_question_id,
-            branch_id=branch_id,
-            payload=payload or {},
-        )
-
-    def _history(
-        self,
-        *,
         event_type: str,
-        uql_question_id: str,
-        branch_id: str,
-        payload: Mapping[str, Any],
+        payload: dict[str, Any],
+        timestamp: Optional[str] = None,
     ) -> dict[str, Any]:
-        event_id = f"ev:{len(self.history) + 1:06d}"
-        previous_event_id = (
-            self.history[-1]["event_id"] if self.history else None
-        )
+        if uql_question_id not in self.questions:
+            raise KeyError(f"unknown question: {uql_question_id}")
+        if branch_id not in self.branches:
+            raise KeyError(f"unknown branch: {branch_id}")
         entry = {
-            "event_id": event_id,
-            "event_type": event_type,
-            "occurred_on": self._now(),
+            "entry_id": self.make_entry_id(uql_question_id, event_type),
             "uql_question_id": uql_question_id,
             "branch_id": branch_id,
-            "payload": deepcopy(dict(payload)),
-            "previous_event_id": previous_event_id,
-            "sequence": len(self.history),
+            "event_type": event_type,
+            "timestamp": timestamp or _utc_now(),
+            "payload": deepcopy(payload),
         }
         self.history.append(entry)
         return deepcopy(entry)
 
-    # ------------------------------------------------------------------
-    # Status / lineage / frontier
-    # ------------------------------------------------------------------
-    def set_question_status(self, uql_question_id: str, status: str) -> dict[str, Any]:
-        question = self._question(uql_question_id)
-        if status not in QUESTION_STATUSES:
-            raise UQLBranchStoreError(f"invalid question status: {status}")
-        if question["status"] == status:
-            return deepcopy(question)
-
-        previous = question["status"]
-        question["status"] = status
-        self._history(
-            event_type="QUESTION_STATUS_CHANGED",
-            uql_question_id=uql_question_id,
-            branch_id=str(question["branch_id"]),
-            payload={"from": previous, "to": status},
+    def set_status(self, uql_question_id: str, new_status: str) -> dict[str, Any]:
+        q = self.questions[uql_question_id]
+        old = q["status"]
+        if new_status == "CLOSED_RESOLVED":
+            raise ValueError(
+                "CLOSED_RESOLVED requires external validation gate; not set by R1 store alone"
+            )
+        allowed = STATUS_TRANSITIONS.get(old, frozenset())
+        if new_status not in allowed and new_status != old:
+            raise ValueError(f"illegal transition {old} → {new_status}")
+        q["status"] = new_status
+        self.append_history(
+            uql_question_id,
+            q["branch_id"],
+            "STATUS_CHANGE",
+            {"from": old, "to": new_status},
         )
-        self._refresh_frontier()
-        return deepcopy(question)
+        return deepcopy(q)
 
-    def set_branch_status(self, branch_id: str, status: str) -> dict[str, Any]:
-        branch = self._branch(branch_id)
-        if status not in BRANCH_STATUSES:
-            raise UQLBranchStoreError(f"invalid branch status: {status}")
-        if branch["status"] == status:
-            return deepcopy(branch)
-
-        previous = branch["status"]
-        branch["status"] = status
-        self._history(
-            event_type="BRANCH_STATUS_CHANGED",
-            uql_question_id=str(branch["tip_question_id"]),
-            branch_id=branch_id,
-            payload={"from": previous, "to": status},
+    def spawn_derived(self, policy_decision: dict[str, Any]) -> Optional[dict[str, Any]]:
+        """
+        Apply R0 policy_decision:
+        - always record POLICY_DECISION / OPERATION_SELECTED on active question
+        - if derived_question present, spawn child + branch
+        - if terminate, close active question only (not siblings)
+        Returns child question or None.
+        """
+        parent_ref = (
+            policy_decision.get("uql_question_id")
+            or policy_decision["question_id"]
         )
-        self._refresh_frontier()
-        return deepcopy(branch)
+        parent = self._resolve_question(parent_ref)
+        parent_id = parent["uql_question_id"]
+        branch_id = parent["branch_id"]
+
+        self.append_history(
+            parent_id,
+            branch_id,
+            "POLICY_DECISION",
+            {
+                "selected_operation": policy_decision.get("selected_operation"),
+                "rationale_codes": policy_decision.get("rationale_codes"),
+                "result_class": policy_decision.get("result_class"),
+            },
+        )
+        self.append_history(
+            parent_id,
+            branch_id,
+            "OPERATION_SELECTED",
+            {"operation": policy_decision.get("selected_operation")},
+        )
+
+        op = policy_decision.get("selected_operation")
+        if op == "terminate":
+            self.set_status(parent_id, "CLOSED_TERMINATED")
+            return None
+
+        derived = policy_decision.get("derived_question")
+        if not derived:
+            return None
+
+        anchor = (
+            derived.get("derived_from_step")
+            or policy_decision.get("anchor_step_id")
+            or "S?"
+        )
+        trigger = (
+            derived.get("trigger")
+            or policy_decision.get("result_class")
+            or "DERIVED"
+        )
+        child_id = self.make_derived_question_id(
+            parent_id,
+            str(anchor),
+            str(trigger),
+        )
+        child_branch = self.make_child_branch_id(
+            parent["root_uql_question_id"],
+            branch_id,
+            str(anchor),
+            str(trigger),
+        )
+
+        constraints = list(
+            derived.get("constraints")
+            or parent.get("constraints")
+            or []
+        )
+        statement = (
+            derived.get("statement")
+            or derived.get("unresolved_difference")
+            or "derived"
+        )
+        child = {
+            "uql_question_id": child_id,
+            "statement": statement,
+            "status": "OPEN",
+            "branch_id": child_branch,
+            "parent_uql_question_id": parent_id,
+            "root_uql_question_id": parent["root_uql_question_id"],
+            "unresolved_difference": (
+                derived.get("unresolved_difference") or statement
+            ),
+            "constraints": constraints,
+            "created_from": "policy_decision",
+            "origin_step_id": str(anchor),
+            "origin_trigger": str(trigger),
+            "derivation_basis": derived.get("derivation_basis"),
+            "provenance": {
+                "ontology_write": False,
+                "parent_question": parent_id,
+                "policy_question_id": policy_decision.get("question_id"),
+                "claim_elevate": False,
+            },
+        }
+        branch = {
+            "branch_id": child_branch,
+            "root_uql_question_id": parent["root_uql_question_id"],
+            "parent_branch_id": branch_id,
+            "origin_step_id": str(anchor),
+            "origin_trigger": str(trigger),
+            "status": "ACTIVE",
+            "tip_uql_question_id": child_id,
+        }
+        self.questions[child_id] = child
+        self.branches[child_branch] = branch
+
+        self.append_history(
+            parent_id,
+            branch_id,
+            "DERIVED_QUESTION_SPAWNED",
+            {"child_uql_question_id": child_id, "child_branch_id": child_branch},
+        )
+        self.append_history(
+            child_id,
+            child_branch,
+            "NOTE",
+            {"event": "spawned", "parent": parent_id},
+        )
+        return deepcopy(child)
+
+    def _resolve_question(self, ref: str) -> dict[str, Any]:
+        if ref in self.questions:
+            return self.questions[ref]
+        for q in self.questions.values():
+            if q.get("provenance", {}).get("policy_question_id") == ref:
+                return q
+            if q["uql_question_id"] == ref or q["uql_question_id"].endswith(ref):
+                return q
+        candidate = self.make_root_question_id(ref)
+        if candidate in self.questions:
+            return self.questions[candidate]
+        raise KeyError(f"unknown question ref: {ref}")
+
+    # --- queries ---
+
+    def list_active_frontiers(
+        self,
+        root_uql_question_id: Optional[str] = None,
+    ) -> list[dict[str, Any]]:
+        out = []
+        for q in self.questions.values():
+            if q["status"] not in ACTIVE_QUESTION_STATUSES:
+                continue
+            if (
+                root_uql_question_id
+                and q["root_uql_question_id"] != root_uql_question_id
+            ):
+                continue
+            out.append(deepcopy(q))
+        return out
 
     def get_lineage(self, uql_question_id: str) -> list[dict[str, Any]]:
-        question = self._question(uql_question_id)
-        branch_id = str(question["branch_id"])
-        branch = self._branch(branch_id)
-        result: list[dict[str, Any]] = []
+        chain: list[dict[str, Any]] = []
+        seen: set[str] = set()
+        cur: Optional[str] = uql_question_id
+        while cur and cur not in seen:
+            seen.add(cur)
+            q = self.questions[cur]
+            chain.append(deepcopy(q))
+            cur = q.get("parent_uql_question_id")
+        chain.reverse()
+        return chain
 
-        for lineage_branch_id in branch["lineage"]:
-            lineage_branch = self._branch(lineage_branch_id)
-            tip_id = lineage_branch["tip_question_id"]
-            result.append(self._question(str(tip_id)))
-        return result
+    def list_open_children(
+        self,
+        parent_uql_question_id: str,
+    ) -> list[dict[str, Any]]:
+        return [
+            deepcopy(q)
+            for q in self.questions.values()
+            if q.get("parent_uql_question_id") == parent_uql_question_id
+            and q["status"] in ACTIVE_QUESTION_STATUSES
+        ]
 
-    def list_active_frontier(self) -> dict[str, Any]:
+    def get_branch(self, branch_id: str) -> dict[str, Any]:
+        return deepcopy(self.branches[branch_id])
+
+    def history_for(self, uql_question_id: str) -> list[dict[str, Any]]:
+        return [
+            deepcopy(e)
+            for e in self.history
+            if e["uql_question_id"] == uql_question_id
+        ]
+
+    # --- persistence helpers ---
+
+    def to_dict(self) -> dict[str, Any]:
         return {
-            "active_branch_ids": list(self.frontier["active_branch_ids"]),
-            "active_tip_question_ids": list(self.frontier["active_tip_question_ids"]),
+            "questions": self.questions,
+            "branches": self.branches,
+            "history": self.history,
+            "seq": self._seq,
         }
 
-    # ------------------------------------------------------------------
-    # Inspection / persistence
-    # ------------------------------------------------------------------
-    def snapshot(self) -> dict[str, Any]:
-        return {
-            "questions": deepcopy(self.questions),
-            "branches": deepcopy(self.branches),
-            "history": deepcopy(self.history),
-            "frontier": deepcopy(self.frontier),
-        }
-
-    def save_json(self, path: str | Path) -> None:
-        target = Path(path)
-        target.write_text(
-            json.dumps(self.snapshot(), ensure_ascii=False, indent=2),
-            encoding="utf-8",
-        )
+    def save_json(self, path: str) -> None:
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(self.to_dict(), f, ensure_ascii=False, indent=2)
 
     @classmethod
-    def load_json(cls, path: str | Path) -> "UQLBranchStore":
-        target = Path(path)
-        data = json.loads(target.read_text(encoding="utf-8"))
+    def load_json(cls, path: str) -> "UQLBranchStore":
+        with open(path, encoding="utf-8") as f:
+            data = json.load(f)
         store = cls()
-        store.questions = dict(data.get("questions", {}))
-        store.branches = dict(data.get("branches", {}))
-        store.history = list(data.get("history", []))
-        store.frontier = {
-            "active_branch_ids": list(
-                data.get("frontier", {}).get("active_branch_ids", [])
-            ),
-            "active_tip_question_ids": list(
-                data.get("frontier", {}).get("active_tip_question_ids", [])
-            ),
-        }
+        store.questions = data.get("questions", {})
+        store.branches = data.get("branches", {})
+        store.history = data.get("history", [])
+        store._seq = data.get("seq", {})
         return store
 
-    # ------------------------------------------------------------------
-    # Helpers
-    # ------------------------------------------------------------------
-    @staticmethod
-    def _now() -> str:
-        return datetime.now(timezone.utc).isoformat()
 
-    @staticmethod
-    def _require(value: Any, field: str) -> str:
-        text = str(value or "").strip()
-        if not text:
-            raise UQLBranchStoreError(f"missing required field: {field}")
-        return text
+# --- minimal smoke (not full test suite) ---
 
-    def _question(self, uql_question_id: str) -> dict[str, Any]:
-        try:
-            return self.questions[uql_question_id]
-        except KeyError as exc:
-            raise UQLNotFound(
-                f"question not found: {uql_question_id}"
-            ) from exc
-
-    def _branch(self, branch_id: str) -> dict[str, Any]:
-        try:
-            return self.branches[branch_id]
-        except KeyError as exc:
-            raise UQLNotFound(f"branch not found: {branch_id}") from exc
-
-    def _ensure_question_branch(
-        self,
-        uql_question_id: str,
-        branch_id: str,
-    ) -> None:
-        question = self._question(uql_question_id)
-        branch = self._branch(branch_id)
-        if str(question["branch_id"]) != branch_id:
-            raise UQLBranchStoreError(
-                "question does not belong to supplied branch"
-            )
-        if str(branch["branch_id"]) != branch_id:
-            raise UQLBranchStoreError(
-                "branch identifier mismatch"
-            )
-
-    def _refresh_frontier(self) -> None:
-        active_branches = [
-            branch_id
-            for branch_id, branch in self.branches.items()
-            if branch.get("status") == "ACTIVE"
-        ]
-        active_tips = [
-            str(self.branches[branch_id]["tip_question_id"])
-            for branch_id in active_branches
-            if self.branches[branch_id].get("tip_question_id")
-            and self.questions.get(
-                str(self.branches[branch_id]["tip_question_id"]),
-                {},
-            ).get("status") == "OPEN"
-        ]
-        self.frontier = {
-            "active_branch_ids": active_branches,
-            "active_tip_question_ids": active_tips,
-        }
+def _smoke() -> None:
+    store = UQLBranchStore()
+    root = store.register_root(
+        statement="Local Failure ≠ Process Termination",
+        unresolved_difference="Can successor P_n+1 be constructed after STUCK?",
+        constraints=["Local Failure ≠ Process Termination"],
+        slug="continuity.local_failure",
+    )
+    decision = {
+        "question_id": "q:continuity.local_failure_vs_termination.v1",
+        "uql_question_id": root["uql_question_id"],
+        "selected_operation": "diff",
+        "rationale_codes": ["CONTRADICTION_REQUIRES_REDIFFERENTIATION"],
+        "result_class": "CONTRADICTION_FOUND",
+        "anchor_step_id": "S3",
+        "derived_question": {
+            "derived_from_step": "S3",
+            "trigger": "CONTRADICTION_FOUND",
+            "unresolved_difference": "Reconcile handoff contradiction at S3",
+            "derivation_basis": "CONTRADICTION_FOUND against S3",
+            "constraints": root["constraints"],
+        },
+    }
+    child = store.spawn_derived(decision)
+    assert child is not None
+    assert child["parent_uql_question_id"] == root["uql_question_id"]
+    assert len(store.list_open_children(root["uql_question_id"])) == 1
+    assert len(store.get_lineage(child["uql_question_id"])) == 2
+    print("smoke OK", child["uql_question_id"])
 
 
-__all__ = [
-    "UQLBranchStore",
-    "UQLBranchStoreError",
-    "UQLNotFound",
-]
+if __name__ == "__main__":
+    _smoke()
