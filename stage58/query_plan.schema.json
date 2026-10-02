@@ -1,0 +1,18 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://github.com/Deivulgaris/metamonism-semantic-core/blob/main/stage58/query_plan.schema.json",
+  "title":"Information Space Query Plan v1",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["query_plan_id","frontier_id","question_id","intents","queries","constraints","source_classes","provenance"],
+  "properties":{
+    "query_plan_id":{"type":"string","minLength":1},
+    "frontier_id":{"type":"string","minLength":1},
+    "question_id":{"type":"string","minLength":1},
+    "intents":{"type":"array","minItems":1,"items":{"type":"string","enum":["SOLUTION_DISCOVERY","METHOD_DISCOVERY","EVIDENCE_DISCOVERY","CONTRADICTION_CHECK","INFORMATION_GAP","PRECEDENT_DISCOVERY","SOURCE_VALIDATION"]}},
+    "queries":{"type":"array","minItems":1,"items":{"type":"object","additionalProperties":false,"required":["query_id","intent","text"],"properties":{"query_id":{"type":"string","minLength":1},"intent":{"type":"string"},"text":{"type":"string","minLength":1},"target_difference":{"type":"string"},"exclusions":{"type":"array","items":{"type":"string"}}}}},
+    "constraints":{"type":"array","items":{"type":"string"}},
+    "source_classes":{"type":"array","items":{"type":"string"}},
+    "provenance":{"type":"object","additionalProperties":true}
+  }
+}
