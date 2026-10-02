@@ -156,6 +156,7 @@ def replay(chain: Mapping[str, Any], classification: Mapping[str, Any]) -> dict[
     return {
         "status": "REPLAYED",
         "trace_id": _trace_id(_text(root["id"]), information_result["classification_id"]),
+        "question_id": _text(chain.get("question_id")),
         "root_invariant": root,
         "chain_path": chain_path,
         "steps": steps,
@@ -173,6 +174,7 @@ def replay(chain: Mapping[str, Any], classification: Mapping[str, Any]) -> dict[
 def demo() -> dict[str, Any]:
     chain = {
         "chain_id": "MM-CH2-CHAIN",
+        "question_id": "Q-MM-CH2-DEMO",
         "root_invariant": {
             "id": "mm:core.inv.ban_of_indifference",
             "statement": "Nontrivial actualization excludes the identity/indifference case.",
