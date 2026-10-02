@@ -253,10 +253,7 @@
       "status": "SOURCE",
       "origin": "CORPUS",
       "layer": "core",
-      "consequence_of": [
-        "mm:core.prc.dissipation_of_identity",
-        "mm:core.sts.self_identity_lock"
-      ]
+      "consequence_of": "mm:core.sts.self_identity_lock"
     },
     {
       "@id": "mm:core.prc.orthogonal_resolution",
