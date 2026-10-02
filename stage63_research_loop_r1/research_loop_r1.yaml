@@ -1,0 +1,354 @@
+# Research Loop R1 — Derived Questions + UQL Branch Identity
+# Status: SPEC / READY FOR IMPLEMENTATION
+# Parent: Stage 62 Research Loop v0 (policy)
+# Does NOT modify ontology registries (id/claim/relation_registry)
+#
+# R0:  Localized Frontier → Policy → selected_operation ± derived_question (ephemeral)
+# R1:  Derived questions become UQL process objects with stable branch identity
+#
+# Boundary (unchanged):
+#   Policy / R1 ledger write ≠ semantic claim elevation
+#   derived_question ≠ truth of parent hypothesis
+#   branch ≠ proof of progress toward AGI
+
+version: "0.1.0"
+name: research_loop_r1
+status: SPEC
+depends_on:
+  - stage62_research_loop_v0
+  - stage61_impact_localized_frontier
+  - UFCPS_UQL_v1_concepts
+
+# ---------------------------------------------------------------------------
+# 1. What R1 adds beyond R0
+# ---------------------------------------------------------------------------
+delta_from_r0:
+  R0_provides:
+    - deterministic selected_operation
+    - optional derived_question object (in policy output)
+  R1_adds:
+    - stable uql_question_id for parent and derived questions
+    - branch_id linking parent → children
+    - append-only investigation history entries
+    - branch status lifecycle
+    - no silent merge of branches
+    - query helpers: active frontier set, lineage, open children
+  R1_does_not_add:
+    - ontology writes
+    - claim_registry elevation
+    - learned/LLM policy (still R0 table unless swapped later)
+    - multi-agent consensus protocol (later)
+
+# ---------------------------------------------------------------------------
+# 2. Core objects
+# ---------------------------------------------------------------------------
+objects:
+
+  uql_question:
+    description: "Process object for an unresolved question (UFCPS UQL sense)"
+    required_fields:
+      - uql_question_id
+      - statement
+      - status
+      - branch_id
+      - parent_uql_question_id   # null for root
+      - root_uql_question_id
+      - unresolved_difference
+      - constraints
+      - created_from            # policy_decision_id | human | import
+      - provenance
+    status_enum:
+      - OPEN
+      - BLOCKED
+      - WAITING_INFORMATION
+      - WAITING_VALIDATION
+      - SUPERSEDED
+      - RESOLVED_CANDIDATE      # not validated claim
+      - CLOSED_TERMINATED      # explicit terminate / budget
+      - CLOSED_RESOLVED        # only after separate validation gate (out of R1 write path)
+
+  branch:
+    description: "Identity of a research lineage under a root question"
+    required_fields:
+      - branch_id
+      - root_uql_question_id
+      - parent_branch_id       # null if root branch
+      - origin_step_id         # derived_from_step when spawned
+      - origin_trigger         # result_class / policy trigger
+      - status                 # ACTIVE | PARKED | MERGED_FORBIDDEN | CLOSED
+    rule: "No silent merge of branches; compose is explicit later (R2)"
+
+  history_entry:
+    description: "Append-only investigation event"
+    required_fields:
+      - entry_id
+      - uql_question_id
+      - branch_id
+      - event_type
+      - timestamp
+      - payload
+    event_type_enum:
+      - POLICY_DECISION
+      - OPERATION_SELECTED
+      - DERIVED_QUESTION_SPAWNED
+      - IMPACT_LOCALIZED
+      - CLASSIFICATION_RECORDED
+      - BUDGET_CHECKPOINT
+      - STATUS_CHANGE
+      - NOTE
+    rule: "History is append-only; no rewrite of prior entries"
+
+# ---------------------------------------------------------------------------
+# 3. Identity schemes
+# ---------------------------------------------------------------------------
+identity:
+  uql_question_id:
+    root_pattern: "uql:q:{slug}"
+    derived_pattern: "uql:q:{parent_slug}:d:{anchor_step}:{trigger_slug}:{seq}"
+    deterministic: true
+    note: "seq disambiguates multiple derived questions from same parent/step/trigger"
+
+  branch_id:
+    root_pattern: "uql:br:{root_slug}:main"
+    child_pattern: "uql:br:{root_slug}:{parent_short}:{anchor_step}:{trigger_slug}:{seq}"
+    deterministic: true
+
+  entry_id:
+    pattern: "uql:he:{uql_question_id}:{event_type}:{seq}"
+
+# ---------------------------------------------------------------------------
+# 4. Integration with R0 policy output
+# ---------------------------------------------------------------------------
+integration:
+  on_policy_decision:
+    always:
+      - append history_entry OPERATION_SELECTED / POLICY_DECISION on active question
+      - preserve question_id / uql_question_id mapping
+    if_derived_question_emitted:
+      - allocate uql_question_id (derived pattern)
+      - allocate child branch_id
+      - set parent_uql_question_id, root_uql_question_id
+      - copy constraints (+ optional tighten)
+      - status OPEN
+      - append DERIVED_QUESTION_SPAWNED on parent
+      - append NOTE/POLICY on child creation
+      - register child in frontier index
+    if_selected_operation_terminate:
+      - status CLOSED_TERMINATED on active question (not on siblings)
+      - branch status CLOSED if no other OPEN children policy says so
+    never:
+      - write id_registry / claim_registry / relation_registry
+      - set CLOSED_RESOLVED from policy alone
+      - merge child into parent statement
+
+  mapping_from_r0:
+    parent_question: "→ parent uql_question_id (lookup)"
+    derived_from_step: "→ origin_step_id / provenance"
+    trigger: "→ origin_trigger"
+    derivation_basis: "→ history payload + child provenance"
+    constraints: "→ child.constraints"
+
+# ---------------------------------------------------------------------------
+# 5. Frontier index (operational)
+# ---------------------------------------------------------------------------
+frontier_index:
+  description: "Queryable set of active research tips"
+  active_question_predicate:
+    status_in: [OPEN, WAITING_INFORMATION, WAITING_VALIDATION, BLOCKED]
+  api_conceptual:
+    - list_active_frontiers(root_uql_question_id?)
+    - get_lineage(uql_question_id) → [root … node]
+    - list_open_children(parent_uql_question_id)
+    - get_branch(branch_id)
+    - append_history(entry)
+    - spawn_derived(policy_decision) → child question
+  invariants:
+    - "Every OPEN derived question has exactly one parent"
+    - "Every question has root_uql_question_id"
+    - "Lineage is a tree (v0); DAGs deferred"
+    - "UNRESOLVED != EMPTY: history may exist without resolution"
+
+# ---------------------------------------------------------------------------
+# 6. Status transitions (allowed)
+# ---------------------------------------------------------------------------
+status_transitions:
+  OPEN:
+    - WAITING_INFORMATION
+    - WAITING_VALIDATION
+    - BLOCKED
+    - SUPERSEDED
+    - RESOLVED_CANDIDATE
+    - CLOSED_TERMINATED
+  WAITING_INFORMATION:
+    - OPEN
+    - BLOCKED
+    - CLOSED_TERMINATED
+  WAITING_VALIDATION:
+    - OPEN
+    - RESOLVED_CANDIDATE
+    - CLOSED_TERMINATED
+  BLOCKED:
+    - OPEN
+    - CLOSED_TERMINATED
+  RESOLVED_CANDIDATE:
+    - OPEN                    # validation failed → reopen
+    - CLOSED_TERMINATED
+    # CLOSED_RESOLVED only via external validation gate (not R1 policy)
+  SUPERSEDED:
+    - []                      # terminal for that node; children may continue
+  CLOSED_TERMINATED:
+    - []
+  CLOSED_RESOLVED:
+    - []
+
+# ---------------------------------------------------------------------------
+# 7. Rights
+# ---------------------------------------------------------------------------
+rights:
+  may_spawn_derived_uql_question: true
+  may_append_history: true
+  may_change_question_status: true
+  may_write_ontology: false
+  may_elevate_to_claim_registry: false
+  may_silent_merge_branches: false
+  may_delete_history: false
+
+# ---------------------------------------------------------------------------
+# 8. Test vectors R1
+# ---------------------------------------------------------------------------
+test_vectors:
+
+  - id: R1-01
+    name: spawn_child_on_contradiction
+    given:
+      parent:
+        uql_question_id: "uql:q:continuity.local_failure"
+        branch_id: "uql:br:continuity:main"
+        status: OPEN
+      r0_decision:
+        selected_operation: diff
+        derived_question_emitted: true
+        trigger: CONTRADICTION_FOUND
+        derived_from_step: S3
+    expect:
+      child_created: true
+      child_status: OPEN
+      child_parent: "uql:q:continuity.local_failure"
+      child_root: "uql:q:continuity.local_failure"
+      new_branch: true
+      parent_history_contains: DERIVED_QUESTION_SPAWNED
+      ontology_write: false
+
+  - id: R1-02
+    name: no_spawn_on_evidence
+    given:
+      r0_decision:
+        selected_operation: fix
+        derived_question_emitted: false
+        trigger: EVIDENCE_FOUND
+    expect:
+      child_created: false
+      history_contains: POLICY_DECISION
+      ontology_write: false
+
+  - id: R1-03
+    name: retrieval_failure_no_terminate_branch
+    given:
+      r0_decision:
+        selected_operation: delegate
+        derived_question_emitted: false
+        trigger: RETRIEVAL_FAILURE
+    expect:
+      parent_status: OPEN
+      child_created: false
+      process_terminated: false
+
+  - id: R1-04
+    name: budget_terminate_closes_active_not_siblings
+    given:
+      parent_status: OPEN
+      sibling_child_status: OPEN
+      r0_decision:
+        selected_operation: terminate
+        rationale_codes: [EXPLICIT_BUDGET_EXHAUSTED]
+    expect:
+      active_question_status: CLOSED_TERMINATED
+      sibling_child_status: OPEN
+      silent_merge: false
+
+  - id: R1-05
+    name: lineage_query
+    given:
+      root → child_S3_contradiction → (optional grandchild later)
+    expect:
+      lineage_order: [root, child]
+      list_open_children(root) includes child
+
+  - id: R1-06
+    name: solution_found_candidate_not_closed_resolved
+    given:
+      r0_decision:
+        selected_operation: fix
+        result_class: SOLUTION_FOUND
+    expect:
+      status_not: CLOSED_RESOLVED
+      may_set: RESOLVED_CANDIDATE
+      claim_registry_write: false
+
+  - id: R1-07
+    name: append_only_history
+    given:
+      existing_history_len: N
+      new_event: POLICY_DECISION
+    expect:
+      history_len: N+1
+      prior_entries_unchanged: true
+
+  - id: R1-08
+    name: deterministic_ids
+    given:
+      same parent, step S3, trigger CONTRADICTION_FOUND, seq=0
+    expect:
+      same uql_question_id and branch_id on replay
+
+# ---------------------------------------------------------------------------
+# 9. Suite asserts
+# ---------------------------------------------------------------------------
+suite_asserts:
+  - "R0 policy still pure: R1 consumes policy output, does not redefine operator table"
+  - "No ontology registry mutation"
+  - "No claim elevation from SOLUTION_FOUND"
+  - "No silent branch merge"
+  - "History append-only"
+  - "Derived question always has parent + root + branch + provenance"
+  - "terminate does not close sibling OPEN questions"
+  - "CLOSED_RESOLVED not set by R1 alone"
+  - "Deterministic IDs under same seq inputs"
+  - "UNRESOLVED != EMPTY preserved"
+
+# ---------------------------------------------------------------------------
+# 10. Suggested package layout (implementation)
+# ---------------------------------------------------------------------------
+package_layout:
+  stage63_research_loop_r1:
+    - README.md
+    - research_loop_r1.yaml          # this spec
+    - uql_branch_store.py            # in-memory + file backend
+    - uql_schemas.json               # question, branch, history, frontier
+    - integrate_r0.py                # policy_decision → spawn / history
+    - test_research_loop_r1.py
+    - test_vectors.yaml
+    - validation_report.md
+
+# ---------------------------------------------------------------------------
+# 11. Ladder
+# ---------------------------------------------------------------------------
+ladder:
+  done:
+    - "E2E 61 — continue process"
+    - "R0 / Stage 62 — select admissible next operation"
+  this: "R1 — UQL branch identity + durable derived questions"
+  next: "R2 — branching frontier management / explicit compose"
+  not_claimed:
+    - "general research agent"
+    - "AGI"
