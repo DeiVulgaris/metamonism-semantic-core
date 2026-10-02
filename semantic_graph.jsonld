@@ -279,7 +279,7 @@
       "origin": "CORPUS",
       "layer": "core",
       "consequence_of": "mm:core.prc.orthogonal_resolution"
-    }
+    },
     {
       "@id": "mm:stage10.X2",
       "@type": "mm:Stage10Statement",
