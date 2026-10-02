@@ -7,8 +7,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "stage60"))
 
 from impact_localizer import locate_impact
-from stage60.information_result_classifier import classify_retrieval
-from stage60.invariant_reasoning_pipeline import run
+from information_result_classifier import classify_retrieval
+from invariant_reasoning_pipeline import run
 
 
 def trace():
