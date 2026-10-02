@@ -1369,3 +1369,134 @@ with one of:
 A derivation that changes scope MUST contain an explicit edge explaining why the broader scope follows.
 
 Silent scope expansion is semantic inflation.
+
+
+## 31. Operator-First Actualization Gate
+
+For processual derivations, the AI MUST begin with the actualization operator and its domain before introducing geometric or algebraic structures.
+
+For the Chapter 1 / Chapter 2 corpus:
+
+```text
+A_n = (D_n, I_n)
+      ↓ P
+R_n
+      ↓ F
+A_{n+1} = (D_{n+1}, I_{n+1})
+      ↓ P
+R_{n+1}
+```
+
+Here:
+
+- P is the recurring actualization operator;
+- A_n is the current argument state;
+- R_n is the actualized result;
+- F is the continuation mapping from a result to the next argument state.
+
+Do not introduce a sequence of different fundamental operators P_n merely because the process has multiple stages.
+
+### 31.1 Global invariant versus local invariant
+
+Distinguish:
+
+```text
+I_* = foundational invariant
+I_n = local identity/invariant condition in A_n
+```
+
+The persistence of the root invariant does not require I_n to remain numerically or structurally identical at every step.
+
+A changing local I_n MUST NOT automatically be registered as a new foundational invariant.
+
+### 31.2 Result is not next argument
+
+The relation is:
+
+`R_n → A_{n+1}`
+
+not:
+
+`R_n = A_{n+1}`.
+
+The continuation mapping F is a distinct processual relation unless the source later establishes a stronger identification.
+
+### 31.3 Domain-first reasoning
+
+The primary condition is:
+
+`A_n ∈ Dom(P)`
+
+for a nontrivial actualization:
+
+`P(A_n) = R_n ≠ □`.
+
+The boundary condition:
+
+`A_n ∉ Dom(P)`
+
+means only that the present argument does not yield a nontrivial actualization through P.
+
+It is not a universal statement about all configurations in D.
+
+### 31.4 Geometry must be downstream
+
+Do not introduce:
+
+- spatial dimensions;
+- orthogonal basis vectors;
+- metrics;
+- normals;
+- Clifford generators;
+
+until the operator/continuation chain has supplied a source-grounded reason for them.
+
+The preferred order is:
+
+```text
+P + Dom(P)
+→ actualized result
+→ continuation
+→ distinguishable successor
+→ directionality
+→ logically independent continuation
+→ orthogonal resolution
+→ geometry
+→ operator representation
+→ algebra.
+```
+
+### 31.5 Continuation is the current mathematical frontier
+
+The unresolved problem is:
+
+> What is the minimal formal structure of F such that successive applications of P remain meaningful and nontrivial without introducing a new foundational invariant?
+
+A candidate F MUST NOT be selected merely because it makes later geometry or Clifford algebra possible.
+
+Candidate continuation mechanisms must remain explicitly marked as:
+
+- SOURCE, when directly established;
+- FORMALIZATION, when faithfully representing source structure;
+- THEORETICAL_HYPOTHESIS or PROPOSAL, when newly constructed.
+
+### 31.6 No premature D_perp
+
+D_perp is downstream of the actualization trajectory.
+
+It must not be treated as a primitive subset of D.
+
+The correct dependency is:
+
+```text
+A_n
+→ P
+→ R_n
+→ continuation requirement
+→ successor construction
+→ current-mode exhaustion
+→ orthogonal resolution
+→ D_perp formalization where justified.
+```
+
+This prevents the model from beginning with an unexplained geometric space of orthogonal options.

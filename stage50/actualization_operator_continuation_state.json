@@ -1,0 +1,92 @@
+{
+  "schema": "mm:actualization_operator_continuation:v1",
+  "derivation_id": "AOC-STAGE50-001",
+  "source": {
+    "chapter1": {
+      "author": "Myshko, A.",
+      "year": 2026,
+      "title": "МЕТАМОНИЗМ: Глава 1. Логические категории, оператор актуализации и возникновение первого инварианта",
+      "doi": "10.5281/zenodo.22312437",
+      "provenance": "user_supplied_text",
+      "claims": [
+        "P:(D×I)→R",
+        "D is the space of possible configurations of differences",
+        "I is the set of identity conditions/invariants",
+        "(D,I)∈Dom(P) iff D≠I",
+        "(I,I)∉Dom(P)",
+        "nontrivial actualization requires a pair in Dom(P)",
+        "R is the space of actualized results"
+      ]
+    },
+    "chapter2": {
+      "author": "Myshko, A.",
+      "year": 2026,
+      "title": "МЕТАМОНИЗМ Глава 2. Продолжение актуализации: диссипация тождества, возникновение пространственности и временности и ортогональное разрешение",
+      "doi": "10.5281/zenodo.22396258",
+      "provenance": "user_supplied_text",
+      "locator": "lines 167-183",
+      "claims": [
+        "Each actualized result may become the condition for the next act",
+        "(D_n,I_n)→R_n→(D_{n+1},I_{n+1})→R_{n+1}",
+        "F maps R_n to the next argument pair",
+        "F is not an additional fundamental principle",
+        "recursive continuation follows from the single prohibition"
+      ]
+    }
+  },
+  "root_invariant": {
+    "id": "axiom_ban_of_absolute_identity",
+    "role": "FOUNDATIONAL_ROOT",
+    "scope": "ACTUALIZATION_DOMAIN",
+    "provenance": {
+      "repository": "Deivulgaris66/Metamonism",
+      "path": "CORE/axioms.yaml",
+      "ref": "axiom_ban_of_absolute_identity"
+    }
+  },
+  "objects": {
+    "global_invariant": "I_*",
+    "local_argument": "A_n=(D_n,I_n)",
+    "result": "R_n=P(A_n)",
+    "continuation": "F(R_n)=A_{n+1}",
+    "domain": "Dom(P)={(D,I)|D!=I}"
+  },
+  "sequence": [
+    {
+      "from": "I_*",
+      "to": "Dom(P)",
+      "status": "SOURCE"
+    },
+    {
+      "from": "A_n",
+      "to": "R_n",
+      "relation": "P",
+      "status": "FORMALIZATION"
+    },
+    {
+      "from": "R_n",
+      "to": "A_{n+1}",
+      "relation": "F",
+      "status": "SOURCE_SUPPORTED"
+    },
+    {
+      "from": "A_{n+1}",
+      "to": "R_{n+1}",
+      "relation": "P",
+      "status": "FORMALIZATION"
+    }
+  ],
+  "scope_rules": [
+    "D is possibility space, not actualization trajectory",
+    "Dom(P) constrains actualization arguments",
+    "R_n is actualized result",
+    "A_{n+1} is the next actualization argument state",
+    "I_* is foundational invariant and I_n is local argument condition",
+    "orthogonal resolution is downstream of continuation"
+  ],
+  "frontier": {
+    "state": "UNRESOLVED",
+    "question": "What is the minimal formal structure of F that keeps repeated actualization inside Dom(P) without adding a new fundamental invariant or pre-imposing geometry?"
+  },
+  "canonical_promotion": false
+}
