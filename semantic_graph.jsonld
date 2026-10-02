@@ -187,7 +187,11 @@
       "status": "SOURCE",
       "origin": "CORPUS",
       "layer": "core",
-      "triggered_by": "mm:core.sts.self_identity_lock"
+      "triggered_by": "mm:core.sts.self_identity_lock",
+      "resolves": [
+        "mm:core.sts.self_identity_lock",
+        "mm:core.sts.closure"
+      ]
     },
     {
       "@id": "mm:core.op.reflection",
