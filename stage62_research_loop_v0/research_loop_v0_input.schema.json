@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Deivulgaris/metamonism-semantic-core/blob/main/stage62_research_loop_v0/research_loop_v0_input.schema.json",
+  "title": "Research Loop v0 Input",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "question_id",
+    "unresolved_difference",
+    "result_class",
+    "impact_mode",
+    "anchor_step_id"
+  ],
+  "properties": {
+    "question_id": {"type": "string", "minLength": 1},
+    "unresolved_difference": {"type": "string", "minLength": 1},
+    "constraints": {"type": "array", "items": {"type": "string"}},
+    "attempted_operations": {"type": "array", "items": {"type": "string"}},
+    "result_class": {
+      "type": "string",
+      "enum": [
+        "SOLUTION_FOUND",
+        "METHOD_FOUND",
+        "EVIDENCE_FOUND",
+        "CONTRADICTION_FOUND",
+        "INFORMATION_GAP",
+        "NO_ADEQUATE_INFO",
+        "RETRIEVAL_FAILURE"
+      ]
+    },
+    "impact_mode": {
+      "type": "string",
+      "enum": ["EXPLICIT_STEP_REFERENCE", "TAIL_FALLBACK"]
+    },
+    "anchor_step_id": {"type": "string", "minLength": 1},
+    "downstream_steps": {"type": "array", "items": {"type": "object"}},
+    "next_required_operation_hint": {
+      "type": ["string", "null"]
+    },
+    "information_result": {
+      "type": ["object", "null"]
+    },
+    "budget": {
+      "type": ["object", "null"],
+      "additionalProperties": true,
+      "properties": {
+        "exhausted": {"type": "boolean"}
+      }
+    }
+  }
+}

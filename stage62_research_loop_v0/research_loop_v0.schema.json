@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Deivulgaris/metamonism-semantic-core/blob/main/stage62_research_loop_v0/research_loop_v0.schema.json",
+  "title": "Research Loop v0 Policy Decision",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["policy_decision"],
+  "properties": {
+    "policy_decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "question_id",
+        "selected_operation",
+        "rationale_codes",
+        "derived_question",
+        "provenance",
+        "rights"
+      ],
+      "properties": {
+        "question_id": {"type": "string", "minLength": 1},
+        "selected_operation": {
+          "type": "string",
+          "enum": ["diff", "fix", "diss", "unfold", "delegate", "compose", "terminate"]
+        },
+        "rationale_codes": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "enum": [
+              "EXPLICIT_BUDGET_EXHAUSTED",
+              "CONTRADICTION_REQUIRES_REDIFFERENTIATION",
+              "EVIDENCE_PRESERVE_THEN_VALIDATE",
+              "METHOD_PRESERVE_AS_PROCESS_INFO",
+              "SOLUTION_CANDIDATE_NOT_CLAIM",
+              "REQUIRE_VALIDATION_PATH",
+              "GAP_IS_UNRESOLVED_DIFFERENCE",
+              "NO_ADEQUATE_INFO_REOPEN_DIFF",
+              "PROVIDER_FAILURE_DELEGATE_NOT_TERMINATE",
+              "DEFAULT_SAFE_DIFF"
+            ]
+          }
+        },
+        "derived_question": {
+          "anyOf": [
+            {"type": "null"},
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "question_id",
+                "parent_question",
+                "derived_from_step",
+                "trigger",
+                "unresolved_difference",
+                "derivation_basis",
+                "constraints",
+                "status"
+              ],
+              "properties": {
+                "question_id": {"type": "string", "minLength": 1},
+                "parent_question": {"type": "string", "minLength": 1},
+                "derived_from_step": {"type": "string", "minLength": 1},
+                "trigger": {
+                  "type": "string",
+                  "enum": [
+                    "CLASSIFICATION",
+                    "CONTRADICTION_FOUND",
+                    "EVIDENCE_FOUND",
+                    "METHOD_FOUND",
+                    "INFORMATION_GAP",
+                    "NO_ADEQUATE_INFO",
+                    "RETRIEVAL_FAILURE",
+                    "IMPACT",
+                    "GAP",
+                    "BUDGET"
+                  ]
+                },
+                "unresolved_difference": {"type": "string", "minLength": 1},
+                "derivation_basis": {"type": "string", "minLength": 1},
+                "constraints": {"type": "array", "items": {"type": "string"}},
+                "status": {"const": "OPEN"}
+              }
+            }
+          ]
+        },
+        "provenance": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "parent_question",
+            "derived_from_step",
+            "trigger",
+            "derivation_basis",
+            "constraints_inherited"
+          ],
+          "properties": {
+            "parent_question": {"type": "string", "minLength": 1},
+            "derived_from_step": {"type": ["string", "null"]},
+            "trigger": {"type": "string", "minLength": 1},
+            "derivation_basis": {"type": "string", "minLength": 1},
+            "constraints_inherited": {"type": "array", "items": {"type": "string"}}
+          }
+        },
+        "rights": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["ontology_write", "claim_elevate"],
+          "properties": {
+            "ontology_write": {"const": false},
+            "claim_elevate": {"const": false}
+          }
+        }
+      }
+    }
+  }
+}
