@@ -57,6 +57,8 @@ def locate_impact(
 
     if not trace_id or not _text(root.get("id")):
         return {"status":"BLOCKED","errors":["trace_or_root_missing"]}
+    if not question_id:
+        return {"status":"BLOCKED","errors":["question_id_missing"]}
     if not isinstance(steps, list) or not steps:
         return {"status":"BLOCKED","errors":["steps_missing"]}
     if result_class not in VALID_RESULTS:
@@ -111,8 +113,8 @@ def locate_impact(
 
     return {
         "status":"READY",
-        "frontier_id":_frontier_id(question_id or "UNBOUND", trace_id, affected["step_id"]),
-        "question_id":question_id or "UNBOUND",
+        "frontier_id":_frontier_id(question_id, trace_id, affected["step_id"]),
+        "question_id":question_id,
         "root_invariant_id":_text(root["id"]),
         "trace_id":trace_id,
         "anchor_step_id":affected["step_id"],
