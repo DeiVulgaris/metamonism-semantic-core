@@ -1,0 +1,31 @@
+stage: 57
+name: problem_decomposition_and_task_generation
+
+vectors:
+  - id: D1
+    case: root_only
+    expected: READY
+  - id: D2
+    case: explicit_child_tasks
+    expected: READY
+  - id: D3
+    case: nested_child_dependency
+    expected: READY
+  - id: D4
+    case: missing_frontier_difference
+    expected: BLOCKED
+  - id: D5
+    case: invalid_seed_operation
+    expected: BLOCKED
+  - id: D6
+    case: duplicate_seed
+    expected: BLOCKED
+  - id: D7
+    case: dependency_cycle
+    expected: BLOCKED
+  - id: D8
+    case: ufcps_derived_question_emission
+    expected: QUESTION_PLAN
+  - id: D9
+    case: no_task_ranking
+    expected: NO_GLOBAL_RANKING
