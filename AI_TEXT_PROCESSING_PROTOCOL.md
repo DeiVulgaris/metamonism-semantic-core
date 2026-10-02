@@ -1771,3 +1771,102 @@ P + Dom(P)
 ```
 
 This rule prevents the semantic core from beginning with a preconstructed geometry and then fitting P to it.
+
+
+---
+
+## Stage 53 — Derived Consequence Registration Gate
+
+The semantic core must register not only primary entities and operators, but also named processual consequences required to explain continuation.
+
+For every such consequence, record:
+
+1. a stable ID;
+2. a process/state type;
+3. explicit provenance;
+4. the relation by which it follows from prior registered structures;
+5. its downstream role in continuation.
+
+Current core chain:
+
+    Dissipation
+        |
+    Frustration
+        |
+    Orthogonal Resolution
+        |
+    Continuation
+        |
+    Dissipation continues
+
+The AI must not infer these relations merely from co-occurrence. Each consequence requires an explicit registered relation and provenance.
+
+Orthogonal Resolution is a semantic/processual consequence. Its exact mathematical realization remains unresolved.
+
+### Anti-collapse rule
+
+Do not collapse:
+
+- frustration into termination;
+- orthogonal resolution into arbitrary change of direction;
+- orthogonal resolution into Euclidean perpendicularity by definition;
+- continuation into a new fundamental invariant;
+
+
+---
+
+## Stage 53A — Two-Level Resolution Gate
+
+The AI must distinguish two non-equivalent resolution mechanisms already present in the corpus:
+
+### Local closure resolution
+
+```
+Fixation / Self-Identity Lock / Closure
+                ↓
+              unfold
+                ↓
+      renewed differentiation
+```
+
+`unfold` is the operator of enforced rupture. It resolves local closure/fixation by invalidating fixation and restoring processual pressure.
+
+### Exhausted-mode resolution
+
+```
+Current differentiation mode exhausted
+                ↓
+            Frustration
+                ↓
+     Orthogonal Resolution
+                ↓
+     independent continuation
+```
+
+Orthogonal Resolution resolves a blocked continuation condition by opening a logically independent continuation channel.
+
+### Non-collapse rule
+
+Never identify:
+
+```
+unfold = orthogonal_resolution
+```
+
+The supported architecture is:
+
+```
+unfold
+  ↓
+renewed differentiation
+  ↓
+possible mode exhaustion
+  ↓
+frustration
+  ↓
+orthogonal resolution
+  ↓
+continuation
+```
+
+The exact conditions under which a particular frustration episode is preceded by `unfold` must be established from context or source evidence and must not be silently assumed.
