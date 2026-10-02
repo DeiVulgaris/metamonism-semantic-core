@@ -1,0 +1,50 @@
+tests:
+  - id: CH2-RC-01
+    name: single_root_source_chain
+    expected: PASS
+    assertion: "The active chain begins at the single foundational invariant."
+
+  - id: CH2-RC-02
+    name: orthogonality_is_not_starting_assumption
+    expected: PASS
+    assertion: "Orthogonality appears after continuation and logical-independence requirements."
+
+  - id: CH2-RC-03
+    name: source_level_necessity
+    expected: PASS
+    assertion: "Chapter 2 explicitly treats orthogonal resolution as necessary when the current mode is exhausted."
+
+  - id: CH2-RC-04
+    name: unique_geometry_not_claimed
+    expected: PASS
+    assertion: "The chapter does not prove that one concrete geometry is uniquely necessary."
+
+  - id: CH2-RC-05
+    name: mathematical_metric_not_promoted
+    expected: REJECT
+    assertion: "Source-level orthogonal resolution does not automatically establish a Euclidean or Lorentzian metric."
+
+  - id: CH2-RC-06
+    name: chapter2_to_chapter3
+    expected: PASS
+    assertion: "Chapter 2 can provide the general resolution mechanism while Chapter 3 supplies a geometric instantiation."
+
+  - id: CH2-RC-07
+    name: historical_state_preserved
+    expected: PASS
+    assertion: "Stage 47 remains historical; stronger source evidence updates the active chain without erasing history."
+
+  - id: CH2-RC-08
+    name: no_clifford_shortcut
+    expected: REJECT
+    assertion: "Source-level orthogonal resolution does not by itself establish Clifford algebra."
+
+  - id: CH2-RC-09
+    name: no_retrospective_rewrite
+    expected: PASS
+    assertion: "Earlier research statuses remain retrievable."
+
+  - id: CH2-RC-10
+    name: frontier_moves_deeper
+    expected: PASS
+    assertion: "The unresolved question moves from why orthogonality appears to how its source-defined necessity is mathematically formalized."
