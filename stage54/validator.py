@@ -48,3 +48,13 @@ if __name__ == "__main__":
     result = validate(Path(__file__).parent)
     print(json.dumps(result, indent=2))
     raise SystemExit(0 if result["all_pass"] else 1)
+
+
+def validate_ufcps_bridge(state_text: str, vector_text: str) -> list[tuple[str, bool]]:
+    checks = []
+    checks.append(("negative_result_present_as_input", "negative / unresolved / deadlocked result" in state_text))
+    checks.append(("new_information_bridge_present", "new distinction / new data" in state_text))
+    checks.append(("successor_condition_explicit", "sufficient to construct a new admissible mode of continuation" in state_text))
+    checks.append(("agency_preserved", "task prospect" in state_text.lower()))
+    checks.append(("bridge_vectors_present", "ufcps-001-negative-result-as-input" in vector_text))
+    return checks
